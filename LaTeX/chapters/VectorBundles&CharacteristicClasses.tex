@@ -1,4 +1,167 @@
 \chapter{向量丛与示性类}
+    \section{向量丛结构群的约化}
+    \begin{definition}[向量丛的定义]
+        设 $E$, $M$ 为微分流形, $\pi:E\rightarrow M$ 为光滑满射, 且有 $M$ 的开覆盖 $\{U_{\alpha}\}$ 
+        及微分同胚 $\psi_{\alpha}:\pi^{-1}(U_{\alpha})\rightarrow U_{\alpha}\times\mathbb{R}^k$, 满足:
+        \begin{enumerate}
+            \item\label{def:bundle1} $\psi(\pi^{-1}(p))=\{p\}\times\mathbb{R}^k,\;\forall p\in U_{\alpha}$,
+            \item\label{def:bundle2} 当 $U_{\alpha}\cap U_{\beta}\neq\emptyset$ 时, 存在光滑映射 $g_{\alpha\beta}:U_{\alpha}\cap U_{\beta}\rightarrow{\rm GL}(k,\mathbb{R})$, 使得 $\psi_{\beta}\circ\psi_{\alpha}^{-1}(p,\,v)=(p,\,g_{\beta\alpha}(p)v)$.
+        \end{enumerate}
+        则称:
+        \begin{itemize}
+            \item $E$ 是 $M$ 上的光滑向量丛, $k$ 为向量丛的秩, $\pi$ 为丛投影;
+            \item $\left\{(U_{\alpha}, \psi_{\alpha})\right\}$ 为局部平凡化, $g_{\beta\alpha}$ 为连接函数, ${\rm GL}(k,\mathbb{R})$ 为结构群;
+            \item $E_p:=\pi^{-1}(p)$ 为点 $p$ 上的纤维.
+        \end{itemize}
+        对每个 $E_p$, 由条件\ref{def:bundle1}可知 $E_p$ 上可自然定义一个线性空间结构, 这看似依赖于局部平凡化 $\psi_{\alpha}$ 的选取, 不过由条件\ref{def:bundle2}可知线性结构并不依赖局部平凡化的选取.
+        
+        若存在 ${\rm GL}(k,\mathbb{R})$ 的闭 {\rm Lie} 子群 $H$, 使得 $g_{\beta\alpha}(p)\in H,\;\forall\,p\in U_{\alpha}\cap U_{\beta}$, 则称结构群{\bf 可约化到子群 $H$}.
+    \end{definition}
+
+    连接函数 $g_{\beta\alpha}$ 在向量丛的定义中占据很重要的地位, 容易证明它满足性质:
+    \begin{equation*}
+        g_{\alpha\alpha} = 1,\;\forall\,U_{\alpha},\qquad g_{\alpha\beta}g_{\beta\gamma}g_{\gamma\alpha} = 1,\;\forall\,U_{\alpha}\cap U_{\beta}\cap U_{\gamma}\neq\emptyset.
+    \end{equation*}
+    反之, 若有一族光滑函数 $\{g_{\alpha\beta}\}$ 满足以上性质, 定义商空间 $E:=\sqcup_{\alpha}(U_{\alpha}\times\mathbb{R}^k)\big/\sim$, 其中等价关系定义为: $(p,v_{\alpha})\in U_{\alpha}\times\mathbb{R}^k,\;(q,v_{\beta})\in U_{\beta}\times\mathbb{R}^k$
+    \begin{equation*}
+        (p,v_{\alpha})\sim(q,v_{\beta})\Leftrightarrow p=q,\;v_{\beta}=g_{\beta\alpha}(p)v_{\alpha}.
+    \end{equation*}
+    $E$ 的拓扑由商拓扑给出, 记 $[p,v]$ 为 $(p,v)$ 的等价类, 定义 $\pi:E\rightarrow M$, $\pi([p,v])=p$. 则 $E$ 在投影映射 $\pi$ 下成为 $M$ 上的秩 $k$ 的向量丛. 
+
+    \subsection{流形可定向与结构群可约化至 ${\rm GL^+(k,\mathbb{R})}$}
+    略
+
+    \subsection{黎曼度量与结构群可约化至正交群 $O(k)$}
+    流形 $M$ 上的黎曼度量是指光滑 $(0,2)$-张量场 $g$, $g$ 在每个点的切空间处都是内积.
+    下面就来说明 $n$ 维流形 $M$ 上存在黎曼结构与切丛 $TM$ 的结构群可约化至正交群 $O(n)$ 是等价的.
+
+    $1^{\circ}.$ 设 $(M,g)$ 为一个黎曼流形, 取 $M$ 的一个局部坐标覆盖 $\{(U_{\alpha};x^1_{\alpha},\dots,x^n_{\alpha})\}$, 于是 $\pd{}{x^1_{\alpha}},\dots,\pd{}{x^n_{\alpha}}$ 成为 $U_{\alpha}$ 上的一组标架, 因为 $U_{\alpha}$ 上有度量结构, 
+    我们可对标架做 Gram-Schmidt 正交化得到单位正交标架 $e_{1\alpha},\dots,e_{n\alpha}$, 令局部平凡化映射为
+    \begin{align*}
+        \psi_{\alpha}:TU_{\alpha}&\rightarrow U_{\alpha}\times\mathbb{R}^n \\
+        (p,a^ie_{i\alpha}|_p)&\mapsto(p,a^ie_i)
+    \end{align*}
+    其中 $e_1,\dots,e_n$ 表示 $\mathbb{R}^n$ 上的自然基底. 当 $U_{\alpha}\cap U_{\beta}\neq\emptyset$ 时, 对每个点 $p\in U_{\alpha}\cap U_{\beta}$, 因为 $\{e_{i\alpha}|_p\}$ 和 $\{e_{i\beta}|_p\}$ 都是 $T_pM$ 的一组标准正交基, 
+    所以转移函数 $g_{\beta\alpha}(p)$ 是正交矩阵, 因此结构群可被约化至 $O(n)$.
+
+    $2^{\circ}.$ 假设 $TM$ 的结构群可约化至正交群, 设 $\{(U_{\alpha},\psi_{\alpha})\}$ 是对应的平凡化, 即 $\psi_{\alpha}$ 是从 $TU_{\alpha}$ 到 $U_{\alpha}\times\mathbb{R}^n$ 的微分同胚, 
+    令 $e_{i\alpha} = \psi^{-1}(U_{\alpha}\times \{e_i\})$, 其中 $\{e_i\}$ 为 $\mathbb{R}^n$ 的自然基底. 我们得到了 $TU_{\alpha}$ 上处处线性无关的一组向量场 $\{e_{i\alpha}\}$, 命这组向量场构成 $TU_{\alpha}$ 的一个单位正交标架场, 这能唯一确定 $TU_{\alpha}$ 上的黎曼度量.
+    若 $U_{\alpha}\cap U_{\beta}\neq\emptyset$, 对 $\forall\,p\in U_{\alpha}\cap U_{\beta}$, 
+    \begin{align*}
+        \langle e_{i\alpha},e_{j\alpha}\rangle_p &= \langle\psi_{\alpha}(e_{i\alpha}|_p),\psi_{\alpha}(e_{j\alpha}|_p)\rangle \\
+        &= \langle g_{\alpha\beta}(p)\psi_{\beta}(e_{i\beta}|_p),g_{\alpha\beta}(p)\psi_{\beta}(e_{j\beta}|_p)\rangle \\
+        &= \langle\psi_{\beta}(e_{i\beta}|_p),\psi_{\beta}(e_{j\beta}|_p)\rangle \\
+        &= \langle e_{i\beta},e_{j\beta}\rangle_p
+    \end{align*}
+    所以不同平凡化定义的黎曼结构是相容的, 因此能定义一个整体的黎曼度量 $g$.
+
+    注意到我们能用单位分解在任意微分流形上构造黎曼度量, 这表明任意微分流形切丛的结构群都能约化到正交群.
+
+    \subsection{复向量丛与近复结构, 与结构群可约化至 ${\rm GL}(k,\mathbb{C})$}
+    设 $M$ 是 $m$ 维流形, $M$ 上的复向量丛 $E$ 在定义上仅需要把纤维 $\mathbb{R}^k$ 改为 $\mathbb{C}^k$、结构群改为 ${\rm GL}(k,\mathbb{C})$. 
+
+    但如果把 $\mathbb{C}^k$ 视为 $\mathbb{R}^{2k}$, 则结构群可约化至 ${\rm GL}(2k,\mathbb{R})$ 的子群 
+    \begin{equation*}
+        \left\{\begin{pmatrix}
+            A & -B \\
+            B & A
+        \end{pmatrix}\,\bigg|\,|A|^2+|B|^2>0\right\}
+    \end{equation*}
+    我们仍把这个子群记为 ${\rm GL}(k,\mathbb{C})$. 可以证明实的秩为 $2k$ 的向量丛 $E$ 为复的秩为 $k$ 的向量丛当且仅当结构群可约化至 ${\rm GL}(k,\mathbb{C})$.
+
+    我们也可以从近复结构的视角理解复向量丛, 若实的秩为 $2k$ 的向量丛 $E$ 上存在自同构 $J$ (即 $\pi\circ J = \pi$), 使得 $J^2 = -{\rm id}$, 则称 $J$ 为 $M$ 的近复结构. 可以证明 $M$ 为复向量丛当且仅当 $M$ 上存在近复结构.
+    
+    一方面若 $M$ 为复向量丛, 则可以逐点定义 $J_p(p,v)=(p,\sqrt{-1}v)$, 因为转移映射是复线性变换, 所以 $J_p$ 良定, 且 $J_p^2 = -\id$; 另一方面我们可以适当修改平凡化 $\psi_{\alpha}$ 使得 $J$ 可局部表示为 
+    \begin{equation*}
+        J_{\alpha}(p,v_{\alpha}) = \left(p,
+        \begin{pmatrix}
+            & -I_k \\
+            I_k & 
+        \end{pmatrix}v_{\alpha}\right)
+    \end{equation*}
+    因为 $g_{\alpha\beta}\cdot J_{\beta} = J_{\alpha}\cdot g_{\alpha\beta}$, 所以
+    \begin{equation*}
+        \begin{pmatrix}
+            & -I_k \\
+            I_k & 
+        \end{pmatrix}\cdot g_{\alpha\beta}(p) = g_{\alpha\beta}(p)\cdot
+        \begin{pmatrix}
+            & -I_k \\
+            I_k & 
+        \end{pmatrix}\Rightarrow g_{\alpha\beta}(p) = 
+        \begin{pmatrix}
+            A & -B \\
+            B & A
+        \end{pmatrix}
+    \end{equation*}
+    从而结构群可约化至 $\GL(k,\mC)$.
+
+    \section{向量丛分类定理}
+    \subsection{同伦的映射拉回同构的向量丛(纤维丛)}
+    \begin{definition}[拉回丛的定义]
+        设 $f:X\rightarrow Y$, 且有向量丛 $p:E\rightarrow Y$, 则可以定义 $X$ 上的拉回丛 $p':f^*E\rightarrow X$, 其中 
+        \begin{equation*}
+            f^*E:=\{(x,e)\in X\times E\,\big|\,f(x)=p(e)\}
+        \end{equation*}
+        为 $X\times E$ 的子集, 且赋予子拓扑结构. 丛投影为映射到第一个分量的投影映射. 每根纤维的线性结构由 $E$ 上每根纤维的线性结构给出.(有模糊的地方)
+    \end{definition}
+    \begin{proposition}[同伦的映射拉回同构的向量丛]
+        现有向量丛 $p:E\rightarrow Y$, 设 $f\simeq g:X\rightarrow Y$ 为同伦的光滑映射, 则拉回丛 $f^*E$ 与 $g^*E$ 丛同构.
+    \end{proposition}
+
+    在证明之前, 我们先分析一下命题. 设 $H:X\times[0,1]\rightarrow Y$ 是从 $f$ 到 $g$ 的光滑伦移, 即 $H|_{X\times\{0\}}=f$, $H|_{X\times\{1\}}=g$. 则有 $X\times[0,1]$ 上的拉回丛 $H^*E$, 
+    且 $H^*E|_{X\times\{0\}}=f^*E,\,H^*E|_{X\times\{1\}}=g^*E$. 因此为了证明 $f^*E\cong g^*E$, 只需证明:
+
+    \begin{proposition}[向量丛在柱空间的上下底的限制是同构的]
+        当 $X$ 仿紧时, 对任意 $X\times[0,1]$ 上的向量丛 $E$, $E|_{X\times\{0\}}\cong E|_{X\times\{1\}}$.
+    \end{proposition}
+    \begin{proof}
+        我们需要两个关于向量丛的事实:
+
+        $(1):$ 若 $p:E\rightarrow X\times[a,b]$ 在 $X\times[a,c]$ 和 $X\times[c,b]$ 上分别是平凡的, 则 $E$ 在整个 $X\times[a,b]$ 上平凡. 
+        
+        只需分别写出在 $X\times[a,c]$ 和 $X\times[c,b]$ 
+        上的平凡化 $h_1$ 和 $h_2$, 并修改 $h_2$ 使得它们在 $p^{-1}(X\times\{c\})$ 上匹配, 则 $h_1$ 和修改后的 $h_2$ 合并成整个 $X\times[a,b]$ 上的平凡化.
+
+        $(2):$ 对于向量丛 $p:E\rightarrow X\times[0,1]$, 存在 $X$ 的开覆盖 $\{U_{\alpha}\}$ 使得 $E$ 在每个 $U_{\alpha}\times[0,1]$ 上都是平凡的. 
+        
+        对任意 $x\in X$, 存在 $U_{x,1},\dots,U_{x,k}$ 
+        以及 $0=t_0<t_1<\cdots<t_k=1$ 使得 $E$ 在 $U_{x,i}\times[t_{i-1},t_i]$ 上平凡, 令 $U_x=U_{x,1}\cap\cdots\cap U_{x,k}$, 则由 $(1)$ 知 $E$ 在 $U_x\times[0,1]$ 上平凡.
+
+        下面我们来证明该命题, 由 $(2)$ 我们可以取 $X$ 的开覆盖 $\{U_{\alpha}\}$ 使得 $E$ 在每个 $U_{\alpha}\times[0,1]$ 上平凡. 
+        因为 $X$ 是第二可数空间, 不妨设 $\{U_{\alpha}\} = \{U_n\}_{n=1}^{\infty}$, 也即开覆盖为可数开覆盖. 
+        取从属于 $\{U_n\}$ 的单位分解 $\{\rho_n\}$ (这里为使下标一致我们牺牲了 ${\rm supp}\,\rho_n$ 的紧性). 记
+        \begin{equation*}
+            \varphi_n = \rho_1+\rho_2+\dots+\rho_n,
+        \end{equation*}
+        特别地令 $\varphi_0\equiv0,\, \varphi_{\infty}\equiv1$. 则每个 $\varphi_i$ 都能定义图流形
+        \begin{equation*}
+            X_i:=\{(x,\varphi_i(x))\,\big|\,x\in X\}\subset X\times[0,1]
+        \end{equation*}
+        每个含入 $\iota_i:X_i\hookrightarrow X\times[0,1]$ 都定义了一个拉回丛 $E_i:=\iota_i^*E = E|_{X_i}$. 
+        特别地 $X_0 = X\times\{0\},\,X_{\infty}=X\times\{1\},\,\iota_0^*E = E|_{X\times\{0\}},\,\iota_{\infty}^*E = E|_{X\times\{1\}}$. 
+        因为 $X_{j-1}$ 到 $X_{j}$ 仅改变了 $U_{j}$ 所对应的图像 (${\supp\,\rho_j\subset U_j}$).
+        而 $E$ 在 $U_j\times[0,1]$ 上是平凡的, 所以
+        \begin{align*}
+            E_{j-1}|_{X_{j-1}\cap(U_{j}\times[0,1])} & \cong \left(X_{j-1}\cap(U_{j}\times[0,1])\right)\times\mR^n \\
+                                                     & \cong \left(X_{j}\cap(U_{j}\times[0,1])\right)\times\mR^n \\
+                                                     & \cong E_{j}|_{X_{j}\cap(U_{j}\times[0,1])}
+        \end{align*}
+        且能取同构映射 $\psi_j$ 使得在 $\supp\,\rho_j$ 之外为恒等 (此处用空间 $X$ 中的集合指代图流形对应的集合), 因此 $\psi_j$ 能用恒同映射光滑延拓至整个向量丛, 于是
+        \begin{equation*}
+            \psi_j:E_{j-1}\cong E_j.
+        \end{equation*}
+        定义从 $E|_{X\times\{0\}}$ 到 $E|_{X\times\{1\}}$ 的映射:
+        \begin{equation*}
+            \psi:=\cdots\circ\psi_2\circ\psi_1\footnote{\text{终于知道为什么 Hatcher 上是递减定义的了.}}
+        \end{equation*}
+        因为对每个 $x\in X$ 存在 $x$ 的开领域 $V$ 使得仅有有限个 $\rho_n$ 在 $V$ 上非零, 因此在 $V$ 上 $\psi_1,\psi_2,\cdots$ 仅有有限项不是恒同映射, 从而良定义, 
+        而这给出了从 $E|_{X\times\{0\}}$ 到 $E|_{X\times\{1\}}$ 的同构.        
+    \end{proof}
+    \begin{remark}
+        注意到在证明过程中并没有用到纤维具体是什么, 因此该证明可以逐字逐句地推广至一般纤维丛的同伦不变性.
+    \end{remark}
+    
     \section{Constructions of vector bundles}
         \begin{itemize}
             \item \textbf{Tensor bundle:} Let $\xi^m$ and $\eta^n$ 
@@ -14,8 +177,11 @@
                 (V_1,V_2)&\mapsto V_1\otimes V_2, 
             \end{align*}
             where $V_1, V_2\subset\mR^{\infty}, \dim V_1 = m, \dim V_2 = n$. 
-            Then $\xi\otimes\eta$ can be view as the pull-back bundle of $\gamma^{mn}$ via the map 
+            Then $\xi\otimes\eta$ can be view as the pull-back bundle of 
+            $\gamma^{mn}$ via the map 
             \begin{equation*}
-                B\xrightarrow{\bar{f}\times\bar{g}}\Gr_m\times \Gr_n\xrightarrow{\otimes}\Gr_{mn}.
+                B\xrightarrow{\bar{f}\times\bar{g}}
+                \Gr_m\times \Gr_n\xrightarrow{\otimes}\Gr_{mn}.
             \end{equation*}
         \end{itemize}
+        $\mathfrak{v}$

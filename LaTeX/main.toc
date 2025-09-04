@@ -1,6 +1,2 @@
-\contentsline {part}{I\hspace {1em}知识整理}{5}{part.1}%
-\contentsline {chapter}{\numberline {1}代数拓扑}{7}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Homotopy Theory}{7}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Mapping Cylinder and Mapping Path Space}{7}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Postnikov tower and Whitehead tower}{9}{subsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.1.3}The rational homotopy groups of spheres}{14}{subsection.1.1.3}%
+\contentsline {chapter}{\numberline {1}微分流形}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}主丛、主丛上的联络}{5}{section.1.1}%
