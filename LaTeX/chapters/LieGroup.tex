@@ -1,16 +1,24 @@
 \chapter{Lie群基础}
 \section{Lie群同态}
     \begin{theorem}
-        设 $G,\,H$ 为 $\mathrm{Lie}$ 群, 且 $G$ 连通, 它们的 $\mathrm{Lie}$ 代数分别为 $\mathfrak{g,\,h}$. 现有两个 $\mathrm{Lie}$ 群同态 $\varphi,\,\psi:G\rightarrow H$, 
-        若 $\varphi,\,\psi$ 诱导的 $\mathrm{Lie}$ 代数同态 $\varphi_*,\,\psi_*:\mathfrak{g}\rightarrow\mathfrak{h}$ 是相同的, 即 $\varphi_*=\psi_*$, 那么 $\varphi=\psi$.
+        设 $G,\,H$ 为 $\mathrm{Lie}$ 群, 且 $G$ 连通, 
+        它们的 $\mathrm{Lie}$ 代数分别为 $\mathfrak{g,\,h}$. 
+        现有两个 $\mathrm{Lie}$ 群同态 $\varphi,\,\psi:G\rightarrow H$, 
+        若 $\varphi,\,\psi$ 诱导的 $\mathrm{Lie}$ 代数同态 
+        $\varphi_*,\,\psi_*:\mathfrak{g}\rightarrow\mathfrak{h}$ 是相同的, 
+        即 $\varphi_*=\psi_*$, 那么 $\varphi=\psi$.
     \end{theorem}
     \begin{proof}
-        设 $\omega_1,\dots,\omega_n$ 是 $\mathfrak{h}$ 的一组基, 也即 $H$ 上处处线性无关的一组左不变一次微分式.
-        并分别记 $\pi_1:G\times H\rightarrow G$, $\pi_2:G\times H\rightarrow H$ 为自然投影, 则可验证
+        设 $\omega_1,\dots,\omega_n$ 是 $\mathfrak{h}$ 的一组基, 
+        也即 $H$ 上处处线性无关的一组左不变一次微分式.
+        并分别记 $\pi_1:G\times H\rightarrow G$, $\pi_2:G\times H\rightarrow H$ 
+        为自然投影, 则可验证
         \begin{equation*}
             \left\{\pi_1^*\varphi^*\omega_i-\pi_2^*\omega_i\,\Big|\,i=1,\dots,n\right\} = \left\{\pi_1^*\psi^*\omega_i-\pi_2^*\omega_i\,\Big|\,i=1,\dots,n\right\}
         \end{equation*}
-        张成的理想都是 $G\times H$ 上的左不变(暂时不知道有什么用)微分理想, 且 $\varphi(e) = \psi(e) = e$, 由微分理想的结果再加上 $G$ 是连通的可知 $\varphi = \psi$.
+        张成的理想都是 $G\times H$ 上的左不变(暂时不知道有什么用)微分理想, 
+        且 $\varphi(e) = \psi(e) = e$, 
+        由微分理想的结果再加上 $G$ 是连通的可知 $\varphi = \psi$.
     \end{proof}
 \section{Lie子群}
     \begin{definition}
@@ -24,25 +32,37 @@
     \end{definition}
     \begin{remark}
         我们可以定义 $\mathrm{Lie}$ 子群之间的等价(就像浸入子流形的等价一样),
-        并且可以在每个等价类中选取 $(H,\,i)$ 使得 $H\subset G$ 是 $G$ 的子集(但 $H$ 的拓扑不一定是 $G$ 的相对拓扑), 含入映射 $i:H\hookrightarrow G$ 是微分流形的浸入.
+        并且可以在每个等价类中选取 $(H,\,i)$ 使得 
+        $H\subset G$ 是 $G$ 的子集(但 $H$ 的拓扑不一定是 $G$ 的相对拓扑), 
+        含入映射 $i:H\hookrightarrow G$ 是微分流形的浸入.
         此时 $\mathfrak{h}$ 也可自然看成 $\mathfrak{g}$ 的子集.
     \end{remark}
     \begin{theorem}[Lie子代数与连通Lie子群的一一对应]
-        设 $G$ 为 $\mathrm{Lie}$ 群, 它的 $\mathrm{Lie}$ 代数为 $\mathfrak{g}$. 设 $\mathfrak{h}\subset\mathfrak{g}$ 为 $\mathrm{Lie}$ 子代数,
-        则存在唯一的连通 $\mathrm{Lie}$ 子群 $H$ 使得 $H$ 的 $\mathrm{Lie}$ 代数就是 $\mathfrak{h}$.
+        设 $G$ 为 $\mathrm{Lie}$ 群, 它的 $\mathrm{Lie}$ 代数为 $\mathfrak{g}$. 
+        设 $\mathfrak{h}\subset\mathfrak{g}$ 为 $\mathrm{Lie}$ 子代数,
+        则存在唯一的连通 $\mathrm{Lie}$ 子群 $H$ 使得 
+        $H$ 的 $\mathrm{Lie}$ 代数就是 $\mathfrak{h}$.
     \end{theorem}
     \begin{proof}
-        $\mathfrak{h}$ 对应 $G$ 上一个对合分布 $\mathcal{D}$, 记 $(H,\,\varphi)$ 为 $\mathcal{D}$ 的经过单位元 $e$ 的极大积分子流形, 则 $(H,\,\varphi)$ 即为所求.
+        $\mathfrak{h}$ 对应 $G$ 上一个对合分布 $\mathcal{D}$, 
+        记 $(H,\,\varphi)$ 为 $\mathcal{D}$ 的经过单位元 $e$ 的极大积分子流形, 
+        则 $(H,\,\varphi)$ 即为所求.
         
-        任取 $\sigma\in H$, 则 $(H,\,l_{\sigma^{-1}}\circ\varphi)$ 仍为 $\mathcal{D}$ 的积分子流形(因为 $\mathcal{D}$ 左平移不变), 再由 $(H,\varphi)$ 的极大性, 可以推出 $H$ 是抽象子群.
+        任取 $\sigma\in H$, 则 $(H,\,l_{\sigma^{-1}}\circ\varphi)$ 仍为 
+        $\mathcal{D}$ 的积分子流形(因为 $\mathcal{D}$ 左平移不变), 
+        再由 $(H,\varphi)$ 的极大性, 可以推出 $H$ 是抽象子群.
         
-        证明 $H$ 的群结构与微分结构相容(即 $(\sigma,\tau)\mapsto\sigma\tau$ 是 $H\times H$ 到 $H$ 的光滑映射) 和 $H$ 的唯一性则需要极大积分子流形的相关结果.
+        证明 $H$ 的群结构与微分结构相容
+        (即 $(\sigma,\tau)\mapsto\sigma\tau$ 是 $H\times H$ 到 $H$ 的光滑映射) 
+        和 $H$ 的唯一性则需要极大积分子流形的相关结果.
     \end{proof}
     \begin{theorem}[闭Lie子群与正则子流形的关系]
         设 $(H,\,\varphi)$ 是 $G$ 的 $\mathrm{Lie}$ 子群, 则以下两条
         \begin{itemize}
-            \item $\varphi$ 是嵌入, 即 $\varphi$ 是 $H$ 到 $\varphi(H)$(取关于 $G$ 的相对拓扑)的同胚.
-            \item $(H,\,\varphi)$ 是 $G$ 的闭 $\mathrm{Lie}$ 子群($\varphi(H)$ 是 $G$ 的闭子集).
+            \item $\varphi$ 是嵌入, 
+            即 $\varphi$ 是 $H$ 到 $\varphi(H)$(取关于 $G$ 的相对拓扑)的同胚.
+            \item $(H,\,\varphi)$ 是 $G$ 的闭 $\mathrm{Lie}$ 子群
+            ($\varphi(H)$ 是 $G$ 的闭子集).
         \end{itemize}
         是等价的.
     \end{theorem}
@@ -52,11 +72,97 @@
 
 \section{覆叠映射}
 
-    若 $\pi:\tilde{M}\rightarrow M$ 是连通局部道路联通空间 $\tilde{M}$ 到 $M$ 的覆叠映射, 则 $\tilde{M}$ $\mathrm{Hausdorff}$、第二可数且局部同胚于欧式空间。
-    而且 $\tilde{M}$ 上存在唯一的微分结构使得 $\pi$ 是光滑且局部同胚映射。
+    若 $\pi:\tilde{M}\rightarrow M$ 是连通空间 $\tilde{M}$ 到
+    流形 $M$ 的覆叠映射, 则 $\tilde{M}$ $\mathrm{Hausdorff}$、
+    第二可数且局部同胚于欧式空间, 而且 $\tilde{M}$ 上存在唯一的微分结构使得 
+    $\pi$ 是光滑且局部微分同胚映射。
 
-    若 $G$ 为 $\mathrm{Lie}$ 群, 则存在单连通空间 $\tilde{G}$ 以及覆叠映射 $\pi:\tilde{G}\rightarrow G$, 由上述结果可知能在 $\tilde{G}$ 上定义合适的光滑结构,
-    更进一步地, 能在 $\tilde{G}$ 上定义群结构使得其成为 $\mathrm{Lie}$ 群, 且 $\pi$ 成为 $\mathrm{Lie}$ 群同态.
+    设 $M, N$ 是微分流形, $\pi:\tilde{N}\rightarrow N$ 是万有覆叠映射, 
+    设 $n_0\in N$, $\tilde{n}_0\in\pi^{-1}(n_0)$, 
+    则任意的光滑映射 
+    \begin{equation*}
+        f:M\rightarrow N, \quad f(m_0) = n_0
+    \end{equation*}
+    都存在唯一的光滑提升
+    $\tilde{f}:M\rightarrow\tilde{N}$ 使得
+    \begin{equation*}
+        \pi\circ\tilde{f} = f, \quad \tilde{f}(m_0) = \tilde{n}_0
+    \end{equation*}
+
+    \begin{proposition}[$\mathrm{Lie}$ 群的万有覆叠]
+        设 $G$ 是 $\mathrm{Lie}$ 群, $\pi:\tilde{G}\rightarrow G$ 是 $G$ 的
+        万有覆叠映射, 则 $\tilde{G}$ 上存在唯一的 $\mathrm{Lie}$ 群结构使得 
+        $\pi$ 是 $\mathrm{Lie}$ 群同态.
+    \end{proposition}
+    \begin{proof}
+        首先 $\tilde{G}$ 上存在唯一的微分结构使得 
+        $\pi$ 是光滑映射且局部微分同胚映射. 
+        设 $e\in G$ 是单位元, $\tilde{e}\in\pi^{-1}(e)$, 
+        并分别记 
+        \begin{equation*}
+           m:G\times G\rightarrow G,\quad i:G\rightarrow G 
+        \end{equation*}
+        为 $G$ 的乘法和取逆映射. 则 
+        \begin{equation*}
+            m\circ(\pi\times\pi):\tilde{G}\times\tilde{G}\rightarrow G
+        \end{equation*}
+        是光滑映射, 且 $m\big(\pi(\tilde{e}),\pi(\tilde{e})\big) = e$. 
+        由提升定理, 存在唯一的光滑映射
+        \begin{equation*}
+            \tilde{m}:\tilde{G}\times\tilde{G}\rightarrow\tilde{G}
+        \end{equation*}
+        使得 $\tilde{m}(\tilde{e},\tilde{e}) = \tilde{e}$ 且因为
+        \begin{gather*}
+            \pi\circ\tilde{m}\big(\tilde{g},e\big) 
+            = m\big(\pi(\tilde{g}),\pi(\tilde{e})\big) 
+            = \pi(\tilde{g}), \\
+            \pi\circ\tilde{m}\big(e,\tilde{g}\big) 
+            = m\big(\pi(\tilde{e}),\pi(\tilde{g})\big) 
+            = \pi(\tilde{g}),
+        \end{gather*}
+        可知 
+        \begin{equation*}
+            \tilde{m}(\tilde{g},\tilde{e}) 
+            = \tilde{m}(\tilde{e},\tilde{g}) 
+            = \tilde{g},
+        \end{equation*}
+        即 $\tilde{e}$ 是 $\tilde{G}$ 的单位元. 
+        而且因为
+        \begin{align*}
+        &\pi\circ\tilde{m}\big(\tilde{m}(\tilde{a},\tilde{b}),\tilde{c}\big) 
+        = m\big(m(\pi(\tilde{a}),\pi(\tilde{b})),\pi(\tilde{c})\big) \\
+        =& m\big(m(a,b),c\big) = m\big(a,m(b,c)\big) 
+        = \pi\circ\tilde{m}\big(\tilde{a},\tilde{m}(\tilde{b},\tilde{c})\big).
+        \end{align*}
+        所以
+        \begin{equation*}
+            \tilde{m}\big(\tilde{m}(\tilde{a},\tilde{b}),\tilde{c}\big) 
+            = \tilde{m}\big(\tilde{a},\tilde{m}(\tilde{b},\tilde{c})\big),
+        \end{equation*}
+        即 $\tilde{m}$ 是结合的, 从而是 $\tilde{G}$ 的乘法. 
+        且在这个乘法下 $\pi$ 是群同态. 
+        
+        同理将 $i\circ\pi$ 可唯一提升为光滑映射 
+        \begin{equation*}
+            \tilde{i}:\tilde{G}\rightarrow\tilde{G}
+        \end{equation*}
+        满足 $\tilde{i}(\tilde{e}) = \tilde{e}$. 且因为
+        \begin{gather*}
+            \pi\circ\tilde{m}\big(\tilde{g},\tilde{i}(\tilde{g})\big) 
+            = m\big(g,i(g)\big) = e = \pi(\tilde{e}), \\
+            \pi\circ\tilde{m}\big(\tilde{i}(\tilde{g}),\tilde{g}\big) 
+            = m\big(i(g),g\big) = e = \pi(\tilde{e}),
+        \end{gather*}
+        所以
+        \begin{equation*}
+            \tilde{m}\big(\tilde{g},\tilde{i}(\tilde{g})\big) 
+            = \tilde{m}\big(\tilde{i}(\tilde{g}),\tilde{g}\big) 
+            = \tilde{e},
+        \end{equation*}
+        可得 $\tilde{i}$ 是 $\tilde{G}$ 的取逆映射. 
+        综上, $\tilde{G}$ 上存在唯一的 $\mathrm{Lie}$ 群结构使得 
+        $\pi$ 是 $\mathrm{Lie}$ 群同态. 
+    \end{proof}
 
     \begin{proposition}[Lie群同态与覆叠映射]
         设 $G$ 和 $H$ 为连通 $\mathrm{Lie}$ 群, 且有 $\mathrm{Lie}$ 群同态 $\varphi:G\rightarrow H$.

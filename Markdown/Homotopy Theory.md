@@ -1,8 +1,24 @@
 # Homotopy Theory
 
+All spaces under consideration are connected.
+
 ### Homotopy groups
 - **Def:** omit. 
-- **Dependency of base point:**
+- **Dependency of base point.** For a general space $X$, the homotopy group $\pi_n(X,x_0)$ is usually depent on the base point $x_0$. That is, given two points $x_0$ and $x_1$, we usually can't find a well-defined isomorphism between $\pi_n(X,x_0)$ and $\pi_n(X,x_1)$. 
+
+    Any path $\gamma$ from $x_0$ to $x_1$ can induces a homomorphism 
+
+    $$\gamma_*:\pi_n(X,x_0)\to\pi_n(X,x_1)$$ 
+
+    The following figure provides a nice illustration. 
+
+    <p align="center">
+        <img src="./Figures/dependency-of-base-point.jpg" alt="Isomorphism induced by path" width="400"/>
+    </p>
+
+    One can check that $\gamma_*$ is an isomorphism with inverse $\gamma_*^{-1} = \bar{\gamma}_*$. Moreover, 
+    $$\gamma\simeq\gamma'\;\mathrm{rel}\,\{0,1\}\Longrightarrow \gamma_*=\gamma'_*$$ 
+    Especially
 
 ### Homotopy Lifting Property & Homotopy Extending Property
 - **Homotopy Lifting Property:** omit.
