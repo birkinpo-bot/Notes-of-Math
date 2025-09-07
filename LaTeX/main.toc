@@ -1,5 +1,8 @@
-\contentsline {chapter}{\numberline {1}Lie群基础}{5}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Lie群同态}{5}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Lie子群}{5}{section.1.2}%
-\contentsline {section}{\numberline {1.3}覆叠映射}{6}{section.1.3}%
-\contentsline {section}{\numberline {1.4}单连通Lie群}{7}{section.1.4}%
+\contentsline {chapter}{\numberline {1}Homotopy Theory}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Mapping Cylinder and Mapping Path Space}{5}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Postnikov tower and Whitehead tower}{7}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}The rational homotopy groups of spheres}{12}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Homotopy groups}{22}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Dependency of base point}{22}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Homotopy Lifting Property \& Homotopy Extending Property}{24}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Exact Sequences for Fibrations}{25}{subsection.1.2.3}%
