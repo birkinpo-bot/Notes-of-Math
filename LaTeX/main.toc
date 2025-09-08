@@ -6,3 +6,4 @@
 \contentsline {subsection}{\numberline {1.2.1}Dependency of base point}{22}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}Homotopy Lifting Property \& Homotopy Extending Property}{24}{subsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.2.3}Exact Sequences for Fibrations}{25}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.3}Whitehead Theorem}{25}{section.1.3}%

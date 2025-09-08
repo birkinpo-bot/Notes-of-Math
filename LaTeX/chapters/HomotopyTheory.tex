@@ -1175,4 +1175,149 @@ All spaces under consideration are connected.
     \begin{equation*}
     i_*:\pi_n(F,e_0)\to\pi_n(E,e_0),\quad\forall\,n
     \end{equation*}
-    The key is to construct a connecting homomorphism $\partial_*$.
+    The key is to construct a connecting homomorphism $\partial_*$. 
+
+\section{Whitehead Theorem}
+    In CW complex category, there is a very useful theorem states 
+    that the weak homotopy equivalence is equivalent to homotopy equivalence. 
+    We will discuss this theorem in this section.
+
+    \begin{theorem}[Whitehead Theorem]{\label{thm:Whitehead-theorem}}
+        A map $f:X\to Y$ between two CW complexes is a homotopy equivalence 
+        if and only if it induces isomorphisms on all homotopy groups.
+    \end{theorem}
+
+    To proof this theorem, we start with a special case that $Y$ is a 
+    point. The theorem states that a CW complex is contractible if and only 
+    if all its homotopy groups are trivial. That is, 
+
+    \begin{theorem}[Whitehead Theorem for contractible spaces]{\label{thm:Whitehead-theorem-point}}
+        A CW complex $X$ is contractible if and only if 
+        $\pi_n(X,x_0) = 0$ for all $n\geq 0$ and $x_0\in X^0$.
+    \end{theorem}
+
+    \begin{proof}
+        Let $f_0 = \id_X$, $f_0'=f_0\big|_{X^0}$ be the restriction of 
+        $f_0$ on the $0$-skeleton $X^0$. Since $X^1$ is path-connected, 
+        we can cennect any $x_\alpha\in X^0$ to $x_0$ by a path 
+        $\gamma_\alpha:I\to X^1$. This defines a homotopy 
+        $H_0'(x,t):X^0\times I\to X$ between $f_0'$ and $X^0\to x_0$. 
+        By Borsuk's lemma, $H_0'$ can be extended to a homotopy $H_0$ 
+        defined on the whole $X$. $H_0$ joints the identity map 
+        $H_0(x,0)=f_0(x)$ to the map $H_0(x,1)=:f_1(x)$ which sends 
+        $X^0$ to $x_0$.
+
+        Let $f_1'=f_1\big|_{X^1}$. We first construct a homotopy 
+        $H_1'(x,t):X^1\times I\to X$ between $f_1'$ and $X^1\to x_0$ 
+        cell by cell: For any $1$-cell $e^1$, let 
+        $\psi:D^1\to X$ be its characteristic map. The two edges of 
+        $e^1$ are vertexes $u=\psi(0)$ and $v=\psi$. 
+        The homotopy $H_0$ takes $u$ and $v$ to $x_0$, whose trajectories 
+        are $\gamma_u=H_0(u,-)$ and $\gamma_v=H_0(v,-)$ respectively. 
+        The homotopy between $f_1\big|_{e^1}$ and constant map should be a 
+        map $H_1':D^1\times I\to X$ such that $H_1'(x,0)=\psi(x)$, 
+        $H_1'(x,1)\equiv x_0$. Actually we can set 
+        \begin{equation*}
+            H_1'(u,t) = f_1(\gamma_u(t)),\quad H_1'(v,t) = f_1(\gamma_v(t))
+        \end{equation*}
+        Then $H_1'\big|_{\partial(e^1\times I)}$ defines a loop at $x_0$. 
+        Since $\pi_1(X,x_0) = 0$, $H_1'\big|_{\partial(e^1\times I)}$ 
+        can extend to $e^1\times I$. Notice that if 
+        $u\in e^1_\alpha\cap e^1_\beta$ is the common vertex, then
+        \begin{equation*}
+            H_1'\big|_{e^1_\alpha\times I}(u,-) = H_1'\big|_{e^1_\beta\times I}(u,-).
+        \end{equation*}
+        So we can merge then together to get $H_1'$ defined on $X^1\times I$.
+        Extending the homotopy to $X$, we get a homotopy 
+        $H_1$ joints $f_1$ to the map $f_2$ which sends $X^1$ to $x_0$. 
+
+        Similarly, using the equality $\pi_n(X,x_0)=0$, 
+        we define a homotopy $H_n$ between $f_n$ and $f_{n+1}$ such that 
+        $f_{n+1}$ sends $X^n$ to $x_0$. 
+
+        If the dimension of $X$ is finite, we complete the proof. 
+        If $\dim X=\infty$, we combine all the homotopy $H_n$ as follows.
+        We first set that $H(x,t_n) = f_n$ where $t_n=\frac{2^n-1}{2^n}$, 
+        then carefully fill in the gap by $H_n$. That is,
+        \begin{equation*}
+            H(x,t):=H_n(x,2^{n}t),\quad 
+            t\in[1-\frac{1}{2^n},1-\frac{1}{2^{n+1}}]
+        \end{equation*}
+        This homotopy joints $\id_X$ and the constant map. Since the 
+        restriction of $H$ to $X^n\times I$ is continuous for all $n$, 
+        therefore the entire map $H$ is continuous.
+    \end{proof}
+
+    The construction of $H_1'$ in the proof can generalize to higher 
+    dimensions, which actually gives the following property: 
+    \begin{proposition}
+        If a CW complex $X$ is $n$-connected, then its n-skeleton $X^n$ is 
+        contractible in $X$.
+    \end{proposition}
+    \begin{proof}
+        First by the path-connectness of $X$, we can easily define 
+        $H_0:X^0\times I\to X$ which joints $\id_{X^0}$ and constant map. 
+        
+        For any $1$-cell $e^1$ with characteristic map $\psi_{e^1}:D^1\to X$, 
+        let $v_0$ and $v_1$ be its edges (they may be the same vertex). 
+        The trajectories of $v_0$ and $v_1$ under the homotopy $H_0$ are 
+        \begin{equation*}
+            \gamma_0 = H_0(v_0,-),\quad \gamma_1=H_0(v_1,-).
+        \end{equation*}
+        The homotopy from $e^1$ to $x_0$ should be a map 
+        $H_1\big|_{e^1\times I}:D^1\times I\to X$ with top floor $e^1$ and 
+        bottom floor $x_0$. To fill in the middle, we set the side to be 
+        $\gamma_0$ and $\gamma_1$ respectively, that is, 
+        \begin{equation*}
+            H_1\big|_{\partial(e^1\times I)} = 
+            \begin{cases}
+                \psi(x), &(x,t)\in D^1\times\{0\};\\
+                \gamma_i(t),&(x,t)\in \{i\}\times I,\;i=0,1;\\
+                x_0,&(x,t)\in D^1\times\{1\}.
+            \end{cases}
+        \end{equation*}
+        $H_1\big|_{\partial(D^1\times I)}$ defines a loop at $x_0$. Since 
+        $\pi_1(X,x_0) = 0$, $H_1$ can extend to $D^1\times I$. Repeat the 
+        process to each $1$-cell, notice that $H_1$ conicides at the 
+        common boundary of different cells, that is, if 
+        $v\in e^1_\alpha\cap e^1_\beta$, then 
+        \begin{equation*}
+        H_1\big|_{e^1_\alpha\times I}(v,-)
+        =H_1\big|_{e^1_\beta\times I}(v,-)
+        \end{equation*}
+        So we can merge all $H_1\big|_{e^1_\alpha\times I}$ together to get 
+        $H_1:X^1\times I\to X$ such that $H_1(-,0)=\id_{X^1}$, 
+        $H_1(-,1)$ is constant map. 
+
+        Suppose we have defined $H_k:X^k\times I\to X$ between 
+        $H_k(-,0) = \id_{X^k}$ and $H_k(-,1)$ the constant map. 
+        For each $(k+1)$-cell $e^{k+1}$ with characteristic map 
+        $\psi_{e^{k+1}}$, the map 
+        \begin{equation*}
+            H_{k+1}\big|_{\partial(e^{k+1}\times I)} = 
+            \begin{cases}
+                \psi_{e^{k+1}}(x_0),&(x,t)\in D^{k+1}\times\{0\};\\
+                H_k(x,t),&(x,t)\in\partial D^{k+1}\times I;\\
+                x_0,&(x,t)\in D^{k+1}\times\{1\}.
+            \end{cases}
+        \end{equation*}
+        gives a $(k+1)$-spheroid $\partial(D^{+1}\times I)\to X$, 
+        which is contractible because of the triviality of 
+        $\pi_{k+1}(X,x_0)$. Thus $H_{k+1}\big|_{\partial(e^{k+1}\times I)}$ 
+        can extend to $D^{k+1}\times I$. Merge them gives the required map 
+        $H_{k+1}$.  
+    \end{proof}
+
+    There is a relative version of contractible case. 
+
+    \begin{theorem}[Relative Whitehead Theorem]{\label{thm:relative-Whitehead-theorem}}
+        A CW pair $(X,A)$ satisfies $A$ being a deformation retract of $X$ 
+        if and only if $\pi_n(X,A,x_0) = 0$ for all $n\geq 0$ and 
+        $x_0\in A^0$.
+    \end{theorem}
+    \begin{proof}
+        ...
+    \end{proof}
+
+    The Whitehead theorem can be derived from the relative version. 
+    The key is to use the mapping cylinder.
