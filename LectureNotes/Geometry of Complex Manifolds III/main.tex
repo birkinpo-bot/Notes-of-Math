@@ -1,0 +1,132 @@
+% 注释的快捷键: Ctrl + /
+% \documentclass[a4paper]{ctexart}
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{xeCJK}
+% \usepackage{ctex}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, bbm}
+\usepackage{mathrsfs}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{cases}
+\usepackage{color}
+\usepackage{tikz-cd}
+% \usepackage{quiver}
+\usepackage{setspace}
+\usepackage{spectralsequences}
+
+\bibliographystyle{plain}
+
+\allowdisplaybreaks
+% \usepackage{times}
+% \usepackage{mathptmx}
+% \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+% \DeclareSymbolFont{largesymbols}{OMX}{cmex}{m}{n}
+
+% \usepackage{unicode-math}
+% \setmathfont{XITS Math}
+% \setmathfont{XITS Math}[StylisticSet=1,range=cal]
+
+%下面是引用前文定理的代码
+% \usepackage{hyperref}
+% \begin{lemma}[test]\label{test}
+	%     test
+	%   \end{lemma}
+
+%   number: \ref{test}, name: \nameref{test}
+
+%如何在等号上加文字或记号
+%通过 \stackrel{?}{=}
+
+% 如何实现大括号多编号
+% \usepackage{cases}
+% \begin{numcases}{}
+% 	x_1&=eq1 \label{eqsystem1} \\
+% 	x_2+1&=eq2 \label{eqsystem2}
+% \end{numcases}
+
+% 如何插入交换图
+
+
+% 如何插入图片
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[scale = ...]{name}
+%     \caption{...}
+% \end{figure}
+
+% 如何插入脚注
+% \footnote{}
+% \footnotemark[number]
+% \footnotetext[number]{text}
+
+\newtheorem{theorem}{\indent 定理}[section]
+\newtheorem{definition}[theorem]{\indent 定义}
+\newtheorem{proposition}[theorem]{\indent 命题}
+\newtheorem{lemma}[theorem]{\indent 引理}
+\newtheorem{corollary}[theorem]{\indent 推论}
+\newtheorem{example}[theorem]{\indent 例}
+\newtheorem{problem}[theorem]{\indent 问题}
+\newtheorem*{remark}{\indent 注}
+\renewcommand{\proofname}{\indent \bf 证明}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} %一次偏导
+\newcommand{\npd}[3]{\frac{\partial^{#1}{#2}}{\partial{#3}^{#1}}} %n次偏导, 也可以指代混合偏导
+\newcommand{\pD}[2]{\frac{{\rm D}(#1)}{{\rm D}(#2)}} %Jacobian
+\newcommand{\lc}[2]{\nabla_{#1}{#2}}
+\newcommand{\ft}[3]{{#1}_{#2},\dots,{#1}_{#3}}
+\newcommand{\cft}[3]{{#1}_{#2},\cdots,{#1}_{#3}}
+\newcommand{\id}{{\rm id}}
+\newcommand{\Id}{{\rm Id}}
+\newcommand{\supp}{{\rm supp}}
+\newcommand{\mi}{\sqrt{-1}}
+\newcommand{\me}{{\rm e}}
+\newcommand{\md}{{\rm d}}
+\newcommand{\mZ}{\mathbb{Z}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\GL}{{\rm GL}}
+\newcommand{\SL}{{\rm SL}}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\str}{{\rm Tr}_s}
+\newcommand{\Aut}{{\rm Aut}}
+\newcommand{\Inn}{{\rm Inn}}
+\newcommand{\Out}{{\rm Out}}
+\newcommand{\End}{{\rm End}}
+\newcommand{\Lie}{{\rm Lie}}
+\newcommand{\mCP}{\mathbb{C}\mathrm{P}}
+\newcommand{\mRP}{\mathbb{R}\mathrm{P}}
+\newcommand{\mHP}{\mathbb{H}\mathrm{P}}
+\newcommand{\vep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\newcommand{\mbb}{\mathbb}
+\newcommand{\mc}{\mathcal}
+\newcommand{\mfr}{\mathfrak}
+\newcommand{\mrm}{\mathrm}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Gr}{\mathrm{Gr}}
+\newcommand{\p}{\partial}
+\newcommand{\bp}{\bar{\partial}}
+
+% \graphicspath{{Figures/}}
+
+\begin{document}
+
+    \title{复流形上的几何III}
+    \author{Jianbo Zhou}
+    \maketitle
+    % \newpage
+
+    \tableofcontents
+    \newpage
+    
+    \include{Lecture 3}
+
+    % \bibliography{References}
+\end{document}
+

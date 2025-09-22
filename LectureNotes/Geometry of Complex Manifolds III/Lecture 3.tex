@@ -1,0 +1,141 @@
+\section{Lecture 3}
+\subsection*{Torsion forms and Bott-Chern secondary class}
+\subsubsection*{Chern connection}
+omitted.
+\subsubsection*{Torsion forms for Chern complex}
+Let $(E,v):0\to E_1\overset{v}{\to}\cdots\overset{v}{\to}E_m\to0$ be a 
+holomorphic chain complex of finite dimensional hol vector bundles on a 
+connected complex manifold $X$, i.e. $E_j$ are holomorphic vector bundles 
+and $v:E_j\to E_{j+1}$ are $\mC$-linear holomorphic map. 
+\textcolor{blue}{(If $s$ is a local hol section of $E_j$ on $U$, then 
+$(vs)_x:=v_xs_x$ is a local holomorphic section of $E_{j+1}$ on $U$ 
+$\Longleftrightarrow$ $\bar{\partial}^{E}v+v\bar{\partial}^{E} = 0$).}
+Chain complex: $v^2=0\Longleftrightarrow(v+\bar{\partial}^{E})^2=0$ on 
+$\Omega^{\cdot,\cdot}(X,E)$. 
+
+Set $E_+=\bigoplus\limits_{j\text{ even}}E_j$, 
+$E_-=\bigoplus\limits_{j\text{ odd}}E_j$, 
+$E=E_+\oplus E_-$. Let $h^E=\bigoplus\limits_j h^{E_j}$ be a 
+Hermitian metric on $E$. So $E_i\perp E_j$ if $i\neq j$. 
+
+Let $v^*$ be the adjoint of $v$ w.r.t. $h^E$. Set $V=v+v^*$. 
+Then $\nabla^E+V$ is a superconnection on $E$.
+
+Let 
+\[
+    P^X:=\bigoplus_p\Omega^{p,p}(X),\quad 
+    P^{X,0}:=\{\omega\in P^X\mid\exists\,\eta,\eta'\in\Omega(X)
+    \;s.t.\;\omega=\partial\eta+\bar{\partial}\eta'\}
+\]
+
+\begin{proposition}
+    Set 
+    \[
+    A=\bigoplus_{p,q,j}\Omega^{p,q}\big(X,\Hom(E_j,E_{j+p-q})\big),
+    \]
+    then $A$ is a super-algebra. Moreover, if $\eta\in A$, then 
+    $\Tr_s[\eta]\in P^X$.
+\end{proposition}
+\begin{proof}
+    If $\eta,\eta'\in A$, then $\eta\,\hat{\otimes}\,\eta'\in A$. 
+    Now $\Tr_s$ vanishes on $\Hom(E_j,E_k)_{j\neq k}$, thus 
+    $\Tr_s[\eta]\in P^X$.
+\end{proof}
+
+Let 
+\[
+A_u=\nabla^E+\sqrt{u}V,\quad u\geq0.
+\]
+be a superconnection on $E$. Let $N$ be a number operator on $E$, 
+$N|_{E_j}=j\Id_{E_j}$. 
+\begin{theorem}
+    For any $u\geq0$, $\Tr_s[\exp(-A_u^2)],\,\Tr_s[N\exp(-A_u^2)]$
+    are in $P^X$. The form $\Tr_s[\exp(-A_u^2)]$ is closed. 
+    For $u>0$, 
+    \begin{gather*}
+    \pd{}{u}\Tr_s[\exp(-A_u^2)] = 
+    -\frac{1}{2u}(\p+\bp)\Tr_s[\sqrt{u}V\exp(-A_u^2)], \\
+    \Tr_s[\sqrt{u}V\exp(-A_u^2)] = 
+    (\p-\bp)\str[N\exp(-A_u^2)].
+    \end{gather*}
+    In particular, 
+    \[
+    \pd{}{u}\str[\exp(-A_u^2)] = 
+    -\frac{1}{u}\bp\p\str[N\exp(-A_u^2)].
+    \]
+\end{theorem}
+\begin{proof}
+    Step $1$: Show that $A_u^2\in A$.
+    
+    Since 
+    \begin{equation*}
+    A_u^2=(\nabla^E)^2+uV^2+\sqrt{u}[\nabla^E,V],
+    \end{equation*}
+    where
+    \begin{gather*}
+        (\nabla^E)^2\in\Omega^{1,1}(X,\End(E)), \\
+        V^2=(v+v^*)^2=vv^*+v^*v\in C^\infty(X,\End(E)), \\
+    \end{gather*}
+    and
+    \begin{equation*}
+        [\nabla^E,V]=[\nabla'',v] + [\nabla',v] + 
+        [\nabla'',v^*] + [\nabla',v^*]
+    \end{equation*}
+    By the definition of holomorphic chain complex, 
+    \begin{equation*}
+        [\nabla'',v] = \bp v + v\bp = 0.
+    \end{equation*}
+    For $u\in T^{1,0}X$, 
+    \begin{align*}
+        \langle([\nabla'_u,v^*]\sigma_1,\sigma_2)\rangle &= 
+        \langle(\nabla'_u v^*-v^* \nabla'_u)\sigma_1,\sigma_2\rangle \\
+        &=\langle\nabla'_u(v^*\sigma_1),\sigma_2\rangle 
+        -\langle\nabla'_u\sigma_1,v\sigma_2\rangle \\
+        &=u\langle v^*\sigma_1,\sigma_2\rangle 
+        -\langle v^*\sigma_1,\nabla''_{\bar{u}}\sigma_2\rangle 
+        -u\langle\sigma_1,v\sigma_2\rangle 
+        +\langle\sigma_1,\nabla''_{\bar{u}}(v\sigma_2)\rangle \\
+        &=\langle\sigma_1,
+        (\nabla''_{\bar{u}}v-v\nabla''_{\bar{u}})\sigma_2\rangle \\
+        &\overset{?}{=}0.
+    \end{align*}
+    So 
+    \begin{equation*}
+        [\nabla^E,V]=[\nabla',v] + [\nabla'',v^*]
+    \end{equation*}
+    where
+    \begin{equation*}
+        [\nabla',v]\in \Omega^{1,0}(X,\End(E_j,E_{j+1})),\quad 
+        [\nabla'',v^*]\in \Omega^{0,1}(X,\End(E_j,E_{j-1}))
+    \end{equation*}
+    Thus $A_u^2\in A$, which deduces $\exp(-A_u^2)\in A$. With $N\in A$, 
+    we conclude that $\Tr_s[\exp(-A_u^2)],\,\Tr_s[N\exp(-A_u^2)]\in P^X$.
+
+    Step $2$: Verify the formulas via Duhamel's formula.
+    \begin{lemma}
+        For $H_u\in \left(\bigwedge(T^*X)\otimes\End(E)\right)^+$ 
+        \begin{equation*}
+            \pd{}{u}\exp(-tH_u) = 
+            -\int_0^t\me^{-(t-s)H_u}(\pd{}{u}H_u)\me^{-sH_u}\md s.
+        \end{equation*}
+    \end{lemma}
+    \begin{proof}[Proof of lemma]
+        omitted.
+    \end{proof}
+    Now 
+    \begin{align*}
+        &\pd{}{u}\str\left[\exp(-A_u^2)\right] = 
+        -\str\left[\int_{0}^{1}\me^{-(1-s)A_u^2}(\pd{}{u}A_u^2)
+        \me^{-sA_u^2}\md s\right] \\
+        =&-\int_{0}^{1}\str\left[(\pd{}{u}A_u^2)\me^{-(1-s)A_u^2}
+        \me^{-sA_u^2}\right]\md s \quad\textcolor{gray}{\str[A,B]=0} \\
+        =&-\str\left[\pd{}{u}A_u^2,\me^{-A_u^2}\right] \\
+        =&-\str\left[\left[A_u,\frac{1}{2\sqrt{u}}V\right],
+        \me^{-A_u^2}\right] \quad
+        \textcolor{gray}{\pd{}{u}A_u^2=\left[A_u,\pd{}{u}A_u\right],}\,
+        \textcolor{gray}{\pd{}{u}A_u = \frac{1}{2\sqrt{u}}V} \\
+        =&-\str\left[A_u,\frac{1}{2\sqrt{u}}V\me^{-A_u^2}\right]\quad 
+        \textcolor{gray}{[A_u,A_u^2]=0} \\
+        =&-\md\str\left[\frac{1}{2\sqrt{u}}V\me^{-A_u^2}\right]
+    \end{align*}
+\end{proof}

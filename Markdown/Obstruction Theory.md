@@ -164,3 +164,27 @@ $f_1'\simeq f_0\; (\mathrm{rel.}\;K^{(q-2)})$
 $$
 [K,Y]\longleftrightarrow H^q(K;\pi_q)
 $$
+
+
+-----
+
+## Obstruction Theory
+
+- **Definition:** The cochain $c^{n+1}(f)\in C^{n+1}(K,L;\pi_n(X))$. <font color=yellow>$f$ can be extended to $K^{n+1}$ iff $c^{n+1}(f)=0$. </font>
+- **Theorem:** $\delta c^{n+1}(f)=0$, so $c^{n+1}(f)\in Z^n(K,L;\pi_n(X))$ defines a relative cohomology class $C^{n+1}(f)\in H^{n+1}(K,L;\pi_n(X))$. 
+- **Definition:** Let $f,g:\hat{K}^n\to X$ be two maps coinciding on $\hat{K}^{n-1}$. We can define the difference cochain $d^n(f,g)\in C^n(K,L;\pi_n(X))$. <font color=yellow>$d^n(f,g)=0$ iff there exists a homotopy between $f$ and $g$ which is identity on $\hat{K}^{n-1}$. </font>
+- **Lemma 1:** For any map $f:\hat{K}^n\to X$ and cochain $d^n\in C^n(K,L;\pi_n(X))$, there exists a map $g:\hat{K}^n\to X$ such that it coincides with $f$ on $\hat{K}^{n-1}$ and $d^n(f,g)=d^n$. 
+- **Lemma 2:** $\delta d^n(f,g)=c^{n+1}(g)-c^{n+1}(f)$. 
+- **Lemma 3:** $d^n(f,g)+d^n(g,h)+d^n(h,f)=0$. 
+- **Theorem (Eilenberg):** The equality $C^{n+1}(f)=0$ holds iff the map $f:\hat{K}^n\to X$ can be extended over $\hat{K}^{n+1}$ after having been changed on $\hat{K}^n\backslash \hat{K}^{n-1}$. 
+- **Theorem (Hopf-Eilenberg):** For any $n$-dimensional CW complex $K$ (with a base vertex) and any $(n-1)$-connected space $X$ (with a base point $x_0$), there is a one-to-one correspondence 
+   $$[K,X]\longleftrightarrow H^n(K;\pi_n(X))$$
+- **Theorem:** If $K$ is an $n$-dimensional CW complex, then any element of the group $H^n(K;\mathbb{Z})$ can be represented in the form $f^*\alpha$, where $\alpha$ is the generator of $H^n(S^n;\mathbb{Z})$ and $f:K\to S^n$ is a map determined uniquely up to homotopy. 
+
+## Eilenberg-Maclane Spaces
+- **Definition：** Omit.
+- **Construction:** For any $n\geq1$ and $\pi$ (abelian if $n\geq2$), consider a free resolusion generators of $\pi$ 
+  $$0\to R\to F\to \pi\to 0$$
+  where $R,F$ are free group if $n=1$ and are free abelian group if $n\geq2$. Set $\{b_j\,\big|\,j\in J\}$ and $\{a_i\,\big|\,i\in I\}$ be generators of $F$ and $R$ respectively. We first construct $K^n=\bigvee_{j\in J}S^n_j$. For any $a_i\in R\subset F=\pi_n(K^n)$, let $f_i:S^n_i\to K^n$ be a representative. Attacth an $(n+1)$-cell $D^{n+1}_i$ via $f_i$ to get $K^n\cup_{f_i} D^{n+1}_i$. Repeat this process for each relation $a_i$, we get $K^{n+1}$ which is $(n-1)$-connected and has $\pi_n(K^{n+1})=\pi$. 
+   
+   Then we kill the higher homotopy groups by attching higher dimensional cells. Finally we get the desired $K$.
