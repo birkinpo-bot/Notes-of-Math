@@ -1,0 +1,313 @@
+% 注释的快捷键: Ctrl + /
+% \documentclass[a4paper]{ctexart}
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{xeCJK}
+% \usepackage{ctex}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, bbm}
+\usepackage{mathrsfs}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{cases}
+\usepackage{color}
+\usepackage{tikz-cd}
+% \usepackage{quiver}
+\usepackage{setspace}
+\usepackage{spectralsequences}
+
+\bibliographystyle{plain}
+
+\allowdisplaybreaks
+% \usepackage{times}
+% \usepackage{mathptmx}
+% \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+% \DeclareSymbolFont{largesymbols}{OMX}{cmex}{m}{n}
+
+% \usepackage{unicode-math}
+% \setmathfont{XITS Math}
+% \setmathfont{XITS Math}[StylisticSet=1,range=cal]
+
+%下面是引用前文定理的代码
+% \usepackage{hyperref}
+% \begin{lemma}[test]\label{test}
+	%     test
+	%   \end{lemma}
+
+%   number: \ref{test}, name: \nameref{test}
+
+%如何在等号上加文字或记号
+%通过 \stackrel{?}{=}
+
+% 如何实现大括号多编号
+% \usepackage{cases}
+% \begin{numcases}{}
+% 	x_1&=eq1 \label{eqsystem1} \\
+% 	x_2+1&=eq2 \label{eqsystem2}
+% \end{numcases}
+
+% 如何插入交换图
+
+
+% 如何插入图片
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[scale = ...]{name}
+%     \caption{...}
+% \end{figure}
+
+% 如何插入脚注
+% \footnote{}
+% \footnotemark[number]
+% \footnotetext[number]{text}
+
+\newtheorem{theorem}{\indent Theorem}%[section]
+\newtheorem{definition}[theorem]{\indent Definition}
+\newtheorem{proposition}[theorem]{\indent Proposition}
+\newtheorem{lemma}[theorem]{\indent Lemma}
+\newtheorem{corollary}[theorem]{\indent Corollary}
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{\indent Example}
+\newtheorem{problem}[theorem]{\indent 问题}
+\newtheorem*{remark}{\noindent Remark}
+\renewcommand{\proofname}{\indent \bf Proof}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} %一次偏导
+\newcommand{\npd}[3]{\frac{\partial^{#1}{#2}}{\partial{#3}^{#1}}} %n次偏导, 也可以指代混合偏导
+\newcommand{\pD}[2]{\frac{{\rm D}(#1)}{{\rm D}(#2)}} %Jacobian
+\newcommand{\lc}[2]{\nabla_{#1}{#2}}
+\newcommand{\ft}[3]{{#1}_{#2},\dots,{#1}_{#3}}
+\newcommand{\cft}[3]{{#1}_{#2},\cdots,{#1}_{#3}}
+\newcommand{\id}{{\rm id}}
+\newcommand{\Id}{{\rm Id}}
+\newcommand{\supp}{{\rm supp}}
+\newcommand{\mi}{\sqrt{-1}}
+\newcommand{\me}{{\rm e}}
+\newcommand{\md}{{\rm d}}
+\newcommand{\mZ}{\mathbb{Z}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\GL}{{\rm GL}}
+\newcommand{\SL}{{\rm SL}}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\str}{{\rm Tr}_s}
+\newcommand{\Aut}{{\rm Aut}}
+\newcommand{\Inn}{{\rm Inn}}
+\newcommand{\Out}{{\rm Out}}
+\newcommand{\End}{{\rm End}}
+\newcommand{\Lie}{{\rm Lie}}
+\newcommand{\mCP}{\mathbb{C}\mathrm{P}}
+\newcommand{\mRP}{\mathbb{R}\mathrm{P}}
+\newcommand{\mHP}{\mathbb{H}\mathrm{P}}
+\newcommand{\vep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\newcommand{\mbb}{\mathbb}
+\newcommand{\mc}{\mathcal}
+\newcommand{\mfr}{\mathfrak}
+\newcommand{\mrm}{\mathrm}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Gr}{\mathrm{Gr}}
+\newcommand{\p}{\partial}
+\newcommand{\bp}{\bar{\partial}}
+
+% \graphicspath{{Figures/}}
+
+\begin{document}
+
+\section*{Obsruction Theory and Characteristic Classes}
+\subsection*{A Brief Introduction to Obsruction Theory}
+In homotopy theory, one often encounters the following problem: 
+\begin{center}
+\fbox{
+    \parbox{0.9\linewidth}{
+        Given a pair of spaces $(X,A)$ and a map $f:A\to Y$. Can $f$ be extended 
+        to a map $F:X\to Y$?
+    }
+}
+\end{center}
+Obsruction theory provides a systematic way to study 
+this problem. 
+
+$\mathbf{Toy\ Model:}$ A map $f:S^n\to Y$ can be extended to a map 
+$F:D^{n+1}\to Y$ if and only if $f$ is null-homotopic.
+
+Now we consider the general case. Let $K$ be a CW complex, $Y$ be a simple 
+space, i.e., $\pi_1(Y)$ acts trivially on $\pi_n(Y)$ for all $n$. Under this 
+condition, we can unambiguously use the notation $\pi_n(Y) = [S^n, Y]$.  
+Suppose we have a map $f:K^{(n)}\to Y$, where $K^{(n)}$ is the 
+$n$-skeleton of $K$. We want to extend $f$ to a map $F:K^{(n+1)}\to Y$. 
+To do this, we only need to extend $f$ to each $(n+1)$-cell $e_\alpha^{n+1}$. 
+
+Suppose the attaching map of $e_\alpha^n$ is 
+$\varphi_\alpha:S^{n}\to K^{(n)}.$ Then $f\circ \varphi_\alpha$ is a map
+from $S^{n}$ to $Y$. By the toy model, $f\circ \varphi_\alpha$ can be
+extended to $D^{n+1}$ if and only if $[f\circ \varphi_\alpha] = 0$ in
+$\pi_{n}(Y)$. We in fact get a cochain 
+$c^{n+1}(f)\in C^{n+1}_{cell}(K;\pi_{n}(Y))$: 
+\begin{align*}
+    c^{n+1}(f):C_{n+1}^{cell}(K)\to \pi_{n}(Y) \\
+    e_\alpha^{n+1}\mapsto [f\circ \varphi_\alpha].
+\end{align*}
+We call $c^{n+1}(f)$ the \textbf{${(n+1)}$-th obstruction cochain} of $f$. 
+There are some basic facts about $c^{n+1}(f)$: 
+\begin{itemize}
+    \item $f$ can be extended to $K^{(n+1)}$ if and only if $c^{n+1}(f) = 0$; 
+    \item If $f,f':K^{(n)}\to Y$ are homotopic, then 
+    $c^{n+1}(f) = c^{n+1}(f')$; 
+    \item (Natruality) Suppose $L$ is another CW complex and $\phi:L\to K$ 
+    is a cellular map, then $c^{n+1}(f\circ \phi) = \phi^{\sharp}c^{n+1}(f)$.
+\end{itemize}
+
+At the following, we give some important properties of $c^{n+1}(f)$ without 
+proof. 
+\begin{theorem}
+    $c^{n+1}(f)$ is a cocycle, i.e., $\delta c^{n+1}(f) = 0$. Thus it 
+    defines a cohomology class $[c^{n+1}(f)]\in H^{n+1}(K;\pi_{n}(Y))$. 
+    We call $[c^{n+1}(f)]$ the \textbf{$(n+1)$-th obstruction class} of $f$.
+\end{theorem}
+
+A similar concept is defined for homotopies. Suppose we have two maps
+$f_0,f_1:K^{(n)}\to Y$ and a homotopy $h:K^{(n-1)}\times I\to Y$ between
+$f_0|_{K^{(n-1)}}$ and $f_1|_{K^{(n-1)}}$. We want to extend $h$ to a 
+homotopy $H:K^{(n)}\times I\to Y$ between $f_0$ and $f_1$. To do this, 
+we only need to extend $h$ to each $n$-cell $e_\alpha^n$. Let 
+$\varphi_\alpha:S^{n-1}\to K^{(n-1)}$ be the attaching map of $e_\alpha^n$, 
+$\psi_\alpha:D^n\to K^{(n)}$ be the characteristic map of $e_\alpha^n$. Then 
+we can form a map
+\begin{align*}
+    h_\alpha:(D^n\times \{0,&1\})\cup(\p D^n\times I)\to Y \\ 
+    (x,0)&\mapsto f_0\circ \psi_\alpha(x) \\
+    (x,1)&\mapsto f_1\circ \psi_\alpha(x) \\
+    (x,t)&\mapsto h\circ (\varphi_\alpha(x),t).
+\end{align*}
+Since $(D^n\times \{0,1\})\cup(\p D^n\times I)\cong S^n$, $h_\alpha$ defines
+a map from $S^n$ to $Y$. It can extend to $D^n\times I\cong D^{n+1}$ if and 
+only if $[h_\alpha] = 0$ in $\pi_n(Y)$. We in fact get a cochain
+$c^n(f_0,f_1,h)\in C^n_{cell}(K;\pi_n(Y))$:
+\begin{align*}
+    c^n(f_0,f_1,h):C_n^{cell}(K) & \to \pi_n(Y) \\
+    e_\alpha^n & \mapsto [h_\alpha]. 
+\end{align*} 
+We call $c^n(f_0,f_1,h)$ the \textbf{$n$-th deformation cochain} of 
+$(f_0,f_1,h)$. If $f_0|_{K^{(n-1)}} = f_1|_{K^{(n-1)}}$ and $h$ is the 
+trivial homotopy, we simply write $c^n(f_0,f_1)$ for $c^n(f_0,f_1,h)$ and 
+call it the \textbf{$n$-th difference cochain} of $(f_0,f_1)$. 
+There are some basic facts about $c^n(f_0,f_1,h)$:
+\begin{itemize}
+    \item $h$ can be extended to a homotopy $H:K^{(n)}\times I\to Y$ between 
+    $f_0$ and $f_1$ if and only if $c^n(f_0,f_1,h) = 0$; 
+    % \item If $h,h':K^{(n-1)}\times I\to Y$ are homotopic rel. boundary, then 
+    % $c^n(f_0,f_1,h) = c^n(f_0,f_1,h')$; 
+    \item (Natruality) Suppose $L$ is another CW complex and $\phi:L\to K$ 
+    is a cellular map, then 
+    $c^n(f_0\circ \phi,f_1\circ \phi,h\circ(\phi\times \id_I)) = 
+    \phi^{\sharp}c^n(f_0,f_1,h)$.
+    \item $c^n(f_0,f_2,h*h') = c^n(f_0,f_1,h) + c^n(f_1,f_2,h')$, where
+    $h*h'$ is the concatenation of $h$ and $h'$. Especially, if 
+    $f_0|_{K^{(n-1)}} = f_1|_{K^{(n-1)}} = f_2|_{K^{(n-1)}}$ and $h,h'$ are
+    trivial homotopies, then $c^n(f_0,f_2) = c^n(f_0,f_1) + c^n(f_1,f_2)$.
+\end{itemize}
+
+In general, $c^n(f_0,f_1,h)$ is not a cocycle. But we have the following
+formula. 
+\begin{theorem}
+    $\delta c^n(f_0,f_1,h) = c^{n+1}(f_1) - c^{n+1}(f_0)$.
+\end{theorem} 
+
+There is a useful lemma about difference cochains.
+\begin{lemma}
+    For any $f:K^{(n)}\to Y$ and any cochain $d\in C^n_{cell}(K;\pi_n(Y))$, 
+    there exists a map $f':K^{(n)}\to Y$ such that 
+    $f'|_{K^{(n-1)}} = f|_{K^{(n-1)}}$ and $c^n(f,f') = d$.
+\end{lemma}
+
+With the above preparations, we have the following theorem:
+\begin{theorem}[Eilenberg]
+    Given a map $f:$, if and only if $f$ can extend 
+    to $K^{(n+1)}$ after having been changed on $K^{(n)}\big\backslash K^{(n-1)}$.
+\end{theorem}
+\begin{proof}
+    $(\Leftarrow):$ If $\exists\,f':K^{(n+1)}\to Y$ such that 
+    $f'|_{K^{(n-1)}} = f|_{K^{(n-1)}}$, then 
+    \begin{equation*}
+        c^{n+1}(f) = c^{n+1}(f) - c^{n+1}(f') = \delta d^n(f',f)
+    \end{equation*}
+    Thus $c^{n+1}(f)$ is a coboundary. 
+
+    $(\Rightarrow):$ If  $[c^{n+1}(f)]=0$, then $\exists\,d\in C^n(K;\pi_n(Y))$ 
+    such that $c^{n+1}(f) = \delta d$. By lemma, there exists 
+    $f':K^{(n)}\to Y$ such that $f|_{K^{(n-1)}} = f'|_{K^{(n-1)}}$ and 
+    $d^n(f,f') = -d$. So 
+    \begin{equation*}
+        c^{n+1}(f') = c^{n+1}(f) + \delta d^n(f,f') = \delta d - \delta d = 0.
+    \end{equation*}
+    Thus $f'$ can be extended to $K^{(n+1)}$.
+\end{proof}
+
+\begin{example}
+    If the target space $Y$ is $n$-connected, i.e., 
+    $\pi_k(Y)=0,\; k=0,1,\dots,n$, then every map $f:K^{(0)}\to Y$ can be 
+    extended to $K^{(n+1)}$. Besides, any two maps $f,g:K^{(n)}\to Y$ are 
+    homotopic. Indeed, $f|_{K^{(0)}}\simeq g|_{K^{(0)}}$ for the reason that 
+    $K$ is path-connected. We denote the homotopy by $h_0$. Then $h_0$ can 
+    be extened to $h_n:K^{n}\times I\to Y$ since all the deformation cochain 
+    vanish.
+\end{example}
+
+\begin{corollary}
+    If $Y$ is $n$-connected and $\dim K\leq n$, then all the maps from $K$ 
+    to $Y$ are null-homotopic.
+\end{corollary}
+
+\begin{theorem}[Hopf-Whitehead]
+     and $(n-1)$-connected space $Y$, 
+    there is a one-to-one correspondence:
+    \begin{equation*}
+        [K,Y]\longleftrightarrow H^n(K;\pi_n(Y)).
+    \end{equation*}
+\end{theorem}
+If we weaken the dimensional condition and instead strengthen the target space 
+to be an Eilenberg-Maclane space $K(\pi,n)$. Then we will get another theorem: 
+\begin{theorem}
+    For any CW complex $X$, group $\pi$ and integer $n$, there is a 
+    one-to-one correspondence: 
+    \begin{equation*}
+        [X,K(\pi,n)]\longleftrightarrow H^n(X;\pi).
+    \end{equation*}
+\end{theorem}
+\begin{remark}
+    In fact, there is a special class $\alpha$ in 
+    \begin{equation*}
+        H^n(K(\pi,n);\pi)\cong \Hom(H_n(K(\pi,n)),\pi)\cong \Hom(\pi,\pi)
+    \end{equation*}
+    which corresponds to the identity map in $\Hom(\pi,\pi)$. The correspondence 
+    can be explicitly written by 
+    \begin{align*}
+        [X,K(\pi,n)]&\to H^n(X;\pi) \\
+        f&\mapsto f^*\alpha.
+    \end{align*}
+\end{remark}
+
+\subsection*{Characteristic Classes via Obsruction Theory}
+\subsubsection*{Local Coefficient Systems}
+To discrib characteristic classes as obstruction classes, we need cohomology 
+with local coefficients. 
+
+\subsubsection*{The Homotopy Groups of $V_k(\mR^n)$}
+\textbf{Fact:} The Stiefel manifold $V_k(\mR^n)$ is $(n-k-1)$-connected and 
+the first nontrivial homotopy group is 
+\begin{equation*}
+    \pi_{n-k}(V_k(\mR^n)) = 
+    \begin{cases}
+        \mZ,& n-k \text{ is odd or } k=1; \\
+        \mZ_2,& n-k \text{ is even}.
+    \end{cases}
+\end{equation*}
+
+% \bibliography{References}
+\end{document}
+
