@@ -293,9 +293,104 @@ to be an Eilenberg-Maclane space $K(\pi,n)$. Then we will get another theorem:
 \end{remark}
 
 \subsection*{Characteristic Classes via Obsruction Theory}
-\subsubsection*{Local Coefficient Systems}
+\subsubsection*{Cohomology with Local Coefficients}
 To discrib characteristic classes as obstruction classes, we need cohomology 
 with local coefficients. 
+% \begin{center}
+%     \fbox{
+%         \parbox{0.95\linewidth}{
+%             Suppose $X$ is a path-connected space. A \textbf{local coefficient system} 
+%             on $X$ is a functor
+%             \begin{equation*}
+%                 \mathcal{G}:\pi(X)\to \text{(Abelian groups)},
+%             \end{equation*}
+%             where $\pi(X)$ is the fundamental groupoid of $X$. If we fix a base point
+%             $x_0\in X$, then $\mathcal{G}$ is determined by the group 
+%             $G = \mathcal{G}(x_0)$ and a representation $\rho:\pi_1(X,x_0)\to \Aut(G)$. 
+%             We call $G$ the \textbf{typical group} of $\mathcal{G}$.
+%         }
+%     }
+% \end{center}
+
+\noindent\textbf{Local Coefficient System:}
+
+Suppose $X$ is a path-connected space. For any $x\in X$, let $G_x$ be an 
+abelian group attaching to $x$. For any path $\gamma_{xy}$ from $x$ to $y$, 
+we have an isomorphism $(\gamma_{xy})_*:G_x\to G_y$. If $(\gamma_{xy})_*$ 
+only depends on the homotopy class of $\gamma$ rel. endpoints and satisfies 
+the following conditions: 
+\begin{equation*}
+    (\text{constant path})_* = \Id, \quad
+    (\gamma_{xy}*\gamma_{yz})_* = (\gamma_{yz})_*\circ(\gamma_{xy})_*.
+\end{equation*}
+Then we call $\mathcal{G} = \{G_x\}_{x\in X}$ a 
+\textbf{local coefficient system} on $X$. If we fix a base point $x_0\in X$, 
+then $\mathcal{G}$ is determined by the group $G = G_{x_0}$ and an action 
+$\rho:\pi_1(X,x_0)\to \Aut(G)$. We call $G$ the \textbf{typical group} of 
+$\mathcal{G}$. 
+
+\begin{example}
+    If $\mathcal{G}$ is a local coefficient system on $X$ with typical group 
+    $G$ and trivial action. Then it is the ordinary constant coefficient we 
+    are familiar with.
+\end{example}
+
+\begin{example}
+    If $G_x = \mZ$ for all $x\in X$ and $\pi_1(X,x_0)$ acts on $\mZ$ by
+    multiplication of $\pm 1$ according to whether the orientation is
+    preserved or reversed along the loop. Then $\mathcal{G}$ is called the 
+    \textbf{orientation system} on $X$ and denoted by $\mathrm{Or}$. 
+\end{example}
+
+\begin{example}
+    Let $p:\tilde{X}\to X$ be the universal covering of $X$. Then 
+    $\mathcal{G} = \{H_n(p^{-1}(x))\}_{x\in X}$ is a local coefficient system 
+    on $X$ with typical group $H_n(\tilde{X})$ and action induced by the 
+    deck transformation group $\pi_1(X,x_0)$. 
+\end{example}
+
+\begin{example}
+    Let $E\to X$ be a vector bundle with fiber $F$. Then 
+    $\mathcal{G} = \{H_n(p^{-1}(x))\}_{x\in X}$ is a local coefficient system 
+    on $X$ with typical group $H_n(F)$ and action induced by the structure 
+    group of $E$.
+\end{example}
+
+\begin{example}
+    $\mathcal{G} = \{\pi_n(X,x)\}_{x\in X}$ is a local coefficient system 
+    on $X$ with typical group $\pi_n(X,x_0)$ and action induced by the 
+    fundamental group $\pi_1(X,x_0)$.
+\end{example}
+
+\noindent\textbf{Cohomology with Local Coefficients:}
+
+Let $X$ be a CW complex and $\mathcal{G} = \{G_x\}_{x\in X}$ be a local
+coefficient system on $X$. We define the cellular cochain groups with local
+coefficients by
+\begin{equation*}
+    C^n_{cell}(X;\mathcal{G}) = \left\{f:\big\{\text{$n$-cells of $X$}\big\}
+    \to \bigsqcup_{x\in X}G_x \,\Big|\, f(e_\alpha^n)\in 
+    G_{x_\alpha}\right\}
+\end{equation*}
+where $x_\alpha$ is a chosen point in the $n$-cell $e_\alpha^n$. The 
+coboundary operator 
+$\delta:C^n_{cell}(X;\mathcal{G})\to C^{n+1}_{cell}(X;\mathcal{G})$
+is defined by 
+\begin{equation*}
+    (\delta f)(e_\beta^{n+1}) = \sum_\alpha d_{\beta\alpha}
+    (\gamma_{\alpha\beta})_*f(e_\alpha^n),
+\end{equation*}
+where $d_{\beta\alpha}$ is the degree of the map 
+$\p e_\beta^{n+1}\to X^{(n)}/(X^{(n)}-e^n_\alpha)\cong S^n$ and 
+$\gamma_{\alpha\beta}$ is a path from $x_\alpha$ to $x_\beta$. It can be
+verified that $\delta^2=0$. Thus we can define the cohomology groups with 
+local coefficients by 
+\begin{equation*}
+    H^n(X;\mathcal{G}) = \frac{\ker(\delta:C^n_{cell}(X;\mathcal{G})\to 
+    C^{n+1}_{cell}(X;\mathcal{G}))}{\mathrm{im}(\delta:C^{n-1}_{cell}(X;
+    \mathcal{G})\to C^n_{cell}(X;\mathcal{G}))}.
+\end{equation*}
+
 
 \subsubsection*{The Homotopy Groups of $V_k(\mR^n)$}
 \textbf{Fact:} The Stiefel manifold $V_k(\mR^n)$ is $(n-k-1)$-connected and 

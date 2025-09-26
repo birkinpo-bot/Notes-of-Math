@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  25 SEP 2025 20:27
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  26 SEP 2025 10:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -874,17 +874,17 @@ Overfull \hbox (9.80551pt too wide) in paragraph at lines 194--200
 \OML/cmm/m/it/12 f[]\OMS/cmsy/m/n/12 j[]$ \TU/lmr/m/n/12 and $\OML/cmm/m/it/12 h$ \TU/lmr/m/n/12 is the trivial homotopy, we simply write $\OML/cmm/m/it/12 c[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; f[]\OT1/cmr/m/n/12 )$ \TU/lmr/m/n/12 for $\OML/cmm/m/it/12 c[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; f[]; h\OT1/cmr/m/n/12 )$
  []
 
-[2] [3] Total classes: 0 [4] (./ObstructionTheory&CharacteristicClasses.aux)
+[2] [3] [4] Total classes: 0 [5] (./ObstructionTheory&CharacteristicClasses.aux)
 Package rerunfilecheck Info: File `ObstructionTheory&CharacteristicClasses.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 32458 strings out of 476683
- 776140 string characters out of 5807575
+ 32469 strings out of 476683
+ 776335 string characters out of 5807575
  1864012 words of memory out of 5000000
- 52183 multiletter control sequences out of 15000+600000
- 518480 words of font info for 73 fonts, out of 8000000 for 9000
+ 52189 multiletter control sequences out of 15000+600000
+ 519305 words of font info for 79 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  98i,9n,103p,5069b,442s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ObstructionTheory&CharacteristicClasses.pdf (4 pages).
+Output written on ObstructionTheory&CharacteristicClasses.pdf (5 pages).
