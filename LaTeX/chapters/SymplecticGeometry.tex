@@ -1,0 +1,135 @@
+\chapter{Symplectic Geometry}
+\label{chap:SymplecticGeometry}
+\section{Symplectic Geometry and Hamiltonian Mechanics}
+Let $(Q(q,p),P(q,p))$ be a transformation from $(q,p)$ to $(Q,P)$. The 
+Jacobian matrix of this transformation is
+\begin{equation*}
+    J = \frac{\p(Q,P)}{\p(q,p)} = 
+    \begin{pmatrix}
+        \pd{Q}{q} & \pd{Q}{p} \\ \pd{P}{q} & \pd{P}{p}
+    \end{pmatrix} =: 
+    \begin{pmatrix}
+        A & B \\ C & D
+    \end{pmatrix}.
+\end{equation*}
+\begin{theorem}
+    The Poission bracket condition is equivalent to $J^T$ being symplectic.
+\end{theorem}
+\begin{proof}
+    The Poission bracket condition is
+    \begin{gather*}
+        \{P_k,Q_l\}_{q,p} = \sum_{i=1}^{n}\Big(\pd{Q_l}{q_i}\pd{P_k}{p_i}
+        -\pd{Q_l}{p_i}\pd{P_k}{q_i}\Big) = \delta_{kl}, \\
+        \{Q_k,Q_l\}_{q,p} = \sum_{i=1}^{n}\Big(\pd{Q_k}{q_i}\pd{Q_l}{p_i}
+        -\pd{Q_k}{p_i}\pd{Q_l}{q_i}\Big) = 0, \\
+        \{P_k,P_l\}_{q,p} = \sum_{i=1}^{n}\Big(\pd{P_k}{q_i}\pd{P_l}{p_i}
+        -\pd{P_k}{p_i}\pd{P_l}{q_i}\Big) = 0. 
+    \end{gather*}
+    Written in a tigher form, they are
+    \begin{gather*}
+        \pd{Q}{q}\Big(\pd{P}{p}\Big)^T-\pd{Q}{p}\Big(\pd{P}{q}\Big)^T = I 
+        \Rightarrow A D^T - B C^T = I, \\
+        \pd{Q}{q}\Big(\pd{Q}{p}\Big)^T-\pd{Q}{p}\Big(\pd{Q}{q}\Big)^T = 0 
+        \Rightarrow A B^T - B A^T = 0, \\
+        \pd{P}{q}\Big(\pd{P}{p}\Big)^T-\pd{P}{p}\Big(\pd{P}{q}\Big)^T = 0 
+        \Rightarrow C D^T - D C^T = 0.
+        \end{gather*}
+    This is equivalent to say 
+    \begin{align*}
+        J \Omega J^T &= 
+        \begin{pmatrix}
+            A & B \\ C & D
+        \end{pmatrix}
+        \begin{pmatrix}
+            0 & I \\ -I & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+            A^T & C^T \\ B^T & D^T
+        \end{pmatrix}  \\ 
+        &= 
+        \begin{pmatrix}
+            A B^T - B A^T & A D^T - B C^T \\
+            C B^T - D A^T & C D^T - D C^T
+        \end{pmatrix} \\
+        &= 
+        \begin{pmatrix}
+            0 & I \\ -I & 0
+        \end{pmatrix} = \Omega.
+    \end{align*}
+\end{proof}
+\begin{theorem}
+    The differential form condition is equivalent to $J$ being symplectic.
+\end{theorem}
+\begin{proof}
+    Let $\omega_{(q,p)} = \sum\limits_{i=1}^n \md q_i\wedge \md p_i$,
+    $\omega_{(Q,P)} = \sum\limits_{i=1}^n \md Q_i\wedge \md P_i$. Then 
+    \begin{align*}
+        \omega_{(Q,P)} &= 
+        \sum_{i=1}^n\left(\sum_{k=1}^{n}\pd{Q_i}{q_k}\md q_k 
+        + \pd{Q_i}{p_k}\md p_k\right) \wedge 
+        \left(\sum_{l=1}^{n}\pd{P_i}{q_l}\md q_l 
+        + \pd{P_i}{p_l}\md p_l\right) \\ 
+        &= \sum_{i=1}^n\sum_{k,l=1}^{n}\left(\pd{Q_i}{q_k}\pd{P_i}{p_l}
+        -\pd{Q_i}{p_l}\pd{P_i}{q_k}\right)\md q_k\wedge \md p_l \\
+        &\quad + \sum_{i=1}^n\sum_{k<l}\left(\pd{Q_i}{q_k}\pd{P_i}{q_l}
+        -\pd{Q_i}{q_l}\pd{P_i}{q_k}\right)\md q_k\wedge \md q_l \\
+        &\quad + \sum_{i=1}^n\sum_{k<l}\left(\pd{Q_i}{p_k}\pd{P_i}{p_l}
+        -\pd{Q_i}{p_l}\pd{P_i}{p_k}\right)\md p_k\wedge \md p_l.
+    \end{align*}
+    Thus $\omega_{(Q,P)} = \omega_{(q,p)}$ if and only if 
+    \begin{gather*}
+        \sum_{i=1}^n\left(\pd{Q_i}{q_k}\pd{P_i}{p_l}
+        -\pd{Q_i}{p_l}\pd{P_i}{q_k}\right) = \delta_{kl}, \\
+        \sum_{i=1}^n\left(\pd{Q_i}{q_k}\pd{P_i}{q_l}
+        -\pd{Q_i}{q_l}\pd{P_i}{q_k}\right) = 0, \\
+        \sum_{i=1}^n\left(\pd{Q_i}{p_k}\pd{P_i}{p_l}
+        -\pd{Q_i}{p_l}\pd{P_i}{p_k}\right) = 0. 
+    \end{gather*}
+    Written in a tigher form, they are 
+    \begin{gather*}
+        \Big(\pd{Q}{q}\Big)^T\pd{P}{p}-\Big(\pd{P}{q}\Big)^T\pd{Q}{p} = I
+        \Rightarrow A^{T}D - C^{T}B = I, \\
+        \Big(\pd{Q}{q}\Big)^T\pd{Q}{p}-\Big(\pd{P}{q}\Big)^T\pd{P}{p} = 0
+        \Rightarrow A^{T}B - C^{T}A = 0, \\
+        \Big(\pd{Q}{p}\Big)^T\pd{P}{q}-\Big(\pd{P}{p}\Big)^T\pd{Q}{q} = 0
+        \Rightarrow B^{T}D - D^{T}B = 0.
+    \end{gather*}
+    This is equivalent to say 
+    \begin{align*}
+        J^T \Omega J &= 
+        \begin{pmatrix}
+            A^T & C^T \\ B^T & D^T
+        \end{pmatrix}
+        \begin{pmatrix}
+            0 & I \\ -I & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+            A & B \\ C & D
+        \end{pmatrix}  \\ 
+        &= 
+        \begin{pmatrix}
+            A^{T}C - C^{T}A & A^{T}D - C^{T}B \\
+            B^{T}C - D^{T}A & B^{T}D - D^{T}B
+        \end{pmatrix} \\
+        &= 
+        \begin{pmatrix}
+            0 & I \\ -I & 0
+        \end{pmatrix} = \Omega.
+    \end{align*}
+\end{proof}
+\begin{theorem}
+    $J$ is symplectic if and only if $J^T$ is symplectic.
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        J \text{ is symplectic} &\Leftrightarrow J^T\Omega J = \Omega \\ 
+        &\Leftrightarrow J^{-1}\Omega (J^T)^{-1} = \Omega \\ 
+        &\Leftrightarrow J\Omega J^T = \Omega \\
+        &\Leftrightarrow J^T \text{ is symplectic}.
+    \end{align*} 
+\end{proof}
+Those three theorems together give the following conclusion:
+\begin{theorem}
+    The Poission bracket condition is equivalent to the differential form 
+    condition.
+\end{theorem}

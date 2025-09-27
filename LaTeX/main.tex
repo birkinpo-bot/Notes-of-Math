@@ -63,15 +63,16 @@
 % \footnotemark[number]
 % \footnotetext[number]{text}
 
-\newtheorem{theorem}{\indent 定理}[section]
-\newtheorem{definition}[theorem]{\indent 定义}
-\newtheorem{proposition}[theorem]{\indent 命题}
-\newtheorem{lemma}[theorem]{\indent 引理}
-\newtheorem{corollary}[theorem]{\indent 推论}
-\newtheorem{example}[theorem]{\indent 例}
-\newtheorem{problem}[theorem]{\indent 问题}
-\newtheorem*{remark}{\indent 注}
-\renewcommand{\proofname}{\indent \bf 证明}
+\newtheorem{theorem}{\indent Theorem}[section]
+\newtheorem{definition}[theorem]{\indent Definition}
+\newtheorem{proposition}[theorem]{\indent Proposition}
+\newtheorem{lemma}[theorem]{\indent Lemma}
+\newtheorem{corollary}[theorem]{\indent Corollary}
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{\indent Example}
+\newtheorem{problem}[theorem]{\indent Problem}
+\newtheorem*{remark}{\noindent Remark}
+\renewcommand{\proofname}{\indent \bf Proof}
 \newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} %一次偏导
 \newcommand{\npd}[3]{\frac{\partial^{#1}{#2}}{\partial{#3}^{#1}}} %n次偏导, 也可以指代混合偏导
 \newcommand{\pD}[2]{\frac{{\rm D}(#1)}{{\rm D}(#2)}} %Jacobian
@@ -79,6 +80,7 @@
 \newcommand{\ft}[3]{{#1}_{#2},\dots,{#1}_{#3}}
 \newcommand{\cft}[3]{{#1}_{#2},\cdots,{#1}_{#3}}
 \newcommand{\id}{{\rm id}}
+\newcommand{\Id}{{\rm Id}}
 \newcommand{\supp}{{\rm supp}}
 \newcommand{\mi}{\sqrt{-1}}
 \newcommand{\me}{{\rm e}}
@@ -89,8 +91,12 @@
 \newcommand{\mC}{\mathbb{C}}
 \newcommand{\GL}{{\rm GL}}
 \newcommand{\SL}{{\rm SL}}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\str}{{\rm Tr}_s}
 \newcommand{\Aut}{{\rm Aut}}
 \newcommand{\Inn}{{\rm Inn}}
+\newcommand{\Out}{{\rm Out}}
+\newcommand{\End}{{\rm End}}
 \newcommand{\Lie}{{\rm Lie}}
 \newcommand{\mCP}{\mathbb{C}\mathrm{P}}
 \newcommand{\mRP}{\mathbb{R}\mathrm{P}}
@@ -105,6 +111,8 @@
 \newcommand{\mrm}{\mathrm}
 \newcommand{\Hom}{\mathrm{Hom}}
 \newcommand{\Gr}{\mathrm{Gr}}
+\newcommand{\p}{\partial}
+\newcommand{\bp}{\bar{\partial}}
 
 % \graphicspath{{Figures/}}
 
@@ -122,10 +130,11 @@
     % \include{chapters/LinearAlgebra} %引用高等代数章节
     % \include{chapters/RiemannianGeometry} %引用黎曼几何章节
     % \include{chapters/ComplexGeometry} %引用多复变、复几何章节
+    \include{chapters/SymplecticGeometry} %引用辛几何章节
     % \include{chapters/LieGroup} %引用李群章节
     % \include{chapters/Manifolds} %引用微分流形章节
     % \include{chapters/(Co)HomologyTheory} %引用(上)同调论章节
-    \include{chapters/HomotopyTheory} %引用同伦论章节
+    % \include{chapters/HomotopyTheory} %引用同伦论章节
     % \include{chapters/Graphs&Combinatorics} %引用图论与组合论章节
     % \include{chapters/GroupTheory} %引用群论章节
     % \include{chapters/PointSetTopology} %引用点集拓扑章节
