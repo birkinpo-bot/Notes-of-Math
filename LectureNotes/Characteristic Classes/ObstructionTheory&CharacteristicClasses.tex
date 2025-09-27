@@ -391,7 +391,6 @@ local coefficients by
     \mathcal{G})\to C^n_{cell}(X;\mathcal{G}))}.
 \end{equation*}
 
-
 \subsubsection*{The Homotopy Groups of $V_k(\mR^n)$}
 \textbf{Fact:} The Stiefel manifold $V_k(\mR^n)$ is $(n-k-1)$-connected and 
 the first nontrivial homotopy group is 
@@ -402,6 +401,55 @@ the first nontrivial homotopy group is
         \mZ_2,& n-k \text{ is even}.
     \end{cases}
 \end{equation*}
+
+\subsubsection*{Characteristic Classes}
+Now let's back to vector bundles. Let $\xi$ be an $\mR^n$-bundle over a CW 
+complex $B$. We want to investigate how nontrivial $\xi$ is. To do this, we 
+try to find $k$-linearly independent sections of $\xi$. First suppose there 
+is a Euclidean metric $g$ on $\xi$. Then we can talk about orthonormal 
+sections. 
+\begin{remark}
+    Any real vector bundle over a paracompact space admits a 
+    Euclidean metric. Each two Euclidean metrics $g_0, g_1$ are 
+    homotopic through $g_t = (1-t)g_0 + tg_1$. 
+\end{remark}
+Let $V_k(\xi)$ be the Stiefel manifold bundle associated to $\xi$. 
+It's a fiber bundle over $B$ with fiber $F=V_k(\mR^n)$. A section $s$ of 
+$V_k(\xi)$ is a $k$-orthonormal frame of $\xi$. Locally on a trivializing
+neighborhood $U_\alpha$, $s$ can be identified as a map from $U_\alpha$ to
+$V_k(\mR^n)$. Thus we can use obsruction theory to study the existence of
+sections of $V_k(\xi)$. 
+
+The obstructions $c^{j+1}(s)$ lie in $H^{j+1}(B;\mathcal{G})$, where 
+$\mathcal{G}$ is a local coefficient system on $B$ with typical group 
+$\pi_j(V_k(\mR^n))$. This is because although the ristriction of $V_k(\xi)$ 
+on every $j$-cell $e^j_\alpha$ is trivial, the transition function may not 
+be identity, from which induces a nontrivial isomorphism of homotopy groups. 
+Moreover, any path $\gamma_{xy}$ from $x$ to $y$ can lift to a homotopy from 
+$F_x$ to $F_y$, thus induces an isomorphism 
+\begin{equation*}
+    (\gamma_{xy})_*:\pi_j\big(F_x,x\big)
+    \overset{\cong}{\to}\pi_j\big(F_y,y\big).
+\end{equation*}
+The theorems about obstruction classes can all generalize to cohomology with 
+local coefficients without difficulty. 
+
+Now since $V_k(\mR^n)$ is $(n-k-1)$-connected, all the section $s$ can be 
+extended to $B^{(n-k)}$. The first obstruction comes when extend $s$ to 
+$(n-k+1)$-skeleton, which we denote by 
+\begin{equation*}
+    \mathfrak{o}_{n-k+1}:=c^{n-k+1}(s)\in H^{n-k+1}(B;\{\pi_{n-k}(V_k(\mR^n))\})
+\end{equation*}
+Since all sections on $B^{(n-k)}$ are homotopic with each other, this 
+obstruction class does not depend on the choice of $s$, i.e, 
+$\mathfrak{o}_{n-k+1}$ it is well-defined. 
+
+When $n-k=2j-1$ is odd and $k\neq1$, $\pi_{n-k}(V_k(\mR^n))=\mZ_2$. In this 
+situation the local coefficient system is trivial. Thus the cohomology is 
+in fact the ordinary cohomology $H^{2j}(B;\mZ_2)$. 
+
+
+
 
 % \bibliography{References}
 \end{document}
