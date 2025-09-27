@@ -1,6 +1,132 @@
 \chapter{Symplectic Geometry}
 \label{chap:SymplecticGeometry}
-\section{Symplectic Geometry and Hamiltonian Mechanics}
+\section{Hamiltonian Mechanics}
+\subsubsection*{Hamilton's Equations}
+Hamiltonian mechanics is a reformulation of classical mechanics. 
+It arises from Lagrangian mechanics by a Legendre transformation. 
+The state of a mechanical system is described by a point in a 
+$2n$-dimensional phase space, with coordinates $(q_1,\ldots,q_n,
+p_1,\ldots,p_n)$, where the $q_i$ are the generalized coordinates,
+and the $p_i$ are the conjugate momenta. The time evolution of the
+system is given by \textbf{Hamilton's equations}:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \pd{q_i}{t} &= \pd{H}{p_i}, \\
+        \pd{p_i}{t} &= -\pd{H}{q_i},
+    \end{aligned}
+    \quad i=1,\ldots,n,\right.
+\end{equation*}
+where $H(q,p,t)$ is the \textbf{Hamiltonian function}, which is usually the
+total energy of the system.
+
+Suppoese $(q(t),p(t))$ is a solution to Hamilton's equations. 
+Then for any function $f(q,p,t)$, its time evalution is given by 
+\begin{equation*}
+    \frac{\md f}{\md t} = \pd{f}{t} + \sum_{i=1}^n\left(
+    \pd{f}{q_i}\frac{\md q_i}{\md t} + 
+    \pd{f}{p_i}\frac{\md p_i}{\md t}\right)
+    = \pd{f}{t} + \sum_{i=1}^{n}\left(\pd{f}{q_i}\pd{H}{p_i} 
+    - \pd{f}{p_i}\pd{H}{q_i}\right).
+\end{equation*}
+We define the \textbf{Poisson bracket} of two functions $f$ and $g$ by
+\begin{equation*}
+    \{f,g\} = \sum_{i=1}^{n}\left(\pd{f}{q_i}\pd{g}{p_i} 
+    - \pd{f}{p_i}\pd{g}{q_i}\right).
+\end{equation*}
+Then the time evolution of $f$ can be written as 
+\begin{equation*}
+    \frac{\md f}{\md t} = \pd{f}{t} + \{f,H\}.
+\end{equation*}
+So $f$ is a constant of motion if and only if $\pd{f}{t} + \{f,H\} = 0$. 
+If in particular $f$ does not depend on $t$, then $f$ is a constant of 
+motion if and only if $\{f,H\} = 0$. 
+
+\subsubsection*{Hamilton's Equations and Symplectic Forms}
+To formulate Hamiltonian mechanics in a symplectic geometric framework,
+we introduce the symplectic form $\omega$ on the phase space:
+\begin{equation*}
+    \omega = \sum_{i=1}^n \md q_i \wedge \md p_i.
+\end{equation*}
+This is a closed, non-degenerate 2-form. Let $H = H(q,p)$ be a 
+Hamiltonian function. The Hamiltonian vector field $X_H$ associated 
+to $H$ is defined by the equation
+\begin{equation*}
+    \iota_{X_H}\omega = \md H, 
+\end{equation*}
+where $\iota_{X_H}$ denotes the interior product with $X_H$. 
+The left-hand side is 
+\begin{equation*}
+    \iota_{X_H}\omega = \sum_{i=1}^n\Big(\md q_i(X_H)\md p_i 
+    - \md p_i(X_H)\md q_i\Big).
+\end{equation*}
+The right-hand side is
+\begin{equation*}
+    \md H = \sum_{i=1}^n\left(\pd{H}{q_i}\md q_i + \pd{H}{p_i}\md p_i\right).
+\end{equation*}
+So we have
+\begin{equation*}
+    \md q_i(X_H) = \pd{H}{p_i}, \quad \md p_i(X_H) = -\pd{H}{q_i}.
+\end{equation*}
+Thus the Hamiltonian vector field is 
+\begin{equation*}
+    X_H = \sum_{i=1}^n\left(\pd{H}{p_i}\pd{}{q_i} 
+    - \pd{H}{q_i}\pd{}{p_i}\right).
+\end{equation*}
+The time evolution of the system is given by the flow of $X_H$, which 
+is exactly Hamilton's equations. 
+
+For any smooth functions $f$, we can uniquely determine a verctor field 
+$X_f$ by solving the equation 
+\begin{equation*}
+    \iota_{X_f}\omega = \md f.
+\end{equation*}
+For any two smooth functions $f,g$, We can define the Poission bracket to be 
+\begin{equation*}
+    \{f,g\} := \omega(X_f,X_g).
+\end{equation*}
+
+When $\omega = \sum_{i=1}^{n}\md q_i\wedge \md p_i$, we can get
+\begin{equation*}
+    X_f = \sum_{i=1}^{n}\left(\pd{f}{p_i}\pd{}{q_i} 
+    - \pd{f}{q_i}\pd{}{p_i}\right).
+\end{equation*}
+So 
+\begin{align*}
+    \omega(X_f,X_g) &= \sum_{i,j=1}^{n}
+    \omega\left(\pd{f}{p_i}\pd{}{q_i}-\pd{f}{q_i}\pd{}{p_i},
+    \pd{g}{p_j}\pd{}{q_j}-\pd{g}{q_j}\pd{}{p_j}\right) \\
+    &= \sum_{i,j=1}^{n}\left(\pd{f}{q_i}\pd{g}{p_j} 
+    - \pd{f}{p_i}\pd{g}{q_j}\right)\delta_{ij} \\
+    &= \sum_{i=1}^{n}
+    \left(\pd{f}{q_i}\pd{g}{p_i} - \pd{f}{p_i}\pd{g}{q_i}\right).
+\end{align*}
+
+\subsubsection*{Canonical Transformations}
+Let $(Q(q,p),P(q,p))$ be a transformation from $(q,p)$ to $(Q,P)$. We say
+it is a \textbf{canonical transformation} if it preserves the form of 
+Hamilton's equations, i.e., if $(Q(t),P(t))$ satisfies
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \pd{Q_i}{t} &= \pd{K}{P_i}, \\
+        \pd{P_i}{t} &= -\pd{K}{Q_i},
+    \end{aligned}
+    \quad i=1,\ldots,n,\right.
+\end{equation*}
+for some Hamiltonian function $K(Q,P,t)$. This is equivalent to the 
+\textbf{Poisson bracket condition}:
+\begin{gather*}
+    \{P_i,Q_j\}_{q,p} = \delta_{ij}, \\
+    \{Q_i,Q_j\}_{q,p} = 0, \\
+    \{P_i,P_j\}_{q,p} = 0.
+\end{gather*}
+Another equivalent condition is the \textbf{differential form condition}:
+\begin{equation*}
+    \sum_{i=1}^n\md Q_i\wedge\md P_i=\sum_{i=1}^n\md q_i\wedge\md p_i.
+\end{equation*}
+
+\subsubsection*{Canonical transformations and Symplectic Forms}
 Let $(Q(q,p),P(q,p))$ be a transformation from $(q,p)$ to $(Q,P)$. The 
 Jacobian matrix of this transformation is
 \begin{equation*}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  27 SEP 2025 18:59
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  27 SEP 2025 20:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -896,22 +896,17 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 ]
 Chapter 1.
-
-Overfull \hbox (17.03043pt too wide) in paragraph at lines 3--3
-[]\TU/lmr/bx/n/17.28 Symplectic Geometry and Hamiltonian Me-
- []
-
-[5] [6]) [7] Total classes: 0 (./main.aux (./chapters/SymplecticGeometry.aux))
+[5] [6] [7] [8] [9]) [10] Total classes: 0 (./main.aux (./chapters/SymplecticGeometry.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 79D2E3C3DB5E446EBB8376F2CDABE267;432.
+(rerunfilecheck)             Checksum: 02C8B19DA07BAFF701EA982ADA504A9E;303.
  ) 
 Here is how much of TeX's memory you used:
  33104 strings out of 476683
  795368 string characters out of 5807575
- 1866012 words of memory out of 5000000
+ 1867012 words of memory out of 5000000
  52795 multiletter control sequences out of 15000+600000
  521591 words of font info for 89 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  98i,14n,103p,5002b,416s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (7 pages).
+Output written on main.pdf (10 pages).
