@@ -110,6 +110,9 @@
 \newcommand{\mfr}{\mathfrak}
 \newcommand{\mrm}{\mathrm}
 \newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Ext}{\mathrm{Ext}}
+\newcommand{\Tor}{\mathrm{Tor}}
+\newcommand{\Ker}{\mathrm{Ker}}
 \newcommand{\Gr}{\mathrm{Gr}}
 \newcommand{\p}{\partial}
 \newcommand{\bp}{\bar{\partial}}
@@ -222,13 +225,14 @@ There is a useful lemma about difference cochains.
 \begin{lemma}
     For any $f:K^{(n)}\to Y$ and any cochain $d\in C^n_{cell}(K;\pi_n(Y))$, 
     there exists a map $f':K^{(n)}\to Y$ such that 
-    $f'|_{K^{(n-1)}} = f|_{K^{(n-1)}}$ and $c^n(f,f') = d$.
+    $f'|_{K^{(n-1)}} = f|_{K^{(n-1)}}$ and $d^n(f,f') = d$.
 \end{lemma}
 
 With the above preparations, we have the following theorem:
 \begin{theorem}[Eilenberg]
-    Given a map $f:$, if and only if $f$ can extend 
-    to $K^{(n+1)}$ after having been changed on $K^{(n)}\big\backslash K^{(n-1)}$.
+    Given a map $f:K^{(n)}\to Y$, $[c^n(f)] = 0$ in 
+    $H^{n+1}(K;\pi_n(Y))$ if and only if $f$ can extend to $K^{(n+1)}$ 
+    after having been changed on $K^{(n)}\big\backslash K^{(n-1)}$.
 \end{theorem}
 \begin{proof}
     $(\Leftarrow):$ If $\exists\,f':K^{(n+1)}\to Y$ such that 
@@ -254,7 +258,7 @@ With the above preparations, we have the following theorem:
     extended to $K^{(n+1)}$. Besides, any two maps $f,g:K^{(n)}\to Y$ are 
     homotopic. Indeed, $f|_{K^{(0)}}\simeq g|_{K^{(0)}}$ for the reason that 
     $K$ is path-connected. We denote the homotopy by $h_0$. Then $h_0$ can 
-    be extened to $h_n:K^{n}\times I\to Y$ since all the deformation cochain 
+    be extened to $h_n:K^{(n)}\times I\to Y$ since all the deformation cochain 
     vanish.
 \end{example}
 
@@ -264,7 +268,7 @@ With the above preparations, we have the following theorem:
 \end{corollary}
 
 \begin{theorem}[Hopf-Whitehead]
-     and $(n-1)$-connected space $Y$, 
+    For any CW complex $K$ with $\dim K\leq n$ and $(n-1)$-connected space $Y$, 
     there is a one-to-one correspondence:
     \begin{equation*}
         [K,Y]\longleftrightarrow H^n(K;\pi_n(Y)).
@@ -273,7 +277,7 @@ With the above preparations, we have the following theorem:
 If we weaken the dimensional condition and instead strengthen the target space 
 to be an Eilenberg-Maclane space $K(\pi,n)$. Then we will get another theorem: 
 \begin{theorem}
-    For any CW complex $X$, group $\pi$ and integer $n$, there is a 
+    For any CW complex $X$, abelian group $\pi$ and integer $n$, there is a 
     one-to-one correspondence: 
     \begin{equation*}
         [X,K(\pi,n)]\longleftrightarrow H^n(X;\pi).
@@ -333,6 +337,11 @@ $\mathcal{G}$.
     If $\mathcal{G}$ is a local coefficient system on $X$ with typical group 
     $G$ and trivial action. Then it is the ordinary constant coefficient we 
     are familiar with.
+\end{example}
+
+\begin{example}
+    If $G_x = \mZ_2$ for all $x\in X$, then since $\Aut(\mZ_2)=\{\Id\}$, 
+    the local coefficient system with typical group $\mZ_2$ must be trivial. 
 \end{example}
 
 \begin{example}
@@ -397,25 +406,31 @@ the first nontrivial homotopy group is
 \begin{equation*}
     \pi_{n-k}(V_k(\mR^n)) = 
     \begin{cases}
-        \mZ,& n-k \text{ is odd or } k=1; \\
-        \mZ_2,& n-k \text{ is even}.
+        \mZ,& n-k \text{ is even or } k=1; \\
+        \mZ_2,& n-k \text{ is odd and } k>1.
     \end{cases}
 \end{equation*}
+\begin{remark}
+    It is evident that $V_k(\mR^n)$ is a simple space.
+\end{remark}
 
 \subsubsection*{Characteristic Classes}
 Now let's back to vector bundles. Let $\xi$ be an $\mR^n$-bundle over a CW 
 complex $B$. We want to investigate how nontrivial $\xi$ is. To do this, we 
-try to find $k$-linearly independent sections of $\xi$. First suppose there 
-is a Euclidean metric $g$ on $\xi$. Then we can talk about orthonormal 
-sections. 
-\begin{remark}
-    Any real vector bundle over a paracompact space admits a 
-    Euclidean metric. Each two Euclidean metrics $g_0, g_1$ are 
-    homotopic through $g_t = (1-t)g_0 + tg_1$. 
-\end{remark}
+try to find $k$-linearly independent sections of $\xi$. 
+
+% First suppose there 
+% is a Euclidean metric $g$ on $\xi$. Then we can talk about orthonormal 
+% sections. 
+% \begin{remark}
+%     Any real vector bundle over a paracompact space admits a 
+%     Euclidean metric. Each two Euclidean metrics $g_0, g_1$ are 
+%     homotopic through $g_t = (1-t)g_0 + tg_1$. 
+% \end{remark}
+
 Let $V_k(\xi)$ be the Stiefel manifold bundle associated to $\xi$. 
 It's a fiber bundle over $B$ with fiber $F=V_k(\mR^n)$. A section $s$ of 
-$V_k(\xi)$ is a $k$-orthonormal frame of $\xi$. Locally on a trivializing
+$V_k(\xi)$ is a $k$-frame of $\xi$. Locally on a trivializing
 neighborhood $U_\alpha$, $s$ can be identified as a map from $U_\alpha$ to
 $V_k(\mR^n)$. Thus we can use obsruction theory to study the existence of
 sections of $V_k(\xi)$. 
@@ -425,8 +440,8 @@ $\mathcal{G}$ is a local coefficient system on $B$ with typical group
 $\pi_j(V_k(\mR^n))$. This is because although the ristriction of $V_k(\xi)$ 
 on every $j$-cell $e^j_\alpha$ is trivial, the transition function may not 
 be identity, from which induces a nontrivial isomorphism of homotopy groups. 
-Moreover, any path $\gamma_{xy}$ from $x$ to $y$ can lift to a homotopy from 
-$F_x$ to $F_y$, thus induces an isomorphism 
+Moreover, any path $\gamma_{xy}$ from $x$ to $y$ can lift to a homotopy 
+from $F_x$ to $F_y$, thus induces an isomorphism 
 \begin{equation*}
     (\gamma_{xy})_*:\pi_j\big(F_x,x\big)
     \overset{\cong}{\to}\pi_j\big(F_y,y\big).
@@ -435,18 +450,160 @@ The theorems about obstruction classes can all generalize to cohomology with
 local coefficients without difficulty. 
 
 Now since $V_k(\mR^n)$ is $(n-k-1)$-connected, all the section $s$ can be 
-extended to $B^{(n-k)}$. The first obstruction comes when extend $s$ to 
+extended to $B^{(n-k)}$, all the sections on $B^{(n-k)}$ are homotopic with 
+each other. The first obstruction comes when extend $s$ to 
 $(n-k+1)$-skeleton, which we denote by 
 \begin{equation*}
-    \mathfrak{o}_{n-k+1}:=c^{n-k+1}(s)\in H^{n-k+1}(B;\{\pi_{n-k}(V_k(\mR^n))\})
+    \mathfrak{o}_{n-k+1}:=c^{n-k+1}(s)\in 
+    H^{n-k+1}\Big(B;\big\{\pi_{n-k}\big(V_k(\mR^n)\big)\big\}\Big)
 \end{equation*}
 Since all sections on $B^{(n-k)}$ are homotopic with each other, this 
 obstruction class does not depend on the choice of $s$, i.e, 
 $\mathfrak{o}_{n-k+1}$ it is well-defined. 
 
-When $n-k=2j-1$ is odd and $k\neq1$, $\pi_{n-k}(V_k(\mR^n))=\mZ_2$. In this 
-situation the local coefficient system is trivial. Thus the cohomology is 
-in fact the ordinary cohomology $H^{2j}(B;\mZ_2)$. 
+Now we construct a series of characteristic classes from obsruction classes. 
+\begin{itemize}
+    \item If $n-k=2j-1$ is odd and $1<k<n$, then 
+    $\pi_{2j-1}(V_{n-2j+1}(\mR^n)) = \mZ_2$. In this case, 
+    \begin{align*}
+        H^{2j}\Big(B;\big\{\pi_{2j-1}\big(V_{n-2j+1}(\mR^n)\big)\big\}\Big)
+        &\cong H^{2j}(B;\mZ_2) \\ 
+        \mathfrak{o}_{2j} &\mapsto w_{2j}(\xi).
+    \end{align*}
+    \item If $n-k=2j$ is even and $1<k<n$, then 
+    $\pi_{2j}(V_{n-2j}(\mR^n)) = \mZ$. After applying the mod 2 reduction, 
+    we have 
+    \begin{align*}
+        H^{2j+1}\Big(B;\big\{\pi_{2j}\big(V_{n-2j}(\mR^n)\big)\big\}\Big)
+        &\xrightarrow{\text{mod } 2} H^{2j+1}(B;\mZ_2) \\ 
+        \mathfrak{o}_{2j+1} &\mapsto w_{2j+1}(\xi).
+    \end{align*}
+    \item If $k=n$, then $V_n(\mR^n) = O(n)$, but $\pi_0(O(n)) = \mZ_2$ is 
+    not a group. We turn to use $\tilde{H}^0(O(n);\mZ) = \mZ$ instead. Then 
+    $\tilde{H}^0(O(n);\mZ)$ is a local coefficient system on $B$ with typical 
+    group $\mZ$ and action induced by the determinant representation 
+    $\det:\pi_1(B)\to O(n)\to \{\pm 1\}$. After applying the mod 2 reduction, 
+    we have
+    \begin{align*}
+        H^1\Big(B;\big\{\tilde{H}^0(O(n))\big\}\Big)
+        &\xrightarrow{\text{mod } 2} H^1(B;\mZ_2) \\ 
+        \mathfrak{o}_1 &\mapsto w_1(\xi).
+    \end{align*}
+    \item If $k=1$, then $\pi_{n-1}(V_1(\mR^n)) = \pi_{n-1}(S^{n-1}) = \mZ$.
+    After applying the mod 2 reduction, we have
+    \begin{align*}
+        H^n\Big(B;\big\{\pi_{n-1}(V_1(\mR^n))\big\}\Big)
+        &\xrightarrow{\text{mod } 2} H^n(B;\mZ_2) \\ 
+        \mathfrak{o}_n &\mapsto w_n(\xi).
+    \end{align*}
+\end{itemize}
+
+\begin{center}
+\begin{table}[htbp]
+\begin{tabular}{|c|cc|}
+\hline
+Cases              & \multicolumn{1}{c|}{Obstruction classes}       & Characteristic classes       \\ \hline
+$n-k=2j-1,\;1<k<n$ & \multicolumn{2}{c|}{$\mathfrak{o}_{2j}=w_{2j}$}                               \\ \hline
+$n-k=2j,\;1<k<n$   & \multicolumn{2}{c|}{$\mathfrak{o}_{2j+1}\xrightarrow{\text{mod } 2}w_{2j+1}$} \\ \hline
+$k=n$              & \multicolumn{2}{c|}{$\mathfrak{o}_{1}\xrightarrow{\text{mod } 2}w_{1}$}       \\ \hline
+$k=1$              & \multicolumn{2}{c|}{$\mathfrak{o}_{n}\xrightarrow{\text{mod } 2}w_{n}$}       \\ \hline
+\end{tabular}
+\end{table}
+\end{center}
+
+\subsubsection*{Properties of our construction}
+\noindent\textbf{Stiefel-Whitney Classes}
+\begin{theorem}
+    $w_i(\xi)\in H^i(B;\mZ_2)$ are the Stiefel-Whitney classes of $\xi$.
+\end{theorem}
+\begin{proof}
+    omitted.
+\end{proof}
+
+\noindent\textbf{$\mathfrak{o}_n$ and the Euler Class}
+If $\xi$ is orientable, then the structure group of $\xi$ can be 
+reduced to $SO(n)$. Thus the action of $\pi_1(B)$ on 
+$\pi_{n-k}(V_k(\mR^n))$ is trivial for $1\leq k<n$. So the local 
+coefficient system is trivial. In this case, 
+\begin{equation*}
+    H^n\Big(B;\big\{\pi_{n-1}(V_1(\mR^n))\big\}\Big) 
+    \cong H^n(B;\mZ).
+\end{equation*}
+\begin{theorem}
+    If $\xi$ is orientable, then $\mathfrak{o}_n\in H^n(B;\mZ)$ 
+    is the Euler class $e(\xi)$.
+\end{theorem}
+\begin{proof}
+    omitted.
+\end{proof}
+
+\noindent\textbf{$w_1$ and Orientability}
+The structure group of $\xi$ can be reduced to $SO(n)$ if and only if
+the transition functions all have determinant 1, i.e., the action of 
+$\pi_1(B)$ on $\tilde{H}^0(O(n);\mZ)$ is trivial. This is equivalent to
+the triviality of $\mathfrak{o}_1$. Thus
+\begin{proposition}
+    $\mathfrak{o}_1 = 0$ if and only if $\xi$ is orientable.
+\end{proposition}
+\begin{theorem}
+    $\mathfrak{o}_1$ has order 2, i.e., $2\mathfrak{o}_1 = 0$. Thus 
+    \begin{equation*}
+        w_1(\xi) = 0 \text{ if and only if } \mathfrak{o}_1 = 0.
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    The connected conponents of the space $V_n(\mR^n)$ are identified with 
+    orientation of the fiber, and hence the elements of 
+    $\tilde{H}^0(V_n(\mR^n);\mZ)\cong\mZ$ has the form 
+    $a\mathrm{Or}_1-a\mathrm{Or}_2$; to each orientation we assign its 
+    Coefficient.
+    
+    ...
+\end{proof}
+
+\noindent\textbf{Is $w_i$ the true obsruction?}
+The fibration 
+\begin{equation*}
+    S^{2j-1}\to V_{n-2j+1}(\mR^n)\to V_{n-2j}(\mR^n).
+\end{equation*}
+induces an exact sequence of homotopy groups
+\begin{equation*}
+    \pi_{2j}(V_{n-2j}(\mR^n)) \xrightarrow{\partial} 
+    \pi_{2j-1}(S^{2j-1})\to \pi_{2j-1} (V_{n-2j+1}(\mR^n)) \to 0.
+\end{equation*}
+It is actually 
+\begin{equation*}
+    \mZ \xrightarrow{\p} \mZ \xrightarrow{i_*} \mZ_2 \to 0.
+\end{equation*}
+Therefore $\mathrm{Im}\,\p=\Ker i_* = 2\mZ$ and $\Ker\p = 0$. So $\p$ is
+multiplication by 2. So the exact sequence is a short exact sequence
+\begin{equation*}
+    0\to \mZ \xrightarrow{\times 2} \mZ \xrightarrow{i_*} \mZ_2 \to 0.
+\end{equation*}
+This short exact sequence induces a long exact sequence of cohomology groups
+\begin{equation*}
+    \cdots \to H^{2j}(B;\mZ) 
+    \xrightarrow{i_*} H^{2j}(B;\mZ_2) \xrightarrow{\beta} H^{2j+1}(B;\mZ) 
+    \xrightarrow{\times 2} H^{2j+1}(B;\mZ) \to \cdots
+\end{equation*}
+where $\beta$ is the Bockstein homomorphism.
+\begin{theorem}
+    $\mathfrak{o}_{2j+1} = \beta(\mathfrak{o}_{2j})$.
+\end{theorem}
+\begin{proof}
+    omitted.
+\end{proof}
+\begin{corollary}
+    $\mathfrak{o}_{2j+1}$ has order 2, i.e., 
+    $2\mathfrak{o}_{2j+1} = 0$. Thus 
+    \begin{equation*}
+        w_{2j+1}(\xi) = 0 \text{ if and only if } 
+        \mathfrak{o}_{2j+1} = 0.
+    \end{equation*}
+\end{corollary}
+In summary, almost all the Stiefel-Whitney classes $w_i$ are the true 
+obsructions, except when $i=n$ is even. If in addition $\xi$ is oriented, 
+then $\mathfrak{o}_n$ is Euler class $e(\xi)$.
 
 % \bibliography{References}
 \end{document}
