@@ -1,0 +1,44 @@
+\section{Lecture 4}
+\label{sec:lecture-4}
+\setcounter{equation}{0}
+\textbf{Recall:} Set up: 
+Let
+\begin{equation*}
+    (E,v):0\to E_0\xrightarrow{v}E_1\xrightarrow{v}
+    \cdots\xrightarrow{v}E_n\to0
+\end{equation*}
+where 
+
+\noindent$1.$ $E_j$ are holomorphic vector bundles on a 
+connected complex manifold $X$.
+
+\noindent$2.$ $v$ are holomorphic bundle maps
+($\bp^E\cdot v=[\bp^E,v]=0$) and $v^2=0$.
+
+Let $h^E=\bigoplus h^{E_j}$ be a Hermitian metric on $E$, 
+$v^*$ the adjoint of $v$ w.r.t. $h^E$, and $V=v+v^*$. 
+
+For $u>0$, define the superconnection $A_u=\nabla^E+\sqrt{u}V$. 
+
+Last time we have prove the following theorem:
+\begin{theorem}
+    \begin{equation*}
+    \pd{}{u}\str\left[\exp(-A_u^2)\right]
+    =-\frac{1}{\sqrt{u}}\bp\p\str\left[N\exp(-A_u^2)\right]
+    \end{equation*}
+\end{theorem}
+
+\hrule ~\\
+
+For $x\in X$, let 
+\begin{equation*}
+    H^i_x:=H^i_x(E)=
+    \frac{\mrm{Ker}\,v|_{E_{i,x}}}{\mrm{Im}\,v|_{E_{i-1,x}}}
+\end{equation*}
+Assume that $\dim H^i_x$ are constant $\forall i$, then
+\begin{proposition}
+    $H^i_x$ form a holomorphic vector bundle $H^i$ on $X$.
+\end{proposition}
+\begin{proof}
+    ommitted.
+\end{proof}
