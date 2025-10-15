@@ -1,6 +1,46 @@
 \section{Lecture 4}
 \label{sec:lecture-4}
 \setcounter{equation}{0}
+
+省流版: 
+
+$1.$ 证明了当Chern complex $(E,v)$ 的同调群 $H^i(E)_x$ 的维数不变时,
+同调群构成了一个全纯向量丛. 我们可以用等价类具体地写出该向量丛的全纯结构. 
+这一段比较technical.
+
+$2.$ 利用Hodge分解, 可以将 $H^i$ 同构于$E_i$ 的一个子丛(注意这个子丛本身
+不一定是全纯的), $E$ 上的Chern联络 $\nabla^E$ 诱导出子丛上的联络, 进而定义了 $H$ 
+上的Chern联络 $\nabla^H$. $E$ 上的Hermitian度量又诱导出 $H$ 上的Hermitian度量. 
+可以证明 $\nabla^H$ 是 $(H,h^H)$ 上的Chern联络.
+
+$3.$ 然后麻老师证明了一个很重要的估计: 对任意紧集 $K\subset X,\,l\in\mathbb{N}$, 
+存在 $C>0$, 使得 $\forall u>1$, 有 
+\begin{gather*}
+    \left\|\str\left[\exp(-A_u^2)\right]
+    -\str\left[\exp(-(\nabla^H)^2)\right]\right\|_{\mrm{C}^l(K)}
+    \leq \frac{C}{\sqrt{u}}. \\    
+    \left\|\str\left[N\exp(-A_u^2)\right]
+    -\str\left[N\exp(-(\nabla^H)^2)\right]\right\|_{\mrm{C}^l(K)}
+    \leq \frac{C}{\sqrt{u}}.
+\end{gather*}
+证明的思路是利用热核方法给出 $\exp(-A_u^2)$ 的 “留数定理” 表达式, 
+\begin{equation*}
+    \exp(-A_u^2)
+    =\frac{1}{2\pi\mi}\int_{\Delta\sqcup\delta}
+    \frac{\exp(-\lambda)}{\lambda-A_u^2}\md\lambda 
+\end{equation*}
+其中 $\Delta$ 和 $\delta$ 是适当选取的积分路径. 之后利用 Hodge 分解
+可将矩阵写成分块的形式, 计算出 $(\lambda-A_u^2)^{-1}$ 的各个块, 逐块
+估计, 最后得到上面的不等式. 这一段比较technical.
+
+$4.$ 我们借助 Gamma 函数定义了 $\zeta$ 函数 $\zeta(h^E)$, 上面的估计
+保证了积分的收敛性. $\zeta(h^E)$ 满足
+\begin{equation*}
+    \frac{\bp\p}{2\pi\mi}\zeta(h^E) = {\rm ch}(H,h^H)-{\rm ch}(E,h^E)
+\end{equation*}
+
+\hrule ~\\
+
 \textbf{Recall:} Set up: 
 Let
 \begin{equation*}
