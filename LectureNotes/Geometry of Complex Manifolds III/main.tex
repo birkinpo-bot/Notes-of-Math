@@ -1,7 +1,7 @@
 % 注释的快捷键: Ctrl + /
 % \documentclass[a4paper]{ctexart}
 
-\documentclass[12pt,a4paper]{book}
+\documentclass[12pt,a4paper]{article}
 
 \usepackage{xeCJK}
 % \usepackage{ctex}
@@ -14,7 +14,7 @@
 \usepackage{cases}
 \usepackage{color}
 \usepackage{tikz-cd}
-\usepackage{quiver}
+% \usepackage{quiver}
 \usepackage{setspace}
 \usepackage{spectralsequences}
 
@@ -68,10 +68,9 @@
 \newtheorem{proposition}[theorem]{\indent Proposition}
 \newtheorem{lemma}[theorem]{\indent Lemma}
 \newtheorem{corollary}[theorem]{\indent Corollary}
-\theoremstyle{definition}
 \newtheorem{example}[theorem]{\indent Example}
 \newtheorem{problem}[theorem]{\indent Problem}
-\newtheorem*{remark}{\noindent Remark}
+\newtheorem*{remark}{\indent Remark}
 \renewcommand{\proofname}{\indent \bf Proof}
 \newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} %一次偏导
 \newcommand{\npd}[3]{\frac{\partial^{#1}{#2}}{\partial{#3}^{#1}}} %n次偏导, 也可以指代混合偏导
@@ -118,45 +117,19 @@
 
 \begin{document}
 
-    \title{数学笔记}
-    \author{BeBop}
+    \title{复流形上的几何III}
+    \author{Jianbo Zhou}
     \maketitle
     % \newpage
 
     \tableofcontents
     \newpage
     
-    % \part{知识整理}
-    % \include{chapters/LinearAlgebra} %引用高等代数章节
-    % \include{chapters/RiemannianGeometry} %引用黎曼几何章节
-    % \include{chapters/ComplexGeometry} %引用多复变、复几何章节
-    \include{chapters/SymplecticGeometry} %引用辛几何章节
-    % \include{chapters/LieGroup} %引用李群章节
-    % \include{chapters/Manifolds} %引用微分流形章节
-    % \include{chapters/(Co)HomologyTheory} %引用(上)同调论章节
-    % \include{chapters/HomotopyTheory} %引用同伦论章节
-    % \include{chapters/Graphs&Combinatorics} %引用图论与组合论章节
-    % \include{chapters/GroupTheory} %引用群论章节
-    % \include{chapters/PointSetTopology} %引用点集拓扑章节
-    % \include{chapters/RepresentationTheory&AssociativeAlgebra} %引用表示论与结合代数章节
-    % \include{chapters/VectorBundles&CharacteristicClasses} %引用向量丛与示性类章节
-    % \include{chapters/CategoryTheory} %引用范畴论章节
-
-    % \part{杂题集萃}
-    % \include{problems/Combinatorics} %引用组合问题
-    % \include{problems/Algebra} %引用代数问题
-    % \include{problems/Topology} %引用拓扑问题
-    % \include{problems/PlaneGeometry} %引用平面几何问题
-    % \include{problems/DifferentialGeometry} %引用微分几何问题
-
-    % \part{易错知识} %收录各种例子与反例，收录各种易错的小细节
-    % \include{example/LieGroup} %引用李群易错知识点
-    % \include{example/ComplexGeometry} %引用复几何易错知识点
-    % \include{example/RiemannianGeometry} %引用黎曼几何易错知识点
-
-    % \part{亟待整理} %收录每天讨论后来不及整理的内容
-    % \include{WaitingList}
-
+    % \include{Lecture3} \newpage
+    \include{Lecture4} \newpage
+    % \include{Lecture5} \newpage
+    % \include{Lecture6} \newpage
+    % \include{Lecture7} \newpage
     % \bibliography{References}
 \end{document}
 

@@ -1,0 +1,610 @@
+% 注释的快捷键: Ctrl + /
+% \documentclass[a4paper]{ctexart}
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{xeCJK}
+% \usepackage{ctex}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, bbm}
+\usepackage{mathrsfs}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{cases}
+\usepackage{color}
+\usepackage{tikz-cd}
+% \usepackage{quiver}
+\usepackage{setspace}
+\usepackage{spectralsequences}
+
+\bibliographystyle{plain}
+
+\allowdisplaybreaks
+% \usepackage{times}
+% \usepackage{mathptmx}
+% \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+% \DeclareSymbolFont{largesymbols}{OMX}{cmex}{m}{n}
+
+% \usepackage{unicode-math}
+% \setmathfont{XITS Math}
+% \setmathfont{XITS Math}[StylisticSet=1,range=cal]
+
+%下面是引用前文定理的代码
+% \usepackage{hyperref}
+% \begin{lemma}[test]\label{test}
+	%     test
+	%   \end{lemma}
+
+%   number: \ref{test}, name: \nameref{test}
+
+%如何在等号上加文字或记号
+%通过 \stackrel{?}{=}
+
+% 如何实现大括号多编号
+% \usepackage{cases}
+% \begin{numcases}{}
+% 	x_1&=eq1 \label{eqsystem1} \\
+% 	x_2+1&=eq2 \label{eqsystem2}
+% \end{numcases}
+
+% 如何插入交换图
+
+
+% 如何插入图片
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[scale = ...]{name}
+%     \caption{...}
+% \end{figure}
+
+% 如何插入脚注
+% \footnote{}
+% \footnotemark[number]
+% \footnotetext[number]{text}
+
+\newtheorem{theorem}{\indent Theorem}%[section]
+\newtheorem{definition}[theorem]{\indent Definition}
+\newtheorem{proposition}[theorem]{\indent Proposition}
+\newtheorem{lemma}[theorem]{\indent Lemma}
+\newtheorem{corollary}[theorem]{\indent Corollary}
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{\indent Example}
+\newtheorem{problem}[theorem]{\indent 问题}
+\newtheorem*{remark}{\noindent Remark}
+\renewcommand{\proofname}{\indent \bf Proof}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} %一次偏导
+\newcommand{\npd}[3]{\frac{\partial^{#1}{#2}}{\partial{#3}^{#1}}} %n次偏导, 也可以指代混合偏导
+\newcommand{\pD}[2]{\frac{{\rm D}(#1)}{{\rm D}(#2)}} %Jacobian
+\newcommand{\lc}[2]{\nabla_{#1}{#2}}
+\newcommand{\ft}[3]{{#1}_{#2},\dots,{#1}_{#3}}
+\newcommand{\cft}[3]{{#1}_{#2},\cdots,{#1}_{#3}}
+\newcommand{\id}{{\rm id}}
+\newcommand{\Id}{{\rm Id}}
+\newcommand{\supp}{{\rm supp}}
+\newcommand{\mi}{\sqrt{-1}}
+\newcommand{\me}{{\rm e}}
+\newcommand{\md}{{\rm d}}
+\newcommand{\mZ}{\mathbb{Z}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\GL}{{\rm GL}}
+\newcommand{\SL}{{\rm SL}}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\str}{{\rm Tr}_s}
+\newcommand{\Aut}{{\rm Aut}}
+\newcommand{\Inn}{{\rm Inn}}
+\newcommand{\Out}{{\rm Out}}
+\newcommand{\End}{{\rm End}}
+\newcommand{\Lie}{{\rm Lie}}
+\newcommand{\mCP}{\mathbb{C}\mathrm{P}}
+\newcommand{\mRP}{\mathbb{R}\mathrm{P}}
+\newcommand{\mHP}{\mathbb{H}\mathrm{P}}
+\newcommand{\vep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\newcommand{\mbb}{\mathbb}
+\newcommand{\mc}{\mathcal}
+\newcommand{\mfr}{\mathfrak}
+\newcommand{\mrm}{\mathrm}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Ext}{\mathrm{Ext}}
+\newcommand{\Tor}{\mathrm{Tor}}
+\newcommand{\Ker}{\mathrm{Ker}}
+\newcommand{\Gr}{\mathrm{Gr}}
+\newcommand{\p}{\partial}
+\newcommand{\bp}{\bar{\partial}}
+
+% \graphicspath{{Figures/}}
+
+\begin{document}
+
+\section*{Obsruction Theory and Characteristic Classes}
+\subsection*{A Brief Introduction to Obsruction Theory}
+In homotopy theory, one often encounters the following problem: 
+\begin{center}
+\fbox{
+    \parbox{0.9\linewidth}{
+        Given a pair of spaces $(X,A)$ and a map $f:A\to Y$. Can $f$ be extended 
+        to a map $F:X\to Y$?
+    }
+}
+\end{center}
+Obsruction theory provides a systematic way to study 
+this problem. 
+
+$\mathbf{Toy\ Model:}$ A map $f:S^n\to Y$ can be extended to a map 
+$F:D^{n+1}\to Y$ if and only if $f$ is null-homotopic.
+
+Now we consider the general case. Let $K$ be a CW complex, $Y$ be a simple 
+space, i.e., $\pi_1(Y)$ acts trivially on $\pi_n(Y)$ for all $n$. Under this 
+condition, we can unambiguously use the notation $\pi_n(Y) = [S^n, Y]$.  
+Suppose we have a map $f:K^{(n)}\to Y$, where $K^{(n)}$ is the 
+$n$-skeleton of $K$. We want to extend $f$ to a map $F:K^{(n+1)}\to Y$. 
+To do this, we only need to extend $f$ to each $(n+1)$-cell $e_\alpha^{n+1}$. 
+
+Suppose the attaching map of $e_\alpha^n$ is 
+$\varphi_\alpha:S^{n}\to K^{(n)}.$ Then $f\circ \varphi_\alpha$ is a map
+from $S^{n}$ to $Y$. By the toy model, $f\circ \varphi_\alpha$ can be
+extended to $D^{n+1}$ if and only if $[f\circ \varphi_\alpha] = 0$ in
+$\pi_{n}(Y)$. We in fact get a cochain 
+$c^{n+1}(f)\in C^{n+1}_{cell}(K;\pi_{n}(Y))$: 
+\begin{align*}
+    c^{n+1}(f):C_{n+1}^{cell}(K)\to \pi_{n}(Y) \\
+    e_\alpha^{n+1}\mapsto [f\circ \varphi_\alpha].
+\end{align*}
+We call $c^{n+1}(f)$ the \textbf{${(n+1)}$-th obstruction cochain} of $f$. 
+There are some basic facts about $c^{n+1}(f)$: 
+\begin{itemize}
+    \item $f$ can be extended to $K^{(n+1)}$ if and only if $c^{n+1}(f) = 0$; 
+    \item If $f,f':K^{(n)}\to Y$ are homotopic, then 
+    $c^{n+1}(f) = c^{n+1}(f')$; 
+    \item (Natruality) Suppose $L$ is another CW complex and $\phi:L\to K$ 
+    is a cellular map, then $c^{n+1}(f\circ \phi) = \phi^{\sharp}c^{n+1}(f)$.
+\end{itemize}
+
+At the following, we give some important properties of $c^{n+1}(f)$ without 
+proof. 
+\begin{theorem}
+    $c^{n+1}(f)$ is a cocycle, i.e., $\delta c^{n+1}(f) = 0$. Thus it 
+    defines a cohomology class $[c^{n+1}(f)]\in H^{n+1}(K;\pi_{n}(Y))$. 
+    We call $[c^{n+1}(f)]$ the \textbf{$(n+1)$-th obstruction class} of $f$.
+\end{theorem}
+
+A similar concept is defined for homotopies. Suppose we have two maps
+$f_0,f_1:K^{(n)}\to Y$ and a homotopy $h:K^{(n-1)}\times I\to Y$ between
+$f_0|_{K^{(n-1)}}$ and $f_1|_{K^{(n-1)}}$. We want to extend $h$ to a 
+homotopy $H:K^{(n)}\times I\to Y$ between $f_0$ and $f_1$. To do this, 
+we only need to extend $h$ to each $n$-cell $e_\alpha^n$. Let 
+$\varphi_\alpha:S^{n-1}\to K^{(n-1)}$ be the attaching map of $e_\alpha^n$, 
+$\psi_\alpha:D^n\to K^{(n)}$ be the characteristic map of $e_\alpha^n$. Then 
+we can form a map
+\begin{align*}
+    h_\alpha:(D^n\times \{0,&1\})\cup(\p D^n\times I)\to Y \\ 
+    (x,0)&\mapsto f_0\circ \psi_\alpha(x) \\
+    (x,1)&\mapsto f_1\circ \psi_\alpha(x) \\
+    (x,t)&\mapsto h\circ (\varphi_\alpha(x),t).
+\end{align*}
+Since $(D^n\times \{0,1\})\cup(\p D^n\times I)\cong S^n$, $h_\alpha$ defines
+a map from $S^n$ to $Y$. It can extend to $D^n\times I\cong D^{n+1}$ if and 
+only if $[h_\alpha] = 0$ in $\pi_n(Y)$. We in fact get a cochain
+$c^n(f_0,f_1,h)\in C^n_{cell}(K;\pi_n(Y))$:
+\begin{align*}
+    c^n(f_0,f_1,h):C_n^{cell}(K) & \to \pi_n(Y) \\
+    e_\alpha^n & \mapsto [h_\alpha]. 
+\end{align*} 
+We call $c^n(f_0,f_1,h)$ the \textbf{$n$-th deformation cochain} of 
+$(f_0,f_1,h)$. If $f_0|_{K^{(n-1)}} = f_1|_{K^{(n-1)}}$ and $h$ is the 
+trivial homotopy, we simply write $c^n(f_0,f_1)$ for $c^n(f_0,f_1,h)$ and 
+call it the \textbf{$n$-th difference cochain} of $(f_0,f_1)$. 
+There are some basic facts about $c^n(f_0,f_1,h)$:
+\begin{itemize}
+    \item $h$ can be extended to a homotopy $H:K^{(n)}\times I\to Y$ between 
+    $f_0$ and $f_1$ if and only if $c^n(f_0,f_1,h) = 0$; 
+    % \item If $h,h':K^{(n-1)}\times I\to Y$ are homotopic rel. boundary, then 
+    % $c^n(f_0,f_1,h) = c^n(f_0,f_1,h')$; 
+    \item (Natruality) Suppose $L$ is another CW complex and $\phi:L\to K$ 
+    is a cellular map, then 
+    $c^n(f_0\circ \phi,f_1\circ \phi,h\circ(\phi\times \id_I)) = 
+    \phi^{\sharp}c^n(f_0,f_1,h)$.
+    \item $c^n(f_0,f_2,h*h') = c^n(f_0,f_1,h) + c^n(f_1,f_2,h')$, where
+    $h*h'$ is the concatenation of $h$ and $h'$. Especially, if 
+    $f_0|_{K^{(n-1)}} = f_1|_{K^{(n-1)}} = f_2|_{K^{(n-1)}}$ and $h,h'$ are
+    trivial homotopies, then $c^n(f_0,f_2) = c^n(f_0,f_1) + c^n(f_1,f_2)$.
+\end{itemize}
+
+In general, $c^n(f_0,f_1,h)$ is not a cocycle. But we have the following
+formula. 
+\begin{theorem}
+    $\delta c^n(f_0,f_1,h) = c^{n+1}(f_1) - c^{n+1}(f_0)$.
+\end{theorem} 
+
+There is a useful lemma about difference cochains.
+\begin{lemma}
+    For any $f:K^{(n)}\to Y$ and any cochain $d\in C^n_{cell}(K;\pi_n(Y))$, 
+    there exists a map $f':K^{(n)}\to Y$ such that 
+    $f'|_{K^{(n-1)}} = f|_{K^{(n-1)}}$ and $d^n(f,f') = d$.
+\end{lemma}
+
+With the above preparations, we have the following theorem:
+\begin{theorem}[Eilenberg]
+    Given a map $f:K^{(n)}\to Y$, $[c^n(f)] = 0$ in 
+    $H^{n+1}(K;\pi_n(Y))$ if and only if $f$ can extend to $K^{(n+1)}$ 
+    after having been changed on $K^{(n)}\big\backslash K^{(n-1)}$.
+\end{theorem}
+\begin{proof}
+    $(\Leftarrow):$ If $\exists\,f':K^{(n+1)}\to Y$ such that 
+    $f'|_{K^{(n-1)}} = f|_{K^{(n-1)}}$, then 
+    \begin{equation*}
+        c^{n+1}(f) = c^{n+1}(f) - c^{n+1}(f') = \delta d^n(f',f)
+    \end{equation*}
+    Thus $c^{n+1}(f)$ is a coboundary. 
+
+    $(\Rightarrow):$ If  $[c^{n+1}(f)]=0$, then $\exists\,d\in C^n(K;\pi_n(Y))$ 
+    such that $c^{n+1}(f) = \delta d$. By lemma, there exists 
+    $f':K^{(n)}\to Y$ such that $f|_{K^{(n-1)}} = f'|_{K^{(n-1)}}$ and 
+    $d^n(f,f') = -d$. So 
+    \begin{equation*}
+        c^{n+1}(f') = c^{n+1}(f) + \delta d^n(f,f') = \delta d - \delta d = 0.
+    \end{equation*}
+    Thus $f'$ can be extended to $K^{(n+1)}$.
+\end{proof}
+
+\begin{example}
+    If the target space $Y$ is $n$-connected, i.e., 
+    $\pi_k(Y)=0,\; k=0,1,\dots,n$, then every map $f:K^{(0)}\to Y$ can be 
+    extended to $K^{(n+1)}$. Besides, any two maps $f,g:K^{(n)}\to Y$ are 
+    homotopic. Indeed, $f|_{K^{(0)}}\simeq g|_{K^{(0)}}$ for the reason that 
+    $K$ is path-connected. We denote the homotopy by $h_0$. Then $h_0$ can 
+    be extened to $h_n:K^{(n)}\times I\to Y$ since all the deformation cochain 
+    vanish.
+\end{example}
+
+\begin{corollary}
+    If $Y$ is $n$-connected and $\dim K\leq n$, then all the maps from $K$ 
+    to $Y$ are null-homotopic.
+\end{corollary}
+
+\begin{theorem}[Hopf-Whitehead]
+    For any CW complex $K$ with $\dim K\leq n$ and $(n-1)$-connected space $Y$, 
+    there is a one-to-one correspondence:
+    \begin{equation*}
+        [K,Y]\longleftrightarrow H^n(K;\pi_n(Y)).
+    \end{equation*}
+\end{theorem}
+If we weaken the dimensional condition and instead strengthen the target space 
+to be an Eilenberg-Maclane space $K(\pi,n)$. Then we will get another theorem: 
+\begin{theorem}
+    For any CW complex $X$, abelian group $\pi$ and integer $n$, there is a 
+    one-to-one correspondence: 
+    \begin{equation*}
+        [X,K(\pi,n)]\longleftrightarrow H^n(X;\pi).
+    \end{equation*}
+\end{theorem}
+\begin{remark}
+    In fact, there is a special class $\alpha$ in 
+    \begin{equation*}
+        H^n(K(\pi,n);\pi)\cong \Hom(H_n(K(\pi,n)),\pi)\cong \Hom(\pi,\pi)
+    \end{equation*}
+    which corresponds to the identity map in $\Hom(\pi,\pi)$. The correspondence 
+    can be explicitly written by 
+    \begin{align*}
+        [X,K(\pi,n)]&\to H^n(X;\pi) \\
+        f&\mapsto f^*\alpha.
+    \end{align*}
+\end{remark}
+
+\subsection*{Characteristic Classes via Obsruction Theory}
+\subsubsection*{Cohomology with Local Coefficients}
+To discrib characteristic classes as obstruction classes, we need cohomology 
+with local coefficients. 
+% \begin{center}
+%     \fbox{
+%         \parbox{0.95\linewidth}{
+%             Suppose $X$ is a path-connected space. A \textbf{local coefficient system} 
+%             on $X$ is a functor
+%             \begin{equation*}
+%                 \mathcal{G}:\pi(X)\to \text{(Abelian groups)},
+%             \end{equation*}
+%             where $\pi(X)$ is the fundamental groupoid of $X$. If we fix a base point
+%             $x_0\in X$, then $\mathcal{G}$ is determined by the group 
+%             $G = \mathcal{G}(x_0)$ and a representation $\rho:\pi_1(X,x_0)\to \Aut(G)$. 
+%             We call $G$ the \textbf{typical group} of $\mathcal{G}$.
+%         }
+%     }
+% \end{center}
+
+\noindent\textbf{Local Coefficient System:}
+
+Suppose $X$ is a path-connected space. For any $x\in X$, let $G_x$ be an 
+abelian group attaching to $x$. For any path $\gamma_{xy}$ from $x$ to $y$, 
+we have an isomorphism $(\gamma_{xy})_*:G_x\to G_y$. If $(\gamma_{xy})_*$ 
+only depends on the homotopy class of $\gamma$ rel. endpoints and satisfies 
+the following conditions: 
+\begin{equation*}
+    (\text{constant path})_* = \Id, \quad
+    (\gamma_{xy}*\gamma_{yz})_* = (\gamma_{yz})_*\circ(\gamma_{xy})_*.
+\end{equation*}
+Then we call $\mathcal{G} = \{G_x\}_{x\in X}$ a 
+\textbf{local coefficient system} on $X$. If we fix a base point $x_0\in X$, 
+then $\mathcal{G}$ is determined by the group $G = G_{x_0}$ and an action 
+$\rho:\pi_1(X,x_0)\to \Aut(G)$. We call $G$ the \textbf{typical group} of 
+$\mathcal{G}$. 
+
+\begin{example}
+    If $\mathcal{G}$ is a local coefficient system on $X$ with typical group 
+    $G$ and trivial action. Then it is the ordinary constant coefficient we 
+    are familiar with.
+\end{example}
+
+\begin{example}
+    If $G_x = \mZ_2$ for all $x\in X$, then since $\Aut(\mZ_2)=\{\Id\}$, 
+    the local coefficient system with typical group $\mZ_2$ must be trivial. 
+\end{example}
+
+\begin{example}
+    If $G_x = \mZ$ for all $x\in X$ and $\pi_1(X,x_0)$ acts on $\mZ$ by
+    multiplication of $\pm 1$ according to whether the orientation is
+    preserved or reversed along the loop. Then $\mathcal{G}$ is called the 
+    \textbf{orientation system} on $X$ and denoted by $\mathrm{Or}$. 
+\end{example}
+
+\begin{example}
+    Let $p:\tilde{X}\to X$ be the universal covering of $X$. Then 
+    $\mathcal{G} = \{H_n(p^{-1}(x))\}_{x\in X}$ is a local coefficient system 
+    on $X$ with typical group $H_n(\tilde{X})$ and action induced by the 
+    deck transformation group $\pi_1(X,x_0)$. 
+\end{example}
+
+\begin{example}
+    Let $E\to X$ be a vector bundle with fiber $F$. Then 
+    $\mathcal{G} = \{H_n(p^{-1}(x))\}_{x\in X}$ is a local coefficient system 
+    on $X$ with typical group $H_n(F)$ and action induced by the structure 
+    group of $E$.
+\end{example}
+
+\begin{example}
+    $\mathcal{G} = \{\pi_n(X,x)\}_{x\in X}$ is a local coefficient system 
+    on $X$ with typical group $\pi_n(X,x_0)$ and action induced by the 
+    fundamental group $\pi_1(X,x_0)$.
+\end{example}
+
+\noindent\textbf{Cohomology with Local Coefficients:}
+
+Let $X$ be a CW complex and $\mathcal{G} = \{G_x\}_{x\in X}$ be a local
+coefficient system on $X$. We define the cellular cochain groups with local
+coefficients by
+\begin{equation*}
+    C^n_{cell}(X;\mathcal{G}) = \left\{f:\big\{\text{$n$-cells of $X$}\big\}
+    \to \bigsqcup_{x\in X}G_x \,\Big|\, f(e_\alpha^n)\in 
+    G_{x_\alpha}\right\}
+\end{equation*}
+where $x_\alpha$ is a chosen point in the $n$-cell $e_\alpha^n$. The 
+coboundary operator 
+$\delta:C^n_{cell}(X;\mathcal{G})\to C^{n+1}_{cell}(X;\mathcal{G})$
+is defined by 
+\begin{equation*}
+    (\delta f)(e_\beta^{n+1}) = \sum_\alpha d_{\beta\alpha}
+    (\gamma_{\alpha\beta})_*f(e_\alpha^n),
+\end{equation*}
+where $d_{\beta\alpha}$ is the degree of the map 
+$\p e_\beta^{n+1}\to X^{(n)}/(X^{(n)}-e^n_\alpha)\cong S^n$ and 
+$\gamma_{\alpha\beta}$ is a path from $x_\alpha$ to $x_\beta$. It can be
+verified that $\delta^2=0$. Thus we can define the cohomology groups with 
+local coefficients by 
+\begin{equation*}
+    H^n(X;\mathcal{G}) = \frac{\ker(\delta:C^n_{cell}(X;\mathcal{G})\to 
+    C^{n+1}_{cell}(X;\mathcal{G}))}{\mathrm{im}(\delta:C^{n-1}_{cell}(X;
+    \mathcal{G})\to C^n_{cell}(X;\mathcal{G}))}.
+\end{equation*}
+
+\subsubsection*{The Homotopy Groups of $V_k(\mR^n)$}
+\textbf{Fact:} The Stiefel manifold $V_k(\mR^n)$ is $(n-k-1)$-connected and 
+the first nontrivial homotopy group is 
+\begin{equation*}
+    \pi_{n-k}(V_k(\mR^n)) = 
+    \begin{cases}
+        \mZ,& n-k \text{ is even or } k=1; \\
+        \mZ_2,& n-k \text{ is odd and } k>1.
+    \end{cases}
+\end{equation*}
+\begin{remark}
+    It is evident that $V_k(\mR^n)$ is a simple space.
+\end{remark}
+
+\subsubsection*{Characteristic Classes}
+Now let's back to vector bundles. Let $\xi$ be an $\mR^n$-bundle over a CW 
+complex $B$. We want to investigate how nontrivial $\xi$ is. To do this, we 
+try to find $k$-linearly independent sections of $\xi$. 
+
+% First suppose there 
+% is a Euclidean metric $g$ on $\xi$. Then we can talk about orthonormal 
+% sections. 
+% \begin{remark}
+%     Any real vector bundle over a paracompact space admits a 
+%     Euclidean metric. Each two Euclidean metrics $g_0, g_1$ are 
+%     homotopic through $g_t = (1-t)g_0 + tg_1$. 
+% \end{remark}
+
+Let $V_k(\xi)$ be the Stiefel manifold bundle associated to $\xi$. 
+It's a fiber bundle over $B$ with fiber $F=V_k(\mR^n)$. A section $s$ of 
+$V_k(\xi)$ is a $k$-frame of $\xi$. Locally on a trivializing
+neighborhood $U_\alpha$, $s$ can be identified as a map from $U_\alpha$ to
+$V_k(\mR^n)$. Thus we can use obsruction theory to study the existence of
+sections of $V_k(\xi)$. 
+
+The obstructions $c^{j+1}(s)$ lie in $H^{j+1}(B;\mathcal{G})$, where 
+$\mathcal{G}$ is a local coefficient system on $B$ with typical group 
+$\pi_j(V_k(\mR^n))$. This is because although the ristriction of $V_k(\xi)$ 
+on every $j$-cell $e^j_\alpha$ is trivial, the transition function may not 
+be identity, from which induces a nontrivial isomorphism of homotopy groups. 
+Moreover, any path $\gamma_{xy}$ from $x$ to $y$ can lift to a homotopy 
+from $F_x$ to $F_y$, thus induces an isomorphism 
+\begin{equation*}
+    (\gamma_{xy})_*:\pi_j\big(F_x,x\big)
+    \overset{\cong}{\to}\pi_j\big(F_y,y\big).
+\end{equation*}
+The theorems about obstruction classes can all generalize to cohomology with 
+local coefficients without difficulty. 
+
+Now since $V_k(\mR^n)$ is $(n-k-1)$-connected, all the section $s$ can be 
+extended to $B^{(n-k)}$, all the sections on $B^{(n-k)}$ are homotopic with 
+each other. The first obstruction comes when extend $s$ to 
+$(n-k+1)$-skeleton, which we denote by 
+\begin{equation*}
+    \mathfrak{o}_{n-k+1}:=c^{n-k+1}(s)\in 
+    H^{n-k+1}\Big(B;\big\{\pi_{n-k}\big(V_k(\mR^n)\big)\big\}\Big)
+\end{equation*}
+Since all sections on $B^{(n-k)}$ are homotopic with each other, this 
+obstruction class does not depend on the choice of $s$, i.e, 
+$\mathfrak{o}_{n-k+1}$ it is well-defined. 
+
+Now we construct a series of characteristic classes from obsruction classes. 
+\begin{itemize}
+    \item If $n-k=2j-1$ is odd and $1<k<n$, then 
+    $\pi_{2j-1}(V_{n-2j+1}(\mR^n)) = \mZ_2$. In this case, 
+    \begin{align*}
+        H^{2j}\Big(B;\big\{\pi_{2j-1}\big(V_{n-2j+1}(\mR^n)\big)\big\}\Big)
+        &\cong H^{2j}(B;\mZ_2) \\ 
+        \mathfrak{o}_{2j} &\mapsto w_{2j}(\xi).
+    \end{align*}
+    \item If $n-k=2j$ is even and $1<k<n$, then 
+    $\pi_{2j}(V_{n-2j}(\mR^n)) = \mZ$. After applying the mod 2 reduction, 
+    we have 
+    \begin{align*}
+        H^{2j+1}\Big(B;\big\{\pi_{2j}\big(V_{n-2j}(\mR^n)\big)\big\}\Big)
+        &\xrightarrow{\text{mod } 2} H^{2j+1}(B;\mZ_2) \\ 
+        \mathfrak{o}_{2j+1} &\mapsto w_{2j+1}(\xi).
+    \end{align*}
+    \item If $k=n$, then $V_n(\mR^n) = O(n)$, but $\pi_0(O(n)) = \mZ_2$ is 
+    not a group. We turn to use $\tilde{H}^0(O(n);\mZ) = \mZ$ instead. Then 
+    $\tilde{H}^0(O(n);\mZ)$ is a local coefficient system on $B$ with typical 
+    group $\mZ$ and action induced by the determinant representation 
+    $\det:\pi_1(B)\to O(n)\to \{\pm 1\}$. After applying the mod 2 reduction, 
+    we have
+    \begin{align*}
+        H^1\Big(B;\big\{\tilde{H}^0(O(n))\big\}\Big)
+        &\xrightarrow{\text{mod } 2} H^1(B;\mZ_2) \\ 
+        \mathfrak{o}_1 &\mapsto w_1(\xi).
+    \end{align*}
+    \item If $k=1$, then $\pi_{n-1}(V_1(\mR^n)) = \pi_{n-1}(S^{n-1}) = \mZ$.
+    After applying the mod 2 reduction, we have
+    \begin{align*}
+        H^n\Big(B;\big\{\pi_{n-1}(V_1(\mR^n))\big\}\Big)
+        &\xrightarrow{\text{mod } 2} H^n(B;\mZ_2) \\ 
+        \mathfrak{o}_n &\mapsto w_n(\xi).
+    \end{align*}
+\end{itemize}
+
+\begin{center}
+\begin{table}[htbp]
+\begin{tabular}{|c|cc|}
+\hline
+Cases              & \multicolumn{1}{c|}{Obstruction classes}       & Characteristic classes       \\ \hline
+$n-k=2j-1,\;1<k<n$ & \multicolumn{2}{c|}{$\mathfrak{o}_{2j}=w_{2j}$}                               \\ \hline
+$n-k=2j,\;1<k<n$   & \multicolumn{2}{c|}{$\mathfrak{o}_{2j+1}\xrightarrow{\text{mod } 2}w_{2j+1}$} \\ \hline
+$k=n$              & \multicolumn{2}{c|}{$\mathfrak{o}_{1}\xrightarrow{\text{mod } 2}w_{1}$}       \\ \hline
+$k=1$              & \multicolumn{2}{c|}{$\mathfrak{o}_{n}\xrightarrow{\text{mod } 2}w_{n}$}       \\ \hline
+\end{tabular}
+\end{table}
+\end{center}
+
+\subsubsection*{Properties of our construction}
+\noindent\textbf{Stiefel-Whitney Classes}
+\begin{theorem}
+    $w_i(\xi)\in H^i(B;\mZ_2)$ are the Stiefel-Whitney classes of $\xi$.
+\end{theorem}
+\begin{proof}
+    omitted.
+\end{proof}
+
+\noindent\textbf{$\mathfrak{o}_n$ and the Euler Class}
+If $\xi$ is orientable, then the structure group of $\xi$ can be 
+reduced to $SO(n)$. Thus the action of $\pi_1(B)$ on 
+$\pi_{n-k}(V_k(\mR^n))$ is trivial for $1\leq k<n$. So the local 
+coefficient system is trivial. In this case, 
+\begin{equation*}
+    H^n\Big(B;\big\{\pi_{n-1}(V_1(\mR^n))\big\}\Big) 
+    \cong H^n(B;\mZ).
+\end{equation*}
+\begin{theorem}
+    If $\xi$ is orientable, then $\mathfrak{o}_n\in H^n(B;\mZ)$ 
+    is the Euler class $e(\xi)$.
+\end{theorem}
+\begin{proof}
+    omitted.
+\end{proof}
+
+\noindent\textbf{$w_1$ and Orientability}
+The structure group of $\xi$ can be reduced to $SO(n)$ if and only if
+the transition functions all have determinant 1, i.e., the action of 
+$\pi_1(B)$ on $\tilde{H}^0(O(n);\mZ)$ is trivial. This is equivalent to
+the triviality of $\mathfrak{o}_1$. Thus
+\begin{proposition}
+    $\mathfrak{o}_1 = 0$ if and only if $\xi$ is orientable.
+\end{proposition}
+\begin{theorem}
+    $\mathfrak{o}_1$ has order 2, i.e., $2\mathfrak{o}_1 = 0$. Thus 
+    \begin{equation*}
+        w_1(\xi) = 0 \text{ if and only if } \mathfrak{o}_1 = 0.
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    The connected conponents of the space $V_n(\mR^n)$ are identified with 
+    orientation of the fiber, and hence the elements of 
+    $\tilde{H}^0(V_n(\mR^n);\mZ)\cong\mZ$ has the form 
+    $a\mathrm{Or}_1-a\mathrm{Or}_2$; to each orientation we assign its 
+    Coefficient.
+    
+    ...
+\end{proof}
+
+\noindent\textbf{Is $w_i$ the true obsruction?}
+The fibration 
+\begin{equation*}
+    S^{2j-1}\to V_{n-2j+1}(\mR^n)\to V_{n-2j}(\mR^n).
+\end{equation*}
+induces an exact sequence of homotopy groups
+\begin{equation*}
+    \pi_{2j}(V_{n-2j}(\mR^n)) \xrightarrow{\partial} 
+    \pi_{2j-1}(S^{2j-1})\to \pi_{2j-1} (V_{n-2j+1}(\mR^n)) \to 0.
+\end{equation*}
+It is actually 
+\begin{equation*}
+    \mZ \xrightarrow{\p} \mZ \xrightarrow{i_*} \mZ_2 \to 0.
+\end{equation*}
+Therefore $\mathrm{Im}\,\p=\Ker i_* = 2\mZ$ and $\Ker\p = 0$. So $\p$ is
+multiplication by 2. So the exact sequence is a short exact sequence
+\begin{equation*}
+    0\to \mZ \xrightarrow{\times 2} \mZ \xrightarrow{i_*} \mZ_2 \to 0.
+\end{equation*}
+This short exact sequence induces a long exact sequence of cohomology groups
+\begin{equation*}
+    \cdots \to H^{2j}(B;\mZ) 
+    \xrightarrow{i_*} H^{2j}(B;\mZ_2) \xrightarrow{\beta} H^{2j+1}(B;\mZ) 
+    \xrightarrow{\times 2} H^{2j+1}(B;\mZ) \to \cdots
+\end{equation*}
+where $\beta$ is the Bockstein homomorphism.
+\begin{theorem}
+    $\mathfrak{o}_{2j+1} = \beta(\mathfrak{o}_{2j})$.
+\end{theorem}
+\begin{proof}
+    omitted.
+\end{proof}
+\begin{corollary}
+    $\mathfrak{o}_{2j+1}$ has order 2, i.e., 
+    $2\mathfrak{o}_{2j+1} = 0$. Thus 
+    \begin{equation*}
+        w_{2j+1}(\xi) = 0 \text{ if and only if } 
+        \mathfrak{o}_{2j+1} = 0.
+    \end{equation*}
+\end{corollary}
+In summary, almost all the Stiefel-Whitney classes $w_i$ are the true 
+obsructions, except when $i=n$ is even. If in addition $\xi$ is oriented, 
+then $\mathfrak{o}_n$ is Euler class $e(\xi)$.
+
+% \bibliography{References}
+\end{document}
+

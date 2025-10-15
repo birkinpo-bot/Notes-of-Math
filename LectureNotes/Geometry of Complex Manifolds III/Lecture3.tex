@@ -1,0 +1,367 @@
+\section{Lecture 3}
+\label{sec:lecture-3}
+\setcounter{equation}{0}
+\subsection*{Torsion forms and Bott-Chern secondary class}
+\subsubsection*{Chern connection}
+...
+
+\begin{theorem}
+    For any holomorphic vector bundle $E$ on a complex manifold $X$ with 
+    a Hermitian metric $h^E$, there exists a unique connection 
+    $\nabla^E$ such that
+    \begin{enumerate}
+        \item $\nabla^E$ is compatible with $h^E$, i.e. for any 
+        $U\subset X$ open, $s_1,s_2\in C^\infty(U,E)$, 
+        \[
+        d\langle s_1,s_2\rangle_{h^E} = 
+        \langle\nabla^E s_1,s_2\rangle_{h^E} + 
+        \langle s_1,\nabla^E s_2\rangle_{h^E};
+        \]
+        \item $\nabla^E$ is compatible with the holomorphic structure of 
+        $E$, i.e. $\nabla^{E''}=\bar{\partial}^E$.
+    \end{enumerate}
+    This connection is called the Chern connection on $(E,h^E)$.
+\end{theorem}
+
+For now on, we always denote by $\nabla^E$ the Chern connection. 
+
+\subsubsection*{Torsion forms for Chern complex}
+\textbf{Settings:}
+Let 
+\[
+(E,v):0\to E_1\overset{v}{\to}\cdots\overset{v}{\to}E_m\to0
+\]
+be a holomorphic chain complex of finite dimensional holomorphic vector 
+bundles on a connected complex manifold $X$, i.e. $E_j$ are holomorphic 
+vector bundles and $v:E_j\to E_{j+1}$ are $\mC$-linear holomorphic map. 
+\textcolor{blue}{(If $s$ is a local holomorphic section of $E_j$ on $U$, 
+then $(vs)_x:=v_xs_x$ is a local holomorphic section of $E_{j+1}$ on $U$ 
+$\Longleftrightarrow$ $\bar{\partial}^{E}v+v\bar{\partial}^{E} = 0$).}
+We say it is a chain complex means: 
+\[
+v^2=0\Longleftrightarrow(v+\bar{\partial}^{E})^2=0\text{ on }
+\Omega^{\cdot,\cdot}(X,E).
+\]
+
+Set 
+\[
+E_+=\bigoplus_{j\text{ even}}E_j,\;
+E_-= \bigoplus_{j\text{ odd}}E_j,\;
+E=E_+\oplus E_-.
+\]
+Let $h^E=\bigoplus\limits_j h^{E_j}$ be a Hermitian metric on $E$. 
+So that $E_i\perp E_j$ if $i\neq j$. 
+
+Let $v^*$ be the adjoint of $v$ w.r.t. $h^E$. Set $V=v+v^*$. 
+Then $\nabla^E+V$ is a superconnection on $E$.
+
+Let 
+\begin{gather*}
+    P^X:=\bigoplus_p\Omega^{p,p}(X), \\
+    P^{X,0}:=\{\omega\in P^X\mid\exists\,\eta,\eta'\in\Omega(X)
+    \;s.t.\;\omega=\partial\eta+\bar{\partial}\eta'\}
+\end{gather*}
+
+\begin{proposition}
+    Set 
+    \[
+    A=\bigoplus_{p,q,j}\Omega^{p,q}\big(X,\Hom(E_j,E_{j+p-q})\big),
+    \]
+    then $A$ is a super-algebra. Moreover, if $\eta\in A$, then 
+    $\Tr_s[\eta]\in P^X$.
+\end{proposition}
+\begin{proof}
+    If $\eta,\eta'\in A$, then $\eta\,\hat{\otimes}\,\eta'\in A$. 
+    Since $\Tr_s$ vanishes on $\Hom(E_j,E_k)_{j\neq k}$, thus 
+    $\Tr_s[\eta]\in P^X$.
+\end{proof}
+
+Let 
+\[
+A_u=\nabla^E+\sqrt{u}V,\quad u\geq0.
+\]
+be a superconnection on $E$. Let $N$ be a number operator on $E$,
+i.e., 
+\[
+N|_{E_j}=j\Id_{E_j}.
+\] 
+\begin{theorem}
+    For any $u\geq0$, $\Tr_s[\exp(-A_u^2)],\,\Tr_s[N\exp(-A_u^2)]$
+    are in $P^X$. The form $\Tr_s[\exp(-A_u^2)]$ is closed. 
+    For $u>0$, 
+    \begin{gather}
+    \pd{}{u}\Tr_s[\exp(-A_u^2)] = 
+    -\frac{1}{2u}(\p+\bp)\Tr_s[\sqrt{u}V\exp(-A_u^2)],\label{eq:3.1} \\
+    \Tr_s[\sqrt{u}V\exp(-A_u^2)] = 
+    (\p-\bp)\str[N\exp(-A_u^2)].\label{eq:3.2}
+    \end{gather}
+    In particular, 
+    \begin{equation}\label{eq:3.3}
+        \pd{}{u}\Tr_s[\exp(-A_u^2)] = 
+        -\frac{1}{u}\bp\p\Tr_s[N\exp(-A_u^2)].
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Step $1$: Show that $A_u^2\in A$.
+    
+    Since 
+    \begin{equation*}
+    A_u^2=(\nabla^E)^2+uV^2+\sqrt{u}[\nabla^E,V],
+    \end{equation*}
+    where
+    \begin{gather*}
+        (\nabla^E)^2\in\Omega^{1,1}(X,\End(E)), \\
+        V^2=(v+v^*)^2=vv^*+v^*v\in C^\infty(X,\End(E)), \\
+    \end{gather*}
+    and
+    \begin{equation*}
+        [\nabla^E,V]=[\nabla'',v] + [\nabla',v] + 
+        [\nabla'',v^*] + [\nabla',v^*]
+    \end{equation*}
+    By the definition of holomorphic chain complex, 
+    \begin{equation*}
+        [\nabla'',v] = \bp v + v\bp = 0.
+    \end{equation*}
+    For $u\in T^{1,0}X$, 
+    \begin{align*}
+        \langle([\nabla'_u,v^*]\sigma_1,\sigma_2)\rangle &= 
+        \langle(\nabla'_u v^*-v^* \nabla'_u)\sigma_1,\sigma_2\rangle
+        =\langle\nabla'_u(v^*\sigma_1),\sigma_2\rangle 
+        -\langle\nabla'_u\sigma_1,v\sigma_2\rangle \\
+        &=u\langle v^*\sigma_1,\sigma_2\rangle 
+        -\langle v^*\sigma_1,\nabla''_{\bar{u}}\sigma_2\rangle 
+        -u\langle\sigma_1,v\sigma_2\rangle 
+        +\langle\sigma_1,\nabla''_{\bar{u}}(v\sigma_2)\rangle \\
+        &=\langle\sigma_1,
+        (\nabla''_{\bar{u}}v-v\nabla''_{\bar{u}})\sigma_2\rangle \\
+        &=0.
+    \end{align*}
+    \textcolor{gray}{
+    The last equality holds since $\nabla''=\bp$ and notice that 
+    $v$ acts on $\Omega^*(X,E)$ by 
+    \begin{equation*}
+        v(\alpha\otimes\sigma) = (-1)^{\deg\alpha}\alpha\otimes(v\sigma).
+    \end{equation*}
+    locally $\bp\sigma_2=\alpha^i\otimes e_i$, $\deg\alpha^i=1$, then 
+    \begin{align*}
+        i_{\bar{u}}v(\bp\sigma_2) 
+        &= i_{\bar{u}}v(\alpha^i\otimes e_i) 
+        = -i_{\bar{u}}\big(\alpha^i\otimes(v e_i)\big) \\
+        &= -\alpha^i(\bar{u})\otimes(v e_i)
+        = -v\big(\alpha^i(\bar{u})\otimes e_i\big) \\
+        &= -v(i_{\bar{u}}\bp\sigma_2)
+        = -v(\nabla''_{\bar{u}}\sigma_2).
+    \end{align*}
+    thus $(\bp v + v\bp)\sigma_2=0$ implies 
+    $(\nabla''_{\bar{u}}v - v\nabla''_{\bar{u}})\sigma_2=0$.
+    }
+
+    So 
+    \begin{equation*}
+        [\nabla^E,V]=[\nabla',v] + [\nabla'',v^*]
+    \end{equation*}
+    where
+    \begin{equation*}
+        [\nabla',v]\in \Omega^{1,0}(X,\End(E_j,E_{j+1})),\quad 
+        [\nabla'',v^*]\in \Omega^{0,1}(X,\End(E_j,E_{j-1}))
+    \end{equation*}
+    Thus $A_u^2\in A$, which deduces $\exp(-A_u^2)\in A$. With $N\in A$, 
+    we conclude that $\Tr_s[\exp(-A_u^2)],\,\Tr_s[N\exp(-A_u^2)]\in P^X$.
+
+    Step $2$: Verify the formulas via Duhamel's formula.
+    \begin{lemma}
+        For $H_u\in \Big(\bigwedge(T^*X)\otimes\End(E)\Big)^+$ 
+        \begin{equation*}
+            \pd{}{u}\exp(-tH_u) = 
+            -\int_0^t\me^{-(t-s)H_u}(\pd{}{u}H_u)\me^{-sH_u}\md s.
+        \end{equation*}
+    \end{lemma}
+
+    \textcolor{gray}{
+    \begin{proof}[Proof of lemma]
+        Recall that $\exp(-tH)$ is the unique solution of the ODE
+        \begin{equation*}
+            \left\{
+            \begin{aligned}
+                &\Big(\pd{}{t}+H\Big)u_t=0, \\
+                &u_0=\Id_E.
+            \end{aligned}
+            \right.
+        \end{equation*}
+        In order to verify the formula, we only need to check that
+        \begin{equation*}
+            Q_t:=\pd{}{u}\exp(-tH_u)
+            +\int_0^t\me^{-(t-s)H_u}(\pd{}{u}H_u)\me^{-sH_u}\md s
+        \end{equation*}
+        satisfies the ODE 
+        \begin{equation*}
+            \left\{
+            \begin{aligned}
+                &\Big(\pd{}{t}+H\Big)Q_t=0, \\
+                &Q_0=0.
+            \end{aligned}
+            \right.
+        \end{equation*}
+        Indeed,
+        \begin{align*}
+            \pd{}{t}Q_t &= \pd{}{u}\pd{}{t}\exp(-tH_u)
+            +\me^{-(t-s)H_u}(\pd{}{u}H_u)\me^{-sH_u}\Big|_{s=t} \\
+            &\quad+\int_0^t\pd{}{t}\Big(\me^{-(t-s)H_u}(\pd{}{u}H_u)
+            \me^{-sH_u}\Big)\md s \\
+            &= -\pd{}{u}(H_u\exp(-tH_u)) + (\pd{}{u}H_u)\me^{-tH_u} \\
+            &\quad+\int_0^t -H_u\me^{-(t-s)H_u}(\pd{}{u}H_u)\me^{-sH_u}\md s \\
+            &= -H_u\pd{}{u}\exp(-tH_u)
+            -\int_0^t \me^{-(t-s)H_u}(\pd{}{u}H_u)\me^{-sH_u}\md s \\
+            &= -H_u Q_t.
+        \end{align*}
+        And $Q_0=\pd{}{u}\Id_E+0=0$. Thus $Q_t=0, \forall t$.
+    \end{proof}
+    }
+
+    Now for formula \eqref{eq:3.1}, by lemma we have
+    \begin{align*}
+        &\pd{}{u}\str\left[\exp(-A_u^2)\right] = 
+        -\str\left[\int_{0}^{1}\me^{-(1-s)A_u^2}(\pd{}{u}A_u^2)
+        \me^{-sA_u^2}\md s\right] \\
+        =&-\int_{0}^{1}\str\left[(\pd{}{u}A_u^2)\me^{-(1-s)A_u^2}
+        \me^{-sA_u^2}\right]\md s \quad\textcolor{gray}{\str[A,B]=0} \\
+        =&-\str\left[\pd{}{u}A_u^2,\me^{-A_u^2}\right] \\
+        =&-\str\left[\left[A_u,\frac{1}{2\sqrt{u}}V\right],
+        \me^{-A_u^2}\right] \quad
+        \textcolor{gray}{\pd{}{u}A_u^2=\left[A_u,\pd{}{u}A_u\right],}\,
+        \textcolor{gray}{\pd{}{u}A_u = \frac{1}{2\sqrt{u}}V} \\
+        =&-\str\left[A_u,\frac{1}{2\sqrt{u}}V\me^{-A_u^2}\right]\quad 
+        \textcolor{gray}{[A_u,A_u^2]=0} \\
+        =&-\md\str\left[\frac{1}{2\sqrt{u}}V\me^{-A_u^2}\right] \\
+        =&-\frac{1}{2u}(\p+\bp)\Tr_s[\sqrt{u}V\exp(-A_u^2)]
+    \end{align*}
+
+    To verify formula \eqref{eq:3.2}, we introduce a parameter $b$ and study 
+    \begin{equation*}
+        \Tr_s\left[\exp\left(-A_u^2+bN\right)\right].
+    \end{equation*}
+    Since 
+    \begin{equation*}
+        \md\str\left[\exp\left(-A_u^2+bN\right)\right]
+        =\str\left[\left[A_u,\exp\left(-A_u^2+bN\right)\right]\right]
+    \end{equation*}
+    To calculate the right hand side, we set 
+    \begin{equation*}
+        Q_t:=\left[A_u,\exp\left(-A_u^2+bN\right)\right] + 
+        \int_0^t\me^{-(t-s)(A_u^2-bN)}[A_u,A_u^2-bN]
+        \me^{-s(A_u^2-bN)}\md s.
+    \end{equation*}
+    similarly we have
+    \begin{align*}
+        \pd{}{t}Q_t &= \left[A_u,-(A_u^2-bN)\exp\left(-t(A_u^2-bN)\right)
+        \right] + \left[A_u,A_u^2-bN\right]\me^{-t(A_u^2-bN)} \\
+        &\quad-\int_0^t(A_u^2-bN)\Big(\me^{-(t-s)(A_u^2-bN)}
+        [A_u,A_u^2-bN]\me^{-s(A_u^2-bN)}\Big)\md s \\
+        &= -(A_u^2-bN)\left[A_u,\exp\left(-t(A_u^2-bN)\right)\right] \\
+        &\quad-(A_u^2-bN)\int_0^t\me^{-(t-s)(A_u^2-bN)}
+        [A_u,A_u^2-bN]\me^{-s(A_u^2-bN)}\md s \\
+        &= -(A_u^2-bN)Q_t.
+    \end{align*}
+    And $Q_0=[A_u,\Id_E] +0=0$. Thus $Q_t=0, \forall t$. Thus 
+    \begin{align*}
+        &\md\str\left[\exp\left(-A_u^2+bN\right)\right] \\
+        =& -\int_0^1\str\left[\me^{-(1-s)(A_u^2-bN)}
+        [A_u,A_u^2-bN]\me^{-s(A_u^2-bN)}\right]\md s \\
+        =& -\str\left[[A_u,A_u^2-bN],\exp\left(-A_u^2+bN\right)\right] \\
+        =& b\str\left[[A_u,N],\exp\left(-A_u^2+bN\right)\right] \\
+        =& b\str\left[\sqrt{u}(-v+v^*)\exp\left(-A_u^2+bN\right)\right] 
+    \end{align*}
+    the last equality holds since the following lemma 
+    \begin{lemma}
+        \begin{equation*}
+        [\nabla^E,N] = 0,\quad [v,N] = -v,\quad [v^*,N] = v^*.
+        \end{equation*}
+    \end{lemma}
+    \textcolor{gray}{
+        \begin{proof}[Proof of lemma]
+        $\nabla^E = \bigoplus \nabla^{E_j}$ preserves the grading of $E$, 
+        thus 
+        \[
+        [\nabla^E,N]=N\nabla^E-N\nabla^E=0.
+        \]
+        For $u\in C^\infty(X,E_j)$, 
+        \begin{equation*}
+            [v,N]u = (vN-Nv) = jv u - (j+1)v u = -v u. 
+        \end{equation*}
+        Similarly, $[v^*,N]u = jv^* u - (j-1)v^* u = v^* u$.
+        \end{proof}
+    }
+    Since $d=\p+\bp$, we can divide the above equation into two parts and 
+    set the corresponding parts equal to each other respectively.
+    \begin{equation*}
+        LHS = \p\str\left[\exp(-A_u^2)\right] + 
+        \bp\str\left[\exp(-A_u^2)\right]
+    \end{equation*}
+    where 
+    \begin{gather*}
+    \str\left[\exp(-A_u^2+bN)\right] \in 
+    \bigoplus_{p,j}\Omega^{p,p}(X,\End(E_j)) \\
+    \Longrightarrow
+    \left\{
+        \begin{aligned}
+            &\p\str\left[\exp(-A_u^2+bN)\right] \in 
+            \bigoplus_{p,j}\Omega^{p+1,p}(X,\End(E_j)), \\
+            &\bp\str\left[\exp(-A_u^2+bN)\right] \in 
+            \bigoplus_{p,j}\Omega^{p,p+1}(X,\End(E_j)).
+        \end{aligned}
+    \right.
+    \end{gather*}
+    And
+    \begin{equation*}
+        RHS = -b\sqrt{u}\str\left[v\exp(-A_u^2+bN)\right]
+        + b\sqrt{u}\str\left[v^*\exp(-A_u^2+bN)\right]
+    \end{equation*}
+    where
+    \begin{gather*}
+        \exp(-A_u^2+bN)\in\bigoplus_{p,q,j}\Omega^{p,q}(X,\Hom(E_j,E_{j+p-q})) \\
+        \Longrightarrow
+        \left\{
+            \begin{aligned}
+                &v\exp(-A_u^2+bN) \in 
+                \bigoplus_{p,q,j}\Omega^{p,q}(X,\Hom(E_j,E_{j+p-q+1})), \\
+                &v^*\exp(-A_u^2+bN) \in 
+                \bigoplus_{p,q,j}\Omega^{p,q}(X,\Hom(E_j,E_{j+p-q-1})).
+            \end{aligned}
+        \right. \\
+        \Longrightarrow
+        \left\{
+            \begin{aligned}
+                &\str\left[v\exp(-A_u^2+bN)\right] \in 
+                \bigoplus_{p,j}\Omega^{p,p+1}(X,\End(E_j)), \\
+                &\str\left[v^*\exp(-A_u^2+bN)\right] \in 
+                \bigoplus_{p,j}\Omega^{p+1,p}(X,\End(E_j)).
+            \end{aligned}
+        \right.
+    \end{gather*}
+    Thus
+    \begin{gather*}
+        \left\{
+            \begin{aligned}
+            &\p\str\left[\exp(-A_u^2+bN)\right] 
+            = b\sqrt{u}\str\left[v^*\exp(-A_u^2+bN)\right], \\
+            &\bp\str\left[\exp(-A_u^2+bN)\right] 
+            = -b\sqrt{u}\str\left[v\exp(-A_u^2+bN)\right].
+            \end{aligned}
+        \right. \\
+        \Longrightarrow\;
+        (\p-\bp)\str\left[\exp(-A_u^2+bN)\right]
+        = b\str\left[\sqrt{u}V\exp(-A_u^2+bN)\right].
+    \end{gather*}
+    The last step is to take $\pd{}{b}|_{b=0}$ on both sides, 
+    \begin{align*}
+        LHS &= (\p-\bp)\pd{}{b}\str\left[\exp(-A_u^2+bN)\right]\Big|_{b=0} \\
+        &= (\p-\bp)\int_0^1\str\left[\me^{-(1-s)(A_u^2-bN)}
+        \big(-\pd{}{b}(A_u^2-bN)\big)\me^{-s(A_u^2-bN)} \right]\md s\Big|_{b=0} \\
+        &= (\p-\bp)\int_0^1\str\left[\me^{-(1-s)A_u^2}N\me^{-sA_u^2}\right]\md s \\
+        &= (\p-\bp)\str\left[N\exp(-A_u^2)\right], \\
+        RHS &= \pd{}{b}\left(b\str\left[\sqrt{u}V\exp(-A_u^2+bN)\right]\right)\Big|_{b=0} \\
+        &= \sqrt{u}\str\left[V\exp(-A_u^2)\right].            
+    \end{align*}
+    Thus we get formula \eqref{eq:3.2}. It's easy to deduce \eqref{eq:3.3} 
+    from \eqref{eq:3.1} and \eqref{eq:3.2}.
+    \end{proof}

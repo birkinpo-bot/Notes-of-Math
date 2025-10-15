@@ -1,0 +1,261 @@
+\chapter{Symplectic Geometry}
+\label{chap:SymplecticGeometry}
+\section{Hamiltonian Mechanics}
+\subsubsection*{Hamilton's Equations}
+Hamiltonian mechanics is a reformulation of classical mechanics. 
+It arises from Lagrangian mechanics by a Legendre transformation. 
+The state of a mechanical system is described by a point in a 
+$2n$-dimensional phase space, with coordinates $(q_1,\ldots,q_n,
+p_1,\ldots,p_n)$, where the $q_i$ are the generalized coordinates,
+and the $p_i$ are the conjugate momenta. The time evolution of the
+system is given by \textbf{Hamilton's equations}:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \pd{q_i}{t} &= \pd{H}{p_i}, \\
+        \pd{p_i}{t} &= -\pd{H}{q_i},
+    \end{aligned}
+    \quad i=1,\ldots,n,\right.
+\end{equation*}
+where $H(q,p,t)$ is the \textbf{Hamiltonian function}, which is usually the
+total energy of the system.
+
+Suppoese $(q(t),p(t))$ is a solution to Hamilton's equations. 
+Then for any function $f(q,p,t)$, its time evalution is given by 
+\begin{equation*}
+    \frac{\md f}{\md t} = \pd{f}{t} + \sum_{i=1}^n\left(
+    \pd{f}{q_i}\frac{\md q_i}{\md t} + 
+    \pd{f}{p_i}\frac{\md p_i}{\md t}\right)
+    = \pd{f}{t} + \sum_{i=1}^{n}\left(\pd{f}{q_i}\pd{H}{p_i} 
+    - \pd{f}{p_i}\pd{H}{q_i}\right).
+\end{equation*}
+We define the \textbf{Poisson bracket} of two functions $f$ and $g$ by
+\begin{equation*}
+    \{f,g\} = \sum_{i=1}^{n}\left(\pd{f}{q_i}\pd{g}{p_i} 
+    - \pd{f}{p_i}\pd{g}{q_i}\right).
+\end{equation*}
+Then the time evolution of $f$ can be written as 
+\begin{equation*}
+    \frac{\md f}{\md t} = \pd{f}{t} + \{f,H\}.
+\end{equation*}
+So $f$ is a constant of motion if and only if $\pd{f}{t} + \{f,H\} = 0$. 
+If in particular $f$ does not depend on $t$, then $f$ is a constant of 
+motion if and only if $\{f,H\} = 0$. 
+
+\subsubsection*{Hamilton's Equations and Symplectic Forms}
+To formulate Hamiltonian mechanics in a symplectic geometric framework,
+we introduce the symplectic form $\omega$ on the phase space:
+\begin{equation*}
+    \omega = \sum_{i=1}^n \md q_i \wedge \md p_i.
+\end{equation*}
+This is a closed, non-degenerate 2-form. Let $H = H(q,p)$ be a 
+Hamiltonian function. The Hamiltonian vector field $X_H$ associated 
+to $H$ is defined by the equation
+\begin{equation*}
+    \iota_{X_H}\omega = \md H, 
+\end{equation*}
+where $\iota_{X_H}$ denotes the interior product with $X_H$. 
+The left-hand side is 
+\begin{equation*}
+    \iota_{X_H}\omega = \sum_{i=1}^n\Big(\md q_i(X_H)\md p_i 
+    - \md p_i(X_H)\md q_i\Big).
+\end{equation*}
+The right-hand side is
+\begin{equation*}
+    \md H = \sum_{i=1}^n\left(\pd{H}{q_i}\md q_i + \pd{H}{p_i}\md p_i\right).
+\end{equation*}
+So we have
+\begin{equation*}
+    \md q_i(X_H) = \pd{H}{p_i}, \quad \md p_i(X_H) = -\pd{H}{q_i}.
+\end{equation*}
+Thus the Hamiltonian vector field is 
+\begin{equation*}
+    X_H = \sum_{i=1}^n\left(\pd{H}{p_i}\pd{}{q_i} 
+    - \pd{H}{q_i}\pd{}{p_i}\right).
+\end{equation*}
+The time evolution of the system is given by the flow of $X_H$, which 
+is exactly Hamilton's equations. 
+
+For any smooth functions $f$, we can uniquely determine a verctor field 
+$X_f$ by solving the equation 
+\begin{equation*}
+    \iota_{X_f}\omega = \md f.
+\end{equation*}
+For any two smooth functions $f,g$, We can define the Poission bracket to be 
+\begin{equation*}
+    \{f,g\} := \omega(X_f,X_g).
+\end{equation*}
+
+When $\omega = \sum_{i=1}^{n}\md q_i\wedge \md p_i$, we can get
+\begin{equation*}
+    X_f = \sum_{i=1}^{n}\left(\pd{f}{p_i}\pd{}{q_i} 
+    - \pd{f}{q_i}\pd{}{p_i}\right).
+\end{equation*}
+So 
+\begin{align*}
+    \omega(X_f,X_g) &= \sum_{i,j=1}^{n}
+    \omega\left(\pd{f}{p_i}\pd{}{q_i}-\pd{f}{q_i}\pd{}{p_i},
+    \pd{g}{p_j}\pd{}{q_j}-\pd{g}{q_j}\pd{}{p_j}\right) \\
+    &= \sum_{i,j=1}^{n}\left(\pd{f}{q_i}\pd{g}{p_j} 
+    - \pd{f}{p_i}\pd{g}{q_j}\right)\delta_{ij} \\
+    &= \sum_{i=1}^{n}
+    \left(\pd{f}{q_i}\pd{g}{p_i} - \pd{f}{p_i}\pd{g}{q_i}\right).
+\end{align*}
+
+\subsubsection*{Canonical Transformations}
+Let $(Q(q,p),P(q,p))$ be a transformation from $(q,p)$ to $(Q,P)$. We say
+it is a \textbf{canonical transformation} if it preserves the form of 
+Hamilton's equations, i.e., if $(Q(t),P(t))$ satisfies
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \pd{Q_i}{t} &= \pd{K}{P_i}, \\
+        \pd{P_i}{t} &= -\pd{K}{Q_i},
+    \end{aligned}
+    \quad i=1,\ldots,n,\right.
+\end{equation*}
+for some Hamiltonian function $K(Q,P,t)$. This is equivalent to the 
+\textbf{Poisson bracket condition}:
+\begin{gather*}
+    \{P_i,Q_j\}_{q,p} = \delta_{ij}, \\
+    \{Q_i,Q_j\}_{q,p} = 0, \\
+    \{P_i,P_j\}_{q,p} = 0.
+\end{gather*}
+Another equivalent condition is the \textbf{differential form condition}:
+\begin{equation*}
+    \sum_{i=1}^n\md Q_i\wedge\md P_i=\sum_{i=1}^n\md q_i\wedge\md p_i.
+\end{equation*}
+
+\subsubsection*{Canonical transformations and Symplectic Forms}
+Let $(Q(q,p),P(q,p))$ be a transformation from $(q,p)$ to $(Q,P)$. The 
+Jacobian matrix of this transformation is
+\begin{equation*}
+    J = \frac{\p(Q,P)}{\p(q,p)} = 
+    \begin{pmatrix}
+        \pd{Q}{q} & \pd{Q}{p} \\ \pd{P}{q} & \pd{P}{p}
+    \end{pmatrix} =: 
+    \begin{pmatrix}
+        A & B \\ C & D
+    \end{pmatrix}.
+\end{equation*}
+\begin{theorem}
+    The Poission bracket condition is equivalent to $J^T$ being symplectic.
+\end{theorem}
+\begin{proof}
+    The Poission bracket condition is
+    \begin{gather*}
+        \{P_k,Q_l\}_{q,p} = \sum_{i=1}^{n}\Big(\pd{Q_l}{q_i}\pd{P_k}{p_i}
+        -\pd{Q_l}{p_i}\pd{P_k}{q_i}\Big) = \delta_{kl}, \\
+        \{Q_k,Q_l\}_{q,p} = \sum_{i=1}^{n}\Big(\pd{Q_k}{q_i}\pd{Q_l}{p_i}
+        -\pd{Q_k}{p_i}\pd{Q_l}{q_i}\Big) = 0, \\
+        \{P_k,P_l\}_{q,p} = \sum_{i=1}^{n}\Big(\pd{P_k}{q_i}\pd{P_l}{p_i}
+        -\pd{P_k}{p_i}\pd{P_l}{q_i}\Big) = 0. 
+    \end{gather*}
+    Written in a tigher form, they are
+    \begin{gather*}
+        \pd{Q}{q}\Big(\pd{P}{p}\Big)^T-\pd{Q}{p}\Big(\pd{P}{q}\Big)^T = I 
+        \Rightarrow A D^T - B C^T = I, \\
+        \pd{Q}{q}\Big(\pd{Q}{p}\Big)^T-\pd{Q}{p}\Big(\pd{Q}{q}\Big)^T = 0 
+        \Rightarrow A B^T - B A^T = 0, \\
+        \pd{P}{q}\Big(\pd{P}{p}\Big)^T-\pd{P}{p}\Big(\pd{P}{q}\Big)^T = 0 
+        \Rightarrow C D^T - D C^T = 0.
+        \end{gather*}
+    This is equivalent to say 
+    \begin{align*}
+        J \Omega J^T &= 
+        \begin{pmatrix}
+            A & B \\ C & D
+        \end{pmatrix}
+        \begin{pmatrix}
+            0 & I \\ -I & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+            A^T & C^T \\ B^T & D^T
+        \end{pmatrix}  \\ 
+        &= 
+        \begin{pmatrix}
+            A B^T - B A^T & A D^T - B C^T \\
+            C B^T - D A^T & C D^T - D C^T
+        \end{pmatrix} \\
+        &= 
+        \begin{pmatrix}
+            0 & I \\ -I & 0
+        \end{pmatrix} = \Omega.
+    \end{align*}
+\end{proof}
+\begin{theorem}
+    The differential form condition is equivalent to $J$ being symplectic.
+\end{theorem}
+\begin{proof}
+    Let $\omega_{(q,p)} = \sum\limits_{i=1}^n \md q_i\wedge \md p_i$,
+    $\omega_{(Q,P)} = \sum\limits_{i=1}^n \md Q_i\wedge \md P_i$. Then 
+    \begin{align*}
+        \omega_{(Q,P)} &= 
+        \sum_{i=1}^n\left(\sum_{k=1}^{n}\pd{Q_i}{q_k}\md q_k 
+        + \pd{Q_i}{p_k}\md p_k\right) \wedge 
+        \left(\sum_{l=1}^{n}\pd{P_i}{q_l}\md q_l 
+        + \pd{P_i}{p_l}\md p_l\right) \\ 
+        &= \sum_{i=1}^n\sum_{k,l=1}^{n}\left(\pd{Q_i}{q_k}\pd{P_i}{p_l}
+        -\pd{Q_i}{p_l}\pd{P_i}{q_k}\right)\md q_k\wedge \md p_l \\
+        &\quad + \sum_{i=1}^n\sum_{k<l}\left(\pd{Q_i}{q_k}\pd{P_i}{q_l}
+        -\pd{Q_i}{q_l}\pd{P_i}{q_k}\right)\md q_k\wedge \md q_l \\
+        &\quad + \sum_{i=1}^n\sum_{k<l}\left(\pd{Q_i}{p_k}\pd{P_i}{p_l}
+        -\pd{Q_i}{p_l}\pd{P_i}{p_k}\right)\md p_k\wedge \md p_l.
+    \end{align*}
+    Thus $\omega_{(Q,P)} = \omega_{(q,p)}$ if and only if 
+    \begin{gather*}
+        \sum_{i=1}^n\left(\pd{Q_i}{q_k}\pd{P_i}{p_l}
+        -\pd{Q_i}{p_l}\pd{P_i}{q_k}\right) = \delta_{kl}, \\
+        \sum_{i=1}^n\left(\pd{Q_i}{q_k}\pd{P_i}{q_l}
+        -\pd{Q_i}{q_l}\pd{P_i}{q_k}\right) = 0, \\
+        \sum_{i=1}^n\left(\pd{Q_i}{p_k}\pd{P_i}{p_l}
+        -\pd{Q_i}{p_l}\pd{P_i}{p_k}\right) = 0. 
+    \end{gather*}
+    Written in a tigher form, they are 
+    \begin{gather*}
+        \Big(\pd{Q}{q}\Big)^T\pd{P}{p}-\Big(\pd{P}{q}\Big)^T\pd{Q}{p} = I
+        \Rightarrow A^{T}D - C^{T}B = I, \\
+        \Big(\pd{Q}{q}\Big)^T\pd{Q}{p}-\Big(\pd{P}{q}\Big)^T\pd{P}{p} = 0
+        \Rightarrow A^{T}B - C^{T}A = 0, \\
+        \Big(\pd{Q}{p}\Big)^T\pd{P}{q}-\Big(\pd{P}{p}\Big)^T\pd{Q}{q} = 0
+        \Rightarrow B^{T}D - D^{T}B = 0.
+    \end{gather*}
+    This is equivalent to say 
+    \begin{align*}
+        J^T \Omega J &= 
+        \begin{pmatrix}
+            A^T & C^T \\ B^T & D^T
+        \end{pmatrix}
+        \begin{pmatrix}
+            0 & I \\ -I & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+            A & B \\ C & D
+        \end{pmatrix}  \\ 
+        &= 
+        \begin{pmatrix}
+            A^{T}C - C^{T}A & A^{T}D - C^{T}B \\
+            B^{T}C - D^{T}A & B^{T}D - D^{T}B
+        \end{pmatrix} \\
+        &= 
+        \begin{pmatrix}
+            0 & I \\ -I & 0
+        \end{pmatrix} = \Omega.
+    \end{align*}
+\end{proof}
+\begin{theorem}
+    $J$ is symplectic if and only if $J^T$ is symplectic.
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        J \text{ is symplectic} &\Leftrightarrow J^T\Omega J = \Omega \\ 
+        &\Leftrightarrow J^{-1}\Omega (J^T)^{-1} = \Omega \\ 
+        &\Leftrightarrow J\Omega J^T = \Omega \\
+        &\Leftrightarrow J^T \text{ is symplectic}.
+    \end{align*} 
+\end{proof}
+Those three theorems together give the following conclusion:
+\begin{theorem}
+    The Poission bracket condition is equivalent to the differential form 
+    condition.
+\end{theorem}
