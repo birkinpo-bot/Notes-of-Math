@@ -1,0 +1,211 @@
+\section{Chern Numbers \& Pontrjagin Numbers}
+\label{sec:ChernNumbers&PontrjaginNumbers}
+
+\subsection{Chern Numbers}
+\begin{definition}
+    Let $K^n$ be a compact complex manifold, 
+    $\dim_\mathbb{C}K=n$. 
+    For each partition $I=i_1,\dots,i_r$ of $n$, 
+    we define the $I$-th Chern number to be the integer 
+    \begin{equation*}
+        c_I[K^n]=c_{i_1}\cdots c_{i_r}[K^n]
+        :=\langle c_{i_1}(\tau)\cdots c_{i_r}(\tau),\mu_{K^n}\rangle,
+    \end{equation*}
+    where $\mu_{K^n}$ is the fundamental homology class w.r.t. 
+    the orientation determined by the complex structure.
+
+    If $I$ is a partition of other number, we define $c_I[K^n]$ to be $0$. 
+\end{definition}
+
+\begin{example}
+    For $K^n=\mathbb{C}P^n$, we have
+    \begin{align*}
+        c_I[\mathbb{C}P^n] 
+        &= \langle c_{i_1}(\tau)\cdots c_{i_r}(\tau),
+        \mu_{\mathbb{C}P^n}\rangle \\
+        &=\left\langle\binom{n+1}{i_1}\cdots\binom{n+1}{i_r}a^n,
+        \mu_{\mathbb{C}P^n}\right\rangle \\
+        &=\binom{n+1}{i_1}\cdots\binom{n+1}{i_r}.
+    \end{align*}
+\end{example}
+
+\subsection{Pontrjagin Numbers}
+\begin{definition}
+    Let $M^{4n}$ be a compact oriented smooth manifold of dimension $4n$. 
+    For each partition $I=i_1,\dots,i_r$ of $n$, 
+    we define the $I$-th Pontrjagin number to be the integer 
+    \begin{equation*}
+        p_I[M^{4n}]=p_{i_1}\cdots p_{i_r}[M^{4n}]
+        :=\langle p_{i_1}(\tau)\cdots p_{i_r}(\tau),\mu_{M^{4n}}\rangle,
+    \end{equation*}
+    where $\mu_{M^{4n}}$ is the fundamental homology class w.r.t. 
+    the given orientation.
+
+    If $I$ is a partition of other number, 
+    we define $p_I[M^{4n}]$ to be $0$.
+\end{definition}
+
+\begin{example}
+    For $M^{4n}=\mathbb{C}P^{2n}$, we have
+    \begin{align*}
+        p_I[\mathbb{C}P^{2n}] 
+        &= \langle p_{i_1}(\tau)\cdots p_{i_r}(\tau),
+        \mu_{\mathbb{C}P^{2n}}\rangle \\
+        &=\left\langle\binom{2n+1}{i_1}\cdots\binom{2n+1}{i_r}a^{2n},
+        \mu_{\mathbb{C}P^{2n}}\right\rangle \\
+        &=\binom{2n+1}{i_1}\cdots\binom{2n+1}{i_r}.
+    \end{align*}
+\end{example}
+
+\noindent\textbf{Oriented reversing map.} 
+If we reverse the orientation of $M^{4n}$, since the definition of
+Pontrjagin classes do not depend on the orientation, 
+we have the following
+\begin{gather*}
+    p_k(M)\mapsto p_k(M), \\
+    \mu_M\mapsto -\mu_M, \\
+    p_I[M]\mapsto -p_I[M].
+\end{gather*}
+Thus the sign of Pontrjagin numbers change when 
+reversing the orientation of $M$. 
+If $M$ has a nonzero Pontrjagin number, 
+$M$ cannot possess any orientation reversing diffeomorphism. 
+
+\noindent\textbf{Manifold as a boundary.} 
+If $M^{4n}$ is a boundary of some smooth, 
+compact, oriented $(4n+1)$-dimensional manifold-with-boundary. 
+Then all Pontrjagin numbers of $M$ must be zero. 
+Thus if some $p_I[M]\neq0$, 
+then $M$ cannot be the boundary of such manifold.
+
+\subsection{Symmetric Functions}
+We know that all symmetric polynomials in 
+$\mathbb{Z}[t_1,\dots,t_n]$ is itself a polynomial ring: 
+\begin{equation*}
+    \mathcal{S} = \mathbb{Z}[\sigma_1,\dots,\sigma_n]\subset
+    \mathbb{Z}[t_1,\dots,t_n],
+\end{equation*}
+where $\sigma_i$ is the $i$-th elementary symmetric polynomial.
+\begin{equation*}
+    1+\sigma_1+\cdots+\sigma_n = (1+t_1)\cdots(1+t_n).
+\end{equation*}
+If we focus on the symmetric polynomials of degree $k$, 
+denoted by $\mathcal{S}^k$, clearly 
+it is a free abelian group with basis
+\begin{equation*}
+    \sigma_{i_1}\cdots\sigma_{i_r},\quad
+    I=i_1,\dots,i_r\text{ is a partition of } k.
+\end{equation*}
+For some reason, it is more convenient to use another basis of 
+$\mathcal{S}^k$, which is described as follows.
+
+Define two monomials in $\mathbb{Z}[t_1,\dots,t_n]$ to be 
+equivalent if they differ by a permutation of the variables.
+We define 
+\begin{equation*}
+    \sum t_1^{a_1}\cdots t_r^{a_r}
+\end{equation*}
+to be the summation of all distinct monomials equivalent to
+$t_1^{a_1}\cdots t_n^{a_n}$. Clearly, it is a symmetric polynomial.
+
+\begin{lemma}
+    \begin{equation*}
+        \sum t_1^{a_1}\cdots t_r^{a_r}
+    \end{equation*}
+    where $a_1\cdots a_r$ ranges over all partitions 
+    of $k$ with length $r\leq n$,
+    form another basis of $\mathcal{S}^k$.
+\end{lemma}
+
+Now for each partition $I=i_1,\dots,i_r$ of $k$, 
+we define a polynomial $s_I$ in $k$ variables as follows:
+choose $n\geq k$, define 
+\begin{equation*}
+    s_I(\sigma_1,\dots,\sigma_k)
+    :=\sum t_1^{i_1}\cdots t_r^{i_r},
+\end{equation*}
+both sides are symmetric polynomials in $n$ variables.
+
+Notes that $s_I$ does not depend on the choice of $n$, 
+for if we choose another $n'>n$, 
+then we can set $t_{n+1}=\cdots=t_{n'}=0$ to get back to the previous case.
+
+Clearly, all $s_I$ form a basis of $\mathcal{S}^k$ as $I$ ranges over
+all partitions of $k$.
+
+Now let's look at the cohomology ring 
+$H^*(\mathrm{Gr}_n(\mathbb{C}^\infty);\mathbb{Z})$.
+the splitting map 
+\begin{equation*}
+    \phi:\mathbb{C}P^\infty\times\cdots\times\mathbb{C}P^\infty
+    \ra \mathrm{Gr}_n(\mathbb{C}^\infty)
+\end{equation*}
+induces an injective homomorphism of cohomology rings
+\begin{equation*}
+    \phi^*:H^*(\mathrm{Gr}_n(\mathbb{C}^\infty);\mathbb{Z})
+    \ra H^*(\mathbb{C}P^\infty\times\cdots\times\mathbb{C}P^\infty;
+    \mathbb{Z})
+    \cong \mathbb{Z}[t_1,\dots,t_n],
+\end{equation*}
+where $t_i$ is the generator of the $i$-th factor.
+$\phi^*$ maps 
+$H^*(\mathrm{Gr}_n(\mathbb{C}^\infty);\mathbb{Z})=\mathbb{Z}[c_1,\dots,c_n]$ 
+isomorphically onto the symmetric polynomial subring 
+$\mathcal{S}\subset\mathbb{Z}[t_1,\dots,t_n]$, 
+with $c_i$ mapped to $\sigma_i$.
+
+Since $\phi^*s_I(c_1,\dots,c_k) = s_I(\sigma_1,\dots,\sigma_k)$ 
+forms a basis of $\mathcal{S}^k$ as $I$ ranges over all partitions of $k$, 
+by the injectivity of $\phi^*$, $s_I(c_1,\dots,c_k)$ also forms a basis of 
+$H^{2k}(\mathrm{Gr}_n(\mathbb{C}^\infty);\mathbb{Z})$.
+
+\subsection{A Product Formula}
+Let $\omega$ be an $n$-dimensional complex vector bundle over
+a compact complex manifold $B$. For each $k\geq0$ and partition 
+$I=i_1,\dots,i_r$ of $k$, we define
+\begin{equation*}
+    s_I(c(\omega)) := s_I(c_1(\omega),\dots,c_k(\omega))\in
+    H^{2k}(B;\mathbb{Z}).
+\end{equation*}
+sometimes we simply write it as $s_I(c)$. 
+
+\begin{lemma}[Thom]
+    \begin{equation*}
+        s_I(c(\omega\oplus\omega')) =
+        \sum_{J,K} s_J(c(\omega)) s_K(c(\omega')),
+    \end{equation*}
+    where the summation is taken over all partitions $J,K$
+    with juxtapositon $JK$ equal to $I$.
+\end{lemma}
+\begin{proof}
+    Let $\phi:F(B)\to B$ be the flag manifold of $\omega\oplus\omega'$,
+    with the splitting bundle
+    \begin{equation*}
+        \phi^*(\omega) = \eta_1\oplus\cdots\oplus\eta_n, \quad
+        \phi^*(\omega') = \eta_{1}'\oplus\cdots\oplus\eta_{n'}'.
+    \end{equation*}
+    Then we have
+    \begin{gather*}
+        \phi^*c(\omega) = 
+        (1+c_1(\eta_1))\cdots(1+c_1(\eta_n)) =: 
+        (1+t_1)\cdots(1+t_n), \\
+        \phi^*c(\omega') = 
+        (1+c_1(\eta_1'))\cdots(1+c_1(\eta_{n'}')) =: 
+        (1+t_{n+1})\cdots(1+t_{n+n'}).
+    \end{gather*}
+    Thus
+    \begin{align*}
+        \phi^*s_I(c(\omega\oplus\omega')) &= 
+        \sum t_1^{i_1}\cdots t_r^{i_r} \\
+        &= \sum_{
+        \begin{subarray}{c}
+            JK = I, \\ J = j_1,\dots,j_{r_1}, \\ K = k_1,\dots,k_{r_2}
+        \end{subarray}
+        } 
+        \left(\sum t_1^{j_1}\cdots t_{r_1}^{j_{r_1}}\right)
+        \left(\sum t_{n+1}^{k_1}\cdots t_{n+r_2}^{k_{r_2}}\right) \\
+        &= \sum_{JK=I} s_J(\phi^*c(\omega)) s_K(\phi^*c(\omega')) \\
+        &= \phi^*\left(\sum_{JK=I} s_J(c(\omega)) s_K(c(\omega'))\right).
+    \end{align*}
+    Since $\phi^*$ is injective, we get the desired formula.
+\end{proof}
