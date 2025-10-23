@@ -177,6 +177,9 @@ sometimes we simply write it as $s_I(c)$.
     where the summation is taken over all partitions $J,K$
     with juxtapositon $JK$ equal to $I$.
 \end{lemma}
+\begin{remark}
+    We can view this formula as a generalization of the Whitney sum formula.
+\end{remark}
 \begin{proof}
     Let $\phi:F(B)\to B$ be the flag manifold of $\omega\oplus\omega'$,
     with the splitting bundle
@@ -195,8 +198,8 @@ sometimes we simply write it as $s_I(c)$.
     \end{gather*}
     Thus
     \begin{align*}
-        \phi^*s_I(c(\omega\oplus\omega')) &= 
-        \sum t_1^{i_1}\cdots t_r^{i_r} \\
+        \phi^*s_I(c(\omega\oplus\omega')) 
+        &= \sum t_1^{i_1}\cdots t_r^{i_r} \\
         &= \sum_{
         \begin{subarray}{c}
             JK = I, \\ J = j_1,\dots,j_{r_1}, \\ K = k_1,\dots,k_{r_2}
@@ -204,8 +207,104 @@ sometimes we simply write it as $s_I(c)$.
         } 
         \left(\sum t_1^{j_1}\cdots t_{r_1}^{j_{r_1}}\right)
         \left(\sum t_{n+1}^{k_1}\cdots t_{n+r_2}^{k_{r_2}}\right) \\
+        &= \sum_{JK=I} s_J(c(\eta_1\oplus\cdots\oplus\eta_n)) s_K(c(\eta_1'\oplus\cdots\oplus\eta_n')) \\
         &= \sum_{JK=I} s_J(\phi^*c(\omega)) s_K(\phi^*c(\omega')) \\
         &= \phi^*\left(\sum_{JK=I} s_J(c(\omega)) s_K(c(\omega'))\right).
     \end{align*}
     Since $\phi^*$ is injective, we get the desired formula.
+\end{proof}
+
+Now for a compact complex manifold $K^n$. For each partition
+$I=i_1,\dots,i_r$ of $n$, we denote
+\begin{equation*}
+    s_I[K^n] = s_I(c)[K^n] := \langle s_I(c(\tau)), \mu_{K^n}\rangle\in\mathbb{Z}.
+\end{equation*}
+This characteristic number is clearly a linear combination of
+Chern numbers.
+
+\begin{corollary}
+    \begin{equation*}
+        s_I[K^m\times L^n] =
+        \sum_{JK=I} s_J[K^m] s_K[L^n].
+    \end{equation*}
+    where the summation is taken over all partitions $J$ of $m$ and $K$ of $n$
+    with juxtapositon $JK$ equal to $I$.
+\end{corollary}
+\begin{proof}
+    Since $\tau_{K\times L} = \tau_K \times \tau_L = \pi_1^*\tau_K \oplus \pi_2^*\tau_L$,
+    where $\pi_1,\pi_2$ are the projections from $K\times L$ to
+    $K$ and $L$ respectively, 
+    \begin{align*}
+        s_I[K\times L]
+        &= \langle s_I(c(\tau_{K\times L})), \mu_{K\times L}\rangle \\
+        &= \sum_{JK=I} \left\langle s_J(c(\pi_1^*\tau_K)) s_K(c(\pi_2^*\tau_L)),
+        \mu_{K}\times \mu_{L} \right\rangle \\
+        &= \sum_{JK=I} \langle s_J(c(\tau_K)), \mu_K \rangle
+        \langle s_K(c(\tau_L)), \mu_L \rangle \\
+        &= \sum_{JK=I} s_J[K] s_K[L].
+    \end{align*}
+\end{proof}
+
+\begin{corollary}
+    As a special case, $s_{m+n}[K^m\times L^n] = 0$, for $m,n>0$.
+\end{corollary}
+
+There are analogous results for Pontrjagin classes and numbers. 
+Let $\xi$ be a real vector bundle over a compact smooth manifold $B$. 
+For each $k\geq0$ and partition $I=i_1,\dots,i_r$ of $k$, we define
+\begin{equation*}
+    s_I(p(\xi)) := s_I(p_1(\xi),\dots,p_k(\xi))\in
+    H^{4k}(B;\mathbb{Z}).
+\end{equation*}
+There are similar product formulas for Pontrjagin classes 
+\begin{equation*}
+    s_I(p(\xi\oplus\xi')) \equiv
+    \sum_{J,K} s_J(p(\xi)) s_K(p(\xi')),
+\end{equation*}
+modulo elements of $2$-torsions. Since pairing with the fundamental class
+annihilates all $2$-torsions, we have 
+\begin{equation*}
+    s_I[M\times N] = \sum_{JK=I} s_J[M] s_K[N],
+\end{equation*}
+Notes that these characteristic numbers
+will be zero unless both the dimensions of $M$ and $N$ are divisible by $4$.
+
+\subsection{Linear Independence of Chern Numbers and of Pontrjagin Numbers}
+\begin{theorem}[Thom]
+    Let $K^{1},\dots,K^{n}$ be compact complex manifolds
+    with $s_k(c)[K^{k}]\neq0$. Then the $p(n)\times p(n)$ matrix
+    \begin{equation*}
+        \Big(c_{i_1}\cdots c_{i_r}[K^{j_1}\times\cdots\times K^{j_s}]\Big)
+    \end{equation*}
+    is nonsingular, where both $I=i_1,\dots,i_r$ and
+    $J=j_1,\dots,j_s$ range over all partitions of $n$. 
+\end{theorem} 
+Similarly, we have the following theorem for Pontrjagin numbers.
+\begin{theorem}[Thom]
+    Let $M^{4},\dots,M^{4n}$ be compact oriented smooth manifolds
+    with $s_k(p)[M^{4k}]\neq0$. Then the $p(n)\times p(n)$ matrix
+    \begin{equation*}
+        \Big(p_{i_1}\cdots p_{i_r}[M^{4j_1}\times\cdots\times M^{4j_s}]\Big)
+    \end{equation*}
+    is nonsingular, where both $I=i_1,\dots,i_r$ and
+    $J=j_1,\dots,j_s$ range over all partitions of $n$.
+\end{theorem}
+\begin{proof}
+    We only prove the first theorem, 
+    the second one is completely analogous.
+
+    Since the basis $c_{i_1}\cdots c_{i_r}$ isn't well behaved
+    under the product operation, we change to the basis $s_I(c)$.
+    By the product formula, 
+    \begin{equation*}
+        s_I[K^{j_1}\times\cdots\times K^{j_s}] \neq 0
+    \end{equation*}
+    only if $I=i_1,\dots,i_r$ is a refinement of $J=j_1,\dots,j_s$.
+    Thus by suitable ordering of both the rows and columns, we can assume that
+    the matrix is upper triangular. The diagonal elements are
+    \begin{equation*}
+        s_{i_1,\dots,i_r}[K^{i_1}\times\cdots\times K^{i_r}] =
+        s_{i_1}[K^{i_1}]\cdots s_{i_r}[K^{i_r}] \neq 0.
+    \end{equation*}
+    Thus the matrix is nonsingular.
 \end{proof}
