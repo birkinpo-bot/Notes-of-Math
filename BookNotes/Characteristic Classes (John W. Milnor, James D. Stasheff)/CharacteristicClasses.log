@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  23 OCT 2025 20:04
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  23 OCT 2025 21:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -752,7 +752,7 @@ Package fontspec Info: Font family 'FandolSong-Regular(0)' created for font
 (fontspec)             <->"[FandolKai-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
 
-(./CharacteristicClasses.aux (./Chapters/ChernNumbers&PontrjaginNumbers.aux))
+(./CharacteristicClasses.aux (./Chapters/ObstructionTheory&CharacteristicClasses.aux) (./Chapters/ChernNumbers&PontrjaginNumbers.aux) (./Chapters/ThomSpace&Transversality.aux))
 \openout1 = `CharacteristicClasses.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
@@ -869,26 +869,64 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
  [1
 
 ]
+\openout2 = `Chapters/ObstructionTheory&CharacteristicClasses.aux'.
+
+ (./Chapters/ObstructionTheory&CharacteristicClasses.tex
+Overfull \hbox (12.2784pt too wide) in paragraph at lines 1--1
+[]\TU/lmr/bx/n/17.28 Obstruction Theory & Characteristic Classes 
+ []
+
+[2
+
+]
+Overfull \hbox (10.00543pt too wide) in paragraph at lines 75--81
+\TU/lmr/m/n/12 We call $\OML/cmm/m/it/12 c[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; f[]; h\OT1/cmr/m/n/12 )$ \TU/lmr/m/n/12 the $\OML/cmm/m/it/12 n$\TU/lmr/bx/n/12 -th deformation cochain \TU/lmr/m/n/12 of $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; f[]; h\OT1/cmr/m/n/12 )$\TU/lmr/m/n/12 . If $\OML/cmm/m/it/12 f[]\OMS/cmsy/m/n/12 j[] \OT1/cmr/m/n/12 =
+ []
+
+
+Overfull \hbox (9.80551pt too wide) in paragraph at lines 75--81
+\OML/cmm/m/it/12 f[]\OMS/cmsy/m/n/12 j[]$ \TU/lmr/m/n/12 and $\OML/cmm/m/it/12 h$ \TU/lmr/m/n/12 is the trivial homotopy, we simply write $\OML/cmm/m/it/12 c[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; f[]\OT1/cmr/m/n/12 )$ \TU/lmr/m/n/12 for $\OML/cmm/m/it/12 c[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; f[]; h\OT1/cmr/m/n/12 )$
+ []
+
+[3] [4]
+Overfull \hbox (11.01802pt too wide) in paragraph at lines 247--250
+\TU/lmr/m/n/12 typical group $\OML/cmm/m/it/12 ^^Y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X; x[]\OT1/cmr/m/n/12 )$ \TU/lmr/m/n/12 and action induced by the fundamental group $\OML/cmm/m/it/12 ^^Y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X; x[]\OT1/cmr/m/n/12 )$\TU/lmr/m/n/12 . 
+ []
+
+[5] [6]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 335.
+ (d:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [7] [8]) [9]
 \openout2 = `Chapters/ChernNumbers&PontrjaginNumbers.aux'.
 
- (./Chapters/ChernNumbers&PontrjaginNumbers.tex [2
+ (./Chapters/ChernNumbers&PontrjaginNumbers.tex [10
+
+
 
 ]
 Overfull \hbox (2.5377pt too wide) in paragraph at lines 107--110
 \TU/lmr/m/n/12 to be the summation of all distinct monomials equivalent to $\OML/cmm/m/it/12 t[] [] t[]$\TU/lmr/m/n/12 . Clearly,
  []
 
-[3] [4] [5] [6]) [7] Total classes: 0 (./CharacteristicClasses.aux (./Chapters/ChernNumbers&PontrjaginNumbers.aux))
+[11] [12] [13] [14]) [15]
+\openout2 = `Chapters/ThomSpace&Transversality.aux'.
+
+ (./Chapters/ThomSpace&Transversality.tex [16
+
+
+
+]) [17] Total classes: 0 (./CharacteristicClasses.aux (./Chapters/ObstructionTheory&CharacteristicClasses.aux) (./Chapters/ChernNumbers&PontrjaginNumbers.aux) (./Chapters/ThomSpace&Transversality.aux))
 Package rerunfilecheck Info: File `CharacteristicClasses.out' has not changed.
-(rerunfilecheck)             Checksum: ACC9360E94C111D106C21746018919E7;1197.
+(rerunfilecheck)             Checksum: 3E224A1F24F76B512A2A43CA567A3D3C;2623.
  ) 
 Here is how much of TeX's memory you used:
- 32516 strings out of 476683
- 777908 string characters out of 5807575
- 1859012 words of memory out of 5000000
- 52229 multiletter control sequences out of 15000+600000
- 521575 words of font info for 87 fonts, out of 8000000 for 9000
+ 32624 strings out of 476683
+ 782401 string characters out of 5807575
+ 1860012 words of memory out of 5000000
+ 52302 multiletter control sequences out of 15000+600000
+ 523164 words of font info for 103 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 98i,15n,103p,5084b,443s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,20n,103p,5084b,458s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on CharacteristicClasses.pdf (7 pages).
+Output written on CharacteristicClasses.pdf (17 pages).

@@ -1,2 +1,1 @@
-\contentsline {chapter}{\numberline {1}Symplectic Geometry}{5}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Hamiltonian Mechanics}{5}{section.1.1}%
+\contentsline {chapter}{\numberline {1}高等代数}{5}{chapter.1}%

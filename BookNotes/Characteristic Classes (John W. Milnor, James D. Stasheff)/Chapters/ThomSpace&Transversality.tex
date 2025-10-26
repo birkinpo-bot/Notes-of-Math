@@ -1,0 +1,108 @@
+\section{Thom Space \& Transversality}
+\label{sec:ThomSpace&Transversality}
+
+\begin{definition}
+    Let $\xi$ be a renk $k$ vector bundle over a base space $B$ with total space $E(\xi)$, 
+    suppose $\xi$ is equipped with a Euclidean metric. Let 
+    \begin{equation*}
+        A = \{ v \in E(\xi) \mid \|v\| > 1 \}.
+    \end{equation*}
+    The \textbf{Thom space} of $\xi$ is defined to be the quotient space
+    \begin{equation*}
+        T(\xi) = E(\xi) / A.
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{lem:CW-structure-of-Thom-space}
+    If the base space $B$ is a CW-complex, then the Thom space $T(\xi)$ is 
+    a $(k-1)$-connected CW-complex, having one cell of dimension $n+k$ for each
+    cell of dimension $n$ in $B$ and a base point $t_0$.
+\end{lemma}
+\begin{remark}
+    Notice that by the cellular approximation theorem, 
+    a CW-complex with $k$-skeleton trivial is $(k-1)$-connected.
+\end{remark}
+
+\begin{lemma}\label{lem:Homology-of-Thom-space}
+    If $\xi$ is an orientable rank $k$ vector bundle over $B$, then
+    \begin{equation*}
+        H_{k+i}(T(\xi),t_0;\mathbb{Z}) \cong H_i(B;\mathbb{Z}).
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    \begin{align*}
+        H_{k+i}(T(\xi),t_0;\mZ) &= 
+        H_{k+i}(E(\xi)/A,E_0/A;\mZ) \\
+        &\cong H_{k+i}(E(\xi),E_0;\mZ) \quad \text{by excision thm}\\
+        &\cong H_i(B;\mZ) \quad \text{by Thom isom}.
+    \end{align*}
+\end{proof}
+
+\begin{theorem}\label{thm:C-isom-version-Hurewicz-thm}
+    Let $X$ be a $(k-1)$-connected finite CW-complex, $k\geq2$. 
+    Then the Hurewicz homomorphism
+    \begin{equation*}
+        \pi_r(X)\to H_r(X;\mathbb{Z})
+    \end{equation*}
+    is a $\mathcal{C}$-isomorphism for $r<2k-1$. 
+\end{theorem}
+
+\begin{corollary}
+    If $T$ is the Thom space of an \textcolor{red}{orientable} rank $k$ vector bundle over a
+    \textcolor{red}{finite} CW-complex $B$, $k\geq2$, then there is a $\mathcal{C}$-isomorphism
+    \begin{equation*}
+        \pi_{k+i}(T) \to H_i(B;\mathbb{Z})
+    \end{equation*}
+    for $i<k-1$.
+\end{corollary}
+\begin{proof}
+    \begin{equation*}
+        \pi_{k+i}(T) \overset{\mathcal{C}-\text{isom}}{\cong} H_{k+i}(T,t_0;\mZ) \cong H_i(B;\mZ), \quad i<k-1.
+    \end{equation*}
+    The first isomorphism holds since by Lemma \ref{lem:CW-structure-of-Thom-space} 
+    $T$ is $(k-1)$-connected finite CW-complex, then we can apply Theorem \ref{thm:C-isom-version-Hurewicz-thm};
+    the second isomorphism holds since $\xi$ is orientable, we can apply Lemma \ref{lem:Homology-of-Thom-space}.
+\end{proof}
+
+\begin{theorem}
+    Every continuous map $f\colon S^{m} \to B$ is homotopic to a map 
+    $g$ which is smooth throughout $g^{-1}(T-t_0)$ and transverse to the zero section $B$.
+    The oriented cobordism class of the submanifold $g^{-1}(B)$ depends only on the homotopy 
+    class of $g$. Hence there is a well-defined map
+    \begin{align*}
+        \pi_{m}(T,t_0) &\to \Omega^{\mathrm{SO}}_{m-k} \\
+        [g] &\mapsto [g^{-1}(B)].
+    \end{align*}
+\end{theorem}
+
+\subsection{The Main Theorem}
+Let $\tilde{\gamma}^k$ be the universal oriented rank 
+$k$ vector bundle over $\tilde{\mrm{Gr}}_k(\mR^\infty)$, 
+we have the following important theorem.
+\begin{theorem}[Thom's Theorem]
+    For $k>n+1$, the map
+    \begin{align*}
+        \pi_{n+k}(T(\tilde{\gamma}^k),t_0) &\to \Omega^{\mrm{SO}}_{n} \\
+        [g] &\mapsto [g^{-1}(\tilde{\mrm{Gr}}_k(\mR^\infty))]
+    \end{align*}
+    is an isomorphism. Similarly, for the unoriented case,
+    the map
+    \begin{align*}
+        \pi_{n+k}(T(\tilde{\gamma}^k),t_0) &\to \Omega_{n} \\
+        [g] &\mapsto [g^{-1}(\tilde{\mrm{Gr}}_k(\mR^\infty))]
+    \end{align*}
+    is also an isomorphism.
+\end{theorem}
+\begin{remark}
+    这个同构是否由这个映射给出存疑.
+\end{remark}
+We  will not prove this theorem, instead, we will proof part of it.
+Let $\tilde{\gamma}^k_p$ be the universal bundle over $\tilde{\mrm{Gr}}_k(\mR^{k+p})$.
+\begin{lemma}
+    If $k\geq n$ and $p\geq n$, then the homomorphism
+    \begin{align*}
+        \pi_{n+k}(T(\tilde{\gamma}^k_p),t_0) &\to \Omega^{\mrm{SO}}_{n} \\
+        [g] &\mapsto [g^{-1}(\tilde{\mrm{Gr}}_k(\mR^{k+p}))]
+    \end{align*}
+    is surjective.
+\end{lemma}

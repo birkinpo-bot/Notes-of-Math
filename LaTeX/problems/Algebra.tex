@@ -1,20 +1,99 @@
 \chapter{高等代数}
     \begin{problem}
-        假设 $n$ 维欧氏空间 $V$ 中有 $m$ 个向量两两成钝角, 证明: $m\leqslant n+1$.
+        假设 $n$ 维欧氏空间 $V$ 中有 $m$ 个向量两两成钝角, 
+        证明: $m\leqslant n+1$.
     \end{problem}
 
     \begin{proof}
         当 $\mathrm{dim}V = 1$, 命题显然成立.
 
-        假设当维数为 $n-1$ 时命题成立, 现证明命题在 $n$ 维时仍成立. 设 $\ft{v}{1}{m}$ 为 $V$ 中两两成钝角的向量, 
-        令 $W$ 为 $Lv_m$ 的正交补空间, 并记 $P:V\rightarrow W$ 为正交投影映射, 令 $w_1=Pv_1,\dots,w_{m-1}=Pv_{m-1}$, 则当 $i\neq j$ 时, 
+        假设当维数为 $n-1$ 时命题成立, 
+        现证明命题在 $n$ 维时仍成立.
+         设 $\ft{v}{1}{m}$ 为 $V$ 中两两成钝角的向量, 
+        令 $W$ 为 $Lv_m$ 的正交补空间, 
+        并记 $P:V\rightarrow W$ 为正交投影映射, 
+        令 $w_1=Pv_1,\dots,w_{m-1}=Pv_{m-1}$, 则当 $i\neq j$ 时, 
         \begin{align*}
-            <w_i, w_j> &= <Pv_i,Pv_j> = \left<v_i-\frac{<v_i,v_m>}{<v_m,v_m>}v_m, v_j-\frac{<v_j,v_m>}{<v_m,v_m>}v_m\right> \\
-            &=<v_i,v_j> - \frac{<v_i,v_m>\cdot<v_j,v_m>}{<v_m,v_m>} \\
+            \langle w_i, w_j \rangle 
+            &= \langle Pv_i,Pv_j \rangle 
+            = \left\langle v_i-\frac{\langle v_i,v_m \rangle}
+            {\langle v_m,v_m \rangle}v_m, 
+            v_j-\frac{\langle v_j,v_m \rangle}
+            {\langle v_m,v_m \rangle}v_m\right\rangle \\
+            &=\langle v_i,v_j \rangle - 
+            \frac{\langle v_i,v_m \rangle\cdot
+            \langle v_j,v_m \rangle}{\langle v_m,v_m \rangle} \\
             &<0
         \end{align*}
-        因此 $\ft{w}{1}{m-1}$ 是 $n-1$ 维空间 $W$ 中两两成钝角的向量, 由归纳假设知 $m-1\leqslant n$, 即 $m\leqslant n+1$.
+        因此 $\ft{w}{1}{m-1}$ 是 $n-1$ 维空间 $W$ 中两两成钝角的向量, 
+        由归纳假设知 $m-1\leqslant n$, 即 $m\leqslant n+1$.
     \end{proof}
     \begin{remark}
         我感觉这和 $n$ 维欧氏空间的拓扑性质有关系, 
     \end{remark}
+    \newpage
+
+    \begin{problem}
+        Let $V$ be an $n$-dimensional vector space over the field $F$, 
+        then $\alpha\in\bigwedge^2(V^*)$ is decomposable, 
+        i.e., there exist $\omega,\eta\in V^*$ 
+        such that $\alpha=\omega\wedge\eta$, 
+        if and only if $\alpha\wedge\alpha=0$.
+    \end{problem}
+    \begin{proof}
+        Necessity is obvious. For sufficiency, we need a lemma:
+        \begin{lemma}
+            For $\alpha\in\bigwedge^r(V^*)$, $\omega\in V^*$,
+            there exists $\eta\in\bigwedge^{r-1}(V^*)$ such that
+            $\omega\wedge\eta=\alpha$ if and only if
+            $\omega\wedge\alpha=0$.
+        \end{lemma}
+        If $\alpha\wedge\alpha=0$, 
+        then 
+        \[
+            (\iota_X\alpha)\wedge\alpha 
+            =\frac{1}{2}\iota_X(\alpha\wedge\alpha)=0,
+            \quad\forall X\in V.
+        \]
+        Since $\alpha\neq0$, there exists $X\in V$ such that
+        $\omega=\iota_X\alpha\neq0$. Then by the lemma, there exists
+        $\eta\in\bigwedge^{1}(V^*)$ such that
+        \[
+            \omega\wedge\eta=\alpha.
+        \]
+    \end{proof}
+    \begin{proof}[\indent Proof of lemma]
+        Necessity is obvious.
+        
+        For sufficiency, let $\ft{\omega}{1}{n}$ be a basis of $V^*$
+        with $\omega_1=\omega$.
+        Then any $\alpha\in\bigwedge^r(V^*)$ can be written as 
+        \[
+            \alpha=\sum_{1\leqslant i_1<\cdots<i_r\leqslant n}
+            a_{i_1\cdots i_r}\omega_{i_1}\wedge\cdots\wedge\omega_{i_r}.
+        \]
+        Then 
+        \[
+            \omega\wedge\alpha
+            =\sum_{2\leqslant i_1<\cdots<i_r\leqslant n}
+            a_{i_1\cdots i_r}\omega_1\wedge\omega_{i_1}\wedge\cdots\wedge\omega_{i_r}
+            = 0,
+        \]
+        which implies that $a_{i_1\cdots i_r}=0$ for any
+        $1<i_1<\cdots<i_r\leqslant n$. Thus
+        \[
+            \alpha
+            =\sum_{2\leqslant i_2<\cdots<i_r\leqslant n}
+            a_{1 i_2\cdots i_r}
+            \omega_1\wedge\omega_{i_2}\wedge\cdots\wedge\omega_{i_r}
+            = \omega\wedge\eta,
+        \]
+        where 
+        \[
+            \eta
+            =\sum_{2\leqslant i_2<\cdots<i_r\leqslant n}
+            a_{1 i_2\cdots i_r}
+            \omega_{i_2}\wedge\cdots\wedge\omega_{i_r}.
+        \]
+        % \renewcommand{\qedsymbol}{}
+    \end{proof}

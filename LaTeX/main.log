@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  14 OCT 2025 21:48
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  26 OCT 2025 13:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -769,7 +769,7 @@ Package fontspec Info: Font family 'FandolSong-Regular(0)' created for font
 (fontspec)             <->"[FandolKai-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
 
-(./main.aux (./chapters/SymplecticGeometry.aux))
+(./main.aux (./problems/Algebra.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 119.
@@ -889,24 +889,27 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \openout5 = `main.toc'.
 
  [3]
-\openout2 = `chapters/SymplecticGeometry.aux'.
+\openout2 = `problems/Algebra.aux'.
 
- (./chapters/SymplecticGeometry.tex [4
+ (./problems/Algebra.tex [4
 
 
 ]
 Chapter 1.
-[5] [6] [7] [8] [9]) [10] Total classes: 0 (./main.aux (./chapters/SymplecticGeometry.aux))
+[5])
+LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <12> not available
+(Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on input line 147.
+ [6] Total classes: 0 (./main.aux (./problems/Algebra.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 02C8B19DA07BAFF701EA982ADA504A9E;303.
+(rerunfilecheck)             Checksum: 2F4C33785D36EAA57836B56BB4476BEB;75.
  ) 
 Here is how much of TeX's memory you used:
- 33104 strings out of 476683
- 795368 string characters out of 5807575
- 1868012 words of memory out of 5000000
- 52795 multiletter control sequences out of 15000+600000
- 521591 words of font info for 89 fonts, out of 8000000 for 9000
+ 33111 strings out of 476683
+ 795383 string characters out of 5807575
+ 1853012 words of memory out of 5000000
+ 52800 multiletter control sequences out of 15000+600000
+ 521607 words of font info for 91 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 98i,14n,103p,5002b,416s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,9n,103p,5002b,353s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (10 pages).
+Output written on main.pdf (6 pages).
