@@ -1,0 +1,129 @@
+\section{Vector Bundles}
+\label{sec:vector_bundles}
+\subsection{Basic Definition}
+Let $E=X\times V$, $F=X\times W$ be two trivial vector bundles over a space $X$, 
+then any homomorphism $\varphi:E\to F$ determines a continuous map
+\[
+\Phi:X\to \Hom(V,W)
+\]
+by the formula
+\[
+\varphi(x,v)=(x,\Phi(x)v).
+\]
+Conversely, any continuous map $\Phi:X\to \Hom(V,W)$ defines a homomorphism
+$\Phi:E\to F$. 
+
+Let $\Iso(V,W)\subset \Hom(V,W)$ be the set of all isomorphisms from $V$ to $W$. 
+Then $\Iso(V,W)$ is an open subset of $\Hom(V,W)$. Thus for any homomorphism 
+$\varphi$, the set of points $x\in X$ such that $\varphi_x:E_x\to F_x$ is an
+isomorphism form an open subset of $X$. 
+
+All of these assertions are local in nature, and therefore are valid for
+arbitrary vector bundles. 
+
+\subsection{Operations on vector bundles}
+Sections of $\Hom(E,F)$ correspond in a one-to-one fashion with homomorphisms
+$\varphi:E\to F$. We define ${\rm HOM}(E,F)$ to be the vector space of all 
+homomorphisms from $E$ to $F$. Notice that ${\rm HOM}(E,F) = \Gamma(\Hom(E,F))$. 
+
+\subsection{Sub-bundles and quotient bundles}
+Let $\varphi:E\to F$ be arbitrary homomorphism, the function 
+$x\mapsto\dim(\ker(\varphi_x))$ need not be constant, or even locally constant. 
+
+In fact, $\dim(\ker(\varphi_x))$ is a lower semi-continuous function of $x$, 
+while $\dim(\mathrm{im}(\varphi_x))$ is upper semi-continuous. 
+\[
+\forall x\in X,\, \exists U\ni x,\, s.t. \forall y\in U,\, 
+\dim(\mrm{im}(\varphi_x))\leq\dim(\mrm{im}(\varphi_y))
+\]
+
+\begin{definition}
+    We say $\varphi:E\to F$ is a \underline{strict} homomorphism if 
+    $\dim(\ker(\varphi_x))$ is locally constant.
+\end{definition}
+
+\begin{proposition}
+    If $\varphi:E\to F$ is strict, then 
+    \begin{itemize}
+        \item $\ker(\varphi)$ is a sub-bundle of $E$,
+        \item $\mrm{im}(\varphi)$ is a sub-bundle of $F$,
+        \item $\mrm{coker}(\varphi)=F/\mrm{im}(\varphi)$ is a quotient bundle of $F$.
+    \end{itemize}
+\end{proposition}
+
+\subsection{Vector Bundles on compact spaces}
+From now on, we shall assume that all spaces are compact Hausdorff spaces. 
+
+\begin{lemma}
+    Let $Y$ be a compact Hausdorff space, $f_t:Y\to X(0\leq t\leq 1)$ be a
+    homotopy, and let $E$ be a vector bundle over $X$. Then
+    \[
+    f_0*E\cong f_1*E.
+    \]
+\end{lemma} 
+
+We can construct vector bundles by gluing together trivial bundles or clutching.
+Let 
+\[
+X=X_1\cup X_2,\quad A=X_1\cap X_2,
+\]
+all of which are compact Hausdorff spaces. Let $E_1$, $E_2$ be vector bundles
+over $X_1$, $X_2$ respectively, and let $\varphi:E_1|_A\to E_2|_A$ be an isomorphism. 
+Then we can construct $E_1\cup_\varphi E_2$ over $X$. 
+
+\begin{proposition}
+    \begin{itemize}
+        \item If $\beta_i:E_i\to E_i'$ are isomorphisms $(i=1,2)$ such that 
+        $\beta_2|_A\circ\varphi=\varphi'\circ\beta_1|_A$, then 
+        \[
+        E_1\cup_{\varphi} E_2\cong E_1'\cup_{\varphi'} E_2'
+        \]
+        \item If $(E_i,\varphi)$ and $(E_i',\varphi')$ are two clutching data
+        over the same $X_i$ and $A$, then 
+        \begin{gather*}
+        (E_1\cup_{\varphi} E_2)\oplus (E_1'\cup_{\varphi'} E_2')\cong 
+        (E_1\oplus E_1')\cup_{\varphi\oplus\varphi'}(E_2\oplus E_2') \\
+        (E_1\cup_{\varphi} E_2)\otimes (E_1'\cup_{\varphi'} E_2')\cong 
+        (E_1\otimes E_2)\cup_{\varphi\otimes\varphi'}(E_1'\otimes E_2') \\
+        (E_1\cup_{\varphi} E_2)^*\cong E_1^*\cup_{(\varphi^*)^{-1}} E_2^*
+        \end{gather*}
+    \end{itemize}
+\end{proposition}
+
+\begin{lemma}
+    The isomorphism class of $E_1\cup_\varphi E_2$ depends only on the homotopy
+    class of $\varphi:E_1|_A\to E_2|_A$.
+\end{lemma}
+
+\begin{lemma}
+    For any space $X$, there is a natural isomorphism
+    \[
+    \mrm{Vect}_n(S(X))\cong [X,GL_n(\mC)],
+    \]
+\end{lemma}
+
+\begin{definition}
+    A subspace $V\subset\Gamma(E)$ is said to be \underline{ample} if 
+    \[
+    \varphi:X\times V\to E,\quad (x,s)\mapsto s(x)
+    \]
+    is surjective.
+\end{definition}
+
+\begin{lemma}
+    For any vector bundle $E$ over a compact Hausdorff space $X$, there exists
+    a finite-dimensional ample subspace $V\subset \Gamma(E)$.
+\end{lemma}
+\begin{proof}
+    Finite local triviality of $E$, and partition of unity on $X$.
+\end{proof}
+
+\begin{corollary}
+    For any vector bundle $E$, there exists an epimorphism
+    $\varphi:X\times\mC^m\to E$ for some $m$.
+\end{corollary}
+
+\begin{corollary}
+    For any vector bundle $E$, there exists a vector bundle $F$ such that
+    $E\oplus F$ is trivial. 
+\end{corollary}

@@ -1,1 +1,8 @@
-\contentsline {chapter}{\numberline {1}高等代数}{5}{chapter.1}%
+\contentsline {chapter}{\numberline {1}向量丛与示性类}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}向量丛结构群的约化}{5}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}流形可定向与结构群可约化至 ${\rm GL^+(k,\mathbb {R})}$}{6}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}黎曼度量与结构群可约化至正交群 $O(k)$}{6}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}复向量丛与近复结构, 与结构群可约化至 ${\rm GL}(k,\mathbb {C})$}{7}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}向量丛分类定理}{7}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}同伦的映射拉回同构的向量丛(纤维丛)}{7}{subsection.1.2.1}%
+\contentsline {section}{\numberline {1.3}向量丛的张量积}{10}{section.1.3}%

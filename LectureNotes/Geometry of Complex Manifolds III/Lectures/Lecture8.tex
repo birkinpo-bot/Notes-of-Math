@@ -1,0 +1,37 @@
+\section{Lecture 8}
+\label{sec:lecture-8}
+\setcounter{equation}{0}
+
+\subsection*{Submersion of complex manifolds}
+
+The background of this section is actually the context of family local index
+theorem of Bismut. The necessary geometric data are listed as below.
+
+1. Let $\pi:M\to B$ be a \textcolor{red}{holomorphic} submersion of complex manifolds, with compact
+fiber $Z$. Then for any $b\in B$, there is a neighborhood $U$ of $b$ such that
+$\pi^{-1}(U)$ is \textcolor{red}{diffeomorphic} to $U\times Z$. 
+
+2. Let $T^HM$ be a horizontal subbundle of $TM$, i.e., $T_xM=T^H_xM\oplus T_xZ$. Clearly,
+$\pi_*:T^H_xM\to T_bB$ is an isomorphism for any $x\in \pi^{-1}(b)$, and $T^H_xM\cong \pi^*T_bB$.
+
+3. Let $g^{TZ}$ be a metric on the holomorphic vector bundle $TZ$. Since $T_xZ$ is the kernel
+of $\pi_*:T_xM\to T_bB$, it is a complex subspace of $T_xM$. Thus the complex structure $J$ on $TM$
+preserves $TZ$. Let $J^{TZ}:=J{|_{TZ}}$ be the restriction of $J$ to $TZ$. We assume that $g^{TZ}$ is a
+$J^{TZ}$-invariant metric, i.e., 
+\begin{equation*}
+    g^{TZ}(J^{TZ}u,J^{TZ}v)=g^{TZ}(u,v),\quad \forall u,v\in TZ.
+\end{equation*}
+We can extend $g^{TZ}$ $\mC$-bilinearly, still denoted by $g^{TZ}$. 
+We last assume that $J$ preserves the horizontal subbundle $T^HM$, i.e., $J(T^HM)=T^HM$.
+
+\begin{definition}
+    We say a triple $(\pi,g^{TZ},T^HM)$ is a Kahler fibration, if there exists real, closed $\omega\in\Omega^{1,1}(M)$ such that 
+    \begin{itemize}
+        \item $T^HM\perp_\omega TZ$, i.e., $\omega(u,y)=0$ for any $u\in T^HM$, $y\in TZ$;
+        \item $\omega{|_{TZ}}$ is a K$\ddot{a}$ hler form on each fiber $Z_b=\pi^{-1}(b)$, i.e., 
+        \begin{equation*}
+            \omega(X, Y)=g^{TZ}(X,JY),\quad \forall X,Y\in TZ.
+        \end{equation*}
+    \end{itemize}
+
+\end{definition}

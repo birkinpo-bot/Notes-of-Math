@@ -377,3 +377,102 @@
     \end{proof}
     定理 \ref{lie} 表明一个{\rm Lie}代数 $\mathfrak{g}$ 可对应一个带有微分映射的外代数 $E(V)$, 而在 $E(V)$ 上我们可以做上同调,
     这个上同调就叫{\rm Lie}代数 $\mathfrak{g}$ 的上同调.
+
+\section{实数、复数、四元数上的向量空间}
+
+从实数域的角度理解复数域上的线性空间 $V$ 时, 我们可以把 $V$ 看作实数域上的线性空间 $V_{\mathbb{R}}$, 
+复数数乘对应一个实线性变换 $I:V_{\mathbb{R}}\rightarrow V_{\mathbb{R}}$, 满足 $I^2 = -\mathrm{Id}$, 
+即 $I$ 是 $V_{\mathbb{R}}$ 上的一个复结构, 它代表了数乘 $i$ 的作用. 
+
+在这个观点下, 复线性空间 $V = (V_\mR,I_V),\,W = (W_\mR,I_W)$ 之间的复线性映射 $\mathcal{A}:V\rightarrow W$ 可看作实线性映射
+$\mathcal{A}_{\mR}:V_{\mR}\rightarrow W_{\mR}$, 满足
+\begin{equation*}
+    \mathcal{A}_{\mR}I_V = I_W\mathcal{A}_{\mR}
+\end{equation*}
+
+在这个观点下, 复线性空间 $V = (V_{\mR}, I)$ 的复共轭空间 $\overline{V} = (V_{\mR}, -I)$.
+
+\begin{proposition}
+    设 $V$ 是一个复线性空间, 则有
+    \begin{equation*}
+        \mC\otimes_{\mR} V_{\mR} \cong V\oplus \overline{V}.
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    $\mC\otimes_{\mR} V_{\mR} = (V_{\mR}\oplus V_{\mR},I_{\mrm{can}})$, 其中
+    \begin{equation*}
+        I_{\mrm{can}}(v_1,v_2) = (-v_2, v_1).
+    \end{equation*}
+    于是原命题等价于证明
+    \begin{equation*}
+        (V_{\mR}\oplus V_{\mR},I_{\mrm{can}}) \cong (V_{\mR}\oplus V_{\mR}, I\oplus(-I))
+    \end{equation*}
+    定义映射
+    \begin{align*}
+        \mathcal{A}:V_{\mR}\oplus V_{\mR}&\rightarrow V_{\mR}\oplus V_{\mR} \\
+        (v_1,v_2)&\mapsto (v_1+Iv_2, v_1 - Iv_2)
+    \end{align*}
+    则 $\mathcal{A}$ 是一个线性同构, 且
+    \begin{align*}
+        \mathcal{A}I_{\mrm{can}}(v_1,v_2) &= \mathcal{A}(-v_2, v_1) = (-v_2 + Iv_1, -v_2 - Iv_1) \\
+        &= (I(v_1 + Iv_2),-I(v_1 - Iv_2)) = (I\oplus(-I))\mathcal{A}(v_1,v_2).
+    \end{align*}
+    因此 $\mathcal{A}$ 是复线性同构, 命题得证.
+\end{proof}
+
+类似地, 设 $V$ 是四元数体上的线性空间\footnote{实际上应该是左 $\mbb{H}$-模}, $V$ 可看作复线性空间 $V_{\mathbb{C}}$, 
+四元数数乘对应一个共轭线性变换 $J:V_{\mathbb{C}}\rightarrow V_{\mathbb{C}}$, 满足
+\begin{equation*}
+    J^2 = -\mathrm{Id},\quad J(\lambda v) = \overline{\lambda}J(v),\quad \forall \lambda\in\mC,\,v\in V_{\mC}.
+\end{equation*}
+即 $J$ 构成了 $V_{\mathbb{C}}$ 上的一个四元数结构, 它代表了数乘 $j$ 的作用. 
+
+\begin{proposition}
+    设 $V$ 是一个左 $\mH$-模, 则有左 $\mH$-模同构
+    \begin{equation*}
+        \mH\otimes_{\mC} V_{\mC} \cong V\oplus V.
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    $\mH\otimes_{\mC} V_{\mC} = (V_{\mC}\oplus V_{\mC}, J_{\mrm{can}})$, 其中
+    \begin{equation*}
+        J_{\mrm{can}}(v_1,v_2) = (-v_2, v_1).
+    \end{equation*}
+    于是原命题等价于证明
+    \begin{equation*}
+        (V_{\mC}\oplus V_{\mC}, J_{\mrm{can}}) \cong (V_{\mC}\oplus V_{\mC}, J\oplus J)
+    \end{equation*}
+    定义映射
+    \begin{align*}
+        \mathcal{B}:V_{\mC}\oplus V_{\mC}&\rightarrow V_{\mC}\oplus V_{\mC} \\
+        (v_1,v_2)&\mapsto (v_1 + Jv_2, \textcolor{red}{i}(v_1 - Jv_2))
+    \end{align*}
+    则 $\mathcal{B}$ 是一个复线性同构, 且
+    \begin{align*}
+        \mathcal{B}J_{\mrm{can}}(v_1,v_2) &= \mathcal{B}(-v_2, v_1) = (-v_2 + Jv_1, \textcolor{red}{i}(-v_2 - Jv_1)) \\
+        &= (J(v_1 + Jv_2), J\textcolor{red}{i}(v_1 - Jv_2)) = (J\oplus J)\mathcal{B}(v_1,v_2).
+    \end{align*}
+    因此 $\mathcal{B}$ 是四元数线性同构, 命题得证.
+\end{proof}
+\begin{proposition}
+    设 $V$ 是一个复线性空间, 则
+    \begin{equation*}
+        (\mH\otimes_{\mC} V)_{\mC} \cong V\oplus \overline{V}.
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    作为复线性空间, 我们有
+    \begin{equation*}
+        (\mH\otimes_{\mC} V)_{\mC} = V\oplus JV.
+    \end{equation*}
+    定义映射
+    \begin{align*}
+        \Phi:V\oplus JV&\rightarrow V\oplus \overline{V} \\
+        (v_1, Jv_2)&\mapsto (v_1, v_2)
+    \end{align*}
+    则 $\Phi$ 是一个复线性映射, 因为
+    \begin{equation*}
+        \Phi(\lambda(v_1, Jv_2)) = \Phi(\lambda v_1, J\overline{\lambda}v_2) = (\lambda v_1, \overline{\lambda}v_2) = \lambda(v_1, v_2) = \lambda\Phi(v_1, Jv_2).
+    \end{equation*}
+    容易看出 $\Phi$ 是双射, 因此 $\Phi$ 是复线性同构, 命题得证.
+\end{proof}

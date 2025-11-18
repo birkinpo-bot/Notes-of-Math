@@ -63,15 +63,15 @@
 % \footnotemark[number]
 % \footnotetext[number]{text}
 
-\newtheorem{theorem}{\indent Theorem}[section]
-\newtheorem{definition}[theorem]{\indent Definition}
-\newtheorem{proposition}[theorem]{\indent Proposition}
-\newtheorem{lemma}[theorem]{\indent Lemma}
-\newtheorem{corollary}[theorem]{\indent Corollary}
-\newtheorem{example}[theorem]{\indent Example}
-\newtheorem{problem}[theorem]{\indent Problem}
-\newtheorem*{remark}{\indent Remark}
-\renewcommand{\proofname}{\indent \bf Proof}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem*{remark}{Remark}
+\renewcommand{\proofname}{\bf Proof}
 \newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} %一次偏导
 \newcommand{\npd}[3]{\frac{\partial^{#1}{#2}}{\partial{#3}^{#1}}} %n次偏导, 也可以指代混合偏导
 \newcommand{\pD}[2]{\frac{{\rm D}(#1)}{{\rm D}(#2)}} %Jacobian
@@ -125,11 +125,15 @@
     \tableofcontents
     \newpage
     
-    % \include{Lecture3} \newpage
-    \include{Lecture4} \newpage
-    % \include{Lecture5} \newpage
-    % \include{Lecture6} \newpage
-    % \include{Lecture7} \newpage
+    % \include{Lectures/Lecture3} \newpage
+    % \include{Lectures/Lecture4} \newpage
+    % \include{Lectures/Lecture5} \newpage
+    % \include{Lectures/Lecture6} \newpage
+    % \include{Lectures/Lecture7} \newpage
+    \include{Lectures/Lecture8} \newpage
+    % \include{Lectures/Lecture9} \newpage
+    % \include{Lectures/Lecture10} \newpage
+    % \include{Lectures/Lecture11} \newpage
     % \bibliography{References}
 \end{document}
 

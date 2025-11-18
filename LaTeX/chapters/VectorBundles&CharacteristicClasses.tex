@@ -95,7 +95,7 @@
         \end{pmatrix}
     \end{equation*}
     从而结构群可约化至 $\GL(k,\mC)$.
-
+    
     \section{向量丛分类定理}
     \subsection{同伦的映射拉回同构的向量丛(纤维丛)}
     \begin{definition}[拉回丛的定义]
@@ -162,26 +162,81 @@
         注意到在证明过程中并没有用到纤维具体是什么, 因此该证明可以逐字逐句地推广至一般纤维丛的同伦不变性.
     \end{remark}
     
-    \section{Constructions of vector bundles}
-        \begin{itemize}
-            \item \textbf{Tensor bundle:} Let $\xi^m$ and $\eta^n$ 
-            be two vector bundles over paracompact base space $B$. 
-            There are bundle maps 
-            \begin{gather*}
-            f:\xi\rightarrow\gamma^m, \\
-            g:\eta\rightarrow\gamma^n.
-            \end{gather*}
-            Let 
-            \begin{align*}
-                \otimes:\Gr_m\times \Gr_n&\rightarrow G_{mn} \\
-                (V_1,V_2)&\mapsto V_1\otimes V_2, 
-            \end{align*}
-            where $V_1, V_2\subset\mR^{\infty}, \dim V_1 = m, \dim V_2 = n$. 
-            Then $\xi\otimes\eta$ can be view as the pull-back bundle of 
-            $\gamma^{mn}$ via the map 
-            \begin{equation*}
-                B\xrightarrow{\bar{f}\times\bar{g}}
-                \Gr_m\times \Gr_n\xrightarrow{\otimes}\Gr_{mn}.
-            \end{equation*}
-        \end{itemize}
-        $\mathfrak{v}$
+    \newpage
+    \section{向量丛的张量积}
+    \begin{proposition}
+        设 $\omega,\eta$ 为 $B$ 上的实线丛, 则
+        \begin{equation*}
+            w_1(\omega\otimes\eta) = w_1(\omega) + w_1(\eta).
+        \end{equation*}
+    \end{proposition}
+    类似地, 对于复线丛有类似的结论.
+    \begin{proposition}
+        设 $\omega,\eta$ 为 $B$ 上的复线丛, 则
+        \begin{equation*}
+            c_1(\omega\otimes\eta) = c_1(\omega) + c_1(\eta).
+        \end{equation*}
+    \end{proposition}
+    我们对复线丛的命题给出证明, 实线丛的命题证明类似.
+    \begin{proof}
+        \text{Step 1:} 设 $\gamma^1$ 为 $\mC P^{\infty}$ 上的万有线丛, 则 $c_1(\gamma^1)$ 是 $H^2(\mC P^{\infty};\mZ)\cong\mZ$ 的生成元. 
+        设 $\pi_i:\mC P^{\infty}\times\mC P^{\infty}\rightarrow\mC P^{\infty}$ 为第 $i$ 个分量的投影映射, 
+        则 $\pi_1^*\gamma^1\otimes\pi_2^*\gamma^1$ 是 $\mC P^{\infty}\times\mC P^{\infty}$ 上的复线丛, 于是存在映射
+        \begin{equation*}
+            T:\mC P^{\infty}\times\mC P^{\infty}\rightarrow\mC P^{\infty}
+        \end{equation*}
+        使得 
+        \begin{equation*}
+            T^*\gamma^1 \cong \pi_1^*\gamma^1\otimes\pi_2^*\gamma^1.
+        \end{equation*}
+        由 K$\ddot{\rm u}$nneth 公式 
+        \begin{equation*}
+            H^2(\mC P^{\infty}\times\mC P^{\infty};\mZ)\cong \mZ(\pi_1^*c_1(\gamma^1))\oplus \mZ(\pi_2^*c_1(\gamma^1)).
+        \end{equation*}
+        所以存在 $a,b\in\mZ$ 使得
+        \begin{equation*}
+            c_1(T^*\gamma^1) = a\pi_1^*c_1(\gamma^1) + b\pi_2^*c_1(\gamma^1).
+        \end{equation*}
+        取 $\mC P^{\infty}$ 中的一个点 $\{\text{pt}\}$, 定义嵌入映射
+        \begin{align*}
+            i_1:\mC P^{\infty} \rightarrow \mC P^{\infty}\times\mC P^{\infty}, \quad x \mapsto (x,\text{pt}); \\
+            i_2:\mC P^{\infty} \rightarrow \mC P^{\infty}\times\mC P^{\infty}, \quad y \mapsto (\text{pt},y).
+        \end{align*}
+        则有
+        \begin{align*}
+            i_1^*T^*\gamma^1 \cong i_1^*(\pi_1^*\gamma^1\otimes\pi_2^*\gamma^1) \cong (i_1^*\pi_1^*\gamma^1)\otimes(i_1^*\pi_2^*\gamma^1)
+            \cong \gamma^1\otimes\varepsilon^1 \cong \gamma^1,
+        \end{align*}
+        其中 $\varepsilon^1$ 为平凡线丛. 因此
+        \begin{equation*}
+            c_1(\gamma^1) = i_1^*T^*c_1(\gamma^1) = i_1^* \bigl(a \pi_1^*c_1(\gamma^1) + b \pi_2^*c_1(\gamma^1)\bigr) = a c_1(\gamma^1)\Rightarrow a=1.
+        \end{equation*}
+        同理可证 $b = 1$. 于是我们推出 
+        \begin{equation*}
+            T^*(c_1(\gamma^1)) = \pi_1^*c_1(\gamma^1) + \pi_2^*c_1(\gamma^1).
+        \end{equation*}
+
+        \noindent\text{Step 2:} 对任意 $B$ 上的复线丛 $\omega,\eta$, 存在映射 $f,g:B\rightarrow\mC P^{\infty}$ 使得 
+        \begin{equation*}
+            \omega \cong f^*\gamma^1,\quad \eta \cong g^*\gamma^1.
+        \end{equation*}
+        结合前文的映射 $T$, 我们考虑映射
+        \begin{equation*}
+            T\circ(f\times g):B\rightarrow\mC P^{\infty}\times\mC P^{\infty}\rightarrow\mC P^{\infty}
+        \end{equation*}
+        它满足
+        \begin{align*}
+            (T\circ(f\times g))^*\gamma^1 & \cong  (f\times g)^*(\pi_1^*\gamma^1\otimes \pi_2^*\gamma^1) \\
+            & \cong  (f\times g)^*\pi_1^*\gamma^1\otimes (f\times g)^*\pi_2^*\gamma^1 \\
+            & \cong f^*\gamma^1\otimes g^*\gamma^1 \cong \omega\otimes\eta.
+        \end{align*}
+        因此
+        \begin{align*}
+            c_1(\omega\otimes\eta) & = (T\circ(f\times g))^*c_1(\gamma^1) = (f\times g)^*T^*c_1(\gamma^1) \\
+            & = (f\times g)^*\bigl(\pi_1^*c_1(\gamma^1) + \pi_2^*c_1(\gamma^1)\bigr) \\
+            & = f^*c_1(\gamma^1) + g^*c_1(\gamma^1) \\
+            & = c_1(\omega) + c_1(\eta).
+        \end{align*}
+    \end{proof}
+
+        
