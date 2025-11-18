@@ -173,3 +173,570 @@
     \begin{theorem}
         敬请期待.
     \end{theorem}
+
+\chapter{紧李群的结构}
+\section{常见紧李群的根}
+\begin{example}[酉群 $U(n)$]
+    酉群的定义为
+    \begin{equation*}
+        U(n) = \{A\in GL(n,\mC)\,|\,A^\dagger A=I\},
+    \end{equation*}
+    其中 $A^\dagger$ 为 $A$ 的共轭转置. 
+    它的 $\mathrm{Lie}$ 代数为
+    \begin{equation*}
+        \mathfrak{u}(n) = \{X\in M_{n}(\mC)\,|\,X^\dagger + X = 0\},
+    \end{equation*}
+    即 $\mathfrak{u}(n)$ 由所有反厄米矩阵组成.
+    取 $U(n)$ 的极大环面子群
+    \begin{equation*}
+        T = 
+        \left\{
+            D = \left.
+            \begin{pmatrix}
+                \me^{2\pi i x_1} & & \\
+                & \ddots & \\
+                & & \me^{2\pi i x_n}
+            \end{pmatrix} \,\right|\, x_i\in\mR
+        \right\}
+    \end{equation*}
+    则 $\mathfrak{u}(n)$ 被分解为以下几个部分
+
+    \noindent $(1)$ 
+    \begin{equation*}
+        \mathfrak{t} = 
+        \left\{
+            \left.
+            \begin{pmatrix}
+                i d_1 & & \\
+                & \ddots & \\
+                & & i d_n
+            \end{pmatrix} \,\right|\, d_i\in\mR
+        \right\}
+    \end{equation*}
+    $D$ 在 $\mathfrak{t}$ 上的作用平凡.
+
+    \noindent $(2)$ 
+    \begin{equation*}
+        \left\{
+            M_{rs} = 
+            \left.
+            \begin{blockarray}{cccccc}
+             & & r & & s & \\ 
+            \begin{block}{c(ccccc)}
+             & & & & & \\
+            r & & & & z & \\
+             & & & & & \\
+            s & & -\bar{z} & & & \\
+             & & & & & \\
+            \end{block}
+            \end{blockarray} \;\right|\, 
+            z\in \mC,\, r < s
+        \right\}
+    \end{equation*}
+    $D$ 在 $M_{rs}$ 上的作用为
+    \begin{equation*}
+        D M_{rs} D^{-1} = 
+        \begin{pmatrix}
+        & & & & \\
+        & & & \me^{2\pi i x_r}z\me^{-2\pi i x_s} & \\
+        & & & & \\
+        & -\me^{2\pi i x_s}\bar{z}\me^{-2\pi i x_r} & & & \\
+        & & & &     
+        \end{pmatrix} = 
+        \begin{pmatrix}
+        & & & & \\
+        & & & w & \\
+        & & & & \\
+        & -\bar{w} & & & \\
+        & & & &
+        \end{pmatrix}
+    \end{equation*}
+    其中 $w = \me^{2\pi i (x_r - x_s)} z$.
+    $\theta_{rs} = x_r - x_s$. 
+    
+    因为 $(1)$ 和 $(2)$ 张成了 $\mathfrak{u}(n)$, 
+    所以 $U(n)$ 的根为 $(x_r - x_s)$, $r\neq s$.
+\end{example}
+\begin{example}[特殊酉群 $SU(n)$]
+    特殊酉群的定义为
+    \begin{equation*}
+        SU(n) = \{A\in U(n)\,|\,\det(A)=1\},
+    \end{equation*}
+    它的 $\mathrm{Lie}$ 代数为
+    \begin{equation*}
+        \mathfrak{su}(n) = \{X\in\mathfrak{u}(n)\,|\,\mathrm{Tr}(X)=0\},
+    \end{equation*}
+    即 $\mathfrak{su}(n)$ 由所有反厄米且迹为零的矩阵组成.
+    取 $SU(n)$ 的极大环面子群
+    \begin{equation*}
+        T = 
+        \left\{
+            D = \left.
+            \begin{pmatrix}
+                \me^{2\pi i x_1} & & \\
+                & \ddots & \\
+                & & \me^{2\pi i x_n}
+            \end{pmatrix} \,\right|\, x_i\in\mR,\,\sum_{i=1}^n x_i = 0
+        \right\}
+    \end{equation*}
+    则 $\mathfrak{su}(n)$ 被分解为以下几个部分
+
+    \noindent $(1)$ 
+    \begin{equation*}
+        \mathfrak{t} = 
+        \left\{
+            \left.
+            \begin{pmatrix}
+                i d_1 & & \\
+                & \ddots & \\
+                & & i d_n
+            \end{pmatrix} \,\right|\, d_i\in\mR,\,\sum_{i=1}^n d_i = 0
+        \right\}
+    \end{equation*}
+    $D$ 在 $\mathfrak{t}$ 上的作用平凡.
+
+    \noindent $(2)$
+    \begin{equation*}
+        \left\{
+            M_{rs} = 
+            \left.
+            \begin{blockarray}{cccccc}
+             & & r & & s & \\ 
+            \begin{block}{c(ccccc)}
+             & & & & & \\
+            r & & & & z & \\
+             & & & & & \\
+            s & & -\bar{z} & & & \\
+             & & & & & \\
+            \end{block}
+            \end{blockarray} \;\right|\, 
+            z\in \mC,\, r < s
+        \right\}
+    \end{equation*}
+    $D$ 在 $M_{rs}$ 上的作用与 $U(n)$ 相同, 所以根仍为 $\theta_{rs} = x_r - x_s$.
+
+    因为 $(1)$ 和 $(2)$ 张成了 $\mathfrak{su}(n)$, 
+    所以 $SU(n)$ 的根仍为 $(x_r - x_s)$, $r\neq s$.
+\end{example}
+\begin{example}[紧辛群 $Sp(n)$]
+    紧辛群的定义为
+    \begin{equation*}
+        Sp(n) = \{A\in GL(n,\mH)\,|\,A^\dagger A=I\},
+    \end{equation*}
+    其中 $A^\dagger$ 为 $A$ 的四元数共轭转置.
+    它的 $\mathrm{Lie}$ 代数为
+    \begin{equation*}
+        \mathfrak{sp}(n) = \{X\in M_{n}(\mH)\,|\,X^\dagger + X = 0\},
+    \end{equation*}
+    即 $\mathfrak{sp}(n)$ 由所有反厄米四元数矩阵组成.
+    取 $Sp(n)$ 的极大环面子群
+    \begin{equation*}
+        T = 
+        \left\{
+            D = \left.
+            \begin{pmatrix}
+                \me^{2\pi i x_1} & & \\
+                & \ddots & \\
+                & & \me^{2\pi i x_n}
+            \end{pmatrix} \,\right|\, x_i\in\mR
+        \right\}
+    \end{equation*}
+    则 $\mathfrak{sp}(n)$ 被分解为以下几个部分
+
+    \noindent $(1)$ 
+    \begin{equation*}
+        \mathfrak{t} = 
+        \left\{
+            \left.
+            \begin{pmatrix}
+                i d_1 & & \\
+                & \ddots & \\
+                & & i d_n
+            \end{pmatrix} \,\right|\, d_i\in\mR
+        \right\}
+    \end{equation*}
+    $D$ 在 $\mathfrak{t}$ 上的作用平凡.
+
+    \noindent $(2)$ 
+    \begin{equation*}
+        \left\{
+            M_{rs} = 
+            \left.
+            \begin{blockarray}{cccccc}
+             & & r & & s & \\ 
+            \begin{block}{c(ccccc)}
+             & & & & & \\
+            r & & & & z & \\
+             & & & & & \\
+            s & & -\bar{z} & & & \\
+             & & & & & \\
+            \end{block}
+            \end{blockarray} \;\right|\, 
+            z\in \mC,\, r < s
+        \right\}
+    \end{equation*}
+    它对应的根仍为 $\theta_{rs} = x_r - x_s$.
+
+    \noindent $(3)$ 
+    \begin{equation*}
+        \left\{
+            N_{rs} = 
+            \left.
+            \begin{blockarray}{cccccc}
+             & & r & & s & \\ 
+            \begin{block}{c(ccccc)}
+             & & & & & \\
+            r & & & & z j & \\
+             & & & & & \\
+            s & & z j & & & \\
+             & & & & & \\
+            \end{block}
+            \end{blockarray} \;\right|\, 
+            z\in \mC,\, r < s
+        \right\}
+    \end{equation*}
+    D 在 $N_{rs}$ 上的作用为
+    \begin{equation*}
+        D N_{rs} D^{-1} = 
+        \begin{pmatrix}
+        & & & & \\
+        & & & \me^{2\pi i x_r}z j\me^{-2\pi i x_s} & \\
+        & & & & \\
+        & \me^{2\pi i x_s}z j\me^{-2\pi i x_r} & & & \\
+        & & & &
+        \end{pmatrix} = 
+        \begin{pmatrix}
+        & & & & \\
+        & & & w j & \\
+        & & & & \\
+        & w j & & & \\
+        & & & &
+        \end{pmatrix}
+    \end{equation*}
+    其中 $w = \me^{2\pi i (x_r + x_s)} z$. 
+    对应的根为 $\phi_{rs} = x_r + x_s$. 
+
+    \noindent $(4)$
+    \begin{equation*}
+        \left\{
+            P_{r} = 
+            \left.
+            \begin{blockarray}{cccccc}
+             & & & r & & \\
+            \begin{block}{c(ccccc)}
+             & & & & & \\
+             & & & & & \\
+            r & & & z j & & \\
+             & & & & & \\
+             & & & & & \\
+            \end{block}
+            \end{blockarray} \;\right|\, 
+            z\in \mC
+        \right\}
+    \end{equation*}
+    $D$ 在 $P_{r}$ 上的作用为
+    \begin{equation*}
+        D P_{r} D^{-1} = 
+        \begin{pmatrix}
+        & & & & \\
+        & & & & \\
+        & & \me^{2\pi i x_r} z j \me^{-2\pi i x_r} & & \\
+        & & & & \\
+        & & & &
+        \end{pmatrix} = 
+        \begin{pmatrix}
+        & & & & \\
+        & & & & \\
+        & & \me^{4\pi i x_r}z j & & \\
+        & & & & \\
+        & & & &
+        \end{pmatrix}
+    \end{equation*}
+    对应的根为 $\psi_{r} = 2x_r$.
+
+    因为 $(1)$-$(4)$ 张成了 $\mathfrak{sp}(n)$, 
+    所以 $Sp(n)$ 的根为 $\pm2x_r$, $(x_r - x_s)$ 和 $\pm(x_r + x_s)$, $r\neq s$.
+\end{example}
+\begin{example}[偶数阶特殊正交群 $SO(2n)$]
+    特殊正交群的定义为
+    \begin{equation*}
+        SO(n) = \{A\in GL(n,\mR)\,|\,A^T A=I,\,\det(A)=1\},
+    \end{equation*}
+    它的 $\mathrm{Lie}$ 代数为
+    \begin{equation*}
+        \mathfrak{so}(n) = \{X\in M_{n}(\mR)\,|\,X^T + X = 0\},
+    \end{equation*}
+    即 $\mathfrak{so}(n)$ 由所有反对称矩阵组成.
+
+    当阶数为偶数 $2n$ 时, 我们可将酉群 $U(n)$ 嵌入 $SO(2n)$ 中, 
+    酉群的极大环面子群在嵌入映射下的像为
+    \begin{equation*}
+        T = 
+        \left\{
+            D = \left.
+            \begin{pmatrix}
+                D_1 & & \\
+                & \ddots & \\
+                & & D_n
+            \end{pmatrix} \,\right|\, 
+            D_i = 
+            \begin{pmatrix}
+                \cos 2\pi x_i & -\sin 2\pi x_i \\
+                \sin 2\pi x_i & \cos 2\pi x_i
+            \end{pmatrix}
+        \right\},
+    \end{equation*}
+    则 $\mathfrak{so}(2n)$ 被分解为以下几个部分
+
+    \noindent $(1)$
+    \begin{equation*}
+        \mathfrak{t} = 
+        \left\{
+            \left.
+            \begin{pmatrix}
+                0 & -d_1 & & & & \\
+                d_1 & 0 & & & & \\
+                 & & \ddots & & & \\
+                 & & & 0 & -d_n & \\
+                 & & & d_n & 0 &
+            \end{pmatrix} \,\right|\, d_i\in\mR
+        \right\}
+    \end{equation*}
+    $D$ 在 $\mathfrak{t}$ 上的作用平凡.
+
+    \noindent $(2)$
+    \begin{equation*}
+        \left\{
+            M_{rs} = 
+            \left.
+            \begin{blockarray}{cccccc}
+             & & r & & s & \\ 
+            \begin{block}{c(ccccc)}
+             & & & & & \\
+            r & & & & W & \\
+             & & & & & \\
+            s & & -W^T & & & \\
+             & & & & & \\
+            \end{block}
+            \end{blockarray} \;\right|\, 
+            W = 
+            \begin{pmatrix}
+                x & -y \\ y & x
+            \end{pmatrix},\, r < s
+        \right\}
+    \end{equation*}
+    $D$ 在 $M_{rs}$ 上的作用为
+    \begin{equation*}
+        D M_{rs} D^{-1} = 
+        \begin{pmatrix}
+        & & & & \\
+        & & & D_r W D_s^{-1} & \\
+        & & & & \\
+        & -D_s {W}^T D_r^{-1} & & & \\
+        & & & & 
+        \end{pmatrix} = 
+        \begin{pmatrix}
+        & & & & \\
+        & & & W' & \\
+        & & & & \\
+        & -{W'}^T & & & \\
+        & & & &
+        \end{pmatrix}
+    \end{equation*}
+    其中
+    \begin{equation*}
+        W' = 
+        \begin{pmatrix}
+            x' & -y' \\ y' & x'
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            \cos 2\pi (x_r - x_s) & -\sin 2\pi (x_r - x_s) \\
+            \sin 2\pi (x_r - x_s) & \cos 2\pi (x_r - x_s)
+        \end{pmatrix}
+        \begin{pmatrix}
+            x & -y \\ y & x
+        \end{pmatrix}
+    \end{equation*}
+    对应的根为 $\theta_{rs} = x_r - x_s$.
+
+    \textcolor{gray}{
+    \begin{remark}
+        把 $W$ 看作复数 $z = x + iy$, 
+        则 $W' = D_r W D_s^{-1}$ 对应复数的乘法
+        \begin{equation*}
+            z' = \me^{2\pi i x_r} z \me^{-2\pi i x_s} 
+            = \me^{2\pi i (x_r - x_s)} z.
+        \end{equation*}
+    \end{remark}}
+
+    \noindent $(3)$
+    记
+    \begin{equation*}
+        E_s = 
+        \begin{blockarray}{cccccccc}
+         & & & & s & & & \\
+        \begin{block}{c(ccccccc)}
+            & 1 & & & & & & \\
+            & & \ddots & & & & & \\
+            & & & 1 & & & & \\
+            s & & & & \begin{matrix} 1 & & 0 \\ & & \\ 0 & & -1 \end{matrix} & & & \\
+            & & & & & 1 & & \\
+            & & & & & & \ddots & \\
+            & & & & & & & 1 \\
+        \end{block}
+        \end{blockarray}\ ,\quad
+    \end{equation*}
+    令
+    \begin{equation*}
+        N_{rs} = E_s M_{rs} E_s^{-1} = 
+        \begin{blockarray}{cccccc}
+         & & r & & s & \\
+        \begin{block}{c(ccccc)}
+            & & & & & \\
+            r & & & & W \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} & \\
+            & & & & & \\
+            s & & -\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} W^T & & & \\
+            & & & & & \\
+        \end{block}
+        \end{blockarray}
+    \end{equation*}
+    则 $D$ 在 $N_{rs}$ 上的作用为
+    \begin{align*}
+        D N_{rs} D^{-1} & = 
+        \begin{pmatrix}
+        & & & & \\
+        & & & D_r W \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} D_s^{-1} & \\
+        & & & & \\
+        & -D_s \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} {W}^T D_r^{-1} & & & \\
+        & & & &
+        \end{pmatrix} \\ 
+        & = 
+        \begin{pmatrix}
+        & & & & \\
+        & & & D_r W D_s \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} & \\
+        & & & & \\
+        & -\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} D_s^{-1} {W}^T D_r^{-1} & & & \\
+        & & & &
+        \end{pmatrix} \\
+        & = 
+        \begin{pmatrix}
+        & & & & \\
+        & & & W'' \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} & \\
+        & & & & \\
+        & -\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} {W''}^T & & & \\
+        & & & &
+        \end{pmatrix}
+    \end{align*}
+    其中
+    \begin{equation*}
+        W'' = 
+        \begin{pmatrix}
+            x'' & -y'' \\ y'' & x''
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            \cos 2\pi (x_r + x_s) & -\sin 2\pi (x_r + x_s) \\
+            \sin 2\pi (x_r + x_s) & \cos 2\pi (x_r + x_s)
+        \end{pmatrix}
+        \begin{pmatrix}
+            x & -y \\ y & x
+        \end{pmatrix}
+    \end{equation*}
+    对应的根为 $\phi_{rs} = x_r + x_s$.
+
+    \textcolor{gray}{
+    \begin{remark}
+        注意到
+        \begin{equation*}
+            \begin{pmatrix}
+                1 & 0 \\ 0 & -1
+            \end{pmatrix} 
+            \begin{pmatrix}
+                x & -y \\ y & x
+            \end{pmatrix} 
+            \begin{pmatrix}
+                1 & 0 \\ 0 & -1
+            \end{pmatrix} = 
+            \begin{pmatrix}
+                x & y \\ -y & x
+            \end{pmatrix},
+        \end{equation*}
+        即相当于对复数 $z = x + iy$ 取共轭 $\bar{z} = x - iy$.
+    \end{remark}}
+
+    因为 $(1)$-$(3)$ 张成了 $\mathfrak{so}(2n)$, 
+    所以 $SO(2n)$ 的根为 $\pm(x_r - x_s)$ 和 $\pm(x_r + x_s)$, $r\neq s$.
+\end{example}
+\begin{example}[奇数阶特殊正交群 $SO(2n+1)$]
+    整体思路与 $SO(2n)$ 类似, 注意到 $SO(2n)$ 可自然嵌入 $SO(2n+1)$ 中,
+    \begin{equation*}
+        SO(2n) = \left\{
+        \begin{pmatrix}
+            A & 0 \\
+            0 & 1
+        \end{pmatrix}\,\Bigg|\, A\in SO(2n)\right\}
+        \subset SO(2n+1).
+    \end{equation*}
+    可以理解为 $SO(2n)$ 作用在前 $2n$ 个坐标上, 而最后一个坐标保持不变.
+
+    取 $SO(2n+1)$ 的极大环面子群为
+    \begin{equation*}
+        T = \left\{ D = 
+        \begin{pmatrix}
+            D_1 & & & \\
+            & \ddots & & \\
+            & & D_n & \\
+            & & & 1
+        \end{pmatrix} \right\}.
+    \end{equation*}
+    则 $\mathfrak{so}(2n+1)$ 被分解为以下几个部分
+
+    \noindent $(1)$
+    与 $SO(2n)$ 相同.
+
+    \noindent $(2)$
+    \begin{equation*}
+        F_{r} = 
+        \begin{blockarray}{ccccc}
+            & & r & & \\
+            \begin{block}{c(cccc)}
+                & & & & \\
+                r & & & & \begin{matrix} x \\ y \end{matrix} \\
+                & & & & \\
+                & & \begin{matrix} -x & -y \end{matrix} & & \\
+            \end{block}
+        \end{blockarray}
+    \end{equation*}
+    $D$ 在 $F_{r}$ 上的作用为
+    \begin{equation*}
+        D F_{r} D^{-1} = 
+        \begin{pmatrix}
+        & & & \\
+        & & & D_r \begin{pmatrix} x \\ y \end{pmatrix}\\
+        & & & \\
+        & -\begin{pmatrix} x & y \end{pmatrix} D_r^{-1} & &
+        \end{pmatrix} = 
+        \begin{pmatrix}
+        & & & \\
+        & & & \begin{matrix} x' \\ y' \end{matrix} \\
+        & & & \\
+        & \begin{matrix} -x' & -y' \end{matrix} & &
+        \end{pmatrix}
+    \end{equation*}
+    其中
+    \begin{equation*}
+        \begin{pmatrix}
+            x' \\ y'
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            \cos 2\pi x_r & -\sin 2\pi x_r \\
+            \sin 2\pi x_r & \cos 2\pi x_r
+        \end{pmatrix}
+        \begin{pmatrix}
+            x \\ y
+        \end{pmatrix}
+    \end{equation*}
+    对应的根为 $\psi_{r} = x_r$.
+
+    因为 $(1)$ 和 $(2)$ 张成了 $\mathfrak{so}(2n+1)$, 
+    所以 $SO(2n+1)$ 的根为 $\pm(x_r - x_s)$, $\pm(x_r + x_s)$ 和 $\pm x_r$, $r\neq s$.
+\end{example}
