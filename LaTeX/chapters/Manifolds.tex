@@ -1,205 +1,301 @@
 \chapter{微分流形}
-    % \section{Kunn\"{e}th 公式与 Leray-Hirsch 定理}
-    % \begin{theorem}[Kunn\"{e}th 公式]
-    %     设流形 $M$ 有有限好覆盖, $F$ 是任意流形, 则
-    %     \begin{equation*}
-    %         H^*(M\times F)\cong H^*(M)\otimes H^*(F)
-    %     \end{equation*}
-    % \end{theorem}
+    \section{微分形式的一些恒等式}
+    \begin{definition}[Lie 导数的第一种定义]
+        设 $M$ 为流形, $X\in\mathfrak{X}(M)$ 为光滑向量场, 
+        则对任意 $\omega\in\Omega^k(M)$ 定义 Lie 导数 $L_X:\Omega^k(M)\rightarrow\Omega^k(M)$ 为
+        \begin{equation*}
+            (L_X\omega)(Y_1,\dots,Y_k) = X(\omega(Y_1,\dots,Y_k))
+            - \sum_{i=1}^{k}\omega(Y_1,\dots,[X,Y_i],\dots,Y_k),
+        \end{equation*}
+        其中 $Y_1,\dots,Y_k\in\mathfrak{X}(M)$.
+    \end{definition}
+    % \begin{remark}
+    %     该定义中 $X(\omega(Y_1,\dots,Y_k))$ 的含义是将 $\omega(Y_1,\dots,Y_k)$ 看成是 $C^\infty(M)$ 中的函数, 
+    %     然后对该函数作用向量场 $X$.
+    % \end{remark}
+    \begin{definition}[Lie 导数的第二种定义]
+        设 $M$ 为流形, $X\in\mathfrak{X}(M)$ 为光滑向量场, 
+        则对任意 $\omega\in\Omega^k(M)$ 定义 Lie 导数 $L_X:\Omega^k(M)\rightarrow\Omega^k(M)$ 为
+        \begin{equation*}
+            (L_X\omega)_{p}(Y_1,\dots,Y_k) = \frac{\md}{\md t}\Big|_{t=0}\omega_{\phi_t(p)}((\phi_t)_*Y_1,\dots,(\phi_t)_*Y_k),
+        \end{equation*}
+        其中 $Y_1,\dots,Y_k\in\mathfrak{X}(M)$, $p\in M$, $\{\phi_t\}$ 为 $X$ 的流.
+        或者我们也可以写成
+        \begin{equation*}
+            L_X\omega = \lim_{t\rightarrow 0}\frac{(\phi_t)^*\omega - \omega}{t} 
+            = \frac{\md}{\md t}\Big|_{t=0}(\phi_t)^*\omega.
+        \end{equation*}
+    \end{definition}
+    \begin{proposition}
+        上面两种定义是等价的.
+    \end{proposition}
+    \newpage
+    \begin{proof}
+        设 $\omega\in\Omega^k(M)$, 则对任意 $Y_1,\dots,Y_k\in\mathfrak{X}(M)$, 有
+        \begin{align*}
+            &(L_X\omega)_p(Y_1,\dots,Y_k) \\
+            =& \frac{\md}{\md t}\Big|_{t=0}\omega_{\phi_t(p)}((\phi_t)_*Y_1,\dots,(\phi_t)_*Y_k) \\
+            =& \frac{\md}{\md t}\Big|_{t=0}\omega_{\phi_t(p)}({\phi_t}_{*p}(Y_1|_p),\dots,{\phi_t}_{*p}(Y_k|_p)) \\
+            \textcolor{red}{=}& \frac{\md}{\md t}\Big|_{t=0}\omega_{\phi_t(p)}(Y_1|_{\phi_t(p)},\dots,Y_k|_{\phi_t(p)}) \\
+            \quad& + \sum_{i=1}^{k}\omega_p\left(Y_1|_p,\dots,\frac{\md}{\md t}\Big|_{t=0}{\phi_t}_{*}({Y_i}|_{\phi_{-t}(p)}),\dots,Y_k|_p\right) \\
+            =& X_p(\omega(Y_1,\dots,Y_k)) - \sum_{i=1}^{k}\omega_p(Y_1|_p,\dots,[X,Y_i]_p,\dots,Y_k|_p).
+        \end{align*}
+        第三个等式利用了\textcolor{red}{Leibniz 法则}. 第四个等式的前半部分是因为
+        \begin{align*}
+            \frac{\md}{\md t}\Big|_{t=0}\omega_{\phi_t(p)}(Y_1|_{\phi_t(p)},\dots,Y_k|_{\phi_t(p)}) 
+            =& \frac{\md}{\md t}\Big|_{t=0}(\omega(Y_1,\dots,Y_k))(\phi_t(p)) \\
+            =& X_p(\omega(Y_1,\dots,Y_k)).
+        \end{align*}
+        后半部分是因为向量场 Lie 导数的定义
+        \begin{equation*}
+            (L_XY)(p) = \frac{\md}{\md t}\Big|_{t=0}(\phi_{-t})_*Y_{\phi_t(p)} = [X,Y]_p.
+        \end{equation*}
+        而 $-X$ 的流为 $\{\phi_{-t}\}$, 所以
+        \begin{equation*}
+            \frac{\md}{\md t}\Big|_{t=0}{\phi_t}_{*}({Y_i}|_{\phi_{-t}(p)}) = (L_{-X}Y_i)(p) = -[X,Y_i]_p.
+        \end{equation*}
+    \end{proof}
+    \newpage
+    \begin{proposition}
+        $[L_X,L_Y]=L_{[X,Y]}$
+    \end{proposition}
+    \begin{proof}[证法一]
+        设 $\omega\in\Omega^k(M)$, 则对任意 $Z_1,\dots,Z_k\in\mathfrak{X}(M)$, 有
+        \begin{align*}
+            &(L_X(L_Y\omega))(Z_1,\dots,Z_k) \\
+            =& X\big((L_Y\omega)(Z_1,\dots,Z_k)\big) 
+            - \sum_{i=1}^{k}(L_Y\omega)(Z_1,\dots,[X,Z_i],\dots,Z_k) \\
+            =& X\Big(Y(\omega(Z_1,\dots,Z_k)) - \sum_{j=1}^{k}\omega(Z_1,\dots,[Y,Z_j],\dots,Z_k)\Big) \\
+            \quad& - \sum_{i=1}^{k}Y(\omega(Z_1,\dots,[X,Z_i],\dots,Z_k)) \\
+            \quad& - \sum_{i\neq j}\omega(Z_1,\dots,[Y,Z_j],\dots,[X,Z_i],\dots,Z_k) \\
+            \quad& + \sum_{i=1}^{k}\omega(Z_1,\dots,[Y,[X,Z_i]],\dots,Z_k) \\
+            =& XY(\omega(Z_1,\dots,Z_k)) - \sum_{j=1}^{k}X(\omega(Z_1,\dots,[Y,Z_j],\dots,Z_k)) \\
+            \quad& - \sum_{i=1}^{k}Y(\omega(Z_1,\dots,[X,Z_i],\dots,Z_k)) \\
+            \quad& + \sum_{i\neq j}\omega(Z_1,\dots,[Y,Z_j],\dots,[X,Z_i],\dots,Z_k) \\
+            \quad& + \sum_{i=1}^{k}\omega(Z_1,\dots,[Y,[X,Z_i]],\dots,Z_k).
+        \end{align*}
+        同理,
+        \begin{align*}
+            &(L_Y(L_X\omega))(Z_1,\dots,Z_k) \\
+            =& YX(\omega(Z_1,\dots,Z_k)) - \sum_{j=1}^{k}Y(\omega(Z_1,\dots,[X,Z_j],\dots,Z_k)) \\
+            \quad& - \sum_{i=1}^{k}X(\omega(Z_1,\dots,[Y,Z_i],\dots,Z_k)) \\
+            \quad& + \sum_{i\neq j}\omega(Z_1,\dots,[X,Z_j],\dots,[Y,Z_i],\dots,Z_k) \\
+            \quad& + \sum_{i=1}^{k}\omega(Z_1,\dots,[X,[Y,Z_i]],\dots,Z_k).
+        \end{align*}
+        因此
+        \begin{align*}
+            &([L_X,L_Y]\omega)(Z_1,\dots,Z_k) \\ 
+            =& \Big(L_X(L_Y\omega)-L_Y(L_X\omega)\Big)(Z_1,\dots,Z_k) \\
+            =& (XY - YX)(\omega(Z_1,\dots,Z_k)) \\
+            \quad& + \sum_{i=1}^{k}\omega(Z_1,\dots,[Y,[X,Z_i]]-[X,[Y,Z_i]],\dots,Z_k) \\
+            =& [X,Y](\omega(Z_1,\dots,Z_k)) - \sum_{i=1}^{k}\omega(Z_1,\dots,[[X,Y],Z_i],\dots,Z_k) \\
+            =& (L_{[X,Y]}\omega)(Z_1,\dots,Z_k).
+        \end{align*}
+    \end{proof}
 
-    % \begin{proof}[证明概要]
-    %     设 $\pi:M\times F\rightarrow M$, $\rho:M\times F\rightarrow F$ 
-    %     为乘积流形到两个分量的投影, 则可以定义
-    %     \begin{align*}
-    %         \psi:H^*(M)\otimes H^*(F)&\rightarrow H^*(M\times F) \\
-    %         \omega\otimes\tau&\mapsto\pi^*\omega\wedge\rho^*\tau
-    %     \end{align*}
-    %     由 M-V 论证, 可以得到如下交换图:
+    \newpage
 
-    %     \begin{tikzcd}[column sep = tiny]
-    %         \vdots \arrow[d]                                                                                                 & \vdots \arrow[d]                                          \\
-    %         \bigoplus\limits_{p+q=k}H^p(U\cup V)\otimes H^q(F) \arrow[d] \arrow[r, "\psi"]                                   & H^k\left((U\cup V)\times F\right) \arrow[d]               \\
-    %         \bigoplus\limits_{p+q=k}\left((H^p(U)\otimes H^q(F))\oplus (H^p(V)\otimes H^q(F))\right) \arrow[r, "\psi"] \arrow[d] &             H^k(U\times F)\oplus H^k(V\times F) \arrow[d] \\
-    %         \bigoplus\limits_{p+q=k}H^p(U\cap V)\otimes H^q(F) \arrow[r, "\psi"] \arrow[d, "\md^*"]                          & H^k((U\cap V)\times F) \arrow[d, "\md^*"]                 \\
-    %         \bigoplus\limits_{p+q=k+1}H^p(U\cup V)\otimes H^q(F) \arrow[d] \arrow[r, "\psi"]                                 & H^{k+1}\left((U\cup V)\times F\right) \arrow[d]           \\
-    %         \vdots                                                                                                           & \vdots                                                   
-    %     \end{tikzcd}
+    \section{Kunn\"{e}th 公式与 Leray-Hirsch 定理}
+    \begin{theorem}[Kunn\"{e}th 公式]
+        设流形 $M$ 有有限好覆盖, $F$ 是任意流形, 则
+        \begin{equation*}
+            H^*(M\times F)\cong H^*(M)\otimes H^*(F)
+        \end{equation*}
+    \end{theorem}
 
-    %     前两个圈的交换性显然, 第三个圈的交换性需要用到 $\md^*$ 的表达式. 
-    %     由五引理能得到归纳递推, 归纳奠基是平凡的.
-    % \end{proof}
+    \begin{proof}[证明概要]
+        设 $\pi:M\times F\rightarrow M$, $\rho:M\times F\rightarrow F$ 
+        为乘积流形到两个分量的投影, 则可以定义
+        \begin{align*}
+            \psi:H^*(M)\otimes H^*(F)&\rightarrow H^*(M\times F) \\
+            \omega\otimes\tau&\mapsto\pi^*\omega\wedge\rho^*\tau
+        \end{align*}
+        由 M-V 论证, 可以得到如下交换图:
 
-    % \begin{theorem}[Leray-Hirsch 定理]
-    %     设 $\pi:E\rightarrow M$ 为纤维丛, 纤维为 $F$, 
-    %     若存在 $E$ 上的微分形式 $\{\ft{e}{1}{n}\}$ 满足将它们限制在每个纤维 
-    %     $F_x$ 上都能得到 $H^*(F_x)$ 的一组基, 
-    %     则
-    %     \begin{equation*}
-    %         H^*(E)\cong H^*(M)\otimes\{\ft{e}{1}{n}\}
-    %         \cong H^*(M)\otimes H^*(F).
-    %     \end{equation*}
-    % \end{theorem}
-    % \begin{proof}[证明概要]
-    %     这里的关键在于不存在 $E$ 到 $F$ 的整体投影 $\rho$, 
-    %     也就无法通过这个方式定义 $\rho^*:H^*(F)\rightarrow H^*(E)$ 了. 
-    %     但是借助 $\{\ft{e}{1}{n}\}$ 我们可以构造合适的映射 $\tilde{\rho^*}$, 
-    %     做法如下:固定某个点 $x\in M$, 也即固定某个纤维 $F_x$, 
-    %     取 $H^*(F_x)$ 的一组基 $\{\ft{f}{1}{n}\}$, 定义:
-    %     \begin{align*}
-    %         \tilde{\rho^*}:H^*(F)&\rightarrow H^*(E) \\
-    %         \sum_{i}a_if_i&\mapsto\sum_{i}a_ie_i.
-    %     \end{align*} 
+        \begin{tikzcd}[column sep = tiny]
+            \vdots \arrow[d]                                                                                                 & \vdots \arrow[d]                                          \\
+            \bigoplus\limits_{p+q=k}H^p(U\cup V)\otimes H^q(F) \arrow[d] \arrow[r, "\psi"]                                   & H^k\left((U\cup V)\times F\right) \arrow[d]               \\
+            \bigoplus\limits_{p+q=k}\left((H^p(U)\otimes H^q(F))\oplus (H^p(V)\otimes H^q(F))\right) \arrow[r, "\psi"] \arrow[d] &             H^k(U\times F)\oplus H^k(V\times F) \arrow[d] \\
+            \bigoplus\limits_{p+q=k}H^p(U\cap V)\otimes H^q(F) \arrow[r, "\psi"] \arrow[d, "\md^*"]                          & H^k((U\cap V)\times F) \arrow[d, "\md^*"]                 \\
+            \bigoplus\limits_{p+q=k+1}H^p(U\cup V)\otimes H^q(F) \arrow[d] \arrow[r, "\psi"]                                 & H^{k+1}\left((U\cup V)\times F\right) \arrow[d]           \\
+            \vdots                                                                                                           & \vdots                                                   
+        \end{tikzcd}
 
-    %     于是可以定义:
-    %     \begin{align*}
-    %         \tilde{\psi}:H^*(M)\otimes H^*(F)&\rightarrow H^*(E) \\
-    %         \omega\otimes\tau&\mapsto\pi^*\omega\wedge\tilde{\rho^*}\tau
-    %     \end{align*}
-    %     归纳递推仍由 M-V 论证给出; 
+        前两个圈的交换性显然, 第三个圈的交换性需要用到 $\md^*$ 的表达式. 
+        由五引理能得到归纳递推, 归纳奠基是平凡的.
+    \end{proof}
+
+    \begin{theorem}[Leray-Hirsch 定理]
+        设 $\pi:E\rightarrow M$ 为纤维丛, 纤维为 $F$, 
+        若存在 $E$ 上的微分形式 $\{\ft{e}{1}{n}\}$ 满足将它们限制在每个纤维 
+        $F_x$ 上都能得到 $H^*(F_x)$ 的一组基, 
+        则
+        \begin{equation*}
+            H^*(E)\cong H^*(M)\otimes\{\ft{e}{1}{n}\}
+            \cong H^*(M)\otimes H^*(F).
+        \end{equation*}
+    \end{theorem}
+    \begin{proof}[证明概要]
+        这里的关键在于不存在 $E$ 到 $F$ 的整体投影 $\rho$, 
+        也就无法通过这个方式定义 $\rho^*:H^*(F)\rightarrow H^*(E)$ 了. 
+        但是借助 $\{\ft{e}{1}{n}\}$ 我们可以构造合适的映射 $\tilde{\rho^*}$, 
+        做法如下:固定某个点 $x\in M$, 也即固定某个纤维 $F_x$, 
+        取 $H^*(F_x)$ 的一组基 $\{\ft{f}{1}{n}\}$, 定义:
+        \begin{align*}
+            \tilde{\rho^*}:H^*(F)&\rightarrow H^*(E) \\
+            \sum_{i}a_if_i&\mapsto\sum_{i}a_ie_i.
+        \end{align*} 
+
+        于是可以定义:
+        \begin{align*}
+            \tilde{\psi}:H^*(M)\otimes H^*(F)&\rightarrow H^*(E) \\
+            \omega\otimes\tau&\mapsto\pi^*\omega\wedge\tilde{\rho^*}\tau
+        \end{align*}
+        归纳递推仍由 M-V 论证给出; 
         
-    %     \begin{tikzcd}[column sep = tiny]
-    %         \vdots \arrow[d]                                                                                                 & \vdots \arrow[d]                                          \\
-    %         \bigoplus\limits_{p+q=k}H^p(U\cup V)\otimes H^q(F) \arrow[d] \arrow[r, "\psi"]                                   & H^k\left(\pi^{-1}(U\cup V)\right) \arrow[d]               \\
-    %         \bigoplus\limits_{p+q=k}\left((H^p(U)\otimes H^q(F))\oplus (H^p(V)\otimes H^q(F))\right) \arrow[r, "\psi"] \arrow[d] &             H^k(\pi^{-1}(U))\oplus H^k(\pi^{-1}(V)) \arrow[d] \\
-    %         \bigoplus\limits_{p+q=k}H^p(U\cap V)\otimes H^q(F) \arrow[r, "\psi"] \arrow[d, "\md^*"]                          & H^k(\pi^{-1}(U\cap V)) \arrow[d, "\md^*"]                 \\
-    %         \bigoplus\limits_{p+q=k+1}H^p(U\cup V)\otimes H^q(F) \arrow[d] \arrow[r, "\psi"]                                 & H^{k+1}\left(\pi^{-1}(U\cup V)\right) \arrow[d]           \\
-    %         \vdots                                                                                                           & \vdots                                                   
-    %     \end{tikzcd}
+        \begin{tikzcd}[column sep = tiny]
+            \vdots \arrow[d]                                                                                                 & \vdots \arrow[d]                                          \\
+            \bigoplus\limits_{p+q=k}H^p(U\cup V)\otimes H^q(F) \arrow[d] \arrow[r, "\psi"]                                   & H^k\left(\pi^{-1}(U\cup V)\right) \arrow[d]               \\
+            \bigoplus\limits_{p+q=k}\left((H^p(U)\otimes H^q(F))\oplus (H^p(V)\otimes H^q(F))\right) \arrow[r, "\psi"] \arrow[d] &             H^k(\pi^{-1}(U))\oplus H^k(\pi^{-1}(V)) \arrow[d] \\
+            \bigoplus\limits_{p+q=k}H^p(U\cap V)\otimes H^q(F) \arrow[r, "\psi"] \arrow[d, "\md^*"]                          & H^k(\pi^{-1}(U\cap V)) \arrow[d, "\md^*"]                 \\
+            \bigoplus\limits_{p+q=k+1}H^p(U\cup V)\otimes H^q(F) \arrow[d] \arrow[r, "\psi"]                                 & H^{k+1}\left(\pi^{-1}(U\cup V)\right) \arrow[d]           \\
+            \vdots                                                                                                           & \vdots                                                   
+        \end{tikzcd}
         
-    %     因为 good cover 中的每个开集都同伦于单点, 
-    %     而同伦映射诱导同构的拉回丛(注意这里是纤维丛的版本), 
-    %     因此 good cover 同时也是 locally trivialization.
-    %     故 $\pi^{-1}(U_\alpha)\cong U_{\alpha}\times F$, 
-    %     从而 $H^*(\pi^{-1}(U_\alpha))\cong H^*(U_{\alpha})\otimes H^*(F)$, 
-    %     这给出了归纳奠基.
-    % \end{proof}
-    % \begin{remark}
-    %     实际上当底空间 $M$ 连通时, 定理的条件可弱化为 $\{\ft{e}{1}{n}\}$ 
-    %     限制在某个纤维 $F_x$ 上得到 $H^*(F_x)$ 的一组基. 
-    %     因为对不同的两点 $x,y$, 有道路 $\gamma:[0,1]\rightarrow M$ 将他们相连, 
-    %     于是嵌入映射 
-    %     $\iota_x:F_x\hookrightarrow E$ 和 $\iota_y:F_y\hookrightarrow E$ 
-    %     同伦.
-    %     因此拉回映射 $\iota^*_x:H^*(E)\rightarrow H^*(F_x)$ 
-    %     与 $\iota^*_y:H^*(E)\rightarrow H^*(F_y)$ 相等.
-    % \end{remark}
-    % \begin{remark}
-    %     这里的同构 $H^*(E)\cong H^*(M)\otimes H^*(F)$ 并不保持环结构(例如？)
-    %     因此只能说 $H^*(E)$ 可看成 $H^*(M)$-模.
-    % \end{remark}
-    % \begin{remark}
-    %     存在不满足{\rm Leray-Hirsch}定理条件的纤维丛, 比如{\rm Hopf}纤维化:
-    %     \begin{center}
-    %         \begin{tikzcd}
-    %             S^1 \arrow[r] & S^3 \arrow[d] \\
-    %                           & S^2          
-    %         \end{tikzcd}    
-    %     \end{center}
-    %     其中
-    %     \begin{equation*}
-    %         H^*(S^3)\neq H^*(S^1)\otimes H^*(S^2)
-    %     \end{equation*}
-    % \end{remark}
+        因为 good cover 中的每个开集都同伦于单点, 
+        而同伦映射诱导同构的拉回丛(注意这里是纤维丛的版本), 
+        因此 good cover 同时也是 locally trivialization.
+        故 $\pi^{-1}(U_\alpha)\cong U_{\alpha}\times F$, 
+        从而 $H^*(\pi^{-1}(U_\alpha))\cong H^*(U_{\alpha})\otimes H^*(F)$, 
+        这给出了归纳奠基.
+    \end{proof}
+    \begin{remark}
+        实际上当底空间 $M$ 连通时, 定理的条件可弱化为 $\{\ft{e}{1}{n}\}$ 
+        限制在某个纤维 $F_x$ 上得到 $H^*(F_x)$ 的一组基. 
+        因为对不同的两点 $x,y$, 有道路 $\gamma:[0,1]\rightarrow M$ 将他们相连, 
+        于是嵌入映射 
+        $\iota_x:F_x\hookrightarrow E$ 和 $\iota_y:F_y\hookrightarrow E$ 
+        同伦.
+        因此拉回映射 $\iota^*_x:H^*(E)\rightarrow H^*(F_x)$ 
+        与 $\iota^*_y:H^*(E)\rightarrow H^*(F_y)$ 相等.
+    \end{remark}
+    \begin{remark}
+        这里的同构 $H^*(E)\cong H^*(M)\otimes H^*(F)$ 并不保持环结构(例如？)
+        因此只能说 $H^*(E)$ 可看成 $H^*(M)$-模.
+    \end{remark}
+    \begin{remark}
+        存在不满足{\rm Leray-Hirsch}定理条件的纤维丛, 比如{\rm Hopf}纤维化:
+        \begin{center}
+            \begin{tikzcd}
+                S^1 \arrow[r] & S^3 \arrow[d] \\
+                              & S^2          
+            \end{tikzcd}    
+        \end{center}
+        其中
+        \begin{equation*}
+            H^*(S^3)\neq H^*(S^1)\otimes H^*(S^2)
+        \end{equation*}
+    \end{remark}
 
-    % \section{微分流形中的同伦}
-    % \subsection{连续映射同伦于光滑映射}
-    %     \begin{theorem}[用光滑映射逼近连续映射]
-    %         设 $f:M^m\rightarrow\mR^n$ 为任意连续映射, 
-    %         $\varepsilon:M\rightarrow\mR_{>0}$ 为任意误差函数.
-    %         则存在光滑映射 $g:M\rightarrow\mR^n$ 满足 
-    %         $||f(x)-g(x)||<\varepsilon(x),\;\forall\,x\in M$.
-    %     \end{theorem}
-    %     \begin{proof}
-    %         对 $M$ 中任一点 $p$, 存在开邻域 $U_p$ 使得 
-    %         \begin{equation*}
-    %             ||f(q)-f(p)||<\varepsilon(p),\quad\varepsilon(q)
-    %             >\frac{1}{2}\varepsilon(p),\quad\forall\,q\in U_p.
-    %         \end{equation*}
-    %         记 $\{\rho_p\}$ 为从属于开覆盖 $\{U_p\}$ 的单位分解, 定义 
-    %         \begin{equation*}
-    %             g(x) = \sum_{p}\rho_p(x)f(p) = \sum_{U_p\ni x}\rho_p(x)f(p).
-    %         \end{equation*}
-    %         则 $g(x)$ 是 $M$ 到 $\mR^n$ 的光滑映射且满足 
-    %         \begin{align*}
-    %             ||g(x)-f(x)|| &= \Big|\Big|\sum_{p}\rho_p(x)f(p) 
-    %             - \sum_{p}\rho_p(x)f(x)\Big|\Big| \\
-    %             &= \Big|\Big|\sum_{U_p\ni x}\rho_p(x)
-    %             \Big(f(p)-f(x)\Big)\Big|\Big| \\
-    %             &\leqslant\sum_{U_p\ni x}\rho_p(x)
-    %             \big|\big|f(p)-f(x)\big|\big| \\
-    %             &\leqslant\sum_{U_p\ni x}\rho_p(x)\varepsilon(x) \\
-    %             &=\varepsilon(x).
-    %         \end{align*}
-    %         $g(x)$ 即为所求.
-    %     \end{proof}
-    %     \begin{remark}
-    %         这个定理是单位分解的一个重要应用.
-    %     \end{remark}
-    %     \begin{remark}
-    %         若 $f$ 的像集 $f(M)$ 包含于 $\mR^n$ 的某个开集 $U$ 中, 
-    %         则也可使 $g(M)\subset U$. 具体做法是稍微修改一下误差函数.
-    %         令 
-    %         \begin{equation*}
-    %             \varepsilon_1(x):=\min\left\{
-    %                 \varepsilon(x),\frac{1}{2}d(f(x),\mR^n\backslash U)
-    %                 \right\}
-    %         \end{equation*} 
-    %         以新误差函数 $\varepsilon_1$ 构造的 $g$ 自动满足 $g(M)\in U$.
-    %     \end{remark}
-    %     \begin{theorem}[用光滑映射逼近连续映射且保持在某个闭集不动]
-    %         设 $f:M^m\rightarrow\mR^n$ 为连续映射, 
-    %         且在闭子集 $A$ 的某个开邻域 $U_0$ 内光滑, 
-    %         则对任意误差函数 $\varepsilon:M\rightarrow\mR_{>0}$,
-    %         存在光滑映射 $g:M\rightarrow\mR^n$ 满足 
-    %         $||f(x)-g(x)||<\varepsilon(x),\;\forall\,x\in M$ 且 
-    %         $f\big|_A = g\big|_A$.
-    %     \end{theorem}
-    %     \begin{proof}
-    %         主要的构造思路保持不变, 但开覆盖有些许变化. 
-    %         对任意 $p\in M\backslash A$, 
-    %         取开邻域 $U_p\subset M\backslash A$ 使得 
-    %         \begin{equation*}
-    %             ||f(q)-f(p)||<\varepsilon(p),\quad\varepsilon(q)
-    %             >\frac{1}{2}\varepsilon(p),\quad\forall\,q\in U_p.
-    %         \end{equation*}
-    %         设 $\{\rho_0\}\cup\{\rho_p\}_{p\notin A}$ 
-    %         为从属于开覆盖 $\{U_0\}\cup\{U_p\}_{p\notin A}$ 的单位分解, 令
-    %         \begin{equation*}
-    %             g(x) = \rho_0(x)f(x) + \sum_{p\notin A}\rho_p(x)f(p).
-    %         \end{equation*}
-    %         则因为
-    %         \begin{equation*}
-    %             f(x) = \rho_0(x)f(x) + \sum_{p\notin A}\rho_p(x)f(x), 
-    %         \end{equation*}
-    %         可以验证 $g$ 满足定理要求.
-    %     \end{proof}
-    %     \begin{remark}
-    %         同上一个注一样, 该定理可以加强使逼近前后的像集在同一个开集中.
-    %     \end{remark}
-    %     \begin{theorem}[任意连续映射都同伦于一个光滑映射]
-    %         任意光滑流形间的连续映射 $f:M^m\rightarrow N^n$ 
-    %         均同伦于某一个光滑映射 $g:M\rightarrow N$.
-    %     \end{theorem}
-    %     \begin{proof}
-    %         $f$ 在局部上可以看成是 $M$ 到 $\mR^n$ 的连续映射, 
-    %         用之前的定理可以在局部上用光滑映射逼近 $f$, 
-    %         则局部上可以用直线同伦连接 $f$ 与光滑映射, 
-    %         对每个点的局部都如此考虑即可.
+    \section{微分流形中的同伦}
+    \subsection{连续映射同伦于光滑映射}
+        \begin{theorem}[用光滑映射逼近连续映射]
+            设 $f:M^m\rightarrow\mR^n$ 为任意连续映射, 
+            $\varepsilon:M\rightarrow\mR_{>0}$ 为任意误差函数.
+            则存在光滑映射 $g:M\rightarrow\mR^n$ 满足 
+            $||f(x)-g(x)||<\varepsilon(x),\;\forall\,x\in M$.
+        \end{theorem}
+        \begin{proof}
+            对 $M$ 中任一点 $p$, 存在开邻域 $U_p$ 使得 
+            \begin{equation*}
+                ||f(q)-f(p)||<\varepsilon(p),\quad\varepsilon(q)
+                >\frac{1}{2}\varepsilon(p),\quad\forall\,q\in U_p.
+            \end{equation*}
+            记 $\{\rho_p\}$ 为从属于开覆盖 $\{U_p\}$ 的单位分解, 定义 
+            \begin{equation*}
+                g(x) = \sum_{p}\rho_p(x)f(p) = \sum_{U_p\ni x}\rho_p(x)f(p).
+            \end{equation*}
+            则 $g(x)$ 是 $M$ 到 $\mR^n$ 的光滑映射且满足 
+            \begin{align*}
+                ||g(x)-f(x)|| &= \Big|\Big|\sum_{p}\rho_p(x)f(p) 
+                - \sum_{p}\rho_p(x)f(x)\Big|\Big| \\
+                &= \Big|\Big|\sum_{U_p\ni x}\rho_p(x)
+                \Big(f(p)-f(x)\Big)\Big|\Big| \\
+                &\leqslant\sum_{U_p\ni x}\rho_p(x)
+                \big|\big|f(p)-f(x)\big|\big| \\
+                &\leqslant\sum_{U_p\ni x}\rho_p(x)\varepsilon(x) \\
+                &=\varepsilon(x).
+            \end{align*}
+            $g(x)$ 即为所求.
+        \end{proof}
+        \begin{remark}
+            这个定理是单位分解的一个重要应用.
+        \end{remark}
+        \begin{remark}
+            若 $f$ 的像集 $f(M)$ 包含于 $\mR^n$ 的某个开集 $U$ 中, 
+            则也可使 $g(M)\subset U$. 具体做法是稍微修改一下误差函数.
+            令 
+            \begin{equation*}
+                \varepsilon_1(x):=\min\left\{
+                    \varepsilon(x),\frac{1}{2}d(f(x),\mR^n\backslash U)
+                    \right\}
+            \end{equation*} 
+            以新误差函数 $\varepsilon_1$ 构造的 $g$ 自动满足 $g(M)\in U$.
+        \end{remark}
+        \begin{theorem}[用光滑映射逼近连续映射且保持在某个闭集不动]
+            设 $f:M^m\rightarrow\mR^n$ 为连续映射, 
+            且在闭子集 $A$ 的某个开邻域 $U_0$ 内光滑, 
+            则对任意误差函数 $\varepsilon:M\rightarrow\mR_{>0}$,
+            存在光滑映射 $g:M\rightarrow\mR^n$ 满足 
+            $||f(x)-g(x)||<\varepsilon(x),\;\forall\,x\in M$ 且 
+            $f\big|_A = g\big|_A$.
+        \end{theorem}
+        \begin{proof}
+            主要的构造思路保持不变, 但开覆盖有些许变化. 
+            对任意 $p\in M\backslash A$, 
+            取开邻域 $U_p\subset M\backslash A$ 使得 
+            \begin{equation*}
+                ||f(q)-f(p)||<\varepsilon(p),\quad\varepsilon(q)
+                >\frac{1}{2}\varepsilon(p),\quad\forall\,q\in U_p.
+            \end{equation*}
+            设 $\{\rho_0\}\cup\{\rho_p\}_{p\notin A}$ 
+            为从属于开覆盖 $\{U_0\}\cup\{U_p\}_{p\notin A}$ 的单位分解, 令
+            \begin{equation*}
+                g(x) = \rho_0(x)f(x) + \sum_{p\notin A}\rho_p(x)f(p).
+            \end{equation*}
+            则因为
+            \begin{equation*}
+                f(x) = \rho_0(x)f(x) + \sum_{p\notin A}\rho_p(x)f(x), 
+            \end{equation*}
+            可以验证 $g$ 满足定理要求.
+        \end{proof}
+        \begin{remark}
+            同上一个注一样, 该定理可以加强使逼近前后的像集在同一个开集中.
+        \end{remark}
+        \begin{theorem}[任意连续映射都同伦于一个光滑映射]
+            任意光滑流形间的连续映射 $f:M^m\rightarrow N^n$ 
+            均同伦于某一个光滑映射 $g:M\rightarrow N$.
+        \end{theorem}
+        \begin{proof}
+            $f$ 在局部上可以看成是 $M$ 到 $\mR^n$ 的连续映射, 
+            用之前的定理可以在局部上用光滑映射逼近 $f$, 
+            则局部上可以用直线同伦连接 $f$ 与光滑映射, 
+            对每个点的局部都如此考虑即可.
 
             
-    %     \end{proof}
+        \end{proof}
 
-    % \section{Thom同构、Thom空间与Thom类}
-    %     设 $\pi:E\rightarrow M$ 是 $M$ 上的秩为 $k$ 的可定向向量丛, 
-    %     在 {\rm Bott \& Tu } 的书中我们知道存在 $\Phi\in H^k_{cv}(E)$ 使得 
-    %     \begin{align*}
-    %         \mathcal{T}:H^{*-k}(M)&\rightarrow H^*_{cv}(E) \\
-    %         \omega&\mapsto\pi^*\omega\wedge\Phi
-    %     \end{align*}
-    %     是同构. 下面我们将用相对上同调以及 Thom 空间的语言重新描述 Thom 同构. 
+    \section{Thom同构、Thom空间与Thom类}
+        设 $\pi:E\rightarrow M$ 是 $M$ 上的秩为 $k$ 的可定向向量丛, 
+        在 {\rm Bott \& Tu } 的书中我们知道存在 $\Phi\in H^k_{cv}(E)$ 使得 
+        \begin{align*}
+            \mathcal{T}:H^{*-k}(M)&\rightarrow H^*_{cv}(E) \\
+            \omega&\mapsto\pi^*\omega\wedge\Phi
+        \end{align*}
+        是同构. 下面我们将用相对上同调以及 Thom 空间的语言重新描述 Thom 同构. 
 
-    %     由定理\,\ref{thm:c-cohomology_v.s._reductive_cohomology}, 
-    % 
+        由定理\,\ref{thm:c-cohomology_v.s._reductive_cohomology}, 
+    
     \section{主丛、主丛上的联络}
         \begin{definition}[$G$-主丛]
             设 $M$ 为流形, $G$ 为李群. 称流形 $P$ 为 $M$ 上的 $G$-主丛, 若

@@ -70,8 +70,10 @@
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
-\newtheorem{problem}[theorem]{Question}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{exercise}[theorem]{Exercise}
 \newtheorem*{remark}{Remark}
+\newtheorem*{problemstar}{Problem}
 \renewcommand{\proofname}{\bf Proof}
 \newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} %一次偏导
 \newcommand{\npd}[3]{\frac{\partial^{#1}{#2}}{\partial{#3}^{#1}}} %n次偏导, 也可以指代混合偏导
@@ -129,9 +131,10 @@
 \tableofcontents
 \newpage
 
-\include{Chapters/ObstructionTheory&CharacteristicClasses}
-\include{Chapters/ChernNumbers&PontrjaginNumbers}
-\include{Chapters/ThomSpace&Transversality}
+% \include{Chapters/ObstructionTheory&CharacteristicClasses}
+% \include{Chapters/ChernNumbers&PontrjaginNumbers}
+% \include{Chapters/ThomSpace&Transversality}
+\include{Chapters/MultiplicativeSequences}
 
 % \bibliography{References}
 \end{document}

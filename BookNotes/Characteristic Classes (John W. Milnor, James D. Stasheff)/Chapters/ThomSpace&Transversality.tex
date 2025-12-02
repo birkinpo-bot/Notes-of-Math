@@ -9,12 +9,12 @@
     \end{equation*}
     The \textbf{Thom space} of $\xi$ is defined to be the quotient space
     \begin{equation*}
-        T(\xi) = E(\xi) / A.
+        \mrm{Th}(\xi) = E(\xi) / A.
     \end{equation*}
 \end{definition}
 
 \begin{lemma}\label{lem:CW-structure-of-Thom-space}
-    If the base space $B$ is a CW-complex, then the Thom space $T(\xi)$ is 
+    If the base space $B$ is a CW-complex, then the Thom space $\mrm{Th}(\xi)$ is 
     a $(k-1)$-connected CW-complex, having one cell of dimension $n+k$ for each
     cell of dimension $n$ in $B$ and a base point $t_0$.
 \end{lemma}
@@ -26,12 +26,12 @@
 \begin{lemma}\label{lem:Homology-of-Thom-space}
     If $\xi$ is an orientable rank $k$ vector bundle over $B$, then
     \begin{equation*}
-        H_{k+i}(T(\xi),t_0;\mathbb{Z}) \cong H_i(B;\mathbb{Z}).
+        H_{k+i}(\mrm{Th}(\xi),t_0;\mathbb{Z}) \cong H_i(B;\mathbb{Z}).
     \end{equation*}
 \end{lemma}
 \begin{proof}
     \begin{align*}
-        H_{k+i}(T(\xi),t_0;\mZ) &= 
+        H_{k+i}(\mrm{Th}(\xi),t_0;\mZ) &= 
         H_{k+i}(E(\xi)/A,E_0/A;\mZ) \\
         &\cong H_{k+i}(E(\xi),E_0;\mZ) \quad \text{by excision thm}\\
         &\cong H_i(B;\mZ) \quad \text{by Thom isom}.
@@ -106,3 +106,13 @@ Let $\tilde{\gamma}^k_p$ be the universal bundle over $\tilde{\mrm{Gr}}_k(\mR^{k
     \end{align*}
     is surjective.
 \end{lemma}
+
+In brief, for an oriented $k$-plane bundle $\xi$ over a base space $B$, we have 
+\begin{equation*}
+    H_i(B;\mZ)\cong H_{k+i}(\mrm{Th}(\xi),t_0;\mZ) \overset{\mathcal{C}-\text{isom}}{\cong} \pi_{k+i}(\mrm{Th}(\xi),t_0), \quad i<k-1.
+\end{equation*}
+For the universal bundle $\tilde{\gamma}^k_p$ over $\tilde{\mrm{Gr}}_k(\mR^{k+p})$, 
+\begin{equation*}
+    H_n(\tilde{\mrm{Gr}}_k(\mR^{k+p});\mZ) \overset{\mathcal{C}-\text{isom}}{\cong} 
+    \pi_{k+n}(\mrm{Th}(\tilde{\gamma}^k_p),t_0) \twoheadrightarrow \Omega^{\mrm{SO}}_{n}, \quad k-2,p\geqslant n+2.
+\end{equation*}

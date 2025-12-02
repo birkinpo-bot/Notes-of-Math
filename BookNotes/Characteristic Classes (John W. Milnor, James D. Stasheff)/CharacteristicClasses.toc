@@ -1,12 +1,6 @@
-\contentsline {section}{\numberline {1}Obstruction Theory \& Characteristic Classes}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}A Brief Introduction to Obstruction Theory}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Characteristic Classes via Obsruction Theory}{5}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}Cohomology with Local Coefficients}{5}{subsubsection.1.2.1}%
-\contentsline {section}{\numberline {2}Chern Numbers \& Pontrjagin Numbers}{10}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Chern Numbers}{10}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Pontrjagin Numbers}{10}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Symmetric Functions}{11}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}A Product Formula}{12}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Linear Independence of Chern Numbers and of Pontrjagin Numbers}{14}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Thom Space \& Transversality}{16}{section.3}%
-\contentsline {subsection}{\numberline {3.1}The Main Theorem}{17}{subsection.3.1}%
+\contentsline {section}{\numberline {1}Multiplicative sequences}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Multiplicative Sequences}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Characteristic Power Series}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}K-genus}{6}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Signature}{7}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Exercise}{11}{subsection.1.5}%

@@ -1,0 +1,436 @@
+\section{Multiplicative sequences}
+\label{sec:multiplicative_sequences}
+
+We start with polynomial ring $\mQ[\beta_1,\beta_2,\dots]$ in countably many variables $\beta_i$ over the rational number field $\mQ$. 
+Let $A=\mQ[a_1,a_2,\dots]=\mathrm{Sym}[\beta_1,\beta_2,\dots]$ be the subring of symmetric polynomials, 
+where $a_i$ is the $i$-th elementary symmetric polynomial in $\beta_1,\beta_2,\dots$. $A$ has a grading structure by setting $\deg a_i=i$.
+\begin{equation*}
+    A=\bigoplus_{n=0}^{\infty} A^n, \quad A^n=\big\{\text{homogeneous polynomials of degree } n\big\}.
+\end{equation*}
+We set
+\begin{equation*}
+    a = 1 + a_1t + a_2t^2 + \cdots = \prod_{i=1}^{\infty} (1+\beta_it) \in A[[t]],
+\end{equation*}
+For any two 
+\begin{gather*}
+    A = \mQ[a_1,a_2,\dots]\subset \mQ[\beta_1,\beta_2,\dots], \quad B = \mQ[b_1,b_2,\dots]\subset \mQ[\beta_1',\beta_2',\dots]
+\end{gather*}
+and
+\begin{gather*}
+    a = 1 + a_1t + a_2t^2 + \cdots, \quad b = 1 + b_1t + b_2t^2 + \cdots
+\end{gather*}
+their product is 
+\begin{align*}
+    ab =& (1 + a_1t + a_2t^2 + \cdots)(1 + b_1t + b_2t^2 + \cdots) \\
+    =& 1 + (a_1 + b_1)t + (a_2 + a_1b_1 + b_2)t^2 + \cdots
+\end{align*}
+
+\begin{remark}
+    If we take $t=1$ and $a_i = c_i(\omega)$, where $\omega$ is a complex $n$-plane bundle, then 
+    \begin{equation*}
+        a = 1 + c_1(\omega) + c_2(\omega) + \cdots + c_n(\omega) = c(\omega)
+    \end{equation*}
+\end{remark}
+
+\subsection{Multiplicative Sequences}
+Let $\{K_n\}$ be a sequence of polynomials:
+\begin{equation*}
+    K_0 = 1, \quad K_1 = K_1(x_1), \quad K_2 = K_2(x_1,x_2), \quad K_3 = K_3(x_1,x_2,x_3), \quad \cdots,
+\end{equation*} 
+satisfying that each 
+\begin{equation*}
+    K_n(a_1,\dots,a_n)\in A^n
+\end{equation*}
+is a homogeneous polynomial of degree $n$. 
+
+For any 
+\begin{equation*}
+    a = 1 + a_1t + a_2t^2 + \cdots, 
+\end{equation*}
+we define
+\begin{equation*}
+    K(a) = 1 + K_1(a_1)t + K_2(a_1,a_2)t^2 + K_3(a_1,a_2,a_3)t^3 + \cdots.
+\end{equation*}
+We say that $\{K_n\}$ is a \textbf{multiplicative sequence} (or m-sequence) if for any two such $a$ and $b$ as above, we have 
+\begin{equation*}
+    K(ab) = K(a)K(b) 
+\end{equation*}
+which forces that
+\begin{align*}
+    &K_1(a_1+b_1) = K_1(a_1) + K_1(b_1), \\
+    &K_2(a_1+b_1,a_2+a_1b_1+b_2) = K_2(a_1,a_2) + K_1(a_1)K_1(b_1) + K_2(b_1,b_2), \\
+    &\cdots\cdots
+\end{align*}
+
+\begin{example}\label{ex:m-sequence1}
+    Set $K_n(x_1,\dots,x_n) = \lambda^n x_n$, where $\lambda$ is a constant. Then we have
+    \begin{equation*}
+        K(1+a_1t+a_2t^2+\cdots) = 1 + \lambda a_1 t + \lambda^2 a_2 t^2 + \cdots 
+    \end{equation*}
+    Especially, if $\lambda = 1$, then 
+    \begin{equation*}
+        K(a) = a.
+    \end{equation*}
+    If $\lambda = -1$, then 
+    \begin{equation*}
+        K(a) = 1 - a_1t + a_2t^2 - a_3t^3 + \cdots. 
+    \end{equation*}
+    If in addition we take $t=1$, $a_i = c_i(\omega)$, then we get
+    \begin{equation*}
+        K(c(\omega)) = 1 - c_1(\omega) + c_2(\omega) - \cdots + (-1)^n c_n(\omega) = c(\bar{\omega}).
+    \end{equation*}
+\end{example}
+\begin{example}\label{ex:m-sequence2}
+    The identity $K(a) = a^{-1}$ defines a multiplicative sequence, where
+    \begin{align*}
+        &K_0 = 1, \\
+        &K_1(x_1) = -x_1, \\
+        &K_2(x_1,x_2) = x_1^2 - x_2, \\
+        &K_3(x_1,x_2,x_3) = -x_1^3 + 2x_1x_2 - x_3, \\
+        &K_4(x_1,x_2,x_3,x_4) = x_1^4 - 3x_1^2x_2 + 2x_1x_3 + x_2^2 - x_4, \\
+        &\cdots\cdots
+    \end{align*}
+    If we take $t=1$, $a_i = c_i(\omega)$ and $\eta\oplus\omega = \varepsilon^{m+n}$, then we get
+    \begin{equation*}
+        K(c(\omega)) = c(\omega)^{-1} = c(\eta).
+    \end{equation*}
+\end{example}
+\begin{example}\label{ex:m-sequence3}
+    The polynomials 
+    \begin{align*}
+        &K_{2n+1} = 0, \\
+        &K_{2n} = x_n^2 - 2x_{n-1}x_{n+1} + \cdots + (-1)^{n-1}2x_1 x_{2n-1} + (-1)^n 2n x_{2n}
+    \end{align*}
+    form an m-sequence. If we take $t=1$, $a_i = c_i(\omega)$, then we get the total Pontryagin class
+    \begin{equation*}
+        K(c(\omega)) = 1 + p_1(\omega_{\mR}) + p_2(\omega_{\mR}) + \cdots = p(\omega_{\mR}).
+    \end{equation*}
+\end{example}
+
+\subsection{Characteristic Power Series}
+Given a multiplicative sequence $\{K_n\}$, we can define its \textbf{characteristic power series} $f(t)$ by 
+\begin{equation*}
+    K(1 + t) = f(t) = 1 + \lambda_1 t + \lambda_2 t^2 + \lambda_3 t^3 + \cdots,
+\end{equation*}
+where $\lambda_i = K_i(1,0,\dots,0)$. The following lemma shows that there is a one-to-one correspondence 
+between multiplicative sequences and power series.
+\begin{lemma}[Hirzebruch]
+    Let $f(t) = 1 + \lambda_1 t + \lambda_2 t^2 + \lambda_3 t^3 + \cdots$ be a power series in $\mQ[[t]]$ with constant term 1. 
+    Then there \textbf{exists} a \textbf{unique} multiplicative sequence $\{K_n\}$ whose characteristic power series is $f(t)$.
+\end{lemma}
+\begin{proof}
+    Uniqueness: Suppose that $\{K_n\}$ is a multiplicative sequence with characteristic power series $f(t)$. 
+    Then 
+    \begin{equation*}
+        K(1 + a_1 t + a_2 t^2 + \cdots) = K\left(\prod_{i=1}^{\infty} (1 + \beta_i t)\right) 
+        = \prod_{i=1}^{\infty} K(1 + \beta_i t) = \prod_{i=1}^{\infty} f(\beta_i t).
+    \end{equation*}
+    take $\beta_{n+1} = \beta_{n+2} = \cdots = 0$, we have
+    \begin{equation*}
+        K(1 + a_1 t + a_2 t^2 + \cdots + a_n t^n) = \prod_{i=1}^{n} f(\beta_i t).
+    \end{equation*}
+    by comparing the coefficient of $t^n$ on both sides, 
+    \begin{equation*}
+        K_n(a_1,a_2,\dots,a_n) = \text{the coefficient of } t^n \text{ in } \prod_{i=1}^{n} f(\beta_i t).
+    \end{equation*}
+    Since the right-hand side is a symmetric polynomial in $\beta_1,\dots,\beta_n$, 
+    it can be expressed as a polynomial in $a_1,\dots,a_n$. 
+    And $a_1,\dots,a_n$ are algebraically independent, so $K_n$ is uniquely determined.
+
+    Existence: Define $K_n$ by the above formula, then it is easy to check that $\{K_n\}$ is a multiplicative sequence
+    whose characteristic power series is $f(t)$.
+\end{proof}
+\begin{remark}
+    Given a power series 
+    \begin{equation*}
+        f(t) = 1 + \lambda_1 t + \lambda_2 t^2 + \lambda_3 t^3 + \cdots,
+    \end{equation*}
+    the corresponding multiplicative sequence $\{K_n\}$ can be computed by the following: 
+    Denote $a_i^{(n)} = a_i(\beta_1,\dots,\beta_n,0,0,\dots)$, then
+    \begin{align*}
+        K_1(a_1^{(1)}) &= \text{the coefficient of } t \text{ in } f(\beta_1 t) \\
+        & = \lambda_1 \beta_1 = \lambda_1 a_1^{(1)} \\
+        K_2(a_1^{(2)},a_2^{(2)}) &= \text{the coefficient of } t^2 \text{ in } f(\beta_1 t) f(\beta_2 t) \\
+        & = \lambda_1^2 \beta_1\beta_2 + \lambda_2 (\beta_1^2 + \beta_2^2), \\
+        & = \lambda_1^2 a_2^{(2)} + \lambda_2 \big((a_1^{(2)})^2 - 2a_2^{(2)}\big) \\
+        K_3(a_1^{(3)},a_2^{(3)},a_3^{(3)}) &= \text{the coefficient of } t^3 \text{ in } f(\beta_1 t) f(\beta_2 t) f(\beta_3 t) \\
+        & = \lambda_1^3 \beta_1\beta_2\beta_3 + \lambda_1\lambda_2 (\beta_1\beta_2^2 + \beta_2\beta_3^2 + \beta_3\beta_1^2) + \lambda_3 (\beta_1^3 + \beta_2^3 + \beta_3^3) \\
+        & = \lambda_1^3 a_3^{(3)} + \lambda_1\lambda_2 \big(a_1^{(3)} a_2^{(3)} - 3 a_3^{(3)}\big) + \lambda_3 \big((a_1^{(3)})^3 - 3 a_1^{(3)} a_2^{(3)} + 3 a_3^{(3)}\big) \\
+        & \cdots\cdots
+    \end{align*}
+\end{remark}
+\begin{example}
+    The characteristic power series of the multiplicative sequence in Example \ref{ex:m-sequence1} is $f(t) = 1 + \lambda t$.
+\end{example}
+\begin{example}
+    The characteristic power series of the multiplicative sequence in Example \ref{ex:m-sequence2} is 
+    \begin{equation*}
+        f(t) = \frac{1}{1+t} = 1 - t + t^2 - t^3 + t^4 - \cdots.
+    \end{equation*}
+    We can check the first few polynomials:
+    \begin{align*}
+        &K_0 = 1, \\
+        &K_1(x_1) = \lambda_1 x_1 = -x_1, \\
+        &K_2(x_1,x_2) = \lambda_1^2 x_2 + \lambda_2 (x_1^2 - 2x_2) = x_1^2 - x_2, \\
+        &K_3(x_1,x_2,x_3) = \lambda_1^3 x_3 + \lambda_1\lambda_2 (x_1 x_2 - 3 x_3) + \lambda_3 (x_1^3 - 3 x_1 x_2 + 3 x_3) = -x_1^3 + 2 x_1 x_2 - x_3, \\[4pt]
+        &\cdots\cdots
+    \end{align*}
+\end{example}
+\begin{example}
+    The characteristic power series of the multiplicative sequence in Example \ref{ex:m-sequence3} is $f(t) = 1 + t^2$.
+    We can check the first few polynomials:
+    \begin{align*}
+        &K_0 = 1, \\
+        &K_1(x_1) = \lambda_1 x_1 = 0, \\
+        &K_2(x_1,x_2) = \lambda_2 x_2 = x_2, \\
+        &K_3(x_1,x_2,x_3) = \lambda_1^3 x_3 + \lambda_1\lambda_2 (x_1 x_2 - 3 x_3) + \lambda_3 (x_1^3 - 3 x_1 x_2 + 3 x_3) = 0, \\
+        &K_4(x_1,x_2,x_3,x_4) = \lambda_2^2 (x_2^2 - 2 x_1 x_3 + 2 x_4) = x_2^2 - 2 x_1 x_3 + 2 x_4, \\[4pt]
+        &\cdots\cdots
+    \end{align*}
+\end{example}
+
+\subsection{K-genus}
+\begin{definition}
+    Given a multiplicative sequence $\{K_n\}$. For any smooth, closed, oriented manifold $M^m$, 
+    we can define its \textbf{K-genus} by 
+    \begin{align*}
+        &K[M] = 0, \quad \text{if $4 \nmid m$}, \\
+        &K[M] = \langle K_{n}(p_1(\tau_M), \dots, p_n(\tau_M)), \mu_M \rangle, \quad \text{if } m=4n,
+    \end{align*}
+    Thus $K[M]$ is a certain rational linear combination of Pontryagin numbers of $M$.
+\end{definition}
+\begin{remark}
+    A K-genus can be written briefly as 
+    \begin{equation*}
+        K[M] = \langle K(p(\tau_M)), \mu_M \rangle,
+    \end{equation*}
+\end{remark}
+\begin{lemma}
+    A K-genus gives rise to a ring homomorphism 
+    \begin{equation*}
+        \Omega_*^{SO} \to \mQ,\qquad [M] \mapsto K[M]
+    \end{equation*}
+    from the oriented cobordism ring to the rational number field. 
+
+    Equivalently, this correspondence gives an algebra homomorphism from $\Omega_*^{SO} \otimes \mQ$ to $\mQ$. 
+    Thus defines an element in the dual space $\mathrm{Hom}_{\mQ}(\Omega_*^{SO} \otimes \mQ, \mQ)$.
+\end{lemma}
+\begin{proof}
+    The correspondence is well-defined since Pontryagin numbers are cobordism invariants.
+    It is clear that $K$ is additive under disjoint union.
+    
+    It suffices to show that for any two $M$ and $M'$, we have 
+    \begin{equation*}
+        K[M \times M'] = K[M] K[M'].
+    \end{equation*}
+    If either $\dim M$ or $\dim M'$ is not divisible by 4, then both sides are zero. 
+    Now suppose that $\dim M = 4m$ and $\dim M' = 4n$. Then 
+    \begin{align*}
+        K[M \times M'] =& \langle K(p(\tau_{M \times M'})), \mu_{M \times M'} \rangle \\
+        =& \langle K(p(\tau_M) \times p(\tau_{M'})), \mu_M \times \mu_{M'} \rangle \\
+        =& \langle K(p(\tau_M))\times K(p(\tau_{M'})), \mu_M \times \mu_{M'} \rangle \\
+        =& \langle K(p(\tau_M)), \mu_M \rangle \cdot \langle K(p(\tau_{M'})), \mu_{M'} \rangle \\
+        =& K[M] K[M'].
+    \end{align*}
+\end{proof}
+
+\begin{remark}
+    The multiplicative sequence and K-genus give a systematic machinery to produce various invariants of manifolds.
+\end{remark}
+
+\subsection{Signature}
+\begin{definition}
+    The \textbf{signature} $\sigma(M)$ of a smooth, closed, oriented $4k$-manifold $M$ is defined to be the signature of the symmetric bilinear form
+    \begin{equation*}
+        Q_M : H^{2k}(M;\mQ) \times H^{2k}(M;\mQ) \to \mQ, \quad Q_M(a,b) = \langle a \cup b, \mu_M \rangle.
+    \end{equation*}
+    For $M$ with $4\nmid \dim M$, we set $\sigma(M) = 0$.
+\end{definition}
+To be precise, if we choose a basis $\{a_1,\dots,a_r\}$ of $H^{2k}(M;\mQ)$, so that the matrix of $Q_M$
+\begin{equation*}
+    Q_{ij} = \langle a_i \cup a_j, \mu_M \rangle,
+\end{equation*}
+is diagonal. Then the signature $\sigma(M)$ is defined to be the number of positive entries minus the number of negative entries on the diagonal. 
+Notes that $Q_M$ is non-degenerate by Poincar\'e duality, so the matrix $(Q_{ij})$ is invertible. 
+
+\begin{lemma}[Thom]
+    The signature $\sigma(M)$ gives rise to a ring homomorphism
+    \begin{equation*}
+        \Omega_*^{SO} \to \mZ, \quad [M] \mapsto \sigma(M).
+    \end{equation*}
+    Equivalently, this is to say the signature function satisfies:
+    \begin{enumerate}
+        \item $\sigma(M \sqcup M') = \sigma(M) + \sigma(M')$,
+        \item $\sigma(M \times M') = \sigma(M) \sigma(M')$.
+        \item If $M = \p W$ for some oriented manifold $W$, then $\sigma(M) = 0$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    The first property follows by 
+    \begin{equation*}
+        H^{2k}(M \sqcup M';\mQ) \cong H^{2k}(M;\mQ) \oplus H^{2k}(M';\mQ).
+    \end{equation*}
+    The second property follows by the K\"unneth formula
+    \begin{equation*}
+        H^*(M \times M';\mQ) \cong H^*(M;\mQ) \otimes H^*(M';\mQ).
+    \end{equation*}
+    For the third property, we need to show that if $M = \p W$, then $\sigma(M) = 0$.
+    By the long exact sequence of the pair $(W,M)$ and Poincar\'e-Lefschetz duality, we have the following commutative diagram:
+    \begin{equation*}
+        \begin{tikzcd}
+            H^{2k}(W,M;\mQ) \arrow[r, "i^*"] \arrow[d, "\cong"] & H^{2k}(W;\mQ) \arrow[r, "j^*"] \arrow[d, "\cong"] & H^{2k}(M;\mQ) \arrow[d, "\cong"] \\
+            H_{4k-2k}(W;\mQ) \arrow[r, "j_*"] & H_{4k-2k}(W,M;\mQ) \arrow[r, "i_*"] & H_{4k-2k-1}(M;\mQ)
+        \end{tikzcd}
+    \end{equation*}
+    Thus we have an exact sequence
+    \begin{equation*}
+        H^{2k}(W,M;\mQ) \xrightarrow{i^*} H^{2k}(W;\mQ) \xrightarrow{j^*} H^{2k}(M;\mQ) \xrightarrow{\delta} H^{2k+1}(W,M;\mQ).
+    \end{equation*}
+    Note that for any $a,b\in H^{2k}(M;\mQ)$, if either $a$ or $b$ is in $\mathrm{Im}\, j^*$, then 
+    \begin{equation*}
+        Q_M(a,b) = \langle a\cup b, \mu_M \rangle = 0,
+    \end{equation*}
+    since $j_* (\mu_M) = 0$. Thus $Q_M$ descends to a well-defined bilinear form on 
+    \begin{equation*}
+        V = H^{2k}(M;\mQ)/\mathrm{Im}\, j^*.
+    \end{equation*}
+    Moreover, by the exactness of the above sequence, we have an isomorphism
+    \begin{equation*}
+        V \cong \mathrm{Im}\, \delta \subset H^{2k+1}(W,M;\mQ).
+    \end{equation*}
+    Since $\dim H^{2k+1}(W,M;\mQ)$ is even, $\dim V$ is also even.
+    On the other hand, the bilinear form $Q_M$ on $V$ is skew-symmetric, i.e. $Q_M([a],[b]) = - Q_M([b],[a])$ for any $[a],[b]\in V$.
+    Thus the signature of $Q_M$ on $V$ is zero. Since $Q_M$ vanishes on $\mathrm{Im}\, j^*$, we have
+    \begin{equation*}
+        \sigma(M) = \sigma(Q_M) = \sigma(Q_M|_V) = 0.
+    \end{equation*}
+\end{proof}
+\begin{remark}
+    This lemma shows that the signature determine an element in the dual space $\mathrm{Hom}_{\mQ}(\Omega_*^{SO}\otimes \mQ, \mQ)$ 
+    which takes values in $\mZ$ for each oriented manifold. 
+\end{remark}
+Since 
+\begin{equation*}
+    \Omega_*^{SO} \otimes \mQ \cong \mQ[\mC P^2, \mC P^4, \dots]
+\end{equation*}
+is a polynomial ring generated by the complex projective spaces, 
+and the dual space 
+\begin{equation*}
+    \mathrm{Hom}_{\mQ}(\Omega_*^{SO}\otimes \mQ, \mQ)\cong \mrm{span}_{\mQ}\{p_I\}_I
+\end{equation*}
+is spanned by the Pontryagin numbers. So the signature function can be written as a linear combination of Pontryagin numbers. 
+
+\begin{theorem}[Signature Theorem, Hirzebruch]
+    The signature $\sigma(M)$ of a smooth, closed, oriented $4k$-manifold $M$ is equal to the $L$-genus of $M$, i.e.
+    \begin{equation*}
+        \sigma(M) = \langle L_k(p_1(\tau_M), \dots, p_k(\tau_M)), \mu_M \rangle,
+    \end{equation*}
+    where $L_k$ is the multiplicative sequence with characteristic power series 
+    \begin{equation*}
+        f(t) = \frac{\sqrt{t}}{\tanh \sqrt{t}} = 1 + \frac{t}{3} - \frac{t^2}{45} + \frac{2 t^3}{945} - \cdots + 
+        (-1)^{k-1} \frac{2^{2k} B_{2k}}{(2k)!} t^k + \cdots,
+    \end{equation*}
+\end{theorem}
+Here $B_{2k}$ are the Bernoulli numbers defined by the generating function
+\begin{equation*}
+    \frac{t}{e^t - 1} = 1 - \frac{t}{2} + \sum_{k=1}^{\infty} B_{2k} \frac{t^{2k}}{(2k)!}.
+\end{equation*}
+The first few Bernoulli numbers are
+\begin{equation*}
+    B_0 = 1, \quad B_1 = \frac{1}{6}, \quad B_2 = \frac{1}{30}, \quad B_3 = \frac{1}{42}, \quad B_4 = \frac{1}{30}, \quad B_5 = \frac{5}{66}, \quad \cdots
+\end{equation*}
+The first few $L$-polynomials are
+\begin{align*}
+    &L_0 = 1, \\
+    &L_1 = \frac{1}{3} p_1, \\
+    &L_2 = \frac{1}{45} (7 p_2 - p_1^2), \\
+    &L_3 = \frac{1}{945} (62 p_3 - 13 p_1 p_2 + 2 p_1^3), \\
+    &L_4 = \frac{1}{14175} (381 p_4 - 71 p_1 p_3 - 19 p_2^2 + 22 p_1^2 p_2 - 3 p_1^4), \\[6pt]
+    &\cdots\cdots
+\end{align*} 
+Here we compute the first three $L$-polynomials as follows:
+\begin{align*}
+    &L_1(p_1) = \lambda_1 p_1 = \frac{1}{3} p_1, \\
+    &L_2(p_1,p_2) = \lambda_1^2 p_2 + \lambda_2 (p_1^2 - 2 p_2) = \frac{1}{9} p_2 - \frac{1}{45} (p_1^2 - 2 p_2) = \frac{7}{45} p_2 - \frac{1}{45} p_1^2, \\
+    &L_3(p_1,p_2,p_3) = \lambda_1^3 p_3 + \lambda_1\lambda_2 (p_1 p_2 - 3 p_3) + \lambda_3 (p_1^3 - 3 p_1 p_2 + 3 p_3) \\
+    & = \frac{1}{27} p_3 - \frac{1}{135} (p_1 p_2 - 3 p_3) + \frac{2}{945} (p_1^3 - 3 p_1 p_2 + 3 p_3) \\
+    & = \frac{62}{945} p_3 - \frac{13}{945} p_1 p_2 + \frac{2}{945} p_1^3.
+\end{align*}
+\begin{proof}[Proof of the Signature Theorem]
+    Since the correspondences
+    \begin{gather*}
+        \Omega_*^{SO} \otimes \mQ \to \mQ, \quad [M] \mapsto \sigma(M) \\
+        \Omega_*^{SO} \otimes \mQ \to \mQ, \quad [M] \mapsto L[M]
+    \end{gather*}
+    are both ring homomorphisms, it suffices to check that they agree on the polynomial generators 
+    $\mC P^{2}, \mC P^{4}, \dots$ of $\Omega_*^{SO} \otimes \mQ$.
+
+    \noindent \textbf{Step 1:} Compute $\sigma(\mC P^{2k})$.
+    Since $H^k(\mC P^{2k};\mQ)$ is generated by $a^k$ with 
+    \begin{equation*}
+        \langle a^k\smile, \mu_{\mC P^{2k}} \rangle = 1,
+    \end{equation*} 
+    Thus $\sigma(\mC P^{2k}) = 1$. 
+
+    \noindent \textbf{Step 2:} Compute $L[\mC P^{2k}]$.
+    The total Pontryagin class of $\mC P^{2k}$ is equal to
+    \begin{equation*}
+        p = p(\tau_{\mC P^{2k}}) = (1 + a^2)^{2k+1},
+    \end{equation*}
+    Since the characteristic power series of $L$ is
+    \begin{equation*}
+        f(t) = \frac{\sqrt{t}}{\tanh \sqrt{t}} 
+    \end{equation*}
+    We have
+    \begin{align*}
+        L(p) =& \big[f(a^2)\big]^{2k+1} = \left(\frac{a}{\tanh a}\right)^{2k+1} \\
+        =& \left(1 - \frac{a^2}{3} + \frac{2 a^4}{15} - \frac{17 a^6}{315} + \cdots\right)^{2k+1}.
+    \end{align*}
+    Thus 
+    \begin{equation*}
+        L[\mC P^{2k}] = \langle L(p), \mu_{\mC P^{2k}} \rangle = \text{the coefficient of } a^{2k} \text{ in } \left(\frac{a}{\tanh a}\right)^{2k+1}.
+    \end{equation*}
+    In order to compute this coefficient, we use the residue theorem in complex analysis: let 
+    \begin{equation*}
+        g(z) = \left(\frac{z}{\tanh z}\right)^{2k+1}
+    \end{equation*}
+    be a complex function. Then the coefficient of $z^{2k}$ in $g(z)$ is equal to
+    \begin{align*}
+        \frac{1}{2\pi i}\int_{|z|=\varepsilon} \frac{g(z)}{z^{2k+1}} \md z &= \frac{1}{2\pi i}\int_{|z|=\varepsilon} \frac{\md z}{(\tanh z)^{2k+1}}  \\
+        &= \frac{1}{2\pi i}\int_{|u|=\varepsilon'} \frac{\md u}{(1-u^2)u^{2k+1}} \quad (u = \tanh z) \\ 
+        &= \frac{1}{2\pi i}\int_{|u|=\varepsilon'} \frac{1+u^2+u^4+\cdots}{u^{2k+1}} \md u \\
+        &= 1,
+    \end{align*}
+    where $\varepsilon$ and $\varepsilon'$ are sufficiently small. Thus we have $L[\mC P^{2k}] = 1$.
+\end{proof}
+A more direct proof of the signature theorem is given by Atiyah and Singer in their famous index theorem for elliptic operators.
+
+\begin{corollary}
+    The L-genus $L[M]$ of any smooth, closed, oriented $4k$-manifold $M$ is an integer.
+\end{corollary}
+\begin{proof}
+    Since $L[M] = \sigma(M) \in \mZ$.
+\end{proof}
+It follows that the Pontryagin numbers of any smooth, closed, oriented $4k$-manifold satisfy certain integrality condition. 
+For example, 
+\begin{align*}
+    &L_1 = \frac{1}{3} p_1\Rightarrow p_1[\tau_M] \equiv 0 \mod 3, \\
+    &L_2 = \frac{1}{45} (7 p_2 - p_1^2) \Rightarrow 7 p_2[\tau_M] - p_1^2[\tau_M] \equiv 0 \mod 45.
+\end{align*}
+
+\begin{corollary}
+    The L-genus $L[M]$ is an oriented homotopy invariant of $M$.
+\end{corollary}
+\begin{proof}
+    Since $\sigma(M)$ is invariant under orientation-preserving homotopy equivalences. 
+\end{proof}
+
+\subsection{Exercise}
+\begin{problemstar}[19-A]
+Let ${T_n}$ be the multiplicative sequence of polynomials belonging to the power series
+$f(t) = \frac{t}{1-\me^{-t}}$. Then the \textbf{Todd genus} $T[M]$ of a complex $n$-dimensional
+manifold is defined to be the characteristic number $\langle T_n(c_1(\tau_M), \dots, c_n(\tau_M)), \mu_M \rangle$. 
+Prove that $T[\mC P^n] = +1$ and prove that ${T_n}$ is the only multiplicative sequence with this property.
+\end{problemstar}
+
+
