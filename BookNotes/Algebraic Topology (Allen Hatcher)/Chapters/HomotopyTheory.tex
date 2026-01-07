@@ -1,0 +1,101 @@
+\section{Homotopy Theory}
+\label{sec:HomotopyTheory}
+\subsection{Homotopy Groups}
+\subsubsection{Definitions and Basic Constructions}
+Change-of-base point transformation $\beta_\gamma:\pi_n(X,x_1)\to \pi_n(X,x_0)$ along a path $\gamma$ from $x_0$ to $x_1$. 
+
+\noindent Action of $\pi_1(X,x_0)$ on $\pi_n(X,x_0)$. 
+
+\noindent Relative homotopy groups $\pi_n(X,A,x_0)$ and long exact sequence of a triple $(X,A,B,x_0)$:
+\begin{align*}
+    \cdots\to\pi_n(A,B,x_0)\overset{i_*}{\to}\pi_n(X,B,x_0)\overset{j_*}{\to}\pi_n(X,A,x_0)\overset{\partial}{\to}\pi_{n-1}(A,B,x_0)\to\cdots \\
+    \hfill\cdots\to \pi_1(A,B,x_0) \to \pi_1(X,B,x_0) \to \pi_1(X,A,x_0).
+\end{align*}
+
+\noindent Change-of-basepoint isomorphisms $\beta_\gamma$ for relative homotopy groups.
+
+\noindent Action of $\pi_1(A,x_0)$ on $\pi_n(X,A,x_0)$, the action commutes with the homomorphisms in the long exact sequence.
+
+\noindent $n$-connected spaces $(X,x_0)$ and pairs $(X,A,x_0)$.
+\subsubsection{Whitehead's Theorem}
+\begin{theorem}[Whitehead's Theorem]
+    If a map $f:X\to Y$ between connected CW complexes induces isomorphisms $f_*:\pi_n(X)\to \pi_n(Y)$ for all $n$, then $f$ is a homotopy equivalence. 
+    In case $f$ is the inclusion of a subcomplex $X\hookrightarrow Y$, the conclusion is stronger: $X$ is a deformation retract of $Y$.
+\end{theorem}
+\begin{lemma}[Compression Lemma]
+    Let $(X,A)$ be a CW pair and let $(Y,B)$ be any pair with $B\neq\emptyset$. 
+    For each $n$ such that $X-A$ has cells of dimension $n$, assume that $\pi_n(Y,B,y_0)=0$ for all $y_0\in B$. 
+    Then any map $f:(X,A)\to (Y,B)$ is homotopic rel $A$ to a map $X\to B$.
+\end{lemma}
+\textbf{引理说明:} 首先要保证映射的出发点是 CW 偶 $(X,A)$, 目标可以是任意空间偶 $(Y,B)$. 将 $X$ 视作在 $A$ 上粘胞腔得到, 若每粘一个 $n$-胞腔, 目标空间相应的
+相对同伦群 $\pi_n(Y,B,y_0)$ 都是平凡的, 则映射 $f$ 可以被压缩为一个落在 $B$ 上的映射.
+\begin{proof}[引理的证明概要]
+    对 $X$ 的骨架进行归纳, 假设 $X^{k-1}$ 上的映射已经被压缩到 $B$. 对每一个 $k$-胞腔, 由条件可知 $f$ 限制在该胞腔上可以保持边界不动地伦移到 $B$ 中. 
+    固定 $A$ 上的伦移为恒等, 由此定义 $f_{X^k\cup A}$ 的保持 $X^{k-1}\cup A$ 不动的伦移. 用同伦延拓性将该伦移延拓到整个 $X$. 
+
+    若 $X$ 维数无限, 则将区间 $[0,1]$ 分割为 $[1-\frac{1}{2^k},1-\frac{1}{2^{k+1}}]$, 
+    在每个子区间上进行上述归纳步骤, 最终得到一个保持 $A$ 不动的伦移且将 $f$ 压缩到 $B$ 上.
+\end{proof}
+\begin{proof}[Whitehead 定理的证明概要]\hfill\\ 
+    \noindent\textbf{Step 1.} 当 $f$ 是包含映射, 即 $(Y,X)$ 是一个 CW 偶时, 证明 $X$ 是 $Y$ 的形变收缩. 
+    从 $(Y,X)$ 的同伦群长正合列可知 $\pi_n(Y,X,x_0)=0$ 对所有 $n$, 对恒等映射 $(Y,X)\to (Y,X)$ 应用压缩引理.
+
+    对于一般的映射 $f:X\to Y$, 构造映射圆锥 $M_f=X\times I\cup_f Y$, 则 $X\hookrightarrow M_f$ 是包含映射, 且 $M_f$ 同伦等价于 $Y$.
+    利用后一节的胞腔逼近定理, 将 $f$ 替换为一个同伦等价的胞腔映射, 则 $M_f$ 是 CW 复形, $(M_f,X)$ 是 CW 偶, 问题转化为第一步的情形.
+
+    也有避免使用胞腔逼近的办法, 但有点technical.
+\end{proof}
+\begin{lemma}[Extension lemma]
+    Given a CW pair $(X,A)$ and a map $f:A\to Y$ with $Y$ path-connected, if $\pi_{n-1}(Y)=0$ for all $n$ such that $X-A$ has $n$-cells, 
+    then $f$ can be extended to a map $X\to Y$.
+\end{lemma}
+\textbf{引理说明:} 同样要求源空间是 CW 偶 $(X,A)$, 目标空间 $Y$ 是路径连通的. 然后注意一下两个维数之间差一, 因为我们要把 $n$-胞腔的粘贴映射延拓出去.
+\begin{proof}[证明概要]
+    对每一个 $n$-胞腔, 由条件可知 $f$ 限制在该胞腔的边界上的映射是零伦的, 因此可以延拓到整个胞腔上. 对所有胞腔进行归纳即可.
+\end{proof}
+\subsubsection{Cellular Approximation}
+\begin{definition}
+    A map $f:X\to Y$ between CW complexes is called a cellular map if $f(X^n)\subseteq Y^n$ for all $n$.
+\end{definition}
+\begin{theorem}[Cellular Approximation Theorem]
+    Every map $f:X\to Y$ between CW complexes is homotopic to a cellular map. 
+    If $f$ is already cellular on a subcomplex $A$ of $X$, then the homotopy can be chosen to be stationary on $A$.
+\end{theorem}
+\begin{corollary}
+    $\pi_k(S^n)=0$ for $k<n$. 
+\end{corollary}
+\begin{proof}[胞腔逼近定理的证明概要]
+    我们对 $X$ 的骨架进行归纳. 假设 $f$ 已经在 $X^{n-1}$ 上被逼近为胞腔映射, 则对于每一个不在 $A$ 中的 $n$-胞腔 $e_\alpha^n$, 
+    用紧性论证可知 $f(e_\alpha^n)$ 只与 $Y$ 的有限个胞腔相交. 若能伦移 $f$ 使得 $f(e_\alpha^n)$ 无法映满 $Y$ 的维数大于 $n$ 的胞腔, 
+    则可将该胞腔 “戳破”, 使得 $f(e_\alpha^n)$ 落在 $Y^n$ 中. 对所有 $n$-胞腔进行类似的操作, 即可得到 $f$ 在 $X^n$ 上的胞腔逼近. 
+    利用同伦延拓定理将这个固定 $X^{n-1}\cup A$ 的伦移延拓到整个 $X$ 上, 即可完成归纳步骤. 
+
+    这里需要用到一个技术性的引理, 它将 $D^n$ 上的映射逼近为 “分片线性” 映射, 而且这个 “分片线性” 的范围足够大使得它不可能映满 $Y$ 的高维胞腔.
+\end{proof}
+\begin{corollary}[Cellular Approximation for pairs]
+    Every map of pairs $f:(X,A)\to (Y,B)$ between CW pairs can be deformed through maps $(X,A)\to (Y,B)$ to a cellular map.
+\end{corollary}
+\begin{proof}
+    做法是先将 $f$ 限制在 $A$ 上进行胞腔逼近, 然后利用同伦延拓定理将这个保持 $A$ 不动的伦移延拓到整个 $X$ 上. 然后再对 $X$ 进行胞腔逼近, 
+    注意到这个过程中 $A$ 上的映射已经是胞腔映射了, 因此可以保持 $A$ 不动.
+\end{proof}
+\begin{corollary}
+    A CW pair $(X,A)$ is $n$-connected if all the cells in $X-A$ have dimension greater than $n$. In particular, the pair 
+    $(X,X^n)$ is $n$-connected, hence the inclusion $X^n\hookrightarrow X$ induces 
+    isomorphisms on $\pi_i$ for $i<n$ and a surjection on $\pi_n$.
+\end{corollary}
+\begin{proof}
+    对 $(D^n,\partial D^n)\to (X,A)$ 使用胞腔逼近即可. 最后的论断只需看 $(X,X^n)$ 的同伦群长正合列. 
+\end{proof}
+
+\subsubsection{CW Approximation}
+\begin{definition}[weak homotopy equivalence]
+    A map $f:X\to Y$ that induces isomorphisms on all homotopy groups is called a weak homotopy equivalence.
+\end{definition}
+\begin{definition}[CW approximation]
+    For any space $X$, a CW approximation is a CW complex $Z$ together with a weak homotopy equivalence $f:Z\to X$.
+\end{definition}
+\begin{theorem}[CW Approximation Theorem]
+    For any space $X$, there exists a CW approximation $f:Z\to X$. In addition, if $X$ is path-connected, then $Z$ can be chosen to be a CW complex 
+    with a single 0-cell. Thus all path-connected CW complex is homotopy equivalent to a CW complex with a single 0-cell.
+\end{theorem}
