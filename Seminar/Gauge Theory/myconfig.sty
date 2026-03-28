@@ -1,0 +1,82 @@
+% myconfig.sty
+% 记得同时复制 quiver.sty 到同一目录下
+% 清除过程文件的快捷键是 Ctrl + Alt + C
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{myconfig}[2026/03/28 v1.0 Personal configuration]
+
+% ---------- 基础宏包 ----------
+\RequirePackage{xeCJK}                % 中文支持（需 XeLaTeX）
+\RequirePackage{amsmath, amssymb, amsfonts, amsthm, bbm}
+\RequirePackage{mathrsfs}
+\RequirePackage{gensymb}
+\RequirePackage{graphicx}
+\RequirePackage{hyperref}             % 超链接，建议最后加载
+\RequirePackage{url}
+\RequirePackage{cases}                % 多行编号方程
+\RequirePackage{color}
+\RequirePackage{tikz-cd}              % 交换图
+\RequirePackage{quiver}               % quiver 图表
+\RequirePackage{setspace}
+\RequirePackage{spectralsequences}    % 谱序列
+\RequirePackage[perpage]{footmisc}    % 脚注每页重编号
+\RequirePackage{blkarray}             % 块矩阵
+
+% ---------- 其他设置 ----------
+\allowdisplaybreaks                   % 允许公式跨页断行
+% \bibliographystyle{plain}           % 参考文献样式（建议在主文档中设置）
+
+% ---------- 定理类环境 ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem*{remark}{Remark}
+\renewcommand{\proofname}{\bf Proof}
+
+% ---------- 常用数学命令 ----------
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}               % 一次偏导
+\newcommand{\npd}[3]{\frac{\partial^{#1}{#2}}{\partial{#3}^{#1}}} % n次偏导
+\newcommand{\pD}[2]{\frac{{\rm D}(#1)}{{\rm D}(#2)}}               % Jacobian
+\newcommand{\lc}[2]{\nabla_{#1}{#2}}
+\newcommand{\ft}[3]{{#1}_{#2},\dots,{#1}_{#3}}
+\newcommand{\cft}[3]{{#1}_{#2},\cdots,{#1}_{#3}}
+\newcommand{\id}{{\rm id}}
+\newcommand{\Id}{{\rm Id}}
+\newcommand{\supp}{{\rm supp}}
+\newcommand{\mi}{\sqrt{-1}}
+\newcommand{\me}{{\rm e}}
+\newcommand{\md}{{\rm d}}
+\newcommand{\mZ}{\mathbb{Z}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\mN}{\mathbb{N}}
+\newcommand{\mH}{\mathbb{H}}
+\newcommand{\GL}{{\rm GL}}
+\newcommand{\SL}{{\rm SL}}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\str}{{\rm Tr}_s}
+\newcommand{\Aut}{{\rm Aut}}
+\newcommand{\Inn}{{\rm Inn}}
+\newcommand{\Out}{{\rm Out}}
+\newcommand{\End}{{\rm End}}
+\newcommand{\Lie}{{\rm Lie}}
+\newcommand{\mCP}{\mathbb{C}\mathrm{P}}
+\newcommand{\mRP}{\mathbb{R}\mathrm{P}}
+\newcommand{\mHP}{\mathbb{H}\mathrm{P}}
+\newcommand{\vep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\newcommand{\mbb}{\mathbb}
+\newcommand{\mc}{\mathcal}
+\newcommand{\mfr}{\mathfrak}
+\newcommand{\mrm}{\mathrm}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Gr}{\mathrm{Gr}}
+\newcommand{\p}{\partial}
+\newcommand{\bp}{\bar{\partial}}

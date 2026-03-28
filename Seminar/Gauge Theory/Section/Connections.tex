@@ -1,0 +1,46 @@
+\section{Affine Connections}
+
+\subsection{Levi-Civita Connections}
+When it comes to connections, most of us probably think first of 
+the Levi-Civita connection in Riemannian geometry. 
+So let us first review its most basic definition, 
+and then try to rewrite everything we are familiar with in the language of differential forms.
+\begin{definition}
+    A connection $\nabla$ on a mannifold $M$ is a map
+    \begin{align*}
+        \nabla: \Gamma(TM) \times \Gamma(TM) &\to \Gamma(TM) \\
+        (X,Y) &\mapsto \nabla_X Y
+    \end{align*}
+    satisfying the following properties:
+    \begin{align*}
+        \nabla_{f_1X_1 + f_2X_2} Y =& f_1 \nabla_{X_1} Y + f_2 \nabla_{X_2} Y, \\
+        \nabla_X (\lambda_1Y_1 + \lambda_2 Y_2) =& \lambda_1 \nabla_X Y_1 + \lambda_2 \nabla_X Y_2, \\
+        \nabla_X (fY) =& \md f(X)\cdot Y + f \nabla_X Y. 
+    \end{align*}
+    where $X,X_1,X_2,Y,Y_1,Y_2 \in \Gamma(TM)$, $f,f_1,f_2 \in C^\infty(M)$, 
+    and $\lambda_1,\lambda_2 \in \mathbb{R}$ are constants.
+\end{definition}
+\begin{definition}
+    A connection $\nabla$ of a Riemannian manifold $(M,g)$ is called a Levi-Civita connection 
+    if it is torsion-free and compatible with the metric $g$, i.e. 
+    \begin{gather*}
+        \nabla_X Y - \nabla_Y X = [X,Y], \\
+        X(g(Y,Z)) = g(\nabla_X Y, Z) + g(Y, \nabla_X Z).
+    \end{gather*}
+\end{definition}
+\begin{definition}
+    The torsion of a connection $\nabla$ is defined as the tensor
+    \begin{equation*}
+        T(X,Y) := \nabla_X Y - \nabla_Y X - [X,Y].
+    \end{equation*}
+    The curvature of a connection $\nabla$ is defined as the tensor
+    \begin{equation*}
+        R(X,Y)Z := \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]} Z.
+    \end{equation*}
+\end{definition}
+
+\subsection{General Affine Connections}
+\subsubsection{Horizontal Distribution}
+\subsubsection{Connection 1-forms}
+\subsubsection{Covariant Derivative}
+\subsubsection{Curvature of Connections}

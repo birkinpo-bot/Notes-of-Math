@@ -1,0 +1,7 @@
+\contentsline {section}{\numberline {1}Affine Connections}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Levi-Civita Connections}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}General Affine Connections}{2}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Horizontal Distribution}{2}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Connection 1-forms}{2}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Covariant Derivative}{2}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Curvature of Connections}{2}{subsubsection.1.2.4}%
