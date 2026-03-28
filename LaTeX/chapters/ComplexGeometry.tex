@@ -441,3 +441,152 @@
     \begin{equation*}
         \overline{g_{i\bar{j}}} = \overline{\left\langle\pd{}{z^i},\pd{}{\bar{z}^j}\right\rangle} = \left\langle\overline{\pd{}{\bar{z}^j}},\overline{\pd{}{z^i}}\right\rangle = \left\langle\pd{}{z^j},\pd{}{\bar{z}^i}\right\rangle = g_{j\bar{i}} 
     \end{equation*}
+
+    \section{复结构的形变}
+    设 $(M,J)$ 是一个复流形, 其中 $J$ 是 $M$ 上的一个复结构. 设 $\{J_t\}$ 是 $M$ 上的一个(近)复结构族, 即 
+    \begin{equation*}
+        J_t:TM\rightarrow TM,\quad J_t^2 = -{\rm id},\quad\forall\,t.
+    \end{equation*}
+    因为 $J$ 和 $J_t$ 分别将 $TM\otimes\mC$ 分解成 $T^{1,0}M\oplus T^{0,1}M$ 和 $T^{1,0}_tM\oplus T^{0,1}_tM$, 
+    所以 $J_t$ 可以确定如下的映射:
+    \begin{equation*}
+        \phi(t):T^{0,1}M\rightarrow T^{1,0}M,\quad \text{使得 }\, v+\phi(t)(v)\in T^{1,0}_tM.
+    \end{equation*}
+
+    \subsection{$\phi(t)$ 的表达式}
+    这一小节我们主要推导 $\phi(t)$ 的表达式, 因为课本给出的式子
+    \begin{equation*}
+        \phi(t) = -\mrm{proj}_{T^{1,0}_t}\circ j: T^{0,1}M\rightarrow T^{1,0}_tM,
+    \end{equation*}
+    并不符合要求. 为了推导正确的表达式, 
+    我们首先按照 $TM\otimes\mC = T^{1,0}M\oplus T^{0,1}M$ 将 $J_t$ 写成分块矩阵:
+    \begin{equation*}
+        J_t = \begin{pmatrix} A_t & B_t \\ C_t & D_t \end{pmatrix},
+    \end{equation*}
+    其中
+    \begin{align*}
+        A_t = &\mrm{proj}_{T^{1,0}}\circ J_t\circ\iota_{T^{1,0}}, \quad 
+        B_t = \mrm{proj}_{T^{1,0}}\circ J_t\circ\iota_{T^{0,1}}, \\
+        C_t = &\mrm{proj}_{T^{0,1}}\circ J_t\circ\iota_{T^{1,0}}, \quad
+        D_t = \mrm{proj}_{T^{0,1}}\circ J_t\circ\iota_{T^{0,1}}.
+    \end{align*}
+    为了记号简洁, 以下我们省略 $A_t$, $B_t$, $C_t$, $D_t$ 的下标. 由 $\phi(t)$ 的定义可知对任意 $v\in T^{0,1}M$ 都有
+    \begin{equation*}
+        J_t(v+\phi(t)v) = -i(v+\phi(t)v).
+    \end{equation*}
+    分别投影到 $T^{1,0}M$ 和 $T^{0,1}M$ 上得到两个方程:
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            &Bv + A\phi(t)v = -i\phi(t)v, \\
+            &Dv + C\phi(t)v = -i v.
+        \end{aligned}
+        \right.\Rightarrow
+        \left\{
+        \begin{aligned}
+            &(A + i)\phi(t)v = -Bv, \\
+            &C\phi(t)v = -(D + i)v.
+        \end{aligned}
+        \right.
+    \end{equation*}
+    当 $t$ 足够小时, $A\approx i\cdot{\rm id}$, 所以 $A + i$ 是可逆的, 从而
+    \begin{equation}\label{eq:phi(t)}
+        \phi(t) = -(A + i)^{-1}B.
+    \end{equation}
+    \begin{remark}
+        注意到这里我们只用到了第一个方程, 实际上第一个方程能推导出第二个, 也即
+        \begin{equation*}
+            C\phi(t) = -C(A + i)^{-1}B = -(D + i).
+        \end{equation*}
+        这是因为 $J_t^2 = -{\rm id}$ 给出关系式
+        \begin{equation*}
+            \left\{
+            \begin{aligned}
+                &A^2 + BC = -{\rm id}, \\
+                &AB + BD = 0, \\
+                &CA + DC = 0, \\
+                &CB + D^2 = -{\rm id}.
+            \end{aligned}
+            \right.
+        \end{equation*}
+        我们先给出一个不严谨单具有启发性的推导
+        \begin{align*}
+            -C(A+i)^{-1}B &= iC(\mrm{id} - iA)^{-1}B = iC\Big(\mrm{id} + iA + (iA)^2 + \cdots\Big)B \\
+            &= i\Big(\mrm{id} - iD + (-iD)^2 + \cdots\Big)CB \quad\text{(利用 } CA + DC = 0\text{)} \\
+            &= i(\mrm{id} - iD)^{-1}CB = -i(\mrm{id} - iD)^{-1}(\mrm{id} + D^2) \\
+            &= -(D + i).
+        \end{align*}
+        严格推导就是
+        \begin{align*}
+            CA + DC = 0 &\Rightarrow C(A+i) = -(D-i)C \\
+            &\Rightarrow C(A+i)^{-1} = -(D-i)^{-1}C.
+        \end{align*}
+        因此
+        \begin{align*}
+            -C(A+i)^{-1}B &= (D-i)^{-1}CB = -i(\mrm{id}+iD)^{-1}(\mrm{id} + D^2) \\
+            &= -i(\mrm{id} - iD) = -(D + i).
+        \end{align*}
+    \end{remark}
+
+    反过来, 假如我们有 $\phi(t):T^{0,1}M\to T^{1,0}M$, 光滑依赖于 $t$, 且 $\phi(0) = 0$, 
+    则可以定义
+    \begin{equation*}
+        T^{0,1}_tM := (\mrm{id}+\phi(t))(T^{0,1}M),\quad 
+    \end{equation*}
+    不过一般来说 $\phi(t)$ 并不足以还原整个 $J_t$. 
+
+    将 $\phi(t)$ 对 $t$ 做展开, 得到
+    \begin{equation*}
+        \phi(t) = 0 + \phi_1 t + \phi_2 t^2 + \cdots
+    \end{equation*}
+    其中
+    \begin{equation}\label{eq:phi_1}
+        \phi_1 = \left.\frac{{\rm d}}{{\rm d}t}\right|_{t=0}\phi(t) 
+        = \left.\frac{{\rm d}}{{\rm d}t}\right|_{t=0} -(A_t + i)^{-1}B_t 
+        = \frac{i}{2} \left.\frac{{\rm d}}{{\rm d}t}\right|_{t=0}B_t.
+    \end{equation}
+    假设 $J_t$ 都是可积的, 则可积性条件能推出 Maurer-Cartan 方程, 进而推出 $\bar{\partial}\phi_1= 0$.
+    因此 $\phi_1$ 定义了 $H^{0,1}(M,T^{1,0}M)$ 的一个类, 这个类被称为 $J_t$ 的 Kodaira-Spencer 类.
+
+    \subsection{当 $J_t$ 由流 $F_t$ 的前推给出}
+    设 $\{F_t\}$ 是 $\mrm{Diff}(M)$ 的一个单参数子群, 其生成的向量场为 $X$. 设 $J$ 是 $M$ 上的一个复结构, 
+    $F_t$ 通过前推作用在 $J$ 上得到一族复结构 $\{J_t\}$, 即
+    \begin{equation*}
+        J_t := (F_t)_*J = (F_t^{-1})^*J = {\rm d}F_t\circ J\circ({\rm d}F_t)^{-1}.
+    \end{equation*}
+    为了证明此时 $\phi(t)$ 的一阶形变 $\phi_1$ 是 $\bar{\partial}$-恰当的, 我们需要用到表达式 (\ref{eq:phi_1}), 
+    以及 $B_t = \mrm{proj}_{T^{1,0}}\circ J_t\circ\iota_{T^{0,1}}$, 从而
+    \begin{equation*}
+        \phi_1 = \frac{i}{2} \left.\frac{{\rm d}}{{\rm d}t}\right|_{t=0}B_t 
+        = \frac{i}{2}\mrm{proj}_{T^{1,0}} \circ \left(\left.\frac{{\rm d}}{{\rm d}t}\right|_{t=0} J_t\right)\circ\iota_{T^{0,1}}
+    \end{equation*} 
+    而
+    \begin{equation*}
+        \left.\frac{{\rm d}}{{\rm d}t}\right|_{t=0} J_t 
+        = \left.\frac{{\rm d}}{{\rm d}t}\right|_{t=0} (F_t^{-1})^*J 
+        = -\mathcal{L}_XJ.
+    \end{equation*}
+    对任意 $Y\in\Gamma(T^{0,1}M)$, 
+    \begin{align*}
+        (\mathcal{L}_XJ)Y &= \mathcal{L}_X(JY) - J\mathcal{L}_XY 
+        = -i\mathcal{L}_XY - J\mathcal{L}_XY \\
+        &= -i(\mathcal{L}_XY)^{1,0}-i(\mathcal{L}_XY)^{0,1} - i(\mathcal{L}_XY)^{1,0} + i(\mathcal{L}_XY)^{0,1} \\
+        &= -2i(\mathcal{L}_XY)^{1,0} 
+        = -2i(\mathcal{L}_{X^{1,0}}Y)^{1,0} \quad\text{(因为 }\, [X^{0,1},Y]\in\Gamma(T^{0,1}M)\text{)} \\
+        &= 2i(\mathcal{L}_YX^{1,0})^{1,0} 
+        = 2i(i_Y\md X^{1,0})^{1,0} \\
+        &= 2i(i_Y\bar{\partial}X^{1,0})^{1,0} = 2i(\bar{\partial}X^{1,0})(Y).
+    \end{align*}
+    因此
+    \begin{equation*}
+        \phi_1 = \frac{i}{2}\Big(-2i (\bar{\partial}X^{1,0}) \Big) = \bar{\partial}X^{1,0}.
+    \end{equation*}
+    若
+    \begin{equation*}
+        X = \sum_{i=1}^{n} f_i\pd{}{z^i} + \bar{f_i}\pd{}{\bar{z}^i},
+    \end{equation*}
+    则 
+    \begin{equation*}
+        \phi_1 = \bar{\partial}\left(\sum_{i=1}^{n} f_i\pd{}{z^i}\right)
+        = \sum_{i,j=1}^{n} \pd{f_i}{\bar{z}^j}\md\bar{z}^j\otimes\pd{}{z^i}.
+    \end{equation*}

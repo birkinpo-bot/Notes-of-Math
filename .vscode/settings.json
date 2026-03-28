@@ -1,0 +1,89 @@
+{
+  // ==========================
+  // 1. 编译工具 (tools) 和 编译链 (recipes)
+  // ==========================
+  // 定义可用的编译工具，如 pdflatex, xelatex, bibtex 等
+  "latex-workshop.latex.tools": [
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"]
+    },
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"]
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": ["%DOCFILE%"]
+    }
+  ],
+  // 定义编译序列 (recipes)，可以选择编译的顺序，例如先编译 latex 再编译 bibtex
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "xelatex",
+      "tools": ["xelatex"]
+    },
+    {
+      "name": "pdflatex -> bibtex -> pdflatex*2",
+      "tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
+    },
+    {
+      "name": "xelatex -> bibtex -> xelatex*2",
+      "tools": ["xelatex", "bibtex", "xelatex", "xelatex"]
+    }
+  ],
+
+  // ==========================
+  // 2. 自动编译设置
+  // ==========================
+  // 设置在何时自动编译文档
+  // onSave: 保存时编译; onFileChange: 文件变化时编译; never: 从不自动编译
+  "latex-workshop.latex.autoBuild.run": "onSave",
+
+  // ==========================
+  // 3. PDF 预览设置
+  // ==========================
+  // 设置 PDF 预览器 (tab 为内置标签页，browser 为外部浏览器)
+  "latex-workshop.view.pdf.viewer": "tab",
+  // 启用 PDF 正反向搜索 (需要安装 SumatraPDF 等支持 SyncTeX 的软件)
+  "latex-workshop.view.pdf.external.viewer.command": "C:/Program Files/SumatraPDF/SumatraPDF.exe",
+  "latex-workshop.view.pdf.external.synctex.command": "C:/Program Files/SumatraPDF/SumatraPDF.exe",
+  // 开启内置 PDF 预览器的深色模式 (1 为开启)
+//   "latex-workshop.view.pdf.invert": 1,
+  // 自动刷新预览
+  "latex-workshop.view.pdf.autoRefresh": true,
+
+  // ==========================
+  // 4. 辅助文件 (临时文件) 输出目录
+  // ==========================
+  // 将编译产生的 .aux, .log 等文件放到 build 目录下，保持根目录整洁
+//   "latex-workshop.latex.outDir": "%DIR%/build",
+  // ==========================
+  // 5. 清理辅助文件设置
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.ist",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk"
+  ],
+  "latex-workshop.latex.clean.subfolder": true,   // 清理子文件夹中的文件
+  "latex-workshop.latex.clean.method": "glob"     // 使用 glob 模式匹配
+}

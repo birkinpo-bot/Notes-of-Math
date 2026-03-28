@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  2 DEC 2025 19:27
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  14 MAR 2026 22:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -801,7 +801,7 @@ Package fontspec Info: Font family 'FandolSong-Regular(0)' created for font
 (fontspec)             <->"[FandolKai-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
 
-(./main.aux (./chapters/Manifolds.aux))
+(./main.aux (./chapters/ComplexGeometry.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
@@ -921,47 +921,69 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \openout5 = `main.toc'.
 
  [3]
-\openout2 = `chapters/Manifolds.aux'.
+\openout2 = `chapters/ComplexGeometry.aux'.
 
- (./chapters/Manifolds.tex [4
+ (./chapters/ComplexGeometry.tex [4
 
 
 ]
 Chapter 1.
-LaTeX Font Info:    Trying to load font information for U+euf on input line 4.
-(d:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [5]
+[5]
+Overfull \hbox (10.62479pt too wide) detected at line 60
+[][][][] \OMS/cmsy/m/n/12 ^^@ [] \OT1/cmr/m/n/12 = [] \OMS/cmsy/m/n/12 ^^A [] \OT1/cmr/m/n/12 + [] \OML/cmm/m/it/12 ;
+ []
+
 LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <12> not available
-(Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on input line 58.
- [6] [7] [8]
-Overfull \hbox (21.67465pt too wide) in paragraph at lines 122--123
-[][] 
- []
+(Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on input line 95.
+[6] [7] [8] [9] [10] [11] [12]
 
-[9]
-Overfull \hbox (29.05685pt too wide) in paragraph at lines 163--164
-[][] 
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 456.
 
-[10] [11] [12]
 
-LaTeX Warning: Reference `thm:c-cohomology_v.s._reductive_cohomology' on page 13 undefined on input line 297.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\phi' on input line 456.
 
-[13]) [14] Total classes: 0 (./main.aux (./chapters/Manifolds.aux))
 
-LaTeX Warning: There were undefined references.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 456.
 
+[13] [14]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 551.
+
+[15]) [16] Total classes: 0 (./main.aux (./chapters/ComplexGeometry.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FF0ABC26025DB44455E7409063E88AD3;988.
+(rerunfilecheck)             Checksum: C1A82B165971C8AE2D9B5E5920736433;1566.
  ) 
 Here is how much of TeX's memory you used:
- 33961 strings out of 476683
- 814817 string characters out of 5807575
- 1869012 words of memory out of 5000000
- 53628 multiletter control sequences out of 15000+600000
- 522355 words of font info for 99 fonts, out of 8000000 for 9000
+ 33912 strings out of 476683
+ 814402 string characters out of 5807575
+ 1871012 words of memory out of 5000000
+ 53582 multiletter control sequences out of 15000+600000
+ 521663 words of font info for 98 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 98i,14n,103p,5044b,1058s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,16n,103p,5044b,1072s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (14 pages).
+Output written on main.pdf (16 pages).
