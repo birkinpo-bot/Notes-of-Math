@@ -5,21 +5,36 @@ When it comes to connections, most of us probably think first of
 the Levi-Civita connection in Riemannian geometry. 
 So let us first review its most basic definition, 
 and then try to rewrite everything we are familiar with in the language of differential forms.
+\subsubsection{Covariant Derivative}
 \begin{definition}
     A connection $\nabla$ on a mannifold $M$ is a map
     \begin{align*}
-        \nabla: \Gamma(TM) \times \Gamma(TM) &\to \Gamma(TM) \\
-        (X,Y) &\mapsto \nabla_X Y
+        \nabla: C^\infty(M,TM) \times C^\infty(M,TM) &\to C^\infty(M,TM) \\
+        (Y,X) &\mapsto \nabla_Y X
     \end{align*}
     satisfying the following properties:
     \begin{align*}
-        \nabla_{f_1X_1 + f_2X_2} Y =& f_1 \nabla_{X_1} Y + f_2 \nabla_{X_2} Y, \\
-        \nabla_X (\lambda_1Y_1 + \lambda_2 Y_2) =& \lambda_1 \nabla_X Y_1 + \lambda_2 \nabla_X Y_2, \\
-        \nabla_X (fY) =& \md f(X)\cdot Y + f \nabla_X Y. 
+        \nabla_{f_1Y_1 + f_2Y_2} X =& f_1 \nabla_{Y_1} X + f_2 \nabla_{Y_2} X, \\
+        \nabla_{Y} (\lambda_1X_1 + \lambda_2 X_2) =& \lambda_1 \nabla_{Y} X_1 + \lambda_2 \nabla_{Y} X_2, \\
+        \nabla_{Y} fX =& \md f(Y)\cdot X + f \nabla_{Y} X. 
     \end{align*}
     where $X,X_1,X_2,Y,Y_1,Y_2 \in \Gamma(TM)$, $f,f_1,f_2 \in C^\infty(M)$, 
-    and $\lambda_1,\lambda_2 \in \mathbb{R}$ are constants.
+    and $\lambda_1,\lambda_2 \in \mathbb{R}$.
 \end{definition}
+
+\begin{definition}
+    The \textbf{torsion}\footnote{It can only be defined for connections on the tangent bundle, 
+    since it involves both $\nabla_X Y$ and $\nabla_Y X$.} 
+    of a connection $\nabla$ is defined as the tensor
+    \begin{equation*}
+        T(X,Y) := \nabla_X Y - \nabla_Y X - [X,Y].
+    \end{equation*}
+    The \textbf{curvature} of a connection $\nabla$ is defined as the tensor
+    \begin{equation*}
+        R(X,Y)Z := \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]} Z.
+    \end{equation*}
+\end{definition}
+
 \begin{definition}
     A connection $\nabla$ of a Riemannian manifold $(M,g)$ is called a Levi-Civita connection 
     if it is torsion-free and compatible with the metric $g$, i.e. 
@@ -28,19 +43,314 @@ and then try to rewrite everything we are familiar with in the language of diffe
         X(g(Y,Z)) = g(\nabla_X Y, Z) + g(Y, \nabla_X Z).
     \end{gather*}
 \end{definition}
-\begin{definition}
-    The torsion of a connection $\nabla$ is defined as the tensor
+
+\subsubsection{Exterior convariant derivative}
+A connection $\nabla$ can also be viewed as a map
+\begin{align*}
+    \nabla: C^\infty(M,TM) &\to C^\infty(M,T^*M \otimes TM) \\
+    X &\mapsto \nabla X
+\end{align*}
+where $\nabla X$ is a $1$-form taken value in $TM$\footnote{One can simply view $\nabla X$ as a $(1,1)$-tensor field.} 
+and $(\nabla X)(Y) := \nabla_Y X$.
+$\nabla$ is not a $C^\infty(M)$-linear map, but 
+\begin{equation*}
+    \nabla(fX) = \md f \otimes X + f \nabla X.
+\end{equation*}
+We can extend $\nabla$ to the exterior covariant derivative 
+\begin{align*}
+    \nabla: \Omega^*(M,TM) &\to \Omega^{*+1}(M,TM) \footnotemark \\
+    \eta &\mapsto \nabla \eta,
+\end{align*}
+\footnotetext{$\Omega^r(M,TM):=C^\infty(M, \wedge^r T^*M \otimes TM)$.}
+satisfying the Leibniz rule:
+\begin{align*}
+    \nabla(\alpha\wedge\eta) = \md\alpha\wedge\eta + (-1)^{q}\alpha\wedge \nabla\eta,
+    \quad\forall \alpha\in \Omega^q(M),\eta\in \Omega^*(M,TM),
+\end{align*}
+For example, let $\eta=\alpha\otimes X$ be a section of $\Omega^r(M,TM)$, then
+\begin{equation*}
+    \nabla \eta = \nabla(\alpha\otimes X) = \md\alpha \otimes X + (-1)^r \alpha\wedge \nabla X.
+\end{equation*}
+
+Under the above setup, we can define $\nabla^2=\nabla\circ\nabla,\nabla^3,\dots,\nabla^k$, 
+and we can prove the following property:
+\begin{proposition}
+    $\nabla^2: \Omega^*(M,TM)\to\Omega^{*+2}(M,TM)$ is an $\Omega^*(M)$-linear map, i.e.
     \begin{equation*}
-        T(X,Y) := \nabla_X Y - \nabla_Y X - [X,Y].
+        \nabla^2(\alpha\wedge\eta) = \alpha\wedge\nabla^2 \eta,
+        \qquad\forall \alpha\in \Omega^*(M),\eta\in \Omega^*(M,TM).
     \end{equation*}
-    The curvature of a connection $\nabla$ is defined as the tensor
+    Thus $R:=\nabla^2$ defines a section of $\Omega^2(M,\mathrm{End}(TM))$, 
+    which is called the \textbf{curvature} of the connection $\nabla$.
+\end{proposition}
+\begin{proof}
+    \begin{align*}
+        \nabla^2\big(\alpha\wedge\eta) =& \nabla(\md\alpha\wedge\eta + (-1)^{q}\alpha\wedge \md^\nabla\eta\big) \\
+        =& \md^2\alpha\wedge\eta + (-1)^{q+1}\md\alpha\wedge \md^\nabla\eta + (-1)^q \md\alpha\wedge \nabla\eta + \alpha\wedge\nabla^2 \eta \\
+        =& \alpha\wedge\nabla^2 \eta.
+    \end{align*}
+\end{proof}
+Unlike the usual exterior derivative $\md$, we have $\nabla^2\neq 0$ in general.
+The reason why $\nabla^2$ is called the curvature of $\nabla$ is that 
+\begin{proposition}\label{prop:curvature}
+    For $X,Y,Z\in C^\infty(M,TM)$, we have
     \begin{equation*}
-        R(X,Y)Z := \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]} Z.
+        (\nabla^2 Z)(X,Y) = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]} Z.
     \end{equation*}
-\end{definition}
+\end{proposition}
+\begin{proof}
+    We will prove it after introducing the connection 1-forms.
+\end{proof}
+
+\subsubsection{Connection 1-form}
+Locally, we always have a local frame. Let $\{e_i\}$ be a local frame of $TM$ on an open set $U\subset M$, 
+and $\{\omega^i\}$ be the dual frame.
+then we can write 
+\begin{equation*}
+    \nabla_{e_i}e_j = \Gamma_{ij}^k e_k,
+\end{equation*}
+where $\Gamma_{ij}^k$ are the Christoffel symbols of the connection $\nabla$ w.r.t. $\{e_i\}$. 
+Define 
+\begin{equation*}
+    \omega_j^k := \Gamma_{ij}^k \omega^i,
+\end{equation*}
+we call $\omega_j^k$ the \textbf{connection 1-form} of $\nabla$ w.r.t. $\{e_i\}$. 
+So
+\begin{equation*}
+    \nabla e_j = \omega_j^k \otimes e_k.
+\end{equation*}
+Let the matrix of 1-forms $\omega = (\omega_j^k)$\footnote{The upper index $k$ is the row index, 
+and the lower index $j$ is the column index.}, 
+then we can write the above equation in a more compact way:
+\begin{equation*}
+    \nabla (\ft{e}{1}{n}) = (\ft{e}{1}{n})\,\omega = 
+    (\ft{e}{1}{n})
+    \begin{pmatrix}
+        \omega_1^1 & \cdots & \omega_1^n \\
+        \vdots &  & \vdots \\
+        \omega_n^1 & \cdots & \omega_n^n
+    \end{pmatrix}
+\end{equation*}
+The connection 1-form $\omega$ is not a tensor, since it depends on the choice of the local frame.
+Let $\{\tilde{e_j}\}$ be another local frame, and the transition matrix 
+from $\{e_i\}$ to $\{\tilde{e_j}\}$ is $a=(a_i^j)$, i.e. 
+\begin{equation*}
+    (\ft{\tilde{e}}{1}{n}) = (\ft{e}{1}{n})\, a, 
+\end{equation*}
+then 
+% \begin{equation*}
+%     \begin{pmatrix}
+%         \tilde{\omega}^1 \\ \vdots \\ \tilde{\omega}^n
+%     \end{pmatrix}
+%     = a^{-1}
+%     \begin{pmatrix}
+%         \omega^1 \\ \vdots \\ \omega^n
+%     \end{pmatrix},
+% \end{equation*}
+% where $a^{-1}$ is the inverse matrix of $a$. So 
+\begin{align*}
+    (\ft{\tilde{e}}{1}{n})\tilde{\omega} =& \nabla(\ft{\tilde{e}}{1}{n}) 
+    = \nabla\big((\ft{e}{1}{n})\, a\big) \\
+    =& \big(\nabla(\ft{e}{1}{n})\big) a + (\ft{e}{1}{n}) \md a \\
+    =& (\ft{e}{1}{n}) \omega a + (\ft{e}{1}{n}) \md a \\
+    =& (\ft{\tilde{e}}{1}{n}) (a^{-1} \omega a + \md a).
+\end{align*}
+Thus 
+\begin{equation}\label{eq:trans-formula-for-con-form}
+    \tilde{\omega} = a^{-1} \md a + a^{-1} \omega a.
+\end{equation}
+For $\{e_i\}=\{\frac{\partial}{\partial x^i}\},\,\{\tilde{e}_j\}=\{\frac{\partial}{\partial \tilde{x}^j}\},
+\,\omega^k_j=\Gamma^{k}_{ij}\md x^i$, 
+the above formula reduces to the well-known transformation formula of Christoffel symbols:
+\begin{equation*}
+    \tilde{\Gamma}_{ij}^k 
+    = \pd{\tilde{x}^k}{x^l}\pd{x^m}{\tilde{x}^i}\pd{x^n}{\tilde{x}^j}\Gamma_{mn}^l 
+    + \frac{\partial^2 x^l}{\partial \tilde{x}^i \partial \tilde{x}^j} \frac{\partial \tilde{x}^k}{\partial x^l}.
+\end{equation*}
+
+We can compute the curvature in terms of the connection 1-form $\omega$:
+\begin{align*}
+    \nabla^2 (\ft{e}{1}{n}) =& \nabla\big(\nabla(\ft{e}{1}{n})\big) 
+    = \nabla\big((\ft{e}{1}{n})\,\omega\big) \\
+    =& \big(\nabla(\ft{e}{1}{n})\big)\wedge \omega + (\ft{e}{1}{n})\, \md\omega \\
+    =& (\ft{e}{1}{n})\,\omega\wedge \omega + (\ft{e}{1}{n})\, \md\omega \\
+    =& (\ft{e}{1}{n})\,\big(\md\omega + \omega\wedge \omega\big).
+\end{align*}
+Define 
+\begin{equation}\label{eq:curvature-form}
+    \Omega := \md\omega + \omega\wedge \omega,
+\end{equation}
+then $\Omega$ is a matrix of 2-forms, and we call 
+$\Omega$ the \textbf{curvature 2-form} of the connection $\nabla$ w.r.t. $\{e_i\}$. 
+\begin{proposition}
+    Let $R(e_i,e_j)e_k = R_{ijk}^l e_l$, then
+    \begin{equation*}
+        \Omega_k^l(e_i,e_j) = R_{ijk}^l.
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    Since $\Omega_k^l = \md\omega_k^l + \omega_m^l \wedge \omega_k^m$, 
+    \begin{align*}
+        &(\md\omega^l_k)(e_i,e_j)e_l = e_i(\omega_k^l(e_j))e_l - e_j(\omega_k^l(e_i))e_l - \omega_k^l([e_i,e_j])e_l \\
+        =& \nabla_{e_i}(\omega_k^l(e_j)e_l) - \omega_k^l(e_j)\nabla_{e_i} e_l - \nabla_{e_j}(\omega_k^l(e_i)e_l) + \omega_k^l(e_i)\nabla_{e_j} e_l - \omega_k^l([e_i,e_j])e_l \\
+        =& \nabla_{e_i} \nabla_{e_j} e_k - \omega_k^l(e_j)\nabla_{e_i} e_l - \nabla_{e_j} \nabla_{e_i} e_k + \omega_k^l(e_i)\nabla_{e_j} e_l - \omega_k^l([e_i,e_j])e_l,
+    \end{align*}
+    and 
+    \begin{align*}
+        (\omega_m^l \wedge \omega_k^m)(e_i,e_j)e_l =& \omega_m^l(e_i)\omega_k^m(e_j)e_l - \omega_m^l(e_j)\omega_k^m(e_i)e_l \\
+        =& \omega^m_k(e_j)\nabla_{e_i} e_m - \omega^m_k(e_i)\nabla_{e_j} e_m.
+    \end{align*}
+    Thus 
+    \begin{equation*}
+        \Omega_k^l(e_i,e_j)e_l 
+        = \nabla_{e_i}\nabla_{e_j}e_k - \nabla_{e_j}\nabla_{e_i}e_k - \nabla_{[e_i,e_j]}e_k = R(e_i,e_j)e_k.
+    \end{equation*}
+\end{proof}
+\begin{corollary}
+    This proposition immediately implies Prop \ref{prop:curvature} since
+    \begin{equation*}
+        (\nabla^2 e_k)(e_i,e_j) = \Omega_k^l(e_i,e_j)e_l = R(e_i,e_j)e_k. 
+    \end{equation*}
+\end{corollary}
+
+Applying the transformation formula (\ref{eq:trans-formula-for-con-form}) to (\ref{eq:curvature-form}), we get 
+\begin{align*}
+    \tilde{\Omega} =& \md\tilde{\omega} + \tilde{\omega}\wedge \tilde{\omega} \\
+    =& \md(a^{-1} \md a + a^{-1} \omega a) + (a^{-1} \md a + a^{-1} \omega a)\wedge (a^{-1} \md a + a^{-1} \omega a) \\
+    =& \md a^{-1} \wedge \md a + \md a^{-1} \wedge \omega a + a^{-1} \md\omega\, a - a^{-1} \omega \wedge \md a \\
+    &+ a^{-1} \md a \wedge a^{-1} \md a + a^{-1} \md a \wedge a^{-1} \omega a 
+    + a^{-1} \omega \wedge \md a + a^{-1} \omega \wedge \omega a, \\
+\end{align*}
+since
+\begin{equation*}
+    a^{-1}a = I \implies \md a^{-1} a + a^{-1} \md a = 0 \implies \md a^{-1} = -a^{-1} \md a\, a^{-1},
+\end{equation*}
+we have
+\begin{align*}
+    \tilde{\Omega} =& -a^{-1} \md a\, a^{-1} \wedge \md a - a^{-1} \md a\, a^{-1} \wedge \omega a + a^{-1} \md\omega\, a - a^{-1} \omega \wedge \md a \\
+    &+ a^{-1} \md a \wedge a^{-1} \md a + a^{-1} \md a \wedge a^{-1} \omega a + a^{-1} \omega \wedge \md a + a^{-1} \omega \wedge \omega a \\
+    =& a^{-1} (\md\omega + \omega\wedge\omega) a = a^{-1} \Omega a.
+\end{align*}
+Thus transformation formula for curvature between $\{e_i\}$ and $\{\tilde{e}_j\}$ is given by
+\begin{equation}\label{eq:trans-formula-for-curvature}
+    \tilde{\Omega} = a^{-1} \Omega a.
+\end{equation}
+
+The above formula shows that although $\Omega$ isn't a globally defined form, two different curvature forms 
+only differ by a conjugation. So if we apply a quantity invariant under conjugation, we obtain a globally defined form. 
+This is the idea of Chern-Weil theory, which we will discuss in later section.
+
+For a Riemannian manifold $(M,g)$, let $\nabla$ be the Levi-Civita connection. We can take $\{e_i\}$ to be a local orthonormal frame, 
+and $\{\omega^i\}$ be the corresponding dual frame. Then
+\begin{align*}
+    &\langle \nabla_{e_k} e_i, e_j \rangle + \langle e_i, \nabla_{e_k} e_j \rangle = e_k\langle e_i, e_j \rangle = 0 \\
+    \implies &\langle \omega^l_i(e_k)e_l, e_j \rangle + \langle e_i, \omega^l_j(e_k)e_l \rangle = 0 \\
+    \implies &\omega^j_i(e_k) + \omega^i_j(e_k) = 0.
+\end{align*}
+So the connection 1-form $\omega$ w.r.t. an orthonormal frame is skew-symmetric, i.e. $\omega \in \Omega^1(M,\mathfrak{so}(n))$. 
+Since $\Omega=\md\omega+\omega\wedge\omega$, the curvature 2-form $\Omega$ is also skew-symmetric, 
+i.e. $\Omega \in \Omega^2(M,\mathfrak{so}(n))$.
+
 
 \subsection{General Affine Connections}
-\subsubsection{Horizontal Distribution}
-\subsubsection{Connection 1-forms}
+Let $\pi:E\to M$ be a vector bundle, we can also define affine connections on $E$ in a similar way as we did for the tangent bundle. 
 \subsubsection{Covariant Derivative}
-\subsubsection{Curvature of Connections}
+The content of this section is almost a verbatim copy of the previous content. 
+\begin{definition}\label{def:con-on-E}
+    An (affine) connection $\nabla$ on a vector bundle $E$ is a map
+    \begin{align*}
+        \nabla: C^\infty(M,TM) \times C^\infty(M,E) &\to C^\infty(M,E) \\
+        (X,s) &\mapsto \nabla_X s
+    \end{align*}
+    satisfying 
+    \begin{align*}
+        \nabla_{f_1X_1 + f_2X_2} s =& f_1 \nabla_{X_1} s + f_2 \nabla_{X_2} s, \\
+        \nabla_X (\lambda_1 s_1 + \lambda_2 s_2) =& \lambda_1 \nabla_X s_1 + \lambda_2 \nabla_X s_2, \\
+        \nabla_X (fs) =& \md f(X)\cdot s + f\nabla_X s,
+    \end{align*}
+\end{definition}
+
+The existence of connections on any vector bundle can be proved by using partitions of unity, which we left as an exercise.
+
+The reason why we call $\nabla$ an affine connection is that given two connections $\nabla_1$ and $\nabla_2$ on $E$, 
+$(1-t)\nabla_1 + t\nabla_2$ is also a connection on $E$ for any $t\in \mathbb{R}$.
+
+Let $(\nabla s)(X):= \nabla_X s$, we can extend $\nabla$ to the exterior covariant derivative
+\begin{align*}
+    \nabla: \Omega^*(M,E) &\to \Omega^{*+1}(M,E) \\
+    \eta &\mapsto \nabla \eta,
+\end{align*}
+satisfying the Leibniz rule:
+\begin{align*}
+    \nabla(\alpha\wedge\eta) = \md\alpha\wedge\eta + (-1)^{q}\alpha\wedge \nabla\eta,
+    \quad\forall \alpha\in \Omega^q(M),\eta\in \Omega^*(M,E).
+\end{align*}
+\subsubsection{Connection 1-form}
+
+
+\subsubsection{Horizontal Distribution}
+
+
+\subsubsection{Curvature of Connection}
+
+\subsection*{Exercises}
+\addcontentsline{toc}{subsection}{Exercises}
+\begin{exercise}
+    In Riemannian geometry, we can define the covariant derivative of a $1$-form $\omega$ by
+    \begin{equation*}
+        (\nabla_X \omega)(Y) := X(\omega(Y)) - \omega(\nabla_X Y).
+    \end{equation*}
+    For an $(r,s)$-tensor field $T$, the covariant derivative $\nabla_Z T$ is 
+    \begin{align*}
+        (\nabla_Z T)(X_1,\ldots,X_r,\omega^1,\ldots,\omega^s):&= Z(T(X_1,\ldots,X_r,\omega^1,\ldots,\omega^s)) \\ 
+        &\;\;- \sum_{i=1}^r T(X_1,\ldots,\nabla_Z X_i,\ldots,X_r,\omega^1,\ldots,\omega^s) \\
+        &\;\;- \sum_{j=1}^s T(X_1,\ldots,X_r,\omega^1,\ldots,\nabla_Z \omega^j,\ldots,\omega^s).
+    \end{align*}
+    If we rearrange the terms, we see that this is precisely the Leibniz rule. 
+
+    The curvature operator can also act on general tensors
+    \begin{equation*}
+        R(X,Y)T:= \nabla_X \nabla_Y T - \nabla_Y \nabla_X T - \nabla_{[X,Y]} T.
+    \end{equation*}
+
+    We can define the covariant differential $\nabla_{\text{tensor}} T$ as the $(r,s+1)$-tensor field
+    \begin{equation*}
+        (\nabla_{\text{tensor}} T)(Z,\cdots,X_i,\cdots,\cdots,\omega^j,\cdots)
+        := (\nabla_Z T)(\cdots,X_i,\cdots,\cdots,\omega^j,\cdots)
+    \end{equation*}
+    This is another way to extend the covariant derivative to tensor fields, 
+    and we denote it by $\nabla_{\text{tensor}}$ to distinguish it from the exterior covariant derivative.
+
+    Prove that for a torsion-free connection, $\nabla_{\text{tensor}}$ satisfies the Ricci identity
+    \begin{equation*}
+        (\nabla_{\text{tensor}}^2 T)(X,Y,\cdots,\cdots) - (\nabla_{\text{tensor}}^2 T)(Y,X,\cdots,\cdots) = (R(X,Y)T)(\cdots,\cdots)
+    \end{equation*}
+\end{exercise}
+\begin{proof}
+    For an $(r,s)$-tensor field $T$, we have
+    \begin{align*}
+        &(\nabla_{\text{tensor}}^2 T)(X,Y,\cdots,\cdots) = (\nabla_X (\nabla_{\text{tensor}} T))(Y,\cdots,\cdots) \\
+        =& X((\nabla_{\text{tensor}} T)(Y,\cdots,\cdots)) - (\nabla_{\text{tensor}} T)(\nabla_X Y,\cdots,\cdots) \\
+        &- \sum_{i=1}^r (\nabla_{\text{tensor}} T)(Y,\cdots,\nabla_X X_i,\cdots,\cdots) 
+        - \sum_{j=1}^s (\nabla_{\text{tensor}} T)(Y,\cdots,\cdots,\nabla_X \omega^j,\cdots) \\
+        =& X((\nabla_Y T)(\cdots,\cdots)) - (\nabla_{\nabla_X Y} T)(,\cdots,\cdots) \\
+        &- \sum_{i=1}^r (\nabla_Y T)(\cdots,\nabla_X X_i,\cdots,\cdots) 
+        - \sum_{j=1}^s (\nabla_Y T)(\cdots,\cdots,\nabla_X \omega^j,\cdots) \\
+        =& (\nabla_X \nabla_Y T)(\cdots,\cdots) - (\nabla_{\nabla_X Y} T)(,\cdots,\cdots),
+    \end{align*}
+    Thus 
+    \begin{align*}
+        &(\nabla_{\text{tensor}}^2 T)(X,Y,\cdots,\cdots) - (\nabla_{\text{tensor}}^2 T)(Y,X,\cdots,\cdots) \\
+        =& (\nabla_X \nabla_Y T)(\cdots,\cdots) - (\nabla_Y \nabla_X T)(\cdots,\cdots) - (\nabla_{[X,Y]} T)(\cdots,\cdots) \\
+        =& (R(X,Y)T)(\cdots,\cdots).
+    \end{align*}
+\end{proof}
+
+\begin{exercise}
+    For a vector field $Z\in C^\infty(M,TM)$, both $\nabla^2 Z$ and $\nabla_{\text{tensor}}^2 Z$ are $(1,2)$-tensor fields, 
+    but by Ricci identity, we have
+    \begin{equation*}
+        (\nabla_{\text{tensor}}^2 Z)(X,Y) - (\nabla_{\text{tensor}}^2 Z)(Y,X) = R(X,Y)Z = (\nabla^2 Z)(X,Y).
+    \end{equation*}
+    Can you explain this phenomenon?
+\end{exercise}

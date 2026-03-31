@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  28 MAR 2026 17:38
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  31 MAR 2026 12:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -775,6 +775,7 @@ Package: blkarray 2015/02/27 v0.07 Block array (dpc)
 \BA@ddashbox=\box94
 )
 \c@theorem=\count359
+\c@exercise=\count360
 ) (d:/texlive/2023/texmf-dist/tex/latex/titling/titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmarkwidth=\skip65
@@ -928,19 +929,28 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ]
 \openout2 = `Section/Connections.aux'.
 
- (./Section/Connections.tex) [2
+ (./Section/Connections.tex [2
 
-] Total classes: 0 (./GaugeTheory.aux (./Section/Connections.aux))
+] [3] [4] [5]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 250.
+ (d:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [6] [7]
+Overfull \hbox (25.72769pt too wide) detected at line 340
+[]
+ []
+
+[8]) [9] Total classes: 0 (./GaugeTheory.aux (./Section/Connections.aux))
 Package rerunfilecheck Info: File `GaugeTheory.out' has not changed.
-(rerunfilecheck)             Checksum: 703AD8AE0FA1CB0DFED59717B0322E84;1212.
+(rerunfilecheck)             Checksum: 3522138D219F898CC2373483FD8D1616;1850.
  ) 
 Here is how much of TeX's memory you used:
- 33601 strings out of 476683
- 803340 string characters out of 5807575
- 1854012 words of memory out of 5000000
- 53277 multiletter control sequences out of 15000+600000
- 521567 words of font info for 86 fonts, out of 8000000 for 9000
+ 33646 strings out of 476683
+ 804126 string characters out of 5807575
+ 1862012 words of memory out of 5000000
+ 53311 multiletter control sequences out of 15000+600000
+ 523100 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 113i,8n,117p,5094b,333s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,12n,117p,5094b,450s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on GaugeTheory.pdf (2 pages).
+Output written on GaugeTheory.pdf (9 pages).
