@@ -104,7 +104,7 @@ The reason why $\nabla^2$ is called the curvature of $\nabla$ is that
 
 \subsubsection{Connection 1-form}
 Locally, we always have a local frame. Let $\{e_i\}$ be a local frame of $TM$ on an open set $U\subset M$, 
-and $\{\omega^i\}$ be the dual frame.
+and $\{\theta^i\}$ be the dual frame.
 then we can write 
 \begin{equation*}
     \nabla_{e_i}e_j = \Gamma_{ij}^k e_k,
@@ -112,7 +112,7 @@ then we can write
 where $\Gamma_{ij}^k$ are the Christoffel symbols of the connection $\nabla$ w.r.t. $\{e_i\}$. 
 Define 
 \begin{equation*}
-    \omega_j^k := \Gamma_{ij}^k \omega^i,
+    \omega_j^k := \Gamma_{ij}^k \theta^i,
 \end{equation*}
 we call $\omega_j^k$ the \textbf{connection 1-form} of $\nabla$ w.r.t. $\{e_i\}$. 
 So
@@ -129,44 +129,14 @@ then we can write the above equation in a more compact way:
         \omega_1^1 & \cdots & \omega_1^n \\
         \vdots &  & \vdots \\
         \omega_n^1 & \cdots & \omega_n^n
-    \end{pmatrix}
+    \end{pmatrix}\footnotemark
 \end{equation*}
-The connection 1-form $\omega$ is not a tensor, since it depends on the choice of the local frame.
-Let $\{\tilde{e_j}\}$ be another local frame, and the transition matrix 
-from $\{e_i\}$ to $\{\tilde{e_j}\}$ is $a=(a_i^j)$, i.e. 
-\begin{equation*}
-    (\ft{\tilde{e}}{1}{n}) = (\ft{e}{1}{n})\, a, 
-\end{equation*}
-then 
-% \begin{equation*}
-%     \begin{pmatrix}
-%         \tilde{\omega}^1 \\ \vdots \\ \tilde{\omega}^n
-%     \end{pmatrix}
-%     = a^{-1}
-%     \begin{pmatrix}
-%         \omega^1 \\ \vdots \\ \omega^n
-%     \end{pmatrix},
-% \end{equation*}
-% where $a^{-1}$ is the inverse matrix of $a$. So 
-\begin{align*}
-    (\ft{\tilde{e}}{1}{n})\tilde{\omega} =& \nabla(\ft{\tilde{e}}{1}{n}) 
-    = \nabla\big((\ft{e}{1}{n})\, a\big) \\
-    =& \big(\nabla(\ft{e}{1}{n})\big) a + (\ft{e}{1}{n}) \md a \\
-    =& (\ft{e}{1}{n}) \omega a + (\ft{e}{1}{n}) \md a \\
-    =& (\ft{\tilde{e}}{1}{n}) (a^{-1} \omega a + \md a).
-\end{align*}
-Thus 
-\begin{equation}\label{eq:trans-formula-for-con-form}
-    \tilde{\omega} = a^{-1} \md a + a^{-1} \omega a.
-\end{equation}
-For $\{e_i\}=\{\frac{\partial}{\partial x^i}\},\,\{\tilde{e}_j\}=\{\frac{\partial}{\partial \tilde{x}^j}\},
-\,\omega^k_j=\Gamma^{k}_{ij}\md x^i$, 
-the above formula reduces to the well-known transformation formula of Christoffel symbols:
-\begin{equation*}
-    \tilde{\Gamma}_{ij}^k 
-    = \pd{\tilde{x}^k}{x^l}\pd{x^m}{\tilde{x}^i}\pd{x^n}{\tilde{x}^j}\Gamma_{mn}^l 
-    + \frac{\partial^2 x^l}{\partial \tilde{x}^i \partial \tilde{x}^j} \frac{\partial \tilde{x}^k}{\partial x^l}.
-\end{equation*}
+\footnotetext{This is an awkward notation. 
+Due to certain notational reasons, we consider arranging the frame as row vectors, 
+which results in differential forms acting on the right of vectors. For ordinary vectors, 
+we are free to place differential forms on the left or right without introducing sign changes. 
+However, it should be noted that for vector-valued differential forms, 
+placing the differential form on the left or right does make a sign difference.}
 
 We can compute the curvature in terms of the connection 1-form $\omega$:
 \begin{align*}
@@ -213,6 +183,25 @@ $\Omega$ the \textbf{curvature 2-form} of the connection $\nabla$ w.r.t. $\{e_i\
     \end{equation*}
 \end{corollary}
 
+The connection 1-form $\omega$ is not a tensor, since it depends on the choice of the local frame.
+Let $\{\tilde{e_j}\}$ be another local frame, and the transition matrix 
+from $\{e_i\}$ to $\{\tilde{e_j}\}$ is $a=(a_i^j)$, i.e. 
+\begin{equation*}
+    (\ft{\tilde{e}}{1}{n}) = (\ft{e}{1}{n})\, a, 
+\end{equation*}
+then 
+\begin{align*}
+    (\ft{\tilde{e}}{1}{n})\tilde{\omega} =& \nabla(\ft{\tilde{e}}{1}{n}) 
+    = \nabla\big((\ft{e}{1}{n})\, a\big) \\
+    =& \big(\nabla(\ft{e}{1}{n})\big) a + (\ft{e}{1}{n}) \md a \\
+    =& (\ft{e}{1}{n}) \omega a + (\ft{e}{1}{n}) \md a \\
+    =& (\ft{\tilde{e}}{1}{n}) (a^{-1} \omega a + \md a).
+\end{align*}
+Thus 
+\begin{equation}\label{eq:trans-formula-for-con-form}
+    \tilde{\omega} = a^{-1} \md a + a^{-1} \omega a.
+\end{equation}
+
 Applying the transformation formula (\ref{eq:trans-formula-for-con-form}) to (\ref{eq:curvature-form}), we get 
 \begin{align*}
     \tilde{\Omega} =& \md\tilde{\omega} + \tilde{\omega}\wedge \tilde{\omega} \\
@@ -253,7 +242,7 @@ i.e. $\Omega \in \Omega^2(M,\mathfrak{so}(n))$.
 
 
 \subsection{General Affine Connections}
-Let $\pi:E\to M$ be a vector bundle, we can also define affine connections on $E$ in a similar way as we did for the tangent bundle. 
+Let $\pi:E\to M$ be a rank $m$ vector bundle, we can also define affine connections on $E$ in a similar way as we did for the tangent bundle. 
 \subsubsection{Covariant Derivative}
 The content of this section is almost a verbatim copy of the previous content. 
 \begin{definition}\label{def:con-on-E}
@@ -272,7 +261,7 @@ The content of this section is almost a verbatim copy of the previous content.
 
 The existence of connections on any vector bundle can be proved by using partitions of unity, which we left as an exercise.
 
-The reason why we call $\nabla$ an affine connection is that given two connections $\nabla_1$ and $\nabla_2$ on $E$, 
+The reason why we call $\nabla$ an \textbf{affine} connection is that given two connections $\nabla_1$ and $\nabla_2$ on $E$, 
 $(1-t)\nabla_1 + t\nabla_2$ is also a connection on $E$ for any $t\in \mathbb{R}$.
 
 Let $(\nabla s)(X):= \nabla_X s$, we can extend $\nabla$ to the exterior covariant derivative
@@ -285,14 +274,192 @@ satisfying the Leibniz rule:
     \nabla(\alpha\wedge\eta) = \md\alpha\wedge\eta + (-1)^{q}\alpha\wedge \nabla\eta,
     \quad\forall \alpha\in \Omega^q(M),\eta\in \Omega^*(M,E).
 \end{align*}
+\begin{proposition}
+    $\nabla^2: \Omega^*(M,E)\to\Omega^{*+2}(M,E)$ is an $\Omega^*(M)$-linear map, i.e.
+    \begin{equation*}
+        \nabla^2(\alpha\wedge\eta) = \alpha\wedge\nabla^2 \eta,
+        \qquad\forall \alpha\in \Omega^*(M),\eta\in \Omega^*(M,E).
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    For $\alpha\in \Omega^q(M),\eta\in \Omega^*(M,E)$, 
+    \begin{align*}
+        \nabla^2\big(\alpha\wedge\eta) =& \nabla(\md\alpha\wedge\eta + (-1)^{q}\alpha\wedge \nabla\eta\big) \\
+        =& \md^2\alpha\wedge\eta + (-1)^{q+1}\md\alpha\wedge \nabla\eta + (-1)^q \md\alpha\wedge \nabla\eta + \alpha\wedge\nabla^2 \eta \\
+        =& \alpha\wedge\nabla^2 \eta.
+    \end{align*}
+\end{proof}
+\begin{definition}
+    The curvature of a connection $\nabla$ on $E$ is defined 
+    as $R:=\nabla^2\in\Omega^2(M,\mathrm{End}(E))$.
+\end{definition}
+% \begin{definition}
+%     For $A\in C^\infty(M,\mathrm{End}(E))$, we define $\nabla A \in \Omega^{1}(M,\mathrm{End}(E))$ by 
+%     \begin{equation*}
+%         (\nabla A)(s) := \nabla(A(s)) - A(\nabla s).
+%     \end{equation*}
+%     this is a connection on $\mathrm{End}(E)$ induced by $\nabla$ on $E$. It can also be extended to 
+%     $\nabla: \Omega^*(M,\mathrm{End}(E)) \to \Omega^{*+1}(M,\mathrm{End}(E))$ by the Leibniz rule:
+%     \begin{equation*}
+%         \nabla(\alpha\wedge A) = \md\alpha\wedge A + (-1)^{q}\alpha\wedge \nabla A,
+%         \quad\forall \alpha\in \Omega^q(M),A\in \Omega^*(M,\mathrm{End}(E)).
+%     \end{equation*}
+% \end{definition}
 \subsubsection{Connection 1-form}
-
+Let $\{e_i\}$ be a local frame of $E$ on an open set $U\subset M$. Define $\omega_j^k$ by
+\begin{equation*}
+    \nabla_X e_j = \omega_j^k(X) e_k,
+\end{equation*}
+this 1-form matrix $\omega = (\omega_j^k)$ is called \textbf{the connection 1-form} of $\nabla$ w.r.t. $\{e_i\}$. 
+Then we can write the above equation in a more compact way:
+\begin{equation*}
+    \nabla (\ft{e}{1}{m}) = (\ft{e}{1}{m})\,\omega = 
+    (\ft{e}{1}{m})
+    \begin{pmatrix}
+        \omega_1^1 & \cdots & \omega_1^m \\
+        \vdots &  & \vdots \\
+        \omega_m^1 & \cdots & \omega_m^m
+    \end{pmatrix}.
+\end{equation*}
 
 \subsubsection{Horizontal Distribution}
+In this subsection, we give another interpretation of a connection on a vector bundle, namely a horizontal distribution, 
+and prove that it is equivalent to the definition given in terms of covariant derivatives.
 
+Let $\pi:E\to M$ be a rank $m$ vector bundle, and $p\in E_x$ be a point in the fibre over $x\in M$. 
+The propjection $\pi$ induces a linear map $\pi_*{}_p: T_p E \to T_x M$. 
+\begin{proposition}
+    The kernel of $\pi_*$ form a subbundle of $TE$, which is isomorphic to $\pi^* E$. 
+    We call it the \textbf{vertical bundle} of $E$.
+\end{proposition}
+\begin{proof}
+    A point $(p,p')\in \pi^* E$ must satisfy $\pi(p) = \pi(p')$, so we can define a curve $\gamma(t) = p + t p'$ in $E$.
+    Then $\gamma'(0) \in T_p E$ gives a tangent vector at $p$, this gives an injective morphism from $\pi^* E$ to $TE$. 
+    So we can view $\pi^* E$ as a subbundle of $TE$. 
+    Moreover, since $\gamma(t)\subset E_{\pi(p)}$, we have $\pi(\gamma(t)) = \pi(p)$, thus $\pi_*{}_p(\gamma'(0)) = 0$. 
+    Therefore, $\pi^* E\subset \ker\pi_*$ 
 
-\subsubsection{Curvature of Connection}
+    Since $\pi_*{}_p$ is a surjective linear map, we have 
+    \begin{equation*}
+        \dim \ker \pi_*{}_p = \dim T_p E - \dim T_{\pi(p)} M = m = (\pi^* E)_p.
+    \end{equation*}
+    Thus $\pi^* E = \ker \pi_*$.
+\end{proof}
 
+Let $\pi^*TM$ be the pull-back of $TM$ by $\pi$, then $\pi_*: TE \to TM$ can be viewed as a morphism $\pi_*: TE \to \pi^* TM$. 
+The above proposition implies the following short exact sequence of vector bundles over $E$:
+\begin{equation*}
+    0 \to \pi^* E \to TE \xrightarrow{\pi_*} \pi^* TM \to 0.
+\end{equation*}
+In smooth category, all short exact sequences of vector bundles split, so we can find a subbundle $H\hookrightarrow TE$ such that 
+\begin{equation*}
+    TE = H \oplus \pi^* E, \qquad \pi_*: H \to \pi^* TM \text{ is an isomorphism}.
+\end{equation*}
+\begin{definition}
+    A \textbf{horizontal distribution} of $E$ is a smooth subbundle $H\subset TE$ satisfying the following properties 
+    \begin{enumerate}
+        \item $\pi_*: H \to \pi^* TM$ is an isomorphism, or equivalently, 
+        there exists a splitting map $j: \pi^* TM \to TE$ such that $\pi_* \circ j = \mathrm{id}$.
+        \[\begin{tikzcd}
+            0 & {\pi^*E} & TE & {\pi^*TM} & 0
+            \arrow[from=1-1, to=1-2]
+            \arrow["\iota", hook, from=1-2, to=1-3]
+            \arrow["{\pi_*}", shift left, from=1-3, to=1-4]
+            \arrow["j", shift left, from=1-4, to=1-3]
+            \arrow[from=1-4, to=1-5]
+        \end{tikzcd}\]
+        \item $H$ is invariant under the scalar multiplication on $E$, i.e. for any $\lambda\in \mathbb{R}$. 
+        Denote the scalar multiplication by $m_\lambda: E \to E$, $m_\lambda(p) = \lambda p$, then
+        \begin{equation*}
+            m_{\lambda}{}_*{}_p H_p = H_{\lambda p}, \quad \forall p\in E. 
+        \end{equation*}
+        \item $H$ is invariant under the addition on $E$, i.e. for any $p,q\in E$ such that $\pi(p) = \pi(q)$, 
+        denote the addition by $a_q: E_{\pi(p)} \to E_{\pi(p)}$, $a_q(p) = p + q$, then
+        \begin{equation*}
+            a_{q}{}_*{}_p H_p = H_{p+q}, \quad \forall p,q\in E \text{ such that } \pi(p) = \pi(q).
+        \end{equation*} 
+    \end{enumerate}
+\end{definition}
+The last two conditions are saying that $H$ is compatible with the vector bundle structure of $E$.
+
+There is no canonical way to choose a horizontal distribution, so a horizontal distribution is an extra structure on $E$.
+
+Next, we look at how the connection on $E$ gives rise to a horizontal distribution. 
+
+Let $\nabla$ be a connection on $E$. Given any smmoth curve $\gamma: (-\varepsilon,\varepsilon) \to M$ with $\gamma(0) = x$, 
+we say $\tilde{\gamma}: (-\varepsilon,\varepsilon) \to E$ is a 
+\textbf{lift} of $\gamma$ if $\pi(\tilde{\gamma}(t)) = \gamma(t)$ for all $t$. 
+\begin{definition}
+    A lift $\tilde{\gamma}$ of $\gamma$ is called a \textbf{horizontal lift} if 
+    \begin{equation*}
+        \nabla_{\gamma'(t)} \tilde{\gamma}(t) = 0, \quad \forall t\in (-\varepsilon,\varepsilon).
+    \end{equation*}
+\end{definition}
+\begin{proposition}
+    For any (picewise) smooth curve $\gamma: (-\varepsilon,\varepsilon) \to M$ and any point $p\in E_{\gamma(0)}$, 
+    there exists a unique horizontal lift $\tilde{\gamma}$ of $\gamma$ starting at $p$.
+\end{proposition}
+\begin{proof}[Sketch of proof]
+    The proof is exactly the same as the existence and uniqueness of geodesics. 
+    The outline of the proof is to write the equations as a system of ODEs in a local frame; 
+    the conclusion then follows from the existence and uniqueness theory of linear ODEs.
+\end{proof}
+For any vector $v\in T_x M$ and any point $p\in E_x$, we can find a curve $\gamma$ such that $\gamma(0)=x$ and $\gamma'(0)=v$, 
+the horizontal lift $\tilde{\gamma}$ gives a tangent vector $\tilde{\gamma}'(0)\in T_p E$. 
+\begin{fact}
+    $\tilde{\gamma}'(0)\in T_pE$ is independent of the choice of $\gamma$.
+\end{fact}
+\begin{proof}[Sketch of proof]
+    By solving the ODEs, we know that $\tilde{\gamma}'(0)$ depends only on the derivative of $\gamma$ at $0$, 
+    which is $\gamma'(0)=v$.
+\end{proof}
+So there is a well-defined map 
+\begin{equation*}
+    j_p: T_x M \to T_p E, \quad j_p(v) := \tilde{\gamma}'(0).
+\end{equation*}
+By definition, 
+\begin{equation*}
+    \pi(\tilde{\gamma}(t)) = \gamma(t) \implies \pi_*{}_p(j_p(v)) = \pi_*{}_p(\tilde{\gamma}'(0)) = \gamma'(0) = v.
+\end{equation*}
+So $j_p$ is a linear injection from $T_x M$ to $T_p E$, whose image forms a distribution on $E$ denoted by $H$.
+\begin{fact}
+    $H$ is a smooth subbundle of $TE$. 
+\end{fact}
+\begin{proof}[Sketch of proof]
+    This fact relies on the smooth dependence of solutions of ODEs on initial conditions and parameters.
+\end{proof}
+\begin{fact}
+    $H$ is invariant under the scalar multiplication and addition on $E$.
+\end{fact}
+\begin{proof}
+    Let $p,q\in E$ such that $\pi(p) = \pi(q)$, $\lambda\in \mathbb{R}$, and $\gamma$ be a curve such that $\gamma(0) = \pi(p)$. 
+    Let $\tilde{\gamma}_p,\tilde{\gamma}_q$ be the horizontal lift of $\gamma$ starting at $p,q$ respectively, 
+    then by the uniqueness of horizontal lift, $\lambda \tilde{\gamma}_p$ is the horizontal lift of $\gamma$ starting at $\lambda p$,
+    and $\tilde{\gamma}_p + \tilde{\gamma}_q$ is the horizontal lift of $\gamma$ starting at $p+q$. Thus 
+    \begin{gather*}
+        m_{\lambda}{}_*{}_p \tilde{\gamma}'(0) = (\lambda \tilde{\gamma}_p)'(0) \in H_{\lambda p}, \\
+        a_{q}{}_*{}_p \tilde{\gamma}'(0) = (\tilde{\gamma}_p + \tilde{\gamma}_q)'(0) \in H_{p+q}.
+    \end{gather*}
+\end{proof}
+The above discussion is summarized in the following proposition.
+\begin{proposition}
+    $H$ is a horizontal distribution of $E$. 
+\end{proposition}
+
+Conversaly, given a horizontal distribution $H$, we can derive a connection $\nabla$ on $E$ as follows. 
+\begin{definition}
+    For any $p\in E$ and $v\in TE$, we can write $v = v_H + v_V$ where 
+    $v_H\in H$ and $v_V\in \pi^* E$. We call $v_H$ and $v_V$ 
+    the horizontal and vertical component of $v$ respectively.
+\end{definition}
+For any $X\in C^\infty(M,TM)$ and $s\in C^\infty(M,E)$, the tangent map of $s$ gives a map $s_*: TM \to TE$, 
+then we can define $\nabla_X s$ by
+\begin{equation*}
+    \nabla_X s := s_*(X)_V = \text{the vertical component of } s_*(X).
+\end{equation*}
+% \subsubsection{Curvature of Connection}
+
+\newpage
 \subsection*{Exercises}
 \addcontentsline{toc}{subsection}{Exercises}
 \begin{exercise}
@@ -313,7 +480,7 @@ satisfying the Leibniz rule:
         R(X,Y)T:= \nabla_X \nabla_Y T - \nabla_Y \nabla_X T - \nabla_{[X,Y]} T.
     \end{equation*}
 
-    We can define the covariant differential $\nabla_{\text{tensor}} T$ as the $(r,s+1)$-tensor field
+    We define the covariant differential $\nabla_{\text{tensor}} T$ as the $(r,s+1)$-tensor field
     \begin{equation*}
         (\nabla_{\text{tensor}} T)(Z,\cdots,X_i,\cdots,\cdots,\omega^j,\cdots)
         := (\nabla_Z T)(\cdots,X_i,\cdots,\cdots,\omega^j,\cdots)
@@ -321,30 +488,31 @@ satisfying the Leibniz rule:
     This is another way to extend the covariant derivative to tensor fields, 
     and we denote it by $\nabla_{\text{tensor}}$ to distinguish it from the exterior covariant derivative.
 
-    Prove that for a torsion-free connection, $\nabla_{\text{tensor}}$ satisfies the Ricci identity
+    \textcolor{blue}{Prove that} for a torsion-free connection, $\nabla_{\text{tensor}}$ satisfies the Ricci identity
     \begin{equation*}
         (\nabla_{\text{tensor}}^2 T)(X,Y,\cdots,\cdots) - (\nabla_{\text{tensor}}^2 T)(Y,X,\cdots,\cdots) = (R(X,Y)T)(\cdots,\cdots)
     \end{equation*}
 \end{exercise}
-\begin{proof}
-    For an $(r,s)$-tensor field $T$, we have
-    \begin{align*}
-        &(\nabla_{\text{tensor}}^2 T)(X,Y,\cdots,\cdots) = (\nabla_X (\nabla_{\text{tensor}} T))(Y,\cdots,\cdots) \\
-        =& X((\nabla_{\text{tensor}} T)(Y,\cdots,\cdots)) - (\nabla_{\text{tensor}} T)(\nabla_X Y,\cdots,\cdots) \\
-        &- \sum_{i=1}^r (\nabla_{\text{tensor}} T)(Y,\cdots,\nabla_X X_i,\cdots,\cdots) 
-        - \sum_{j=1}^s (\nabla_{\text{tensor}} T)(Y,\cdots,\cdots,\nabla_X \omega^j,\cdots) \\
-        =& X((\nabla_Y T)(\cdots,\cdots)) - (\nabla_{\nabla_X Y} T)(,\cdots,\cdots) \\
-        &- \sum_{i=1}^r (\nabla_Y T)(\cdots,\nabla_X X_i,\cdots,\cdots) 
-        - \sum_{j=1}^s (\nabla_Y T)(\cdots,\cdots,\nabla_X \omega^j,\cdots) \\
-        =& (\nabla_X \nabla_Y T)(\cdots,\cdots) - (\nabla_{\nabla_X Y} T)(,\cdots,\cdots),
-    \end{align*}
-    Thus 
-    \begin{align*}
-        &(\nabla_{\text{tensor}}^2 T)(X,Y,\cdots,\cdots) - (\nabla_{\text{tensor}}^2 T)(Y,X,\cdots,\cdots) \\
-        =& (\nabla_X \nabla_Y T)(\cdots,\cdots) - (\nabla_Y \nabla_X T)(\cdots,\cdots) - (\nabla_{[X,Y]} T)(\cdots,\cdots) \\
-        =& (R(X,Y)T)(\cdots,\cdots).
-    \end{align*}
-\end{proof}
+
+% \begin{proof}
+%     For an $(r,s)$-tensor field $T$, we have
+%     \begin{align*}
+%         &(\nabla_{\text{tensor}}^2 T)(X,Y,\cdots,\cdots) = (\nabla_X (\nabla_{\text{tensor}} T))(Y,\cdots,\cdots) \\
+%         =& X((\nabla_{\text{tensor}} T)(Y,\cdots,\cdots)) - (\nabla_{\text{tensor}} T)(\nabla_X Y,\cdots,\cdots) \\
+%         &- \sum_{i=1}^r (\nabla_{\text{tensor}} T)(Y,\cdots,\nabla_X X_i,\cdots,\cdots) 
+%         - \sum_{j=1}^s (\nabla_{\text{tensor}} T)(Y,\cdots,\cdots,\nabla_X \omega^j,\cdots) \\
+%         =& X((\nabla_Y T)(\cdots,\cdots)) - (\nabla_{\nabla_X Y} T)(,\cdots,\cdots) \\
+%         &- \sum_{i=1}^r (\nabla_Y T)(\cdots,\nabla_X X_i,\cdots,\cdots) 
+%         - \sum_{j=1}^s (\nabla_Y T)(\cdots,\cdots,\nabla_X \omega^j,\cdots) \\
+%         =& (\nabla_X \nabla_Y T)(\cdots,\cdots) - (\nabla_{\nabla_X Y} T)(,\cdots,\cdots),
+%     \end{align*}
+%     Thus 
+%     \begin{align*}
+%         &(\nabla_{\text{tensor}}^2 T)(X,Y,\cdots,\cdots) - (\nabla_{\text{tensor}}^2 T)(Y,X,\cdots,\cdots) \\
+%         =& (\nabla_X \nabla_Y T)(\cdots,\cdots) - (\nabla_Y \nabla_X T)(\cdots,\cdots) - (\nabla_{[X,Y]} T)(\cdots,\cdots) \\
+%         =& (R(X,Y)T)(\cdots,\cdots).
+%     \end{align*}
+% \end{proof}
 
 \begin{exercise}
     For a vector field $Z\in C^\infty(M,TM)$, both $\nabla^2 Z$ and $\nabla_{\text{tensor}}^2 Z$ are $(1,2)$-tensor fields, 
@@ -353,4 +521,109 @@ satisfying the Leibniz rule:
         (\nabla_{\text{tensor}}^2 Z)(X,Y) - (\nabla_{\text{tensor}}^2 Z)(Y,X) = R(X,Y)Z = (\nabla^2 Z)(X,Y).
     \end{equation*}
     Can you explain this phenomenon?
+\end{exercise}
+
+\begin{exercise}[Torsion 2-form]
+    Let $\nabla$ be a connection on $TM$, $\{e_i\}$ be a local frame of $TM$, 
+    $\{\theta^i\}$ be the corresponding dual coframe 
+    and $\omega$ be the connection 1-form of $\nabla$ w.r.t. $\{e_i\}$. 
+    Define 
+    \begin{equation*}
+        \tau^i := \md\theta^i + \omega_j^i \wedge \theta^j.    
+    \end{equation*}
+    If we arrange $\theta=(\ftu{\theta}{1}{n})^T$ as a column vector, then the above formula can be written as
+    \begin{equation*}
+        \tau = \md\theta + \omega \wedge \theta.
+    \end{equation*}
+    then $\tau$ is called the \textbf{torsion 2-form} of $\nabla$ w.r.t. $\{e_i\}$. 
+
+    Let $T(e_i,e_j) = T_{ij}^k e_k$, where $T$ is the torsion of $\nabla$. Prove that 
+    \begin{equation*}
+        \tau^k(e_i,e_j) = T_{ij}^k.
+    \end{equation*}
+    Thus 
+    \begin{equation*}
+        \tau^k = \frac{1}{2} T_{ij}^k \theta^i \wedge \theta^j.
+    \end{equation*}
+\end{exercise}
+
+% \begin{proof}
+%     Since $\tau^k = \md\theta^k + \omega_l^k \wedge \theta^l$, 
+%     \begin{align*}
+%         &\tau^k(e_i,e_j) e_k = (\md\theta^k)(e_i,e_j)e_k + (\omega_l^k \wedge \theta^l)(e_i,e_j)e_k \\
+%         =& e_i(\theta^k(e_j))e_k - e_j(\theta^k(e_i))e_k - \theta^k([e_i,e_j])e_k + \omega_l^k(e_i)\theta^l(e_j)e_k - \omega_l^k(e_j)\theta^l(e_i)e_k \\
+%         =& -\theta^k([e_i,e_j])e_k + \omega_j^k(e_i)e_k - \omega_i^k(e_j)e_k \\
+%         =& \nabla_{e_i} e_j - \nabla_{e_j} e_i-[e_i,e_j]  = T(e_i,e_j).
+%     \end{align*}
+% \end{proof}
+
+\begin{exercise}[Levi-Civita connection]
+    Let $(M,g)$ be a Riemannian manifold, $\nabla$ be a connection on $TM$. Show that 
+    \begin{enumerate}
+        \item $\nabla$ is torsion-free if and only if $\tau=0$, i.e., 
+        \begin{equation*}
+            \md\theta^i + \omega_j^i \wedge \theta^j = 0.
+        \end{equation*}
+        \item If $\{e_i\}$ is a local orthonormal frame, 
+        then $\nabla$ is compatible with $g$ if and only if $\omega$ is skew-symmetric, i.e.,
+        \begin{equation*}
+            \omega_j^i + \omega_i^j = 0.
+        \end{equation*}
+        \item Under a local orthonormal frame, there exists a unique connection 1-form $\omega$ satisfying 
+        \begin{equation*}
+            \md\theta^i + \omega_j^i \wedge \theta^j = 0, \quad
+            \omega_j^i + \omega_i^j = 0.
+        \end{equation*}
+        This is the existence and uniqueness of the Levi-Civita connection.
+    \end{enumerate} 
+\end{exercise}
+
+\begin{exercise}
+    Let $\nabla$ be a connection on $TM$, $\{e_i\}$ be a local frame of $TM$, 
+    $\{\theta^i\}$ be the corresponding dual coframe 
+    and $\omega$ be the connection 1-form of $\nabla$ w.r.t. $\{e_i\}$. 
+    The following two equations 
+    \begin{align*}
+        \md\theta =& \tau - \omega \wedge \theta, \\
+        \md\omega =& \Omega - \omega \wedge \omega ,
+    \end{align*}
+    are called the \textbf{structure equations}. Show that $\tau$ and $\Omega$ satisfy
+    \begin{align*}
+        \md\tau =& \Omega \wedge \theta - \omega \wedge \tau, \\
+        \md\Omega =& \Omega \wedge \omega - \omega \wedge \Omega.
+    \end{align*}
+    These two equations are called the \textbf{Bianchi identities}. Furthermore, show that 
+    \begin{equation*}
+        \md(\Omega^k) = \Omega^k \wedge \omega - \omega \wedge \Omega^k.
+    \end{equation*}
+\end{exercise}
+
+\begin{exercise}
+    Show that if $\nabla$ is torsion-free, then $\md\tau=\Omega\wedge\theta-\omega\wedge\tau$ 
+    is equivalent to the first Bianchi identity
+    \begin{equation*}
+        R(X,Y)Z + R(Y,Z)X + R(Z,X)Y = 0.
+    \end{equation*}
+\end{exercise}
+
+\begin{exercise}
+    Show that if $\nabla$ is torsion-free, then $\md\Omega=\Omega\wedge\omega-\omega\wedge\Omega$ 
+    is equivalent to the second Bianchi identity
+    \begin{equation*}
+        (\nabla_X R)(Y,Z) + (\nabla_Y R)(Z,X) + (\nabla_Z R)(X,Y) = 0.
+    \end{equation*}
+\end{exercise}
+
+\begin{exercise}
+    For $\{e_i\}=\{\frac{\partial}{\partial x^i}\},\,\{\tilde{e}_j\}=\{\frac{\partial}{\partial \tilde{x}^j}\},
+    \,\omega^k_j=\Gamma^{k}_{ij}\md x^i$, show that the transformation formula 
+    \begin{equation*}
+        \tilde{\omega} = a^{-1} \md a + a^{-1} \omega a
+    \end{equation*}
+    reduces to the well-known transformation formula of Christoffel symbols:
+    \begin{equation*}
+        \tilde{\Gamma}_{ij}^k 
+        = \pd{\tilde{x}^k}{x^l}\pd{x^m}{\tilde{x}^i}\pd{x^n}{\tilde{x}^j}\Gamma_{mn}^l 
+        + \frac{\partial^2 x^l}{\partial \tilde{x}^i \partial \tilde{x}^j} \frac{\partial \tilde{x}^k}{\partial x^l}.
+    \end{equation*}
 \end{exercise}
