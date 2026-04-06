@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  6 APR 2026 14:05
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  6 APR 2026 15:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -936,17 +936,27 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 LaTeX Font Info:    Trying to load font information for U+euf on input line 239.
  (d:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]) [16] Total classes: 0 (./GaugeTheory.aux (./Section/Connections.aux))
+) [6] [7] [8] [9] [10] [11] [12]
+Overfull \hbox (7.94357pt too wide) detected at line 621
+[]
+ []
+
+
+Overfull \hbox (27.1507pt too wide) detected at line 631
+[]
+ []
+
+[13] [14] [15] [16]) [17] Total classes: 0 (./GaugeTheory.aux (./Section/Connections.aux))
 Package rerunfilecheck Info: File `GaugeTheory.out' has not changed.
-(rerunfilecheck)             Checksum: DC2905669EBA80C0936429C9811DF568;1661.
+(rerunfilecheck)             Checksum: 2FDC1112DCE413061F392B409B76661B;2371.
  ) 
 Here is how much of TeX's memory you used:
- 33849 strings out of 476683
- 809029 string characters out of 5807575
- 1862012 words of memory out of 5000000
- 53514 multiletter control sequences out of 15000+600000
+ 33901 strings out of 476683
+ 810352 string characters out of 5807575
+ 1864012 words of memory out of 5000000
+ 53566 multiletter control sequences out of 15000+600000
  523100 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 113i,14n,117p,5094b,1162s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,14n,117p,5094b,1159s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on GaugeTheory.pdf (16 pages).
+Output written on GaugeTheory.pdf (17 pages).

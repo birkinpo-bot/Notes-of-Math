@@ -7,4 +7,6 @@
 \contentsline {subsubsection}{\numberline {1.2.1}Covariant Derivative}{7}{subsubsection.1.2.1}%
 \contentsline {subsubsection}{\numberline {1.2.2}Connection 1-form}{8}{subsubsection.1.2.2}%
 \contentsline {subsubsection}{\numberline {1.2.3}Horizontal Distribution}{8}{subsubsection.1.2.3}%
-\contentsline {subsection}{Exercises}{14}{section*.2}%
+\contentsline {subsubsection}{\numberline {1.2.4}Covariant Derivative determines Horizontal Distribution}{10}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Horizontal Distribution determines Covariant Derivative}{11}{subsubsection.1.2.5}%
+\contentsline {subsection}{Exercises}{15}{section*.2}%
