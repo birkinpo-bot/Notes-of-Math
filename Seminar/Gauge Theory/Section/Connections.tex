@@ -334,7 +334,10 @@ The propjection $\pi$ induces a linear map $\pi_*{}_p: T_p E \to T_x M$.
 \end{proposition}
 \begin{proof}
     A point $(p,p')\in \pi^* E$ must satisfy $\pi(p) = \pi(p')$, so we can define a curve $\gamma(t) = p + t p'$ in $E$.
-    Then $\gamma'(0) \in T_p E$ gives a tangent vector at $p$, this gives an injective morphism from $\pi^* E$ to $TE$. 
+    Then $\gamma'(0) \in T_p E$ gives a tangent vector at $p$, this gives an injective morphism 
+    \begin{equation*}
+        i: \pi^* E \hookrightarrow TE, \quad (p,p') \mapsto (p,\gamma'(0)).
+    \end{equation*}
     So we can view $\pi^* E$ as a subbundle of $TE$. 
     Moreover, since $\gamma(t)\subset E_{\pi(p)}$, we have $\pi(\gamma(t)) = \pi(p)$, thus $\pi_*{}_p(\gamma'(0)) = 0$. 
     Therefore, $\pi^* E\subset \ker\pi_*$ 
@@ -345,46 +348,82 @@ The propjection $\pi$ induces a linear map $\pi_*{}_p: T_p E \to T_x M$.
     \end{equation*}
     Thus $\pi^* E = \ker \pi_*$.
 \end{proof}
+For any $p\in E$, we can define a map 
+\begin{equation*}
+    \iota_p: E_{\pi(p)} \to (\pi^*E)_p\subset T_p E, \quad p' \mapsto \gamma'(0),
+\end{equation*}
+where $\gamma(t) = p + t p'$ is a curve in $E$. 
+Then $\iota_p$ is an isomorphism between $E_{\pi(p)}$ and $\ker \pi_*{}_p$.
 
-Let $\pi^*TM$ be the pull-back of $TM$ by $\pi$, then $\pi_*: TE \to TM$ can be viewed as a morphism $\pi_*: TE \to \pi^* TM$. 
+Let $\pi^*TM$ be the pull-back of $TM$ by $\pi$, then $\pi_*: TE \to TM$ can be viewed as 
+a morphism $\tilde{\pi}_*: TE \to \pi^* TM$. 
 The above proposition implies the following short exact sequence of vector bundles over $E$:
 \begin{equation*}
-    0 \to \pi^* E \to TE \xrightarrow{\pi_*} \pi^* TM \to 0.
+    0 \to \pi^* E \overset{i}{\hookrightarrow} TE \xrightarrow{\tilde{\pi}_*} \pi^* TM \to 0.
 \end{equation*}
 In smooth category, all short exact sequences of vector bundles split, so we can find a subbundle $H\hookrightarrow TE$ such that 
 \begin{equation*}
-    TE = H \oplus \pi^* E, \qquad \pi_*: H \to \pi^* TM \text{ is an isomorphism}.
+    TE = H \oplus \pi^* E, \qquad \tilde{\pi}_*: H \to \pi^* TM \text{ is an isomorphism}.
 \end{equation*}
+
+On the vector bundle $E$, we have two natural operations: scalar multiplication and addition. 
+\begin{itemize}
+    \item The scalar multiplication: 
+    \begin{equation*}
+        m: \mathbb{R} \times E \to E, \quad m(\lambda,p) = \lambda p.
+    \end{equation*}
+    For $\nu\in T_\lambda \mathbb{R}\cong \mathbb{R}$ and $v\in T_p E$, let $\gamma(t)$ be a curve in $E$ such that 
+    $\gamma(0) = p$ and $\gamma'(0) = v$, then 
+    \begin{align*}
+        m_*{}_{(\lambda,p)}(\nu,v) =& \frac{\md }{\md t}\Big|_{t=0} (\lambda + t\nu)\gamma(t) \\
+        =& \frac{\md }{\md t}\Big|_{t=0}(\lambda p + t\nu p) + \frac{\md }{\md t}\Big|_{t=0} \lambda \gamma(t) \\
+        =& \nu\iota_p(p) + m_\lambda{}_*{}_p v,
+    \end{align*} 
+    where $m_\lambda: E \to E,\,m_\lambda(p) = \lambda p$ is the scalar multiplication by $\lambda$. 
+    \item The addition:
+    \begin{equation*}
+        a: E\times_M E \to E, \quad a(p,q) = p + q,
+    \end{equation*}
+    where $E\times_M E = \{(p,q)\in E\times E: \pi(p) = \pi(q)\}$. For $u\in T_p E$ and $v\in T_q E$ such that $\pi(p) = \pi(q)$, 
+    let $\gamma(t)$ and $\sigma(t)$ be curves in $E$ such that $\gamma(0) = p$, $\gamma'(0) = u$, $\sigma(0) = q$ and $\sigma'(0) = v$, 
+    then 
+    \begin{align*}
+        a_*{}_{(p,q)}(u,v) =& \frac{\md }{\md t}\Big|_{t=0} a(\gamma(t), \sigma(t)) \\
+        =& \frac{\md }{\md t}\Big|_{t=0} a(\gamma(t), q) + \frac{\md }{\md t}\Big|_{t=0} a(p, \sigma(t)) \\
+        =& a_q{}_*{}_p u + a_p{}_*{}_q v,
+    \end{align*}
+    where $a_q: E_{\pi(p)} \to E_{\pi(p)},\, a_q(p) = p + q$ is the addition by $q$, 
+    and $a_p: E_{\pi(q)} \to E_{\pi(q)},\, a_p(q) = p + q$ is the addition by $p$.
+\end{itemize}
+
 \begin{definition}
     A \textbf{horizontal distribution} of $E$ is a smooth subbundle $H\subset TE$ satisfying the following properties 
     \begin{enumerate}
-        \item $\pi_*: H \to \pi^* TM$ is an isomorphism, or equivalently, 
-        there exists a splitting map $j: \pi^* TM \to TE$ such that $\pi_* \circ j = \mathrm{id}$.
+        \item $\tilde{\pi}_*: H \to \pi^* TM$ is an isomorphism, or equivalently, 
+        there exists a splitting map $j: \pi^* TM \to TE$ such that $\tilde{\pi}_* \circ j = \mathrm{id}$.
         \[\begin{tikzcd}
             0 & {\pi^*E} & TE & {\pi^*TM} & 0
             \arrow[from=1-1, to=1-2]
-            \arrow["\iota", hook, from=1-2, to=1-3]
-            \arrow["{\pi_*}", shift left, from=1-3, to=1-4]
+            \arrow["i", hook, from=1-2, to=1-3]
+            \arrow["\tilde{\pi}_*", shift left, from=1-3, to=1-4]
             \arrow["j", shift left, from=1-4, to=1-3]
             \arrow[from=1-4, to=1-5]
         \end{tikzcd}\]
-        \item $H$ is invariant under the scalar multiplication on $E$, i.e. for any $\lambda\in \mathbb{R}$. 
-        Denote the scalar multiplication by $m_\lambda: E \to E$, $m_\lambda(p) = \lambda p$, then
+        \item $H$ is invariant under the scalar multiplication on $E$, i.e. for any $\lambda\in \mathbb{R},\,p\in E$,
         \begin{equation*}
-            m_{\lambda}{}_*{}_p H_p = H_{\lambda p}, \quad \forall p\in E. 
+            m_{\lambda}{}_*{}_p H_p = H_{\lambda p}. 
         \end{equation*}
-        \item $H$ is invariant under the addition on $E$, i.e. for any $p,q\in E$ such that $\pi(p) = \pi(q)$, 
-        denote the addition by $a_q: E_{\pi(p)} \to E_{\pi(p)}$, $a_q(p) = p + q$, then
+        \item $H$ is invariant under the addition on $E$, i.e. for any $(p,q)\in E\times_M E$,
         \begin{equation*}
-            a_{q}{}_*{}_p H_p = H_{p+q}, \quad \forall p,q\in E \text{ such that } \pi(p) = \pi(q).
+            a_*{}_{(p,q)}(H_p,H_q) = H_{p+q}.
         \end{equation*} 
     \end{enumerate}
+    The last two conditions are saying that $H$ is compatible with the linear structure of $E$.
 \end{definition}
-The last two conditions are saying that $H$ is compatible with the vector bundle structure of $E$.
 
 There is no canonical way to choose a horizontal distribution, so a horizontal distribution is an extra structure on $E$.
 
-Next, we look at how the connection on $E$ gives rise to a horizontal distribution. 
+In what follows, we reveal that covariant derivatives and horizontal distributions can actually determine each other.
 
 Let $\nabla$ be a connection on $E$. Given any smmoth curve $\gamma: (-\varepsilon,\varepsilon) \to M$ with $\gamma(0) = x$, 
 we say $\tilde{\gamma}: (-\varepsilon,\varepsilon) \to E$ is a 
@@ -415,13 +454,16 @@ the horizontal lift $\tilde{\gamma}$ gives a tangent vector $\tilde{\gamma}'(0)\
 \end{proof}
 So there is a well-defined map 
 \begin{equation*}
-    j_p: T_x M \to T_p E, \quad j_p(v) := \tilde{\gamma}'(0).
+    j_p: T_{\pi(p)} M \to T_p E, \quad j_p(v) := \tilde{\gamma}'(0).
 \end{equation*}
 By definition, 
 \begin{equation*}
     \pi(\tilde{\gamma}(t)) = \gamma(t) \implies \pi_*{}_p(j_p(v)) = \pi_*{}_p(\tilde{\gamma}'(0)) = \gamma'(0) = v.
 \end{equation*}
-So $j_p$ is a linear injection from $T_x M$ to $T_p E$, whose image forms a distribution on $E$ denoted by $H$.
+So $j_p$ is a linear injection from $T_{\pi(p)} M$ to $T_p E$, whose image forms a distribution on $E$ denoted by $H$, i.e., 
+\begin{equation*}
+    \textcolor{red}{H := \big\{(p,j_p(v))\mid p\in E, v\in T_{\pi(p)} M\big\}.}
+\end{equation*}
 \begin{fact}
     $H$ is a smooth subbundle of $TE$. 
 \end{fact}
@@ -438,7 +480,7 @@ So $j_p$ is a linear injection from $T_x M$ to $T_p E$, whose image forms a dist
     and $\tilde{\gamma}_p + \tilde{\gamma}_q$ is the horizontal lift of $\gamma$ starting at $p+q$. Thus 
     \begin{gather*}
         m_{\lambda}{}_*{}_p \tilde{\gamma}'(0) = (\lambda \tilde{\gamma}_p)'(0) \in H_{\lambda p}, \\
-        a_{q}{}_*{}_p \tilde{\gamma}'(0) = (\tilde{\gamma}_p + \tilde{\gamma}_q)'(0) \in H_{p+q}.
+        a_*{}_{(p,q)}(\tilde{\gamma}_p'(0), \tilde{\gamma}_q'(0)) = (\tilde{\gamma}_p + \tilde{\gamma}_q)'(0) \in H_{p+q}.
     \end{gather*}
 \end{proof}
 The above discussion is summarized in the following proposition.
@@ -453,10 +495,81 @@ Conversaly, given a horizontal distribution $H$, we can derive a connection $\na
     the horizontal and vertical component of $v$ respectively.
 \end{definition}
 For any $X\in C^\infty(M,TM)$ and $s\in C^\infty(M,E)$, the tangent map of $s$ gives a map $s_*: TM \to TE$, 
-then we can define $\nabla_X s$ by
+then at any point $x\in M$ we can define $(\nabla_X s)(x)$ by
 \begin{equation*}
-    \nabla_X s := s_*(X)_V = \text{the vertical component of } s_*(X).
+    \textcolor{red}{(\nabla_X s)(x) := \iota_{s(x)}^{-1}(s_*{}_x(X_x)_V).}
 \end{equation*}
+The idea is taking the vertical component of $s_*{}_x(X_x)$.
+Note that $\iota_{s(x)}: E_x \to (\pi^* E)_{s(x)}$ is the isomorphism defined above.
+\begin{proposition}\label{prop:connection-from-horizontal-distribution}
+    $\nabla$ defined above is a connection on $E$.
+\end{proposition}
+To prove this proposition, we need the following lemma.
+\begin{lemma}\label{prop:H-compactible-with-linear-str}
+    For any $\lambda\in\mathbb{R},\,(p,q)\in E\times_M E$ and $u\in TE_p,\,v\in TE_q$, we have 
+    \begin{gather*}
+        (m_{\lambda}{}_*{}_p u)_H = m_{\lambda}{}_*{}_p u_H, \qquad (m_{\lambda}{}_*{}_p u)_V = m_{\lambda}{}_*{}_p u_V, \\
+        (a_*{}_{(p,q)}(u,v))_H = a_*{}_{(p,q)}(u_H,v_H), \qquad (a_*{}_{(p,q)}(u,v))_V = a_*{}_{(p,q)}(u_V,v_V).
+    \end{gather*}
+\end{lemma}
+\begin{proof}
+    It holds since $H$ is compatible with the linear structure of the vector bundle.
+\end{proof}
+\begin{lemma}\label{prop:tangent-map-of-linear-ops}
+    For $\lambda\in\mathbb{R},\,(p,q)\in E\times_M E$ and $u,v\in E_{\pi(p)}$, recall that $\iota_p:E_{\pi(p)} \to (\pi^* E)_p$ 
+    is the isomorphism from the fibre $E_{\pi(p)}$ to the vertical component of $T_p E$, then we have  
+    \begin{gather*}
+        m_{\lambda}{}_*{}_p \iota_p(u) = \iota_{\lambda p}(\lambda u), \\
+        a_*{}_{(p,q)}(\iota_p(u),\iota_q(v)) = \iota_{p+q}(u+v).
+    \end{gather*}
+\end{lemma}
+\begin{proof}
+    By the definition of $\iota_p$, 
+    \begin{gather*}
+        m_{\lambda}{}_*{}_p \iota_p(u) = \frac{\md }{\md}\Big|_{t=0} m_{\lambda}(p + t u) 
+        = \frac{\md }{\md}\Big|_{t=0} (\lambda p + t \lambda u) = \iota_{\lambda p}(\lambda u), \\
+        a_*{}_{(p,q)}(\iota_p(u),\iota_q(v)) = \frac{\md }{\md t}\Big|_{t=0} (p + t u) + (q + t v) 
+        = \iota_{p+q}(u+v).
+    \end{gather*}
+\end{proof}
+\begin{proof}[Proof of Proposition \ref{prop:connection-from-horizontal-distribution}]
+    We need to verify that $\nabla$ satisfies the properties of a connection. 
+    \begin{itemize}
+        \item $\nabla_{f_1X_1 + f_2X_2} s = f_1 \nabla_{X_1} s + f_2 \nabla_{X_2} s$:
+        \begin{align*}
+            &\nabla_{f_1X_1 + f_2X_2} s(x) = \iota_{s(x)}^{-1}(s_*{}_x(f_1X_1 + f_2X_2)_V) \\
+            =& \iota_{s(x)}^{-1}(s_*{}_x(f_1(x)X_1{}_x)_V + s_*{}_x(f_2(x)X_2{}_x)_V) \\
+            =& \iota_{s(x)}^{-1}(f_1(x) s_*{}_x(X_1{}_x)_V + f_2(x) s_*{}_x(X_2{}_x)_V) \\
+            =& f_1 \nabla_{X_1} s(x) + f_2 \nabla_{X_2} s(x).
+        \end{align*}
+        \item $\nabla_X (\lambda_1 s_1 + \lambda_2 s_2) = \lambda_1 \nabla_X s_1 + \lambda_2 \nabla_X s_2$:
+        
+        For $\mathbb{R}$-linearity, 
+        \begin{align*}
+            &\nabla_X (\lambda s)(x) = \iota_{(\lambda s)(x)}^{-1}\Big(\big((\lambda s)_*{}_x(X_x)\big)_V\Big) \\
+            =& \iota_{(\lambda s)(x)}^{-1}\Big(\big(m_{\lambda}{}_*{}_{s(x)}s_*{}_x(X_x)\big)_V\Big) \\
+            =& \iota_{(\lambda s)(x)}^{-1}\Big(m_{\lambda}{}_*{}_{s(x)}\big(s_*{}_x(X_x)\big)_V\Big) \quad\text{(By Prop \ref{prop:H-compactible-with-linear-str})}\\
+            =& \iota_{(\lambda s)(x)}^{-1}\Big(\iota_{(\lambda s)(x)}(\lambda \nabla_X s(x))\Big) \quad\text{(By Prop \ref{prop:tangent-map-of-linear-ops})}\\
+            =& \lambda \nabla_X s(x),
+        \end{align*}
+        For additivity,
+        \begin{align*}
+            &\nabla_X (s_1 + s_2)(x) = \iota_{(s_1 + s_2)(x)}^{-1}\Big(\big((s_1 + s_2)_*{}_x(X_x)\big)_V\Big) \\
+            =& \iota_{(s_1 + s_2)(x)}^{-1}\Big(\big(a_*{}_{(s_1(x),s_2(x))}(s_{1*}{}_x(X_x), s_{2*}{}_x(X_x))\big)_V\Big) \\
+            =& \iota_{(s_1 + s_2)(x)}^{-1}\Big(a_*{}_{(s_1(x),s_2(x))}\big((s_{1*}{}_x(X_x))_V, (s_{2*}{}_x(X_x))_V\big)\Big) \quad\text{(By Prop \ref{prop:H-compactible-with-linear-str})}\\
+            =& \iota_{(s_1 + s_2)(x)}^{-1}\Big(\iota_{(s_1 + s_2)(x)}(\nabla_X s_1(x) + \nabla_X s_2(x))\Big) \quad\text{(By Prop \ref{prop:tangent-map-of-linear-ops})}\\
+            =& \nabla_X s_1(x) + \nabla_X s_2(x).
+        \end{align*}
+        \item $\nabla_X (fs) = \md f(X)\cdot s + f\nabla_X s$:
+        \begin{align*}
+            &\nabla_X (fs)(x) = \iota_{(fs)(x)}^{-1}\Big(\big((fs)_*{}_x(X_x)\big)_V\Big) \\
+            =& \iota_{(fs)(x)}^{-1}\Big(m_*{}_{(f(x),s(x))}\big(f_*{}_x(X_x), s_*{}_x(X_x)\big)_V\Big) \\ 
+            =& \iota_{(fs)(x)}^{-1}\Big(\md f(X)_x\cdot \iota_{(fs)(x)}(s(x)) + m_{f(x)}{}_*{}_{s(x)}\big(s_*{}_x(X_x)\big)_V\Big) \\
+            =& \iota_{(fs)(x)}^{-1}\Big(\iota_{(fs)(x)}\big(\md f(X)_x\cdot s(x) + f(x)\nabla_X s(x)\big)\Big) \\
+            =& \md f(X)_x\cdot s(x) + f(x)\nabla_X s(x).
+        \end{align*}
+    \end{itemize}
+\end{proof}
 % \subsubsection{Curvature of Connection}
 
 \newpage
