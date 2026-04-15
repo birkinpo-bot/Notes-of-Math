@@ -75,10 +75,10 @@ For example, let $\eta=\alpha\otimes X$ be a section of $\Omega^r(M,TM)$, then
 Under the above setup, we can define $\nabla^2=\nabla\circ\nabla,\nabla^3,\dots,\nabla^k$, 
 and we can prove the following property:
 \begin{proposition}
-    $\nabla^2: \Omega^*(M,TM)\to\Omega^{*+2}(M,TM)$ is an $\Omega^*(M)$-linear map, i.e.
+    $\nabla^2: \Omega^*(M,TM)\to\Omega^{*+2}(M,TM)$ is an $\Omega^*(M)$-linear map, i.e. 
+    for any $\alpha\in \Omega^*(M),\eta\in \Omega^*(M,TM)$, 
     \begin{equation*}
-        \nabla^2(\alpha\wedge\eta) = \alpha\wedge\nabla^2 \eta,
-        \qquad\forall \alpha\in \Omega^*(M),\eta\in \Omega^*(M,TM).
+        \nabla^2(\alpha\wedge\eta) = \alpha\wedge\nabla^2 \eta.
     \end{equation*}
     Thus $R:=\nabla^2$ defines a section of $\Omega^2(M,\mathrm{End}(TM))$, 
     which is called the \textbf{curvature} of the connection $\nabla$.
@@ -87,11 +87,11 @@ and we can prove the following property:
     \begin{align*}
         \nabla^2\big(\alpha\wedge\eta) =& \nabla(\md\alpha\wedge\eta + (-1)^{q}\alpha\wedge \md^\nabla\eta\big) \\
         =& \md^2\alpha\wedge\eta + (-1)^{q+1}\md\alpha\wedge \md^\nabla\eta + (-1)^q \md\alpha\wedge \nabla\eta + \alpha\wedge\nabla^2 \eta \\
-        =& \alpha\wedge\nabla^2 \eta.
+        =& \alpha\wedge\nabla^2 \eta. \qedhere
     \end{align*}
 \end{proof}
 Unlike the usual exterior derivative $\md$, we have $\nabla^2\neq 0$ in general.
-The reason why $\nabla^2$ is called the curvature of $\nabla$ is that 
+The following proposition explains why $\nabla^2$ is called the curvature of $\nabla$:
 \begin{proposition}\label{prop:curvature}
     For $X,Y,Z\in C^\infty(M,TM)$, we have
     \begin{equation*}
@@ -173,7 +173,8 @@ $\Omega$ the \textbf{curvature 2-form} of the connection $\nabla$ w.r.t. $\{e_i\
     Thus 
     \begin{equation*}
         \Omega_k^l(e_i,e_j)e_l 
-        = \nabla_{e_i}\nabla_{e_j}e_k - \nabla_{e_j}\nabla_{e_i}e_k - \nabla_{[e_i,e_j]}e_k = R(e_i,e_j)e_k.
+        = \nabla_{e_i}\nabla_{e_j}e_k - \nabla_{e_j}\nabla_{e_i}e_k 
+        - \nabla_{[e_i,e_j]}e_k = R(e_i,e_j)e_k. \qedhere
     \end{equation*}
 \end{proof}
 \begin{corollary}
@@ -286,7 +287,7 @@ satisfying the Leibniz rule:
     \begin{align*}
         \nabla^2\big(\alpha\wedge\eta) =& \nabla(\md\alpha\wedge\eta + (-1)^{q}\alpha\wedge \nabla\eta\big) \\
         =& \md^2\alpha\wedge\eta + (-1)^{q+1}\md\alpha\wedge \nabla\eta + (-1)^q \md\alpha\wedge \nabla\eta + \alpha\wedge\nabla^2 \eta \\
-        =& \alpha\wedge\nabla^2 \eta.
+        =& \alpha\wedge\nabla^2 \eta. \qedhere
     \end{align*}
 \end{proof}
 \begin{definition}
@@ -328,15 +329,30 @@ and prove that it is equivalent to the definition given in terms of covariant de
 
 Let $\pi:E\to M$ be a rank $m$ vector bundle, and $p\in E_x$ be a point in the fibre over $x\in M$. 
 The propjection $\pi$ induces a linear map $\pi_*{}_p: T_p E \to T_x M$. 
+We define $\mathcal{V}_p:=\ker \pi_*{}_p$, which is called the \textbf{vertical tangent space} at $p$. 
+Thus we have a short exact sequence 
+\[\begin{tikzcd}
+    0 & {\mathcal{V}_p} & T_pE & {T_{\pi(p)}M} & 0
+    \arrow[from=1-1, to=1-2]
+    \arrow[ hook, from=1-2, to=1-3]
+    \arrow["\pi_*", from=1-3, to=1-4]
+    \arrow[from=1-4, to=1-5]
+\end{tikzcd}\]
+and
+\begin{equation*}
+    \dim \mathcal{V}_p = \dim T_p E - \dim T_{\pi(p)} M = m.
+\end{equation*}
+The kernel of $\pi_*$ form a subbundle of $TE$. 
+We call it the \textbf{vertical subbundle} of $TE$ and denote it by $\mathcal{V}$.
 \begin{proposition}
-    The kernel of $\pi_*$ form a subbundle of $TE$, which is isomorphic to $\pi^* E$. 
-    We call it the \textbf{vertical bundle} of $E$ and denote it by $\mathcal{V}$.
+    For each $p\in E$, there is an isomorphism $E_{\pi(p)} \cong \mathcal{V}_p$, which induces an 
+    isomorphism $\pi^* E \cong \mathcal{V}$. 
 \end{proposition}
 \begin{proof}
     A point $(p,p')\in \pi^* E$ must satisfy $\pi(p) = \pi(p')$, so we can define a curve $\gamma(t) = p + t p'$ in $E$.
     Then $\gamma'(0) \in T_p E$ gives a tangent vector at $p$, this gives an injective morphism 
     \begin{equation*}
-        i: \pi^* E \hookrightarrow TE, \quad (p,p') \mapsto (p,\gamma'(0)).
+        \pi^* E \hookrightarrow TE, \quad (p,p') \mapsto (p,\gamma'(0)).
     \end{equation*}
     So we can view $\pi^* E$ as a subbundle of $TE$. 
     Moreover, since $\gamma(t)\subset E_{\pi(p)}$, we have $\pi(\gamma(t)) = \pi(p)$, thus $\pi_*{}_p(\gamma'(0)) = 0$. 
@@ -362,9 +378,9 @@ The above proposition implies the following short exact sequence of vector bundl
 %     0 \to \pi^*E \overset{i}{\hookrightarrow} TE \xrightarrow{\tilde{\pi}_*} \pi^* TM \to 0.
 % \end{equation*}
 \[\begin{tikzcd}
-    0 & {\pi^*E} & TE & {\pi^*TM} & 0
+    0 & \mathcal{V} & TE & {\pi^*TM} & 0
     \arrow[from=1-1, to=1-2]
-    \arrow["i", hook, from=1-2, to=1-3]
+    \arrow[hook, from=1-2, to=1-3]
     \arrow["\tilde{\pi}_*", from=1-3, to=1-4]
     \arrow[from=1-4, to=1-5]
 \end{tikzcd}\]
@@ -411,13 +427,13 @@ On the vector bundle $E$, we have two natural operations: scalar multiplication 
     satisfying the following properties 
     \begin{enumerate}
         \item $\tilde{\pi}_*: \mathcal{H} \to \pi^* TM$ is an isomorphism, or equivalently, 
-        there exists a splitting map $j: \pi^* TM \to TE$ such that $\tilde{\pi}_* \circ j = \mathrm{id}$.
+        there exists a splitting map $k: \pi^* TM \to TE$ such that $\tilde{\pi}_* \circ k = \mathrm{id}$.
         \[\begin{tikzcd}
-            0 & {\pi^*E} & TE & {\pi^*TM} & 0
+            0 & \mathcal{V} & TE & {\pi^*TM} & 0
             \arrow[from=1-1, to=1-2]
-            \arrow["i", hook, from=1-2, to=1-3]
+            \arrow[hook, from=1-2, to=1-3]
             \arrow["\tilde{\pi}_*", shift left, from=1-3, to=1-4]
-            \arrow["j", shift left, from=1-4, to=1-3]
+            \arrow["k", shift left, from=1-4, to=1-3]
             \arrow[from=1-4, to=1-5]
         \end{tikzcd}\]
         \item $\mathcal{H}$ is invariant under the scalar multiplication on $E$, i.e. for any $\lambda\in \mathbb{R},\,p\in E$,
@@ -458,33 +474,36 @@ we say $\tilde{\gamma}: (-\varepsilon,\varepsilon) \to E$ is a
     The outline of the proof is to write the equations as a system of ODEs in a local frame; 
     the conclusion then follows from the existence and uniqueness theory of linear ODEs.
 \end{proof}
-For any vector $v\in T_x M$ and any point $p\in E_x$, we can find a curve $\gamma$ such that $\gamma(0)=x$ and $\gamma'(0)=v$, 
+For any vector $u\in T_x M$ and any point $p\in E_x$, 
+we can find a curve $\gamma$ such that $\gamma(0)=x$ and $\gamma'(0)=u$, 
 the horizontal lift $\tilde{\gamma}$ gives a tangent vector $\tilde{\gamma}'(0)\in T_p E$. 
 \begin{fact}
     $\tilde{\gamma}'(0)\in T_pE$ is independent of the choice of $\gamma$.
 \end{fact}
 \begin{proof}[Sketch of proof]
     By solving the ODEs, we know that $\tilde{\gamma}'(0)$ depends only on the derivative of $\gamma$ at $0$, 
-    which is $\gamma'(0)=v$.
+    which is $\gamma'(0)=u$.
 \end{proof}
 So there is a well-defined map 
 \begin{equation*}
-    j_p: T_{\pi(p)} M \to T_p E, \quad j_p(v) := \tilde{\gamma}'(0).
+    T_{\pi(p)} M \to T_p E, \quad (u^h)_p := \tilde{\gamma}'(0).
 \end{equation*}
+We call $(u^h)_p$ the \textbf{horizontal lift} of $u$ at $p$.
 By definition, 
 \begin{equation*}
-    \pi(\tilde{\gamma}(t)) = \gamma(t) \implies \pi_*{}_p(j_p(v)) = \pi_*{}_p(\tilde{\gamma}'(0)) = \gamma'(0) = v.
+    \pi(\tilde{\gamma}(t)) = \gamma(t) \implies 
+    \pi_*{}_p(u^h)_p = \pi_*{}_p(\tilde{\gamma}'(0)) = \gamma'(0) = u.
 \end{equation*}
-So $j_p$ is a linear injection from $T_{\pi(p)} M$ to $T_p E$, 
+So we obtain a linear injection from $T_{\pi(p)} M$ to $T_p E$, 
 whose image forms a distribution on $E$ denoted by $\mathcal{H}$, i.e., 
 \begin{equation*}
-    \textcolor{red}{\mathcal{H} := \big\{(p,j_p(v))\mid p\in E, v\in T_{\pi(p)} M\big\}.}
+    \textcolor{red}{\mathcal{H} := \big\{(p,(u^h)_p)\mid p\in E, u\in T_{\pi(p)} M\big\}.}
 \end{equation*}
 \begin{fact}
     $\mathcal{H}$ is a smooth subbundle of $TE$. 
 \end{fact}
 \begin{proof}[Sketch of proof]
-    This fact relies on the smooth dependence of solutions of ODEs on initial conditions and parameters.
+    This fact relies on the smooth dependence of solutions of linear ODEs on initial conditions and parameters.
 \end{proof}
 \begin{fact}
     $\mathcal{H}$ is invariant under the scalar multiplication and addition on $E$.
@@ -496,7 +515,7 @@ whose image forms a distribution on $E$ denoted by $\mathcal{H}$, i.e.,
     and $\tilde{\gamma}_p + \tilde{\gamma}_q$ is the horizontal lift of $\gamma$ starting at $p+q$. Thus 
     \begin{gather*}
         m_{\lambda}{}_*{}_p \tilde{\gamma}'(0) = (\lambda \tilde{\gamma}_p)'(0) \in \mathcal{H}_{\lambda p}, \\
-        a_*{}_{(p,q)}(\tilde{\gamma}_p'(0), \tilde{\gamma}_q'(0)) = (\tilde{\gamma}_p + \tilde{\gamma}_q)'(0) \in \mathcal{H}_{p+q}.
+        a_*{}_{(p,q)}(\tilde{\gamma}_p'(0), \tilde{\gamma}_q'(0)) = (\tilde{\gamma}_p + \tilde{\gamma}_q)'(0) \in \mathcal{H}_{p+q}. \qedhere
     \end{gather*}
 \end{proof}
 The above discussion is summarized in the following theorem.
@@ -508,24 +527,24 @@ The above discussion is summarized in the following theorem.
     the tangent bundle $T(TM)$ has a decomposition $T(TM) = \mathcal{V}\oplus\mathcal{H}$. 
     We can define a metric $G$ on $TM$ by
     \begin{gather*}
-        G(X_H,Y_H):= g(\pi_*(X_H), \pi_*(Y_H)), \quad G(X_V,Y_V) := g(\iota^{-1}(X_V), \iota^{-1}(Y_V)), \\
-        \quad G(X_H,Y_V) := 0,
+        G(X^h,Y^h):= g(\pi_*(X^h), \pi_*(Y^h)), \quad G(X^v,Y^v) := g(\iota^{-1}(X^v), \iota^{-1}(Y^v)), \\
+        \quad G(X^h,Y^v) := 0,
     \end{gather*} 
-    where $X_H,Y_H\in \mathcal{H}$ and $X_V,Y_V\in \mathcal{V}$. 
+    where $X^h,Y^h\in \mathcal{H}$ and $X^v,Y^v\in \mathcal{V}$. 
     $G$ is called \textbf{the Sasaki metric} on $TM$.
 \end{example}
 
 \subsubsection{Horizontal Distribution determines Covariant Derivative}
 Conversaly, given a horizontal distribution $\mathcal{H}$, we can derive a connection $\nabla$ on $E$ as follows. 
 \begin{definition}
-    For any $p\in E$ and $v\in TE$, we can write $v = v_H + v_V$ where 
-    $v_H\in \mathcal{H}$ and $v_V\in \mathcal{V}$. We call $v_H$ and $v_V$ 
-    the horizontal and vertical component of $v$ respectively.
+    For any $p\in E$ and $u\in TE$, we can write $u = h(u) + v(u)$ where 
+    $h(u)\in \mathcal{H}$ and $v(u)\in \mathcal{V}$. We call $h(u)$ and $v(u)$ 
+    the horizontal and vertical component of $u$ respectively.
 \end{definition}
 For any $X\in C^\infty(M,TM)$ and $s\in C^\infty(M,E)$, the tangent map of $s$ gives a map $s_*: TM \to TE$, 
 then at any point $x\in M$ we can define $(\nabla_X s)(x)$ by
 \begin{equation*}
-    \textcolor{red}{(\nabla_X s)(x) := \iota_{s(x)}^{-1}(s_*{}_x(X_x)_V).}
+    \textcolor{red}{(\nabla_X s)(x) := \iota_{s(x)}^{-1}\big(v(s_*{}_x X_x)\big).}
 \end{equation*}
 Note that $\iota_{s(x)}: E_x \to \mathcal{V}_{s(x)}$ is the isomorphism defined above. 
 The idea is taking the vertical component of $s_*{}_x(X_x)$.
@@ -534,57 +553,58 @@ The idea is taking the vertical component of $s_*{}_x(X_x)$.
 \end{theorem}
 To prove this theorem, we need the following lemma.
 \begin{lemma}\label{lem:tangent-map-of-linear-ops-acts-on-vertical-bundle}
-    For $\lambda\in\mathbb{R},\,(p,q)\in E\times_M E$ and $u,v\in E_{\pi(p)}$, we have  
+    For $\lambda\in\mathbb{R},\,(p,q)\in E\times_M E$ and $u,w\in E_{\pi(p)}$, we have  
     \begin{gather*}
         m_{\lambda}{}_*{}_p \iota_p(u) = \iota_{\lambda p}(\lambda u), \\
-        a_*{}_{(p,q)}(\iota_p(u),\iota_q(v)) = \iota_{p+q}(u+v).
+        a_*{}_{(p,q)}(\iota_p(u),\iota_q(w)) = \iota_{p+q}(u+w).
     \end{gather*}
 \end{lemma}
 \begin{proof}
     By the definition of $\iota_p$, 
     \begin{gather*}
-        m_{\lambda}{}_*{}_p \iota_p(u) = \frac{\md }{\md}\Big|_{t=0} m_{\lambda}(p + t u) 
-        = \frac{\md }{\md}\Big|_{t=0} (\lambda p + t \lambda u) = \iota_{\lambda p}(\lambda u), \\
-        a_*{}_{(p,q)}(\iota_p(u),\iota_q(v)) = \frac{\md }{\md t}\Big|_{t=0} (p + t u) + (q + t v) 
-        = \iota_{p+q}(u+v).
+        m_{\lambda}{}_*{}_p \iota_p(u) = \left.\frac{\md }{\md t}\right|_{t=0} m_{\lambda}(p + t u) 
+        = \left.\frac{\md }{\md t}\right|_{t=0} (\lambda p + t \lambda u) = \iota_{\lambda p}(\lambda u), \\
+        a_*{}_{(p,q)}(\iota_p(u),\iota_q(w)) = \left.\frac{\md }{\md t}\right|_{t=0} (p + t u) + (q + t w) 
+        = \iota_{p+q}(u+w). \qedhere
     \end{gather*}
 \end{proof}
 
 \begin{lemma}\label{lem:H-compatible-with-linear-str}
-    For any $\lambda\in\mathbb{R},\,(p,q)\in E\times_M E$ and $u\in TE_p,\,v\in TE_q$, we have 
+    For any $\lambda\in\mathbb{R},\,(p,q)\in E\times_M E$ and $u\in TE_p,\,w\in TE_q$, 
     \begin{gather*}
-        (m_{\lambda}{}_*{}_p u)_H = m_{\lambda}{}_*{}_p(u_H), \qquad (m_{\lambda}{}_*{}_p u)_V = m_{\lambda}{}_*{}_p(u_V), \\
-        (a_*{}_{(p,q)}(u,v))_H = a_*{}_{(p,q)}(u_H,v_H), \qquad (a_*{}_{(p,q)}(u,v))_V = a_*{}_{(p,q)}(u_V,v_V).
+        h(m_{\lambda}{}_*{}_p u) = m_{\lambda}{}_*{}_p(h(u)), \quad v(m_{\lambda}{}_*{}_p u) = m_{\lambda}{}_*{}_p(v(u)), \\
+        h(a_*{}_{(p,q)}(u,w)) = a_*{}_{(p,q)}(h(u),h(w)), \quad v(a_*{}_{(p,q)}(u,w)) = a_*{}_{(p,q)}(v(u),v(w)).
     \end{gather*}
 \end{lemma}
 \begin{proof}
     Decompose $u$ and $m_{\lambda}{}_*{}_p u$ into their horizontal and vertical components, we get 
     \begin{equation*}
-        m_{\lambda}{}_*{}_p(u_H) + m_{\lambda}{}_*{}_p(u_V) = m_{\lambda}{}_*{}_p(u) 
-        = (m_{\lambda}{}_*{}_p u)_H + (m_{\lambda}{}_*{}_p u)_V.
+        m_{\lambda}{}_*{}_p(h(u)) + m_{\lambda}{}_*{}_p(v(u)) = m_{\lambda}{}_*{}_p(u) 
+        = h(m_{\lambda}{}_*{}_p u) + v(m_{\lambda}{}_*{}_p u).
     \end{equation*}
     Since $\mathcal{H}$ is compatible with the linear structure of the vector bundle, 
-    we have $m_{\lambda}{}_*{}_p(u_H)\in \mathcal{H}$. Besides, 
+    we have $m_{\lambda}{}_*{}_p(h(u))\in \mathcal{H}_{\lambda p}$. Besides, 
     Lemma \ref{lem:tangent-map-of-linear-ops-acts-on-vertical-bundle} implies 
-    $m_{\lambda}{}_*{}_p(u_V)\in \mathcal{V}$, thus 
+    $m_{\lambda}{}_*{}_p(v(u))\in \mathcal{V}_{\lambda p}$, thus 
     \begin{equation*}
-        m_{\lambda}{}_*{}_p(u_H) = (m_{\lambda}{}_*{}_p u)_H, \qquad m_{\lambda}{}_*{}_p(u_V) = (m_{\lambda}{}_*{}_p u)_V.
+        m_{\lambda}{}_*{}_p(h(u)) = h(m_{\lambda}{}_*{}_p u), \qquad m_{\lambda}{}_*{}_p(v(u)) = v(m_{\lambda}{}_*{}_p u).
     \end{equation*}
     The proof for the addition is exactly the same.
 \end{proof}
 
 \begin{lemma}\label{lem:tangent-map-of-multiplication}
-    For $\nu\in T_\lambda \mathbb{R}\cong \mathbb{R}$ and $v\in T_p E$, we have 
+    For $\nu\in T_\lambda \mathbb{R}\cong \mathbb{R}$ and $u\in T_p E$, we have 
     \begin{equation*}
-        m_*{}_{(\lambda,p)}(\nu,v) = \nu\cdot\iota_p(p) + m_\lambda{}_*{}_p v.
+        m_*{}_{(\lambda,p)}(\nu,u) = \nu\cdot\iota_p(p) + m_\lambda{}_*{}_p u.
     \end{equation*}
 \end{lemma}
 \begin{proof}
-    let $\gamma(t)$ be a curve in $E$ such that $\gamma(0) = p$ and $\gamma'(0) = v$, then 
+    let $\gamma(t)$ be a curve in $E$ such that $\gamma(0) = p$ and $\gamma'(0) = u$, then 
     \begin{align*}
-        m_*{}_{(\lambda,p)}(\nu,v) =& \frac{\md }{\md t}\Big|_{t=0} (\lambda + t\nu)\gamma(t) \\
-        =& \frac{\md }{\md t}\Big|_{t=0}(\lambda p + t\nu p) + \frac{\md }{\md t}\Big|_{t=0} \lambda \gamma(t) \\
-        =& \nu\cdot\iota_p(p) + m_\lambda{}_*{}_p v,
+        m_*{}_{(\lambda,p)}(\nu,u) =& \left.\frac{\md }{\md t}\right|_{t=0} (\lambda + t\nu)\gamma(t) \\
+        =& \left.\frac{\md }{\md t}\right|_{t=0}(\lambda p + t\nu p) 
+        + \left.\frac{\md }{\md t}\right|_{t=0} \lambda \gamma(t) \\
+        =& \nu\cdot\iota_p(p) + m_\lambda{}_*{}_p u. \qedhere
     \end{align*} 
 \end{proof}
 \begin{proof}[Proof of Theorem \ref{thm:connection-from-horizontal-distribution}]
@@ -592,18 +612,20 @@ To prove this theorem, we need the following lemma.
     \begin{itemize}
         \item $\nabla_{f_1X_1 + f_2X_2} s = f_1 \nabla_{X_1} s + f_2 \nabla_{X_2} s$:
         \begin{align*}
-            &\nabla_{f_1X_1 + f_2X_2} s(x) = \iota_{s(x)}^{-1}\Big(s_*{}_x(f_1X_1 + f_2X_2)_V\Big) \\
-            =& \iota_{s(x)}^{-1}\Big(s_*{}_x(f_1(x)X_1{}_x)_V + s_*{}_x(f_2(x)X_2{}_x)_V\Big) \\
-            =& \iota_{s(x)}^{-1}\Big(f_1(x) s_*{}_x(X_1{}_x)_V + f_2(x) s_*{}_x(X_2{}_x)_V\Big) \\
+            &\nabla_{f_1X_1 + f_2X_2} s(x) = \iota_{s(x)}^{-1}\Big(v\big(s_*{}_x(f_1X_1 + f_2X_2)\big)\Big) \\
+            =& \iota_{s(x)}^{-1}\Big(v\big(s_*{}_x(f_1(x)X_1{}_x)\big) 
+            + v\big(s_*{}_x(f_2(x)X_2{}_x)\big)\Big) \\
+            =& \iota_{s(x)}^{-1}\Big(f_1(x) v\big(s_*{}_x X_1{}_x\big) 
+            + f_2(x) v\big(s_*{}_x X_2{}_x\big)\Big) \\
             =& f_1 \nabla_{X_1} s(x) + f_2 \nabla_{X_2} s(x).
         \end{align*}
         \item $\nabla_X (\lambda_1 s_1 + \lambda_2 s_2) = \lambda_1 \nabla_X s_1 + \lambda_2 \nabla_X s_2$:
         
         For $\mathbb{R}$-linearity, 
         \begin{align*}
-            &\nabla_X (\lambda s)(x) = \iota_{(\lambda s)(x)}^{-1}\Big(\big((\lambda s)_*{}_x(X_x)\big)_V\Big) \\
-            =& \iota_{(\lambda s)(x)}^{-1}\Big(\big(m_{\lambda}{}_*{}_{s(x)}s_*{}_x(X_x)\big)_V\Big) \\
-            =& \iota_{(\lambda s)(x)}^{-1}\Big(m_{\lambda}{}_*{}_{s(x)}\big(s_*{}_x(X_x)\big)_V\Big) 
+            &\nabla_X (\lambda s)(x) = \iota_{(\lambda s)(x)}^{-1}\Big(v\big((\lambda s)_*{}_x(X_x)\big)\Big) \\
+            =& \iota_{(\lambda s)(x)}^{-1}\Big(v\big(m_{\lambda}{}_*{}_{s(x)}s_*{}_x(X_x)\big)\Big) \\
+            =& \iota_{(\lambda s)(x)}^{-1}\Big(m_{\lambda}{}_*{}_{s(x)}v\big(s_*{}_x(X_x)\big)\Big) 
             \quad\text{(By Lemma \ref{lem:H-compatible-with-linear-str})}\\
             =& \iota_{(\lambda s)(x)}^{-1}\Big(\iota_{(\lambda s)(x)}(\lambda \nabla_X s(x))\Big) 
             \quad\text{(By Lemma \ref{lem:tangent-map-of-linear-ops-acts-on-vertical-bundle})}\\
@@ -611,9 +633,9 @@ To prove this theorem, we need the following lemma.
         \end{align*}
         For additivity,
         \begin{align*}
-            &\nabla_X (s_1 + s_2)(x) = \iota_{(s_1 + s_2)(x)}^{-1}\Big(\big((s_1 + s_2)_*{}_x(X_x)\big)_V\Big) \\
-            =& \iota_{(s_1 + s_2)(x)}^{-1}\Big(\big(a_*{}_{(s_1(x),s_2(x))}(s_{1*}{}_x(X_x), s_{2*}{}_x(X_x))\big)_V\Big) \\
-            =& \iota_{(s_1 + s_2)(x)}^{-1}\Big(a_*{}_{(s_1(x),s_2(x))}\big((s_{1*}{}_x(X_x))_V, (s_{2*}{}_x(X_x))_V\big)\Big) 
+            &\nabla_X (s_1 + s_2)(x) = \iota_{(s_1 + s_2)(x)}^{-1}\Big(v\big((s_1 + s_2)_*{}_x X_x\big)\Big) \\
+            =& \iota_{(s_1 + s_2)(x)}^{-1}\Big(v\big(a_*{}_{(s_1(x),s_2(x))}(s_{1*}{}_x X_x, s_{2*}{}_x X_x)\big)\Big) \\
+            =& \iota_{(s_1 + s_2)(x)}^{-1}\Big(a_*{}_{(s_1(x),s_2(x))}\big(v(s_{1*}{}_x X_x), v(s_{2*}{}_x X_x)\big)\Big) 
             \quad\text{(By Lemma \ref{lem:H-compatible-with-linear-str})}\\
             =& \iota_{(s_1 + s_2)(x)}^{-1}\Big(\iota_{(s_1 + s_2)(x)}(\nabla_X s_1(x) + \nabla_X s_2(x))\Big) 
             \quad\text{(By Lemma \ref{lem:tangent-map-of-linear-ops-acts-on-vertical-bundle})}\\
@@ -621,13 +643,13 @@ To prove this theorem, we need the following lemma.
         \end{align*}
         \item $\nabla_X (fs) = \md f(X)\cdot s + f\nabla_X s$:
         \begin{align*}
-            &\nabla_X (fs)(x) = \iota_{(fs)(x)}^{-1}\Big(\big((fs)_*{}_x(X_x)\big)_V\Big) \\
-            =& \iota_{(fs)(x)}^{-1}\Big(m_*{}_{(f(x),s(x))}\big(f_*{}_x(X_x), s_*{}_x(X_x)\big)_V\Big) \\ 
-            =& \iota_{(fs)(x)}^{-1}\Big(\md f(X)_x\cdot \iota_{(fs)(x)}(s(x)) + m_{f(x)}{}_*{}_{s(x)}\big(s_*{}_x(X_x)\big)_V\Big) 
+            &\nabla_X (fs)(x) = \iota_{(fs)(x)}^{-1}\Big(v\big((fs)_*{}_x X_x\big)\Big) \\
+            =& \iota_{(fs)(x)}^{-1}\Big(v\big(m_{f(x)}{}_*{}_{s(x)}(f_*{}_x X_x, s_*{}_x X_x)\big)\Big) \\ 
+            =& \iota_{(fs)(x)}^{-1}\Big(\md f(X)_x\cdot \iota_{(fs)(x)}(s(x)) + v\big(m_{f(x)}{}_*{}_{s(x)}s_*{}_x X_x\big)\Big) 
             \quad\text{(By Lemma \ref{lem:tangent-map-of-multiplication})}\\
             =& \iota_{(fs)(x)}^{-1}\Big(\iota_{(fs)(x)}\big(\md f(X)_x\cdot s(x) + f(x)\nabla_X s(x)\big)\Big) 
             \quad\text{(By Lemma \ref{lem:tangent-map-of-linear-ops-acts-on-vertical-bundle})}\\
-            =& \md f(X)_x\cdot s(x) + f(x)\nabla_X s(x).
+            =& \md f(X)_x\cdot s(x) + f(x)\nabla_X s(x). \qedhere
         \end{align*}
     \end{itemize}
 \end{proof}
@@ -801,3 +823,12 @@ To prove this theorem, we need the following lemma.
         + \frac{\partial^2 x^l}{\partial \tilde{x}^i \partial \tilde{x}^j} \frac{\partial \tilde{x}^k}{\partial x^l}.
     \end{equation*}
 \end{exercise}
+
+\begin{exercise}
+    Let $\nabla$ be a connection on $TM$. It determines a horizontal distribution $\mathcal{H}$ on $TM$. 
+    Then $T(TM) = \mathcal{V}\oplus\mathcal{H}$, where $\mathcal{V}$ is the vertical bundle of $TM$. 
+    Show that $\nabla$ is torsion-free if and only if for any $X,Y\in C^\infty(M,TM)$,
+    \begin{equation*}
+        [X^h,Y^h] = [X,Y]^h.
+    \end{equation*}
+\end{exercise} 

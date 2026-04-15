@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  6 APR 2026 15:33
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  15 APR 2026 14:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/bobo/Desktop/数学笔记/Seminar/Gauge Theory/GaugeTheory"
-(c:/Users/bobo/Desktop/数学笔记/Seminar/Gauge Theory/GaugeTheory.tex
+**"c:/Users/bobo/Desktop/数学笔记/Seminar/Gauge Theory/Notes on Gauge Theory"
+(c:/Users/bobo/Desktop/数学笔记/Seminar/Gauge Theory/Notes on Gauge Theory.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (d:/texlive/2023/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -784,7 +784,9 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \droptitle=\skip67
 )
 \tocupshift=\skip68
-
+ (d:/texlive/2023/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
 
 Package xeCJK Warning: Fandol is being set as the default font for CJK text.
 (xeCJK)                Please make sure it has been properly installed.
@@ -811,8 +813,8 @@ Package fontspec Info: Font family 'FandolSong-Regular(0)' created for font
 (fontspec)             <->"[FandolKai-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
 
-(./GaugeTheory.aux (./Section/Connections.aux))
-\openout1 = `GaugeTheory.aux'.
+(./Notes on Gauge Theory.aux (./Section/Preface.aux) (./Section/Prologue.aux) (./Section/AffineConnections.aux) (./Section/PrincipalBundles.aux))
+\openout1 = `"Notes on Gauge Theory.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
@@ -906,9 +908,9 @@ Package gensymb Info: Using \Omega for \ohm on input line 13.
 Package gensymb Warning: Not defining \micro.
 
 Package hyperref Info: Link coloring OFF on input line 13.
-(./GaugeTheory.out) (./GaugeTheory.out)
+(./Notes on Gauge Theory.out) (./Notes on Gauge Theory.out)
 \@outlinefile=\write4
-\openout4 = `GaugeTheory.out'.
+\openout4 = `"Notes on Gauge Theory.out"'.
 
 LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
  (d:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -921,42 +923,97 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 17.
  (d:/texlive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) (./GaugeTheory.toc)
+) (./Notes on Gauge Theory.toc)
 \tf@toc=\write5
-\openout5 = `GaugeTheory.toc'.
+\openout5 = `"Notes on Gauge Theory.toc"'.
 
  [1
 
 ]
-\openout2 = `Section/Connections.aux'.
+\openout2 = `Section/Preface.aux'.
 
- (./Section/Connections.tex [2
+ (./Section/Preface.tex
 
-] [3] [4] [5]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 239.
+Package fontspec Warning: Font "FandolFang-Regular" does not contain requested
+(fontspec)                Script "CJK".
+
+
+Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
+(fontspec)             'FandolFang-Regular' with options
+(fontspec)             [Script={CJK},Extension={.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[FandolFang-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
+) [2
+
+]
+\openout2 = `Section/Prologue.aux'.
+
+ (./Section/Prologue.tex
+Overfull \hbox (9.89098pt too wide) in paragraph at lines 1--1
+[]\TU/lmr/bx/n/17.28 Prologue: Electromagnetism and $\OML/cmm/m/it/17.28 U\OT1/cmr/m/n/17.28 (1)$ \TU/lmr/bx/n/17.28 Gauge
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1.
+
+) [3
+
+
+
+]
+\openout2 = `Section/AffineConnections.aux'.
+
+ (./Section/AffineConnections.tex [4
+
+
+
+] [5] [6] [7]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 240.
  (d:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [6] [7] [8] [9] [10] [11] [12]
-Overfull \hbox (7.94357pt too wide) detected at line 621
+) [8] [9] [10] [11] [12] [13] [14]
+Overfull \hbox (16.78395pt too wide) detected at line 653
 []
  []
 
+[15] [16] [17]) [18]
+\openout2 = `Section/PrincipalBundles.aux'.
 
-Overfull \hbox (27.1507pt too wide) detected at line 631
-[]
- []
+ (./Section/PrincipalBundles.tex [19
 
-[13] [14] [15] [16]) [17] Total classes: 0 (./GaugeTheory.aux (./Section/Connections.aux))
-Package rerunfilecheck Info: File `GaugeTheory.out' has not changed.
-(rerunfilecheck)             Checksum: 2FDC1112DCE413061F392B409B76661B;2371.
+
+
+] [20] [21]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 159.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 159.
+
+[22] [23]) [24] Total classes: 0 (./Notes on Gauge Theory.aux (./Section/Preface.aux) (./Section/Prologue.aux) (./Section/AffineConnections.aux) (./Section/PrincipalBundles.aux))
+Package rerunfilecheck Info: File `"Notes on Gauge Theory".out' has not changed.
+(rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 33901 strings out of 476683
- 810352 string characters out of 5807575
- 1864012 words of memory out of 5000000
- 53566 multiletter control sequences out of 15000+600000
- 523100 words of font info for 95 fonts, out of 8000000 for 9000
+ 34419 strings out of 476683
+ 828057 string characters out of 5807575
+ 1867012 words of memory out of 5000000
+ 54047 multiletter control sequences out of 15000+600000
+ 525575 words of font info for 112 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 113i,14n,117p,5094b,1159s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,15n,117p,5104b,1151s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on GaugeTheory.pdf (17 pages).
+Output written on Notes on Gauge Theory.pdf (24 pages).

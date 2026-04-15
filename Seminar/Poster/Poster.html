@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduction to Gauge Theory — 讨论班海报</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #FAFBFC;
+    --bg-card: #FFFFFF;
+    --text-primary: #1A1D23;
+    --text-secondary: #4A5060;
+    --text-tertiary: #8B92A0;
+    --accent: #2563EB;
+    --accent-light: #EFF6FF;
+    --accent-subtle: #DBEAFE;
+    --border: #E5E7EB;
+    --border-light: #F0F1F3;
+    --section-bg: #F5F7FA;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .poster {
+    width: 100%;
+    max-width: 680px;
+    background: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 30px rgba(0,0,0,0.06);
+    border: 1px solid var(--border-light);
+  }
+
+  /* ── Header ── */
+  .header {
+    position: relative;
+    padding: 48px 44px 40px;
+    background: linear-gradient(160deg, #F8FAFF 0%, #FFFFFF 40%, #F0F4FF 100%);
+    border-bottom: 1px solid var(--border-light);
+    overflow: hidden;
+  }
+
+  .header-deco {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(37, 99, 235, 0.08);
+    pointer-events: none;
+  }
+  .header-deco:nth-child(2) {
+    top: -20px;
+    right: -20px;
+    width: 140px;
+    height: 140px;
+    border-color: rgba(37, 99, 235, 0.05);
+  }
+  .header-deco:nth-child(3) {
+    top: -5px;
+    right: -5px;
+    width: 80px;
+    height: 80px;
+    border-color: rgba(37, 99, 235, 0.04);
+    background: rgba(37, 99, 235, 0.02);
+  }
+
+  .header-lines {
+    position: absolute;
+    bottom: 0;
+    left: 44px;
+    right: 44px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .badge-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .title-en {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .title-zh {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-tertiary);
+    letter-spacing: 0.02em;
+    position: relative;
+  }
+
+  /* ── Intro Module ── */
+  .intro {
+    padding: 36px 44px;
+  }
+
+  .intro-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 2;
+    color: var(--text-secondary);
+  }
+
+  .intro-text p {
+    margin-bottom: 16px;
+  }
+  .intro-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .intro-text .keyword {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .keyword-tag {
+    font-size: 11px;
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-secondary);
+    background: var(--section-bg);
+    border: 1px solid var(--border);
+    padding: 4px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.01em;
+    transition: all 0.3s;
+  }
+  .keyword-tag:hover {
+    background: var(--accent-light);
+    border-color: var(--accent-subtle);
+    color: var(--accent);
+  }
+
+  /* ── Info Bar ── */
+  .info-bar {
+    display: flex;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    background: var(--section-bg);
+    padding-left: 22px;
+  }
+
+  .info-item {
+    flex: 1;
+    padding: 22px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-right: 1px solid var(--border-light);
+    transition: background 0.3s;
+  }
+  .info-item:last-child { border-right: none; }
+  .info-item:hover { background: #EEF1F5; }
+
+  .info-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+
+  .info-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+
+  .info-value .highlight {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .info-sub {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    font-weight: 400;
+  }
+
+  /* ── Footer with QR ── */
+  .footer {
+    padding: 32px 44px;
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .qr-wrapper {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .qr-wrapper img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+  }
+
+  .qr-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-tertiary);
+  }
+
+  .qr-placeholder svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--text-tertiary);
+    stroke-width: 1.5;
+    fill: none;
+  }
+
+  .qr-placeholder span {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .footer-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .footer-desc {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .footer-hint {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-top: 2px;
+  }
+
+  /* ── Decorative curvature sketch ── */
+  .curvature-sketch {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    opacity: 0.06;
+    pointer-events: none;
+  }
+
+  /* ── Print ── */
+  @media print {
+    body { padding: 0; background: white; }
+    .poster { box-shadow: none; border: none; border-radius: 0; max-width: 100%; }
+    .keyword-tag:hover { background: var(--section-bg); color: var(--text-secondary); border-color: var(--border); }
+    .info-item:hover { background: transparent; }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    body { padding: 16px 8px; }
+    .header { padding: 36px 28px 32px; }
+    .title-en { font-size: 24px; }
+    .intro { padding: 28px; }
+    .info-bar { flex-direction: column; }
+    .info-item { border-right: none; border-bottom: 1px solid var(--border-light); }
+    .info-item:last-child { border-bottom: none; }
+    .footer { flex-direction: column; text-align: center; padding: 28px; }
+    .header-deco { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="poster">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-deco"></div>
+    <div class="header-deco"></div>
+    <div class="header-deco"></div>
+
+    <svg class="curvature-sketch" width="120" height="120" viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="50" stroke="currentColor" stroke-width="0.8" fill="none"/>
+      <ellipse cx="60" cy="60" rx="50" ry="20" stroke="currentColor" stroke-width="0.8" fill="none" transform="rotate(30 60 60)"/>
+      <ellipse cx="60" cy="60" rx="50" ry="20" stroke="currentColor" stroke-width="0.8" fill="none" transform="rotate(-30 60 60)"/>
+      <ellipse cx="60" cy="60" rx="50" ry="20" stroke="currentColor" stroke-width="0.8" fill="none" transform="rotate(90 60 60)"/>
+      <circle cx="60" cy="60" r="3" fill="currentColor"/>
+    </svg>
+
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Student Seminar
+    </div>
+    <div class="title-en">Introduction to Gauge Theory</div>
+    <!-- <div class="title-zh">规范理论导论 — 从微分几何到低维拓扑</div> -->
+    <div class="header-lines"></div>
+  </div>
+
+  <!-- Intro Module -->
+  <div class="intro">
+    <div class="intro-text">
+      <p>
+        本讨论班将介绍规范理论的几何基础，如<span class="keyword">联络</span>、<span class="keyword">主丛</span>、<span class="keyword">示性类</span>等，
+        这些内容在物理学中是非常重要的工具，在数学中也有着广泛的应用。我们将会从黎曼几何中的 Levi-Civita 联络开始，
+        逐渐引入更一般的仿射联络和主丛上的联络，并介绍它们的曲率和示性类等相关内容。
+      </p>
+      <p>
+        有了上面的铺垫，我们将会用几何语言描述物理中的规范场，例如<span class="keyword">电磁理论</span>和 <span class="keyword">Yang-Mills 理论</span>等规范场论的基本内容。
+      </p>
+      <p>
+        最后我们将利用规范理论构造拓扑不变量，如 <span class="keyword">Donaldson 不变量</span>、<span class="keyword">Seiberg-Witten 不变量</span>等。
+        我们将会介绍这些不变量的定义，以及它们在低维拓扑中的应用。
+      </p>
+    </div>
+    <div class="keywords">
+      <span class="keyword-tag">Connection</span>
+      <span class="keyword-tag">Principal Bundle</span>
+      <span class="keyword-tag">Curvature</span>
+      <span class="keyword-tag">Characteristic Class</span>
+      <span class="keyword-tag">Yang-Mills</span>
+      <span class="keyword-tag">Donaldson Invariant</span>
+      <span class="keyword-tag">Seiberg-Witten Invariant</span>
+      <span class="keyword-tag">4-Manifolds</span>
+    </div>
+  </div>
+
+  <!-- Info Bar -->
+  <div class="info-bar">
+    <div class="info-item">
+      <span class="info-label">时间</span>
+      <span class="info-value">每周五 <span class="highlight">18:30 – 21:30</span></span>
+      <span class="info-sub">4月17日开始</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">地点</span>
+      <span class="info-value">陈所 <span class="highlight">214</span> 教室</span>
+    </div>
+  </div>
+
+  <!-- Footer with QR -->
+  <div class="footer">
+    <div class="qr-wrapper">
+      <!--
+        替换说明：将下方整个 qr-placeholder div 替换为你的二维码图片，例如：
+        <img src="your-qrcode.png" alt="课程群二维码">
+      -->
+      <img src="qrcode1.png" alt="课程群二维码">  <!-- 请替换为实际二维码文件 -->
+      <!-- <div class="qr-placeholder">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="3" width="7" height="7" rx="1"/>
+          <rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/>
+          <rect x="14" y="14" width="3" height="3" rx="0.5"/>
+          <rect x="18" y="18" width="3" height="3" rx="0.5"/>
+          <rect x="14" y="18" width="3" height="3" rx="0.5"/>
+          <rect x="18" y="14" width="3" height="3" rx="0.5"/>
+        </svg>
+        <span>QR CODE</span>
+      </div> -->
+    </div>
+    <div class="footer-text">
+      <div class="footer-title">扫码加入课程群</div>
+      <div class="footer-desc">扫描左侧二维码加入讨论班飞书群，获取讲义、参考文献及课程通知。</div>
+      <div class="footer-hint">欢迎所有对几何与拓扑感兴趣的同学参加</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
