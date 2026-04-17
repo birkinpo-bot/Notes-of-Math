@@ -1,1 +1,273 @@
 \section{Prologue: Electromagnetism and $U(1)$ Gauge Theory}
+\subsection{Maxwell's equations}
+We begin the story with Maxwell's equations. Recall that Maxwell's equations in vacuum are 
+\begin{equation*}
+    \begin{cases}
+        \mathrm{div}\, \mathbf{E} = 0, \\
+        \mathrm{div}\, \mathbf{B} = 0, \\
+        \mathrm{curl}\, \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}, \\
+        \mathrm{curl}\, \mathbf{B} = \frac{\partial \mathbf{E}}{\partial t}.
+    \end{cases}
+\end{equation*}
+Here 
+\begin{gather*}
+    \mathbf{E} = (E_x, E_y, E_z) \quad \text{is the electric field}, \\
+    \mathbf{B} = (B_x, B_y, B_z) \quad \text{is the magnetic field}.
+\end{gather*}
+Each component is a function of the spacetime coordinates $(t, x, y, z)$. 
+
+Below we will list some concepts and notations commonly used in physics:
+\begin{itemize}
+    \item \textit{$4$-vector potential} $A_\mu$\footnote{$\mu=0,1,2,3$ are the spacetime indices, 
+    where $0$ corresponds to the time coordinate $t$, 
+    and $1,2,3$ correspond to the spatial coordinates $x,y,z$.} 
+    \begin{equation*}
+        A_\mu = (\phi, A_x, A_y, A_z),
+    \end{equation*}
+    where $\phi$ is the \textit{scalar potential} and $\mathbf{A} = (A_x, A_y, A_z)$ is the \textit{vector potential}. 
+    \item \textit{Electromagnetic field strength tensor} $F_{\mu\nu}$ 
+    \begin{equation*}
+        F_{\mu\nu} = \begin{pmatrix}
+            0 & -E_x & -E_y & -E_z \\
+            E_x & 0 & B_z & -B_y \\
+            E_y & -B_z & 0 & B_x \\
+            E_z & B_y & -B_x & 0
+        \end{pmatrix}.
+    \end{equation*}
+    \item Relation between $A_\mu$ and $F_{\mu\nu}$
+    \begin{equation*}
+        F_{\mu\nu} = \p_\mu A_\nu - \p_\nu A_\mu \footnotemark
+        \implies
+        \begin{cases}
+            \mathbf{E} = \mathrm{grad}\, \phi - \frac{\partial \mathbf{A}}{\partial t}, \\
+            \mathbf{B} = \mathrm{curl}\, \mathbf{A}.
+        \end{cases} 
+    \end{equation*}
+    \footnotetext{Here we use the notation $\p_0:=\pd{}{t}, \p_1:=\pd{}{x}, \p_2:=\pd{}{y}, \p_3:=\pd{}{z}$.}
+    \item \textit{Gauge transformation of the $4$-vector potential}
+    \begin{equation*}
+        A_\mu \mapsto A_\mu + \p_\mu \chi \implies
+        \begin{cases}
+            \phi \mapsto \phi + \pd{\chi}{t}, \\
+            \mathbf{A} \mapsto \mathbf{A} + \mathrm{grad}\, \chi.
+        \end{cases}
+    \end{equation*}
+    where $\chi$ is an arbitrary smooth function. 
+    One can check that this transformation leaves the electromagnetic field strength tensor $F_{\mu\nu}$ invariant.
+\end{itemize}
+
+
+Although Maxwell's equations are already quite concise, 
+we can still transform them into an even more elegant expression using the language of differential forms. 
+
+Let $\mR^{3,1}$ be the spacetime with coordinates $(t, x, y, z)$, equipped with the Minkowski metric 
+\begin{equation*}
+    \md s^2 = \md t^2 - \md x^2 - \md y^2 - \md z^2.
+\end{equation*}
+For simplicity, we set the speed of light $c = 1$. 
+
+The Hodge star operator $\ast$ on $\Omega^*(\mR^{3,1})$ is defined by 
+\begin{equation*}
+    \alpha \wedge \ast \beta = \langle \alpha, \beta \rangle \md t \wedge \md x \wedge \md y \wedge \md z, 
+    \quad \forall \alpha, \beta \in \Omega^*(\mR^{3,1}).
+\end{equation*}
+Explicitly, we have
+\begin{align*}
+    \ast 1 &= \md t \wedge \md x \wedge \md y \wedge \md z, \\
+    \ast \md t &= \md x \wedge \md y \wedge \md z, \\
+    \ast \md x &= \md t \wedge \md y \wedge \md z, \\
+    \ast \md y &= \md t \wedge \md z \wedge \md x, \\
+    \ast \md z &= \md t \wedge \md x \wedge \md y, \\
+    \ast (\md t \wedge \md x) &= -\md y \wedge \md z, \\
+    \ast (\md t \wedge \md y) &= -\md z \wedge \md x, \\
+    \ast (\md t \wedge \md z) &= -\md x \wedge \md y, \\
+    \ast (\md x \wedge \md y) &= \md t \wedge \md z, \\
+    \ast (\md y \wedge \md z) &= \md t \wedge \md x, \\
+    \ast (\md z \wedge \md x) &= \md t \wedge \md y, \\
+    \ast (\md t \wedge \md x \wedge \md y) &= \md z, \\
+    \ast (\md t \wedge \md y \wedge \md z) &= \md x, \\
+    \ast (\md t \wedge \md z \wedge \md x) &= \md y, \\
+    \ast (\md x \wedge \md y \wedge \md z) &= \md t, \\
+    \ast (\md t \wedge \md x \wedge \md y \wedge \md z) &= -1.
+\end{align*}
+It is direct to check that 
+\begin{equation*}
+    \ast^2 = (-1)^{p+1} \quad \text{on } \Omega^p(\mR^{3,1}).
+\end{equation*}
+Now we can introduce the electromagnetic field strength 2-form
+\begin{equation*}
+    F = -\md t\wedge(E_x\md x + E_y\md y + E_z\md z) + B_x\md y\wedge\md z + B_y\md z\wedge\md x + B_z\md x\wedge\md y.
+\end{equation*}
+Then 
+\begin{align*}
+    \md F =& \md t \wedge \Big[(\p_x E_y-\p_y E_x)\md x\wedge\md y + (\p_y E_z-\p_z E_y)\md y\wedge\md z + (\p_z E_x-\p_x E_z)\md z\wedge\md x\Big] \\
+    &+ \md t\wedge\Big(\p_t B_x \md y \wedge \md z + \p_t B_y \md z \wedge \md x + \p_t B_z \md x \wedge \md y\Big) \\
+    &+ \Big(\p_xB_x+\p_yB_y+\p_zB_z\Big)\md x\wedge\md y\wedge\md z, \\
+\end{align*}
+Thus 
+\begin{equation*}
+    \begin{cases}
+        \mathrm{div}\ \mathbf{B} = 0, \\
+        \mathrm{curl}\ \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}.
+    \end{cases}
+    \Longleftrightarrow \quad\md F = 0.
+\end{equation*}
+On the other hand, 
+\begin{equation*}
+    \ast F = E_x\md y\wedge\md z + E_y\md z\wedge\md x + E_z\md x\wedge\md y + \md t\wedge(B_x\md x + B_y\md y + B_z\md z).
+\end{equation*}
+So 
+\begin{align*}
+    \md\ast F =& -\md t\wedge\Big[(\p_xB_y-\p_yB_x)\md x\wedge\md y + (\p_zB_x-\p_xB_z)\md z\wedge\md x + (\p_yB_z-\p_zB_y)\md y\wedge\md z\Big] \\
+    &+ \md t\wedge\Big(\p_t E_x \md y \wedge \md z + \p_t E_y \md z \wedge \md x + \p_t E_z \md x \wedge \md y\Big) \\
+    &+ \Big(\p_x E_x + \p_y E_y + \p_z E_z\Big)\md x\wedge\md y\wedge\md z.
+\end{align*}
+Thus 
+\begin{equation*}
+    \begin{cases}
+        \mathrm{div}\ \mathbf{E} = 0, \\
+        \mathrm{curl}\ \mathbf{B} = \frac{\partial \mathbf{E}}{\partial t}.
+    \end{cases}
+    \Longleftrightarrow \quad\md\ast F = 0.
+\end{equation*}
+Since $\ast:\Omega^p(\mR^{3,1})\to\Omega^{4-p}(\mR^{3,1})$ is an isomorphism, 
+\begin{equation*}
+    \md\ast F=0 \Longleftrightarrow \ast\md\ast F=0.
+\end{equation*}
+Therefore, 
+\begin{equation*}
+    \begin{cases}
+        \mathrm{div}\ \mathbf{E} = 0, \\
+        \mathrm{div}\ \mathbf{B} = 0, \\
+        \mathrm{curl}\ \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}, \\
+        \mathrm{curl}\ \mathbf{B} = \frac{\partial \mathbf{E}}{\partial t}.
+    \end{cases}
+    \Longleftrightarrow
+    \begin{cases}
+        \md F = 0, \\
+        \md^* F = 0.
+    \end{cases}
+\end{equation*} 
+Here $\md^* = \ast\md\ast$ is the dual of $\md$. 
+
+In Riemannian geometry, a $p$-form $\alpha$ is called \textit{harmonic} if $\md\alpha = 0$ and $\md^*\alpha = 0$.
+Thus Maxwell's equations in vacuum corresponds to a harmonic 2-form $F$. 
+
+Poincar\'e lemma says all closed forms on $\mR^{3,1}$ are exact. So if $\md F=0$, there exists a 1-form $A$ such that 
+\begin{equation*}
+    F = \md A.
+\end{equation*}
+If we write 
+\begin{equation*}
+    A = \phi\md t + A_x\md x + A_y\md y + A_z\md z,
+\end{equation*}
+Then
+\begin{equation*}
+    F = \md A \implies
+    \begin{cases}
+        E_x = \p_x\phi - \p_t A_x, \\
+        E_y = \p_y\phi - \p_t A_y, \\
+        E_z = \p_z\phi - \p_t A_z, \\
+        B_x = \p_y A_z - \p_z A_y, \\
+        B_y = \p_z A_x - \p_x A_z, \\
+        B_z = \p_x A_y - \p_y A_x.
+    \end{cases} \implies
+    \begin{cases}
+        \mathbf{E} = \mathrm{grad}\,\phi - \frac{\p \mathbf{A}}{\p t}, \\
+        \mathbf{B} = \mathrm{curl}\,\mathbf{A}.
+    \end{cases}
+\end{equation*}
+
+It is easy to see that $A$ is not unique. In fact, 
+if we transform $A\mapsto A + \md\chi$ for some smooth function $\chi$, then 
+\begin{equation*}
+    F \mapsto \md A + \md^2 \chi = \md A = F.
+\end{equation*}
+Explicitly,
+\begin{equation*}
+    A \mapsto A + \md\chi \implies
+    \begin{cases}
+        \phi \mapsto \phi + \p_t \chi, \\
+        A_x \mapsto A_x + \p_x \chi, \\
+        A_y \mapsto A_y + \p_y \chi, \\
+        A_z \mapsto A_z + \p_z \chi.
+    \end{cases}\implies
+    \begin{cases}
+        \phi \mapsto \phi + \pd{\chi}{t}, \\
+        \mathbf{A} \mapsto \mathbf{A} + \nabla \chi.
+    \end{cases}
+\end{equation*}
+
+We can summarize the above discussion in a table: 
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Physics} & \textbf{Differential Geometry} \\
+        \hline
+        $4$-vector potential $A_\mu$ & $1$-form $A$ \\
+        \hline
+        Electromagnetic field strength tensor $F_{\mu\nu}$ & $2$-form $F$ \\
+        \hline
+        $F_{\mu\nu}=\p_\mu A_\nu - \p_\nu A_\mu$ & $F = \md A$ \\
+        \hline
+        Gauge transformation $A_\mu \mapsto A_\mu + \p_\mu \chi$ & $A \mapsto A + \md\chi$ \\
+        \hline
+        Maxwell's equations & $\md F = 0, \md^* F = 0$ \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection{$U(1)$ gauge theory}
+Let $\psi(x)$ be a complex-valued function on $\mR^{3,1}$, which represents the wave function of a matter field.
+Here $x$ denotes the spacetime coordinates. 
+In physics, $|\psi(x)|^2$ represents the probability amplitude of finding the particle at a given point in spacetime. 
+If we transform 
+\begin{equation*}
+    \psi(x) \mapsto \psi'(x)=e^{i\chi}\psi(x)
+\end{equation*}
+for some real constant $\chi$. This transformation is called a \textit{global $U(1)$ gauge transformation}. 
+Since the probability amplitude $|\psi'(x)|^2=|\psi(x)|^2$ remains the same, 
+the physics is invariant under global $U(1)$ gauge transformations.
+
+Now we want to promote the global $U(1)$ gauge symmetry to a local one.
+That is, we want the physics to be invariant under the transformation
+\begin{equation*}
+    \psi(x) \mapsto \psi'(x)=e^{i\chi(x)}\psi(x)
+\end{equation*}
+for some smooth function $\chi\in C^\infty(\mR^{3,1})$.
+
+For some physical reason, we want the derivative of $\psi$ to be covariant under transformations. 
+This holds in the case of global $U(1)$ gauge transformations, since 
+\begin{equation*}
+    \md\psi \mapsto \md\psi' = e^{i\chi}\md\psi.
+\end{equation*}
+However, in the case of local $U(1)$ gauge transformations,
+\begin{equation*}
+    \md\psi \mapsto \md\psi' = e^{i\chi(x)}\md\psi + (\md e^{i\chi(x)})\psi.
+\end{equation*}
+The extra term $(\md e^{i\chi(x)})\psi$ breaks the covariance of the derivative.
+
+To fix this problem, we introduce a 1-form $A$ and define the \textit{covariant derivative} by 
+\begin{equation*}
+    \nabla\psi = \md\psi + iA\psi.
+\end{equation*}
+Under the local $U(1)$ gauge transformation, 
+\begin{equation*}
+    \nabla\mapsto \nabla'=\md + iA',
+\end{equation*}
+we want $\nabla\psi$ to be covariant, i.e. 
+\begin{equation*}
+    \nabla\psi\mapsto\nabla'\psi' = e^{i\chi(x)}\nabla\psi.
+\end{equation*}
+Then by 
+\begin{align*}
+    \nabla'\psi' &= \md\psi' + iA'\psi' = e^{i\chi(x)}\md\psi + ie^{i\chi(x)}(A'+\md\chi)\psi, \\
+    e^{i\chi(x)}\nabla\psi &= e^{i\chi(x)}(\md\psi + iA\psi) = e^{i\chi(x)}\md\psi + ie^{i\chi(x)}A\psi,
+\end{align*}
+we must have 
+\begin{equation*}
+    A' = A - \md\chi.
+\end{equation*}
+Ignoring the sign, this is exactly the gauge transformation of the electromagnetic potential $A$ in electromagnetism.
+Thus, the electromagnetic potential $A$ can be interpreted as a gauge field 
+that ensures the covariance of the derivative under local $U(1)$ gauge transformations.
