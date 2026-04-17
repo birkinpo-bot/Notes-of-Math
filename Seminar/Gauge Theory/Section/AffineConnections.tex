@@ -7,7 +7,7 @@ So let us first review its most basic definition,
 and then try to rewrite everything we are familiar with in the language of differential forms.
 \subsubsection{Covariant Derivative}
 \begin{definition}
-    A connection $\nabla$ on a mannifold $M$ is a map
+    A \textbf{connection} $\nabla$ on a mannifold $M$ is a map
     \begin{align*}
         \nabla: C^\infty(M,TM) \times C^\infty(M,TM) &\to C^\infty(M,TM) \\
         (Y,X) &\mapsto \nabla_Y X
@@ -23,8 +23,7 @@ and then try to rewrite everything we are familiar with in the language of diffe
 \end{definition}
 
 \begin{definition}
-    The \textbf{torsion}\footnote{It can only be defined for connections on the tangent bundle, 
-    since it involves both $\nabla_X Y$ and $\nabla_Y X$.} 
+    The \textbf{torsion}
     of a connection $\nabla$ is defined as the tensor
     \begin{equation*}
         T(X,Y) := \nabla_X Y - \nabla_Y X - [X,Y].
@@ -35,8 +34,13 @@ and then try to rewrite everything we are familiar with in the language of diffe
     \end{equation*}
 \end{definition}
 
+\begin{remark}
+    The torsion $T$ can only be defined for connections on the tangent bundle, 
+    since it involves both $\nabla_X Y$ and $\nabla_Y X$.
+\end{remark}
+
 \begin{definition}
-    A connection $\nabla$ of a Riemannian manifold $(M,g)$ is called a Levi-Civita connection 
+    A connection $\nabla$ of a Riemannian manifold $(M,g)$ is called a \textbf{Levi-Civita connection} 
     if it is torsion-free and compatible with the metric $g$, i.e. 
     \begin{gather*}
         \nabla_X Y - \nabla_Y X = [X,Y], \\
@@ -52,7 +56,7 @@ A connection $\nabla$ can also be viewed as a map
 \end{align*}
 where $\nabla X$ is a $1$-form taken value in $TM$\footnote{One can simply view $\nabla X$ as a $(1,1)$-tensor field.} 
 and $(\nabla X)(Y) := \nabla_Y X$.
-$\nabla$ is not a $C^\infty(M)$-linear map, but 
+$\nabla$ is not a $C^\infty(M)$-linear map, instead, 
 \begin{equation*}
     \nabla(fX) = \md f \otimes X + f \nabla X.
 \end{equation*}
@@ -103,7 +107,7 @@ The following proposition explains why $\nabla^2$ is called the curvature of $\n
 \end{proof}
 
 \subsubsection{Connection 1-form}
-Locally, we always have a local frame. Let $\{e_i\}$ be a local frame of $TM$ on an open set $U\subset M$, 
+Locally, we always have a frame. Let $\{e_i\}$ be a local frame of $TM$ on an open set $U\subset M$, 
 and $\{\theta^i\}$ be the dual frame.
 then we can write 
 \begin{equation*}
@@ -129,14 +133,44 @@ then we can write the above equation in a more compact way:
         \omega_1^1 & \cdots & \omega_1^n \\
         \vdots &  & \vdots \\
         \omega_n^1 & \cdots & \omega_n^n
-    \end{pmatrix}\footnotemark
+    \end{pmatrix}
+    \footnotemark
 \end{equation*}
 \footnotetext{This is an awkward notation. 
-Due to certain notational reasons, we consider arranging the frame as row vectors, 
-which results in differential forms acting on the right of vectors. For ordinary vectors, 
-we are free to place differential forms on the left or right without introducing sign changes. 
-However, it should be noted that for vector-valued differential forms, 
-placing the differential form on the left or right does make a sign difference.}
+Since we arrange the frame as row vectors so matirx $\omega$ should multiply on the right. 
+For a vector field $X$ and a differential forms $\alpha\in\Omega^q(M)$, 
+we have $X\otimes\alpha = \alpha \otimes X$. 
+For a general $\eta\in\Omega^p(M,TM)$, we have $\eta\otimes\alpha = (-1)^{pq} \alpha \otimes \eta$.}
+
+For any vector field $X = X^i e_i$, we have 
+\begin{align*}
+    \nabla X =& \nabla\left((\ft{e}{1}{n})
+    \begin{pmatrix}
+        X^1 \\ \vdots \\ X^n
+    \end{pmatrix}
+    \right) \\ 
+    =& \Big(\nabla(\ft{e}{1}{n})\Big)
+    \begin{pmatrix}
+        X^1 \\ \vdots \\ X^n
+    \end{pmatrix} + (\ft{e}{1}{n}) 
+    \begin{pmatrix}
+        \md X^1 \\ \vdots \\ \md X^n
+    \end{pmatrix} \\
+    =& (\ft{e}{1}{n}) 
+    \left( \md 
+    \begin{pmatrix}
+        X^1 \\ \vdots \\ X^n 
+    \end{pmatrix} + 
+    \omega 
+    \begin{pmatrix}
+        X^1 \\ \vdots \\ X^n
+    \end{pmatrix}
+    \right).
+\end{align*}
+Thus under a local frame, $\nabla$ can be expressed as 
+\begin{equation*}
+    \nabla = \md + \omega.
+\end{equation*}
 
 We can compute the curvature in terms of the connection 1-form $\omega$:
 \begin{align*}
@@ -184,7 +218,7 @@ $\Omega$ the \textbf{curvature 2-form} of the connection $\nabla$ w.r.t. $\{e_i\
     \end{equation*}
 \end{corollary}
 
-The connection 1-form $\omega$ is not a tensor, since it depends on the choice of the local frame.
+% The connection 1-form $\omega$ is not a tensor, since it depends on the choice of the local frame.
 Let $\{\tilde{e_j}\}$ be another local frame, and the transition matrix 
 from $\{e_i\}$ to $\{\tilde{e_j}\}$ is $a=(a_i^j)$, i.e. 
 \begin{equation*}
@@ -202,7 +236,6 @@ Thus
 \begin{equation}\label{eq:trans-formula-for-con-form}
     \tilde{\omega} = a^{-1} \md a + a^{-1} \omega a.
 \end{equation}
-
 Applying the transformation formula (\ref{eq:trans-formula-for-con-form}) to (\ref{eq:curvature-form}), we get 
 \begin{align*}
     \tilde{\Omega} =& \md\tilde{\omega} + \tilde{\omega}\wedge \tilde{\omega} \\
@@ -230,16 +263,16 @@ The above formula shows that although $\Omega$ isn't a globally defined form, tw
 only differ by a conjugation. So if we apply a quantity invariant under conjugation, we obtain a globally defined form. 
 This is the idea of Chern-Weil theory, which we will discuss in later section.
 
-For a Riemannian manifold $(M,g)$, let $\nabla$ be the Levi-Civita connection. We can take $\{e_i\}$ to be a local orthonormal frame, 
-and $\{\omega^i\}$ be the corresponding dual frame. Then
-\begin{align*}
-    &\langle \nabla_{e_k} e_i, e_j \rangle + \langle e_i, \nabla_{e_k} e_j \rangle = e_k\langle e_i, e_j \rangle = 0 \\
-    \implies &\langle \omega^l_i(e_k)e_l, e_j \rangle + \langle e_i, \omega^l_j(e_k)e_l \rangle = 0 \\
-    \implies &\omega^j_i(e_k) + \omega^i_j(e_k) = 0.
-\end{align*}
-So the connection 1-form $\omega$ w.r.t. an orthonormal frame is skew-symmetric, i.e. $\omega \in \Omega^1(M,\mathfrak{so}(n))$. 
-Since $\Omega=\md\omega+\omega\wedge\omega$, the curvature 2-form $\Omega$ is also skew-symmetric, 
-i.e. $\Omega \in \Omega^2(M,\mathfrak{so}(n))$.
+% For a Riemannian manifold $(M,g)$, let $\nabla$ be the Levi-Civita connection. We can take $\{e_i\}$ to be a local orthonormal frame, 
+% and $\{\omega^i\}$ be the corresponding dual frame. Then
+% \begin{align*}
+%     &\langle \nabla_{e_k} e_i, e_j \rangle + \langle e_i, \nabla_{e_k} e_j \rangle = e_k\langle e_i, e_j \rangle = 0 \\
+%     \implies &\langle \omega^l_i(e_k)e_l, e_j \rangle + \langle e_i, \omega^l_j(e_k)e_l \rangle = 0 \\
+%     \implies &\omega^j_i(e_k) + \omega^i_j(e_k) = 0.
+% \end{align*}
+% So the connection 1-form $\omega$ w.r.t. an orthonormal frame is skew-symmetric, i.e. $\omega \in \Omega^1(M,\mathfrak{so}(n))$. 
+% Since $\Omega=\md\omega+\omega\wedge\omega$, the curvature 2-form $\Omega$ is also skew-symmetric, 
+% i.e. $\Omega \in \Omega^2(M,\mathfrak{so}(n))$.
 
 
 \subsection{General Affine Connections}
@@ -260,26 +293,30 @@ The content of this section is almost a verbatim copy of the previous content.
     \end{align*}
 \end{definition}
 
-The existence of connections on any vector bundle can be proved by using partitions of unity, which we left as an exercise.
+\begin{remark}
+    The existence of connections on any vector bundle can be proved by using partitions of unity, 
+    which we left as an exercise.
+\end{remark}
 
-The reason why we call $\nabla$ an \textbf{affine} connection is that given two connections $\nabla_1$ and $\nabla_2$ on $E$, 
-$(1-t)\nabla_1 + t\nabla_2$ is also a connection on $E$ for any $t\in \mathbb{R}$.
+\begin{remark}
+    The reason why we call $\nabla$ an \textbf{affine} connection is that given two connections $\nabla_1$ and $\nabla_2$ on $E$, 
+    $(1-t)\nabla_1 + t\nabla_2$ is also a connection on $E$ for any $t\in \mathbb{R}$.
+\end{remark}
 
 Let $(\nabla s)(X):= \nabla_X s$, we can extend $\nabla$ to the exterior covariant derivative
 \begin{align*}
     \nabla: \Omega^*(M,E) &\to \Omega^{*+1}(M,E) \\
     \eta &\mapsto \nabla \eta,
 \end{align*}
-satisfying the Leibniz rule:
+satisfying the Leibniz rule: for any $\alpha\in \Omega^q(M),\eta\in \Omega^*(M,E)$,
 \begin{align*}
-    \nabla(\alpha\wedge\eta) = \md\alpha\wedge\eta + (-1)^{q}\alpha\wedge \nabla\eta,
-    \quad\forall \alpha\in \Omega^q(M),\eta\in \Omega^*(M,E).
+    \nabla(\alpha\wedge\eta) = \md\alpha\wedge\eta + (-1)^{q}\alpha\wedge \nabla\eta.
 \end{align*}
 \begin{proposition}
-    $\nabla^2: \Omega^*(M,E)\to\Omega^{*+2}(M,E)$ is an $\Omega^*(M)$-linear map, i.e.
+    $\nabla^2: \Omega^*(M,E)\to\Omega^{*+2}(M,E)$ is an $\Omega^*(M)$-linear map, i.e., 
+    for any $\alpha\in \Omega^*(M),\eta\in \Omega^*(M,E)$,
     \begin{equation*}
-        \nabla^2(\alpha\wedge\eta) = \alpha\wedge\nabla^2 \eta,
-        \qquad\forall \alpha\in \Omega^*(M),\eta\in \Omega^*(M,E).
+        \nabla^2(\alpha\wedge\eta) = \alpha\wedge\nabla^2 \eta.
     \end{equation*}
 \end{proposition}
 \begin{proof}
@@ -291,8 +328,7 @@ satisfying the Leibniz rule:
     \end{align*}
 \end{proof}
 \begin{definition}
-    The curvature of a connection $\nabla$ on $E$ is defined 
-    as $R:=\nabla^2\in\Omega^2(M,\mathrm{End}(E))$.
+    The curvature of $\nabla$ is defined as $R:=\nabla^2\in\Omega^2(M,\mathrm{End}(E))$.
 \end{definition}
 % \begin{definition}
 %     For $A\in C^\infty(M,\mathrm{End}(E))$, we define $\nabla A \in \Omega^{1}(M,\mathrm{End}(E))$ by 
@@ -522,17 +558,18 @@ The above discussion is summarized in the following theorem.
 \begin{theorem}
     $\mathcal{H}$ is a horizontal distribution of $E$. 
 \end{theorem}
-\begin{example}
-    For a Riemannian manifold $(M,g)$ and the Levi-Civita connection $\nabla$, 
-    the tangent bundle $T(TM)$ has a decomposition $T(TM) = \mathcal{V}\oplus\mathcal{H}$. 
-    We can define a metric $G$ on $TM$ by
-    \begin{gather*}
-        G(X^h,Y^h):= g(\pi_*(X^h), \pi_*(Y^h)), \quad G(X^v,Y^v) := g(\iota^{-1}(X^v), \iota^{-1}(Y^v)), \\
-        \quad G(X^h,Y^v) := 0,
-    \end{gather*} 
-    where $X^h,Y^h\in \mathcal{H}$ and $X^v,Y^v\in \mathcal{V}$. 
-    $G$ is called \textbf{the Sasaki metric} on $TM$.
-\end{example}
+
+% \begin{example}
+%     For a Riemannian manifold $(M,g)$ and the Levi-Civita connection $\nabla$, 
+%     the tangent bundle $T(TM)$ has a decomposition $T(TM) = \mathcal{V}\oplus\mathcal{H}$. 
+%     We can define a metric $G$ on $TM$ by
+%     \begin{gather*}
+%         G(X^h,Y^h):= g(\pi_*(X^h), \pi_*(Y^h)), \quad G(X^v,Y^v) := g(\iota^{-1}(X^v), \iota^{-1}(Y^v)), \\
+%         \quad G(X^h,Y^v) := 0,
+%     \end{gather*} 
+%     where $X^h,Y^h\in \mathcal{H}$ and $X^v,Y^v\in \mathcal{V}$. 
+%     $G$ is called \textbf{the Sasaki metric} on $TM$.
+% \end{example}
 
 \subsubsection{Horizontal Distribution determines Covariant Derivative}
 Conversaly, given a horizontal distribution $\mathcal{H}$, we can derive a connection $\nabla$ on $E$ as follows. 
@@ -659,7 +696,7 @@ To prove this theorem, we need the following lemma.
 \subsection*{Exercises}
 \addcontentsline{toc}{subsection}{Exercises}
 \begin{exercise}
-    In Riemannian geometry, we can define the covariant derivative of a $1$-form $\omega$ by
+    Given a connection $\nabla$, we can define the covariant derivative of a $1$-form $\omega$ by
     \begin{equation*}
         (\nabla_X \omega)(Y) := X(\omega(Y)) - \omega(\nabla_X Y).
     \end{equation*}
