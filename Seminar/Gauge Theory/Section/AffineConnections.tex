@@ -48,7 +48,7 @@ and then try to rewrite everything we are familiar with in the language of diffe
     \end{gather*}
 \end{definition}
 
-\subsubsection{Exterior convariant derivative}
+\subsubsection*{Exterior convariant derivative}
 A connection $\nabla$ can also be viewed as a map
 \begin{align*}
     \nabla: C^\infty(M,TM) &\to C^\infty(M,T^*M \otimes TM) \\
@@ -276,7 +276,8 @@ This is the idea of Chern-Weil theory, which we will discuss in later section.
 
 
 \subsection{General Affine Connections}
-Let $\pi:E\to M$ be a rank $m$ vector bundle, we can also define affine connections on $E$ in a similar way as we did for the tangent bundle. 
+Let $\pi:E\to M$ be a rank $m$ vector bundle, we can also define affine connections on $E$ 
+in a similar way as we did for the tangent bundle. 
 \subsubsection{Covariant Derivative}
 The content of this section is almost a verbatim copy of the previous content. 
 \begin{definition}\label{def:con-on-E}
@@ -293,16 +294,6 @@ The content of this section is almost a verbatim copy of the previous content.
     \end{align*}
 \end{definition}
 
-\begin{remark}
-    The existence of connections on any vector bundle can be proved by using partitions of unity, 
-    which we left as an exercise.
-\end{remark}
-
-\begin{remark}
-    The reason why we call $\nabla$ an \textbf{affine} connection is that given two connections $\nabla_1$ and $\nabla_2$ on $E$, 
-    $(1-t)\nabla_1 + t\nabla_2$ is also a connection on $E$ for any $t\in \mathbb{R}$.
-\end{remark}
-
 Let $(\nabla s)(X):= \nabla_X s$, we can extend $\nabla$ to the exterior covariant derivative
 \begin{align*}
     \nabla: \Omega^*(M,E) &\to \Omega^{*+1}(M,E) \\
@@ -312,6 +303,40 @@ satisfying the Leibniz rule: for any $\alpha\in \Omega^q(M),\eta\in \Omega^*(M,E
 \begin{align*}
     \nabla(\alpha\wedge\eta) = \md\alpha\wedge\eta + (-1)^{q}\alpha\wedge \nabla\eta.
 \end{align*}
+
+\begin{remark}
+    The reason why we call $\nabla$ an \textbf{affine} connection is that given two connections $\nabla_1$ and $\nabla_2$ on $E$, 
+    $(1-t)\nabla_1 + t\nabla_2$ is also a connection on $E$ for any $t\in \mathbb{R}$.
+\end{remark}
+
+\begin{remark}
+    % For a tivial bundle $M\times \mathbb{R}^m$, we can easily define a connection $\nabla=\md$, 
+    % \begin{equation*}
+    %     \nabla_X (\ft{s}{1}{m})^T = (\ft{Xs}{1}{m})^T.
+    % \end{equation*}
+    % Thus there always exists a connection on a trivial bundle. For a general vector bundle $E$, 
+    The existence of connections on $E$ can be proved by using partitions of unity, which we left as an exercise.
+\end{remark}
+
+\begin{proposition}
+    Let $\nabla_1$ and $\nabla_2$ be two connections on $E$, then $\nabla_1 - \nabla_2$ is $C^\infty(M)$-linear in $s$, 
+    thus defines a section $A\in \Omega^1(M,\mathrm{End}(E))$. 
+    Conversely, for any $A\in \Omega^1(M,\mathrm{End}(E))$ and a connection $\nabla$ on $E$, $\nabla + A$ is also a connection on $E$. 
+    \textcolor{red}{Consequently, the space of connections on $E$ is an affine space modeled on $\Omega^1(M,\mathrm{End}(E))$.}
+\end{proposition}
+\begin{proof}
+    For $s\in C^\infty(M,E),f\in C^\infty(M)$, 
+    \begin{equation*}
+        (\nabla_1 - \nabla_2)(fs) = \md f\otimes s + f\nabla_1 s - \md f\otimes s - f\nabla_2 s = f(\nabla_1 - \nabla_2)(s),
+    \end{equation*}
+    thus $\nabla_1 - \nabla_2$ is $C^\infty(M)$-linear in $s$. 
+    Conversely, for $A\in \Omega^1(M,\mathrm{End}(E))$ and a connection $\nabla$ on $E$,
+    \begin{equation*}
+        (\nabla + A)(fs) = \nabla(fs) + A(fs) = \md f\otimes s + f\nabla s + fAs = \md f\otimes s + f(\nabla + A)(s). \qedhere
+    \end{equation*}
+\end{proof}
+
+\subsubsection*{Curvature of connections}
 \begin{proposition}
     $\nabla^2: \Omega^*(M,E)\to\Omega^{*+2}(M,E)$ is an $\Omega^*(M)$-linear map, i.e., 
     for any $\alpha\in \Omega^*(M),\eta\in \Omega^*(M,E)$,
@@ -322,14 +347,63 @@ satisfying the Leibniz rule: for any $\alpha\in \Omega^q(M),\eta\in \Omega^*(M,E
 \begin{proof}
     For $\alpha\in \Omega^q(M),\eta\in \Omega^*(M,E)$, 
     \begin{align*}
-        \nabla^2\big(\alpha\wedge\eta) =& \nabla(\md\alpha\wedge\eta + (-1)^{q}\alpha\wedge \nabla\eta\big) \\
-        =& \md^2\alpha\wedge\eta + (-1)^{q+1}\md\alpha\wedge \nabla\eta + (-1)^q \md\alpha\wedge \nabla\eta + \alpha\wedge\nabla^2 \eta \\
+        \nabla^2\big(\alpha\wedge\eta) 
+        =& \nabla(\md\alpha\wedge\eta 
+        + (-1)^{q}\alpha\wedge \nabla\eta\big) \\
+        =& \md^2\alpha\wedge\eta + (-1)^{q+1}\md\alpha\wedge \nabla\eta 
+        + (-1)^q \md\alpha\wedge \nabla\eta 
+        + \alpha\wedge\nabla^2 \eta \\
         =& \alpha\wedge\nabla^2 \eta. \qedhere
     \end{align*}
 \end{proof}
 \begin{definition}
     The curvature of $\nabla$ is defined as $R:=\nabla^2\in\Omega^2(M,\mathrm{End}(E))$.
 \end{definition}
+
+\subsubsection*{Metrics and metric compatibility}
+\begin{definition}
+    Let $E$ be a (complex) vector bundle over $M$.
+    A \textbf{(Hermitian) metric} on $E$ is a smooth section $g$ of $E^*\otimes E^*$ such that 
+    for any $x\in M$, $g_x$ is a (Hermitian) inner product $\langle \cdot, \cdot \rangle_{E_x}$ on the fibre $E_x$. 
+\end{definition}
+\begin{definition}
+    A connection $\nabla$ on $E$ is called \textbf{compatible with the metric $g$} 
+    if for any $X\in C^\infty(M,TM)$ and $s_1,s_2\in C^\infty(M,E)$, 
+    \begin{equation*}
+        X\langle s_1, s_2 \rangle = \langle \nabla_X s_1, s_2 \rangle + \langle s_1, \nabla_X s_2 \rangle.
+    \end{equation*}
+\end{definition}
+\begin{remark}
+    For a (complex) vector bundle $E$ over $M$, we can always construct a (Hermitian) metric on $E$ by using partitions of unity. 
+\end{remark}
+\begin{remark}
+    Given a (Hermitian) metric $g$ on $E$, we can always construct a connection $\nabla$ 
+    compatible with $g$ by using partitions of unity. Note that the connection compatible with $g$ is not unique.
+\end{remark}
+\begin{proposition}
+    Let $\nabla_1$ and $\nabla_2$ be two connections on $E$ compatible with metric $g$, 
+    then $\nabla_1 - \nabla_2$ is skew-symmetric w.r.t. $g$, i.e., $\nabla_1 - \nabla_2 \in \Omega^1(M,\mathfrak{so}(E,g))$. 
+    Conversely, for any $A\in \Omega^1(M,\mathfrak{so}(E,g))$ and a connection $\nabla$ compatible with $g$, 
+    $\nabla + A$ is also compatible with $g$. 
+    \textcolor{red}{Consequently, the space of connections on $E$ compatible with $g$ 
+    is an affine space modeled on $\Omega^1(M,\mathfrak{so}(E,g))$.}
+\end{proposition}
+\begin{proof}
+    For $s_1,s_2\in C^\infty(M,E), X\in C^\infty(M,TM)$, 
+    \begin{gather*}
+        \begin{cases}
+            X\langle s_1, s_2 \rangle = \langle \nabla_{1,X} s_1, s_2 \rangle + \langle s_1, \nabla_{1,X} s_2 \rangle \\
+            X\langle s_1, s_2 \rangle = \langle \nabla_{2,X} s_1, s_2 \rangle + \langle s_1, \nabla_{2,X} s_2 \rangle
+        \end{cases} \\ 
+        \implies \langle (\nabla_1 - \nabla_2)_X s_1, s_2 \rangle + \langle s_1, (\nabla_1 - \nabla_2)_X s_2 \rangle = 0.
+    \end{gather*}
+    Conversely, for $A\in \Omega^1(M,\mathfrak{so}(E,g))$ and a connection $\nabla$ compatible with $g$,
+    \begin{align*}
+        &\langle (\nabla + A)_X s_1, s_2 \rangle + \langle s_1, (\nabla + A)_X s_2 \rangle \\
+        =& \langle \nabla_X s_1, s_2 \rangle + \langle s_1, \nabla_X s_2 \rangle + \langle A(X) s_1, s_2 \rangle + \langle s_1, A(X) s_2 \rangle \\
+        =& X\langle s_1, s_2 \rangle. \qedhere
+    \end{align*}
+\end{proof}
 % \begin{definition}
 %     For $A\in C^\infty(M,\mathrm{End}(E))$, we define $\nabla A \in \Omega^{1}(M,\mathrm{End}(E))$ by 
 %     \begin{equation*}
@@ -343,7 +417,8 @@ satisfying the Leibniz rule: for any $\alpha\in \Omega^q(M),\eta\in \Omega^*(M,E
 %     \end{equation*}
 % \end{definition}
 \subsubsection{Connection 1-form}
-Let $\{e_i\}$ be a local frame of $E$ on an open set $U\subset M$. Define $\omega_j^k$ by
+Let $E$ be a rank $m$ vector bundle over $M$, and $\{e_i\}$ be a local frame of $E$ on an open set $U\subset M$. 
+Define $\omega_j^k$ by
 \begin{equation*}
     \nabla_X e_j = \omega_j^k(X) e_k,
 \end{equation*}
@@ -358,6 +433,139 @@ Then we can write the above equation in a more compact way:
         \omega_m^1 & \cdots & \omega_m^m
     \end{pmatrix}.
 \end{equation*}
+Thus for any section $s = s^i e_i$, we have 
+\begin{align*}
+    \nabla s =& \nabla\left((\ft{e}{1}{m})
+    \begin{pmatrix}
+        s^1 \\ \vdots \\ s^m
+    \end{pmatrix}
+    \right) 
+    = \Big(\nabla(\ft{e}{1}{m})\Big)
+    \begin{pmatrix}
+        s^1 \\ \vdots \\ s^m
+    \end{pmatrix} + (\ft{e}{1}{m}) 
+    \begin{pmatrix}
+        \md s^1 \\ \vdots \\ \md s^m
+    \end{pmatrix} \\
+    =& (\ft{e}{1}{m}) 
+    \left( \md 
+    \begin{pmatrix}
+        s^1 \\ \vdots \\ s^m 
+    \end{pmatrix} + 
+    \omega 
+    \begin{pmatrix}
+        s^1 \\ \vdots \\ s^m
+    \end{pmatrix}
+    \right).
+\end{align*}
+So under a local frame, $\nabla$ can be expressed as
+\begin{equation*}
+    \nabla = \md + \omega.
+\end{equation*}
+\begin{proposition}
+    Suppose $\{\tilde{e}_i\}$ are another local frame of $E$ on $U$, 
+    and the transition matrix from $\{e_i\}$ to $\{\tilde{e}_i\}$ is $a=(a_i^j)$, i.e.
+    \begin{equation*}
+        (\ft{\tilde{e}}{1}{m}) = (\ft{e}{1}{m})\, a,
+    \end{equation*}
+    Let $\tilde{\omega}$ be the connection 1-form w.r.t. $\{\tilde{e}_i\}$,
+    then the connection 1-forms transform as
+    \begin{equation*}
+        \tilde{\omega} = a^{-1} \md a + a^{-1} \omega a.
+    \end{equation*}
+\end{proposition}
+
+A local frame of $E$ is the same as a local trivialization. 
+Let $\{(U_\alpha,\psi_\alpha)\}$ be a local trivialization of $E$, $g_{\alpha\beta}$ be the transition functions. 
+A section $s\in C^\infty(M,E)$ possesses a local representative $s_\alpha$, which is an $m$-tuple of smooth functions on $U_\alpha$. 
+Also, $\nabla s$ possesses a local representative $(\nabla s)_\alpha$, which is an $m$-tuple of 1-forms on $U_\alpha$. 
+Just as in the preceding paragraph, we can write 
+\begin{equation}\label{eq:local-expression-of-connection}
+    (\nabla s)_\alpha = \md s_\alpha + \omega_\alpha s_\alpha,
+\end{equation}
+where $\omega_\alpha$ is an $m\times m$ matrix of 1-forms on $U_\alpha$. 
+
+Since the connection is globally defined, the local representatives of $\nabla s$ must satisfy
+\begin{equation*}
+    \md s_\beta + \omega_\beta s_\beta = g_{\alpha\beta}^{-1}(\md s_\alpha + \omega_\alpha s_\alpha) 
+    \qquad \text{on }\; U_\alpha\cap U_\beta.
+\end{equation*}
+Apply $s_\alpha = g_{\alpha\beta} s_\beta$ to the above equation, 
+\begin{align*}
+    \md s_\beta + \omega_\beta s_\beta 
+    =& g_{\alpha\beta}^{-1}\big(\md (g_{\alpha\beta} s_\beta) + \omega_\alpha g_{\alpha\beta} s_\beta\big) \\
+    =& g_{\alpha\beta}^{-1}\big((\md g_{\alpha\beta}) s_\beta + g_{\alpha\beta} \md s_\beta + \omega_\alpha g_{\alpha\beta} s_\beta\big) \\
+    =& \md s_\beta + \Big(g_{\alpha\beta}^{-1}\md g_{\alpha\beta} + g_{\alpha\beta}^{-1}\omega_\alpha g_{\alpha\beta}\Big) s_\beta,    
+\end{align*}
+Thus 
+\begin{equation}\label{eq:translation-formula-of-connection-1-forms}
+    \omega_\beta = g_{\alpha\beta}^{-1}\md g_{\alpha\beta} + g_{\alpha\beta}^{-1}\omega_\alpha g_{\alpha\beta}.
+\end{equation}
+The above discussion can be summarized as the following theorem:
+\begin{theorem}
+    Let $\{(U_\alpha,\psi_\alpha)\}$ be a local trivialization of $E$, with transition functions $g_{\alpha\beta}$, 
+    and $\omega_\alpha$ be an $m\times m$ matrix of 1-forms on $U_\alpha$ 
+    satisfying the transformation formula {\rm(}\ref{eq:translation-formula-of-connection-1-forms}{\rm)}. 
+    This imformation uniquely determines a connection $\nabla$ on $E$. 
+\end{theorem}
+
+Let $(E,g)$ be a real vector bundle equipped with a metric, we can choose the local frame $\{e_i\}$ on $U$ to be orthonormal, 
+then for any $X\in C^{\infty}(U, TU)$, 
+\begin{equation*}
+    0=X\langle e_i, e_j\rangle=\langle\omega_i^k(X)e_k, e_j\rangle + \langle e_i, \omega_j^k(X)e_k\rangle = \omega_j^i(X) + \omega_i^j(X),
+\end{equation*}
+so the 1-form matrix $\omega$ is skew-symmetric, i.e., $\omega \in \Omega^1(U,\mathfrak{so}(m))$. 
+
+Let $\{(U_\alpha,\psi_\alpha)\}$ be a local trivialization of $(E,g)$. We can assume 
+\begin{equation*}
+    \psi_\alpha: \pi^{-1}(U_\alpha) \to U_\alpha \times \mathbb{R}^m
+\end{equation*}
+is isometric on each fibre, where the metric on $U_\alpha\times\mathbb{R}^m$ is Euclidean metric on each fibre. 
+Then the transition functions $g_{\alpha\beta}$ take values in $O(m)$, 
+and each $\omega_\alpha$ is in $\Omega^1(U_\alpha,\mathfrak{so}(m))$. 
+
+If $E$ is a complex vector bundle and $g$ is a Hermitian metric. Then all the discussion above still holds, 
+except that $\omega_\alpha$ is in $\Omega^1(U_\alpha,\mathfrak{u}(m))$ and $g_{\alpha\beta}$ takes values in $U(m)$. 
+
+\begin{example}
+    Let $\pi:L\to M$ be a complex line bundle, $g$ be a Hermition metric on $L$ and $\nabla$ be a connection on $L$ compatible with $g$. 
+    Choose a local trivialization $\{(U_\alpha,\psi_\alpha)\}$ of $L$ such that $\psi_\alpha: \pi^{-1}(U_\alpha) \to U_\alpha \times \mathbb{C}$ is an isometry. 
+    Then $g_{\alpha\beta}$ takes values in $U(1)$, so we can write $g_{\alpha\beta} = e^{i\theta_{\alpha\beta}}$ 
+    for some real-valued function $\theta_{\alpha\beta}$ on $U_\alpha\cap U_\beta$. Meanwhile, $\omega_\alpha$ takes values in $\mathfrak{u}(1)$, 
+    so we can write $\omega_\alpha = i A_\alpha$ for some real-valued 1-form $A_\alpha$ on $U_\alpha$.
+    For any section $s$ of $L$, on $U_\alpha$, we have
+    \begin{equation*}
+        (\nabla s)_\alpha = \md s_\alpha + \omega_\alpha s_\alpha, \qquad \omega_\alpha = i A_\alpha,
+    \end{equation*}
+    On $U_\alpha\cap U_\beta$, 
+    \begin{equation*}
+        \omega_\beta = g_{\alpha\beta}^{-1}\md g_{\alpha\beta} + g_{\alpha\beta}^{-1}\omega_\alpha g_{\alpha\beta} 
+        = e^{-i\theta_{\alpha\beta}} \md e^{i\theta_{\alpha\beta}} + e^{-i\theta_{\alpha\beta}} \omega_\alpha e^{i\theta_{\alpha\beta}} 
+        = \omega_\alpha + i\md \theta_{\alpha\beta} \Big(= \omega_\alpha - i\md \theta_{\beta\alpha}\Big)
+    \end{equation*}
+    Recall $U(1)$-gauge theory in physics, 
+    the following table shows the correspondence between concepts in physics and differential geometry:
+    \begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Physics} & \textbf{Differential Geometry} \\
+        \hline
+        wave function $\psi$ & section $s$ of complex line bundle $L$ \\
+        \hline
+        $\psi\mapsto\psi'=e^{i\chi}\psi$ & $s_\beta=g_{\beta\alpha}s_\alpha$ \\
+        \hline
+        covariant derivative & connection $\nabla$ on $L$ \\
+        \hline
+        $D'\psi' = e^{i\chi} D\psi$ & $(\nabla s)_\beta=g_{\beta\alpha}(\nabla s)_\alpha$ \footnotemark \\
+        \hline
+        $D=\md+iA$ & $(\nabla s)_\alpha=\md s_\alpha+\omega_\alpha s_\alpha$ \\
+        \hline
+        $A'=A-\md\chi$ & $\omega_\beta=\omega_\alpha-i\md\theta_{\beta\alpha}$ \\
+        \hline
+    \end{tabular}
+\end{center}
+\footnotetext{That is to say, $\nabla s$ is globally defined.}
+\end{example}
 
 \subsubsection{Horizontal Distribution}
 In this subsection, we give another interpretation of a connection on a vector bundle, namely a horizontal distribution, 
@@ -488,7 +696,7 @@ There is no canonical way to choose a horizontal distribution, so a horizontal d
 
 In what follows, we reveal that covariant derivatives and horizontal distributions can actually determine each other.
 
-\subsubsection{Covariant Derivative determines Horizontal Distribution}
+\subsubsection*{Covariant Derivative determines Horizontal Distribution}
 Let $\nabla$ be a connection on $E$. Given any smmoth curve $\gamma: (-\varepsilon,\varepsilon) \to M$ with $\gamma(0) = x$, 
 we say $\tilde{\gamma}: (-\varepsilon,\varepsilon) \to E$ is a 
 \textbf{lift} of $\gamma$ if $\pi(\tilde{\gamma}(t)) = \gamma(t)$ for all $t$. 
@@ -571,7 +779,7 @@ The above discussion is summarized in the following theorem.
 %     $G$ is called \textbf{the Sasaki metric} on $TM$.
 % \end{example}
 
-\subsubsection{Horizontal Distribution determines Covariant Derivative}
+\subsubsection*{Horizontal Distribution determines Covariant Derivative}
 Conversaly, given a horizontal distribution $\mathcal{H}$, we can derive a connection $\nabla$ on $E$ as follows. 
 \begin{definition}
     For any $p\in E$ and $u\in TE$, we can write $u = h(u) + v(u)$ where 
