@@ -43,19 +43,23 @@ $\phi_U: \pi^{-1}(U)\to U\times G$ satisfying the following commutative diagram:
         & U &
     \end{tikzcd}
 \end{center}
-where $p_1: U\times G\to U$ is the projection map.
+where $\mathrm{pr}_1: U\times G\to U$ is the projection map.
 \begin{example}
     Let $G$ be a Lie group and $M$ be a smooth manifold, then the trivial bundle 
     $p_1: M\times G\to M$ is a principal $G$-bundle over $M$.
 \end{example}
 \begin{example}
-    Let $G$ be a Lie group and $H$ be a closed subgroup of $G$. 
-    Then the quotient space $G/H$ is a smooth manifold and the projection map $\pi: G\to G/H$ 
-    is a principal $H$-bundle over $G/H$.
+    If $G$ is a finite group equipped with the discrete topology, then a principal $G$-bundle is exactly a covering space.
 \end{example}
 \begin{example}
-    Let $\pi:E\to M$ be a rank $n$ vector bundle over $M$. 
-    Then the frame bundle $\mathrm{Fr}(E)$ is a principal $\GL(n,\mR)$-bundle over $M$.
+    Let $G$ be a Lie group and $H$ be a closed subgroup of $G$. 
+    Then the quotient space $G/H$ is a smooth manifold and the projection map $\pi: G\to G/H$ 
+    is a principal $H$-bundle over $G/H$. For example, the Hopf fibration $S^1\to S^3\to S^2$. 
+\end{example}
+\begin{example}
+    Let $\pi:E\to M$ be a rank $m$ real vector bundle over $M$. 
+    Then the frame bundle $\mathrm{Fr}(E)$ is a principal $\GL(m,\mR)$-bundle over $M$. 
+    If $E$ is a complex vector bundle, then $\mathrm{Fr}(E)$ is a principal $\GL(m,\mC)$-bundle over $M$. 
 \end{example}
 \begin{proposition}
     Let $\pi: P\to M$ be a principal $G$-bundle. 
@@ -86,7 +90,7 @@ where $p_1: U\times G\to U$ is the projection map.
     \end{equation*}
     In addition, the transition functions $\{g_{\alpha\beta}\}$ satisfy the following cocycle condition: 
     \begin{gather*}
-        g_{\alpha\alpha}(x) = e, \quad \forall x\in U_\alpha, \\
+        % g_{\alpha\alpha}(x) = e, \quad \forall x\in U_\alpha, \\
         g_{\alpha\beta}(x)g_{\beta\gamma}(x) = g_{\alpha\gamma}(x), 
         \quad \forall x\in U_\alpha\cap U_\beta\cap U_\gamma\neq\emptyset.
     \end{gather*}
@@ -96,7 +100,7 @@ where $p_1: U\times G\to U$ is the projection map.
     one can easily check that the two definitions of principal bundles are equivalent. 
     These two definitions characterize $G$-principal bundles from different perspectives.
 \end{remark}
-\subsubsection{Fundamental Vector Fields}
+\subsubsection*{Fundamental Vector Fields}
 Suppose $P$ is a $G$-manifold, then for each $A\in\mathfrak{g}$, we can define a vector field $\underline{A}$ on $P$ by
 \begin{equation*}
     \underline{A}_p := \left.\frac{d}{dt}\right|_{t=0} p\cdot\exp(tA), \quad \forall p\in P.
@@ -122,6 +126,12 @@ It also implies that the map $\sigma: \mathfrak{g}\to\mathfrak{X}(P)$ is $\mR$-l
     \begin{equation*}
         [\underline{A}, \underline{B}] = \underline{[A,B]}, \quad \forall A,B\in\mathfrak{g}.
     \end{equation*}
+\end{fact}
+\begin{fact}
+    Let $P$ be a $G$-manifold, then the fundamental vector fields $\underline{A}$ vanishes at $p$ 
+    if and only if $A\in\mathrm{Lie}(\mathrm{Stab}(p))$. Thus for any $p\in P$, the kernel of 
+    $j_p{}_*:\mathfrak{g}\to T_pP$ is exactly $\mathrm{Lie}(\mathrm{Stab}(p))$. In particular, 
+    if the $G$-action on $P$ is free, then $j_p{}_*$ is injective for all $p\in P$.
 \end{fact}
 \begin{example}
     Let $G$ acts on itself by right translation, 
@@ -149,12 +159,7 @@ $\mathrm{Ad}_g:=(c_g)_*: \mathfrak{g}\to\mathfrak{g}$.
         = \underline{\mathrm{Ad}_{g^{-1}}(A)}_{pg}.\qedhere
     \end{equation*}
 \end{proof}
-\begin{fact}
-    Let $P$ be a $G$-manifold, then the fundamental vector fields $\underline{A}$ vanishes at $p$ 
-    if and only if $A\in\mathrm{Lie}(\mathrm{Stab}(p))$. Thus for any $p\in P$, the kernel of 
-    $j_p{}_*:\mathfrak{g}\to T_pP$ is exactly $\mathrm{Lie}(\mathrm{Stab}(p))$. In particular, 
-    if the $G$-action on $P$ is free, then $j_p{}_*$ is injective for all $p\in P$.
-\end{fact}
+
 
 \subsubsection{Vertical Subbundle of $TP$}
 Let $\pi: P\to M$ be a principal $G$-bundle, at each $p\in P$, the differential $\pi_*{}_p: T_pP\to T_{\pi(p)}M$ is 
@@ -207,7 +212,7 @@ Then we have a short exact sequence of vector bundles over $P$:
     \end{tikzcd}
 \end{center}
 \subsection{Connections on Principal Bundles}
-\subsubsection{Horizontal Distribution}
+\subsubsection{Horizontal Distributions}
 In the category of smooth vector bundles, all short exact sequence of vector bundles splits. 
 Corresponding to the short exact sequence appearing in the previous chapter, 
 there exists a smooth subbundle $\mathcal{H}$ of $TP$ such that $TP = \mathcal{V}\oplus\mathcal{H}$.
@@ -227,7 +232,7 @@ A choice of $\mathcal{H}$ is the same as a splitting $k: \pi^*TM\to TP$ such tha
 We say $\mathcal{H}$ is \textbf{right-invariant} if for all $g\in G$ and $p\in P$, 
 $r_g{}_*{}_p(\mathcal{H}_p) = \mathcal{H}_{pg}$, where $r_g: P\to P,\, r_g(p) = p\cdot g$. 
 
-\subsubsection{Ehresmann Connection}
+\subsubsection{Ehresmann Connections}
 Let $\pi: P\to M$ be a principal $G$-bundle, $\mathcal{H}$ be a horizontal distribution of $TP$. 
 For each $p\in P$, we define a projection map $v: T_pP=\mathcal{V}_p\oplus\mathcal{H}_p\to \mathcal{V}_p$. 
 For $Y_p\in T_pP$, we call $v(Y_p)$ the \textbf{vertical component} of $Y_p$.\footnote{Although $\mathcal{V}_p$ 
@@ -262,8 +267,9 @@ In summary, given a projection $v: TP\to \mathcal{V}$, we induce the following c
 % \end{tikzcd}\]
 So the information of the horizontal distribution $\mathcal{H}$ is encoded in $\omega$.
 
-\begin{proposition}
-    If $\mathcal{H}$ is right-invariant, then the $\mathfrak{g}$-valued 1-form $\omega$ defined above 
+\begin{theorem}
+    If $\mathcal{H}$ is a smooth, right-invariant horizontal distribution, 
+    then the $\mathfrak{g}$-valued 1-form $\omega$ defined above 
     satisfies the following properties:
     \begin{enumerate}
         \item $\omega_p(\underline{A}_p) = A,\;\forall\,p\in P,\,A\in\mathfrak{g}$.
@@ -273,7 +279,7 @@ So the information of the horizontal distribution $\mathcal{H}$ is encoded in $\
 
     We say a $\mathfrak{g}$-valued 1-form $\omega$ on $P$ satisfying the above properties is 
     an \textbf{Ehresmann connection} or simply a \textbf{connection} on $P$.
-\end{proposition}
+\end{theorem}
 \begin{proof}
     $\textit{1}$. Since $\underline{A}$ is already vertical, 
     \begin{equation*}
@@ -311,6 +317,38 @@ Then the $G$-equivalence condition of $\omega$
 \begin{equation*}
     \omega_{pg}((r_g)_*Y_p) = (\mathrm{Ad}_{g^{-1}})\omega_p(Y_p),
 \end{equation*}
-can be rephrased as: $\omega: TP\to \mathfrak{g}$ is a $G$-equivariant map.
+can be rephrased as $\omega: TP\to \mathfrak{g}$ is a $G$-equivariant map.
+
+\subsubsection{The Horizontal Distribution of an Ehresmann Connection}
+In the previous section we have shown that a smooth, right-invariant horizontal distribution $\mathcal{H}$ on $P$ induces an Ehresmann connection $\omega$. 
+We now prove the converse. 
+\begin{theorem}
+    If $\omega$ is an Ehresmann connection on the principal $G$-bundle $\pi: P\to M$, 
+    then $\mathcal{H}_p := \ker \omega_p,\,p\in P$ defines a smooth, right-invariant horizontal distribution on $P$.
+\end{theorem}
+\begin{proof}
+    We need to verify three properties: 
+
+    \noindent$\textit{1}$. For each $p\in P$, there is an exact sequence 
+    \begin{center}
+        \begin{tikzcd}
+            0 \arrow[r] & {\mathcal{H}_p} \arrow[r, hook] & T_pP \arrow[r, "\omega_p"] & {\mathfrak{g}} \arrow[r] & 0
+        \end{tikzcd}
+    \end{center}
+    The map $j_p{}_*: \mathfrak{g}\to\mathcal{V}_p\subset T_pP$ provides a splitting of the above sequence, 
+    thus 
+    \begin{equation*}
+        T_pP \cong \mathfrak{g}\oplus\mathcal{H}_p\cong \mathcal{V}_p\oplus\mathcal{H}_p.
+    \end{equation*}
+
+    \noindent$\textit{2}$. Suppose $Y_p\in \mathcal{H}_p$, then $\omega_p(Y_p) = 0$. By the $G$-equivalence of $\omega$, we have
+    \begin{equation*}
+        \omega_{pg}(r_g{}_*Y_p) = (r_g^*\omega)_p(Y_p) = (\mathrm{Ad}_{g^{-1}})\omega_p(Y_p) = 0.
+    \end{equation*}
+    Hence $r_g{}_*Y_p\in \mathcal{H}_{pg}$.
+
+    \noindent$\textit{3}$. $\mathcal{H}$ is a smooth distribution. We omit the details here.
+\end{proof}
+
 % \subsubsection{Covariant Derivative}
-\subsubsection{Curvature of Connections}
+% \subsubsection{Curvature of Connections}

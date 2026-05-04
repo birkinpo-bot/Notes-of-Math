@@ -13,14 +13,22 @@ and then try to rewrite everything we are familiar with in the language of diffe
         (Y,X) &\mapsto \nabla_Y X
     \end{align*}
     satisfying the following properties:
-    \begin{align*}
-        \nabla_{f_1Y_1 + f_2Y_2} X =& f_1 \nabla_{Y_1} X + f_2 \nabla_{Y_2} X, \\
-        \nabla_{Y} (\lambda_1X_1 + \lambda_2 X_2) =& \lambda_1 \nabla_{Y} X_1 + \lambda_2 \nabla_{Y} X_2, \\
-        \nabla_{Y} fX =& \md f(Y)\cdot X + f \nabla_{Y} X. 
-    \end{align*}
+    % \begin{align*}
+    %     \nabla_{f_1Y_1 + f_2Y_2} X =& f_1 \nabla_{Y_1} X + f_2 \nabla_{Y_2} X, \\
+    %     \nabla_{Y} (\lambda_1X_1 + \lambda_2 X_2) =& \lambda_1 \nabla_{Y} X_1 + \lambda_2 \nabla_{Y} X_2, \\
+    %     \nabla_{Y} fX =& \md f(Y)\cdot X + f \nabla_{Y} X. 
+    %  \end{align*}
+    \begin{flalign*}
+        & \text{(C1)} && \nabla_{f_1Y_1 + f_2Y_2} X = f_1 \nabla_{Y_1} X + f_2 \nabla_{Y_2} X, &\\
+        & \text{(C2)} && \nabla_{Y} (\lambda_1X_1 + \lambda_2 X_2) = \lambda_1 \nabla_{Y} X_1 + \lambda_2 \nabla_{Y} X_2, &\\
+        & \text{(C3)} && \nabla_{Y} fX = \md f(Y)\cdot X + f \nabla_{Y} X. &
+    \end{flalign*}
     where $X,X_1,X_2,Y,Y_1,Y_2 \in \Gamma(TM)$, $f,f_1,f_2 \in C^\infty(M)$, 
     and $\lambda_1,\lambda_2 \in \mathbb{R}$.
 \end{definition}
+
+
+
 
 \begin{definition}
     The \textbf{torsion}
@@ -42,10 +50,10 @@ and then try to rewrite everything we are familiar with in the language of diffe
 \begin{definition}
     A connection $\nabla$ of a Riemannian manifold $(M,g)$ is called a \textbf{Levi-Civita connection} 
     if it is torsion-free and compatible with the metric $g$, i.e. 
-    \begin{gather*}
-        \nabla_X Y - \nabla_Y X = [X,Y], \\
-        X(g(Y,Z)) = g(\nabla_X Y, Z) + g(Y, \nabla_X Z).
-    \end{gather*}
+    \begin{flalign*}
+        & \text{(LC1)} && \nabla_X Y - \nabla_Y X = [X,Y], &\\
+        & \text{(LC2)} && X(g(Y,Z)) = g(\nabla_X Y, Z) + g(Y, \nabla_X Z).
+    \end{flalign*}
 \end{definition}
 
 \subsubsection*{Exterior convariant derivative}
@@ -287,11 +295,11 @@ The content of this section is almost a verbatim copy of the previous content.
         (X,s) &\mapsto \nabla_X s
     \end{align*}
     satisfying 
-    \begin{align*}
-        \nabla_{f_1X_1 + f_2X_2} s =& f_1 \nabla_{X_1} s + f_2 \nabla_{X_2} s, \\
-        \nabla_X (\lambda_1 s_1 + \lambda_2 s_2) =& \lambda_1 \nabla_X s_1 + \lambda_2 \nabla_X s_2, \\
-        \nabla_X (fs) =& \md f(X)\cdot s + f\nabla_X s,
-    \end{align*}
+    \begin{flalign*}
+        & \text{(C1)} && \nabla_{f_1Y_1 + f_2Y_2} X = f_1 \nabla_{Y_1} X + f_2 \nabla_{Y_2} X, &\\
+        & \text{(C2)} && \nabla_{Y} (\lambda_1X_1 + \lambda_2 X_2) = \lambda_1 \nabla_{Y} X_1 + \lambda_2 \nabla_{Y} X_2, &\\
+        & \text{(C3)} && \nabla_{Y} fX = \md f(Y)\cdot X + f \nabla_{Y} X. &
+    \end{flalign*}
 \end{definition}
 
 Let $(\nabla s)(X):= \nabla_X s$, we can extend $\nabla$ to the exterior covariant derivative
@@ -670,8 +678,7 @@ On the vector bundle $E$, we have two natural operations: scalar multiplication 
     A \textbf{horizontal distribution} of $E$ is a smooth subbundle $\mathcal{H}\subset TE$ 
     satisfying the following properties 
     \begin{enumerate}
-        \item $\tilde{\pi}_*: \mathcal{H} \to \pi^* TM$ is an isomorphism, or equivalently, 
-        there exists a splitting map $k: \pi^* TM \to TE$ such that $\tilde{\pi}_* \circ k = \mathrm{id}$.
+        \item There exists a splitting map $k: \pi^* TM \to TE$ such that $\tilde{\pi}_* \circ k = \mathrm{id}$.
         \[\begin{tikzcd}
             0 & \mathcal{V} & TE & {\pi^*TM} & 0
             \arrow[from=1-1, to=1-2]
@@ -680,14 +687,18 @@ On the vector bundle $E$, we have two natural operations: scalar multiplication 
             \arrow["k", shift left, from=1-4, to=1-3]
             \arrow[from=1-4, to=1-5]
         \end{tikzcd}\]
+        That is to say, 
+        \begin{flalign*}
+            &\text{(H1)} && TE=\mathcal{H}\oplus\mathcal{V}. &
+        \end{flalign*}
         \item $\mathcal{H}$ is invariant under the scalar multiplication on $E$, i.e. for any $\lambda\in \mathbb{R},\,p\in E$,
-        \begin{equation*}
-            m_{\lambda}{}_*{}_p \mathcal{H}_p = \mathcal{H}_{\lambda p}. 
-        \end{equation*}
+        \begin{flalign*}
+            &\text{(H2)} && m_{\lambda}{}_*{}_p \mathcal{H}_p = \mathcal{H}_{\lambda p}. &
+        \end{flalign*}
         \item $\mathcal{H}$ is invariant under the addition on $E$, i.e. for any $(p,q)\in E\times_M E$,
-        \begin{equation*}
-            a_*{}_{(p,q)}(\mathcal{H}_p,\mathcal{H}_q) = \mathcal{H}_{p+q}.
-        \end{equation*} 
+        \begin{flalign*}
+            &\text{(H3)} && a_*{}_{(p,q)}(\mathcal{H}_p,\mathcal{H}_q) = \mathcal{H}_{p+q}. &
+        \end{flalign*} 
     \end{enumerate}
     The last two conditions are saying that $\mathcal{H}$ is compatible with the linear structure of $E$.
 \end{definition}
@@ -899,6 +910,222 @@ To prove this theorem, we need the following lemma.
     \end{itemize}
 \end{proof}
 % \subsubsection{Curvature of Connection}
+
+\subsubsection{Parallel Transport}
+Let $\nabla$ be a connection on $E$. For any (piecewise) smooth curve $\gamma: [a,b] \to M$ and any point $v\in E_{\gamma(a)}$, 
+There exists a unique horizontal lift $\tilde{\gamma}_{v}$ of $\gamma$ starting at $v$. 
+Varying $v\in E_{\gamma(a)}$, we get different point $w=\tilde{\gamma}_{v}(b)\in E_{\gamma(b)}$. 
+This gives a map
+\begin{equation*}
+    P^\gamma: E_{\gamma(a)} \to E_{\gamma(b)}, \quad P^\gamma(v) := \tilde{\gamma_{v}}(b).
+\end{equation*}
+\begin{proposition}
+    $P^\gamma$ is a linear isomorphism.
+\end{proposition}
+\begin{proof}
+    For any $v,w\in E_{\gamma(a)}$ and $\lambda\in \mathbb{R}$, 
+    the uniqueness of horizontal lift implies that 
+    \begin{equation*}
+        \lambda \tilde{\gamma}_v = \tilde{\gamma}_{\lambda v}, \qquad 
+        \tilde{\gamma}_v + \tilde{\gamma}_w = \tilde{\gamma}_{v+w}.
+    \end{equation*}
+    Thus 
+    \begin{gather*}
+        P^\gamma(\lambda v) = \tilde{\gamma}_{\lambda v}(b) = (\lambda \tilde{\gamma}_v)(b) = \lambda P^\gamma(v), \\
+        P^\gamma(v+w) = \tilde{\gamma}_{v+w}(b) = (\tilde{\gamma}_v + \tilde{\gamma}_w)(b) = P^\gamma(v) + P^\gamma(w).
+    \end{gather*}
+    So $P^\gamma$ is a linear map. 
+    Let $\bar{\gamma}(t) := \gamma(a+b-t)$ be the reversed curve of $\gamma$, 
+    then one can check that $P^{\bar{\gamma}}: E_{\gamma(b)} \to E_{\gamma(a)}$ is the inverse map of $P^\gamma$. 
+\end{proof}
+\begin{definition}
+    $P^\gamma$ is called \textbf{the parallel transport} along $\gamma$.
+\end{definition}
+\begin{remark}
+    If $E$ possesses a metric $g$ and $\nabla$ is compatible with $g$, 
+    then $P^\gamma: E_{\gamma(a)} \to E_{\gamma(b)}$ is an isometry. 
+    The converse is also true: 
+    if $P^\gamma$ is an isometry for any curve $\gamma$, 
+    then $\nabla$ is compatible with $g$.
+\end{remark}
+\begin{remark}
+    $P^\gamma$ highly depends on the choice of $\gamma$, not only on the endpoints $\gamma(a)$ and $\gamma(b)$.
+    In general, if $\gamma_1$ and $\gamma_2$ are two curves with the same endpoints, 
+    $P^{\gamma_1}$ and $P^{\gamma_2}$ can be very different. 
+    In other words, if $\gamma$ is a loop, 
+    $P^\gamma: E_{\gamma(a)} \to E_{\gamma(a)}$ may not be the identity map.
+    % We can define the \textbf{holonomy group} of $\nabla$ at $x\in M$ as the subgroup of $\mathrm{GL}(E_x)$ consisting of all $P^\gamma$ where $\gamma$ is a loop based at $x$.
+\end{remark}
+
+Given a connection $\nabla$ on $E$, for any two points $x,y\in M$, 
+we can link $x$ and $y$ by a curve $\gamma$, 
+then $\nabla$ gives a linear isomorphism $P^\gamma: E_x \to E_y$. 
+In this sense, $\nabla$ \textcolor{red}{connects} any two fibers of $E$.
+This is the reason why $\nabla$ is called a \textbf{connection}. 
+
+The key point is that if any curve $\gamma$ linking $x$ and $y$ gives an isomorphism $\Phi^\gamma: E_x \to E_y$ 
+and $\Phi^\gamma$ satisfies some natural properties, then we can define a connection $\nabla$ on $E$ such that $P^\gamma = \Phi^\gamma$.
+So intuitively, \textcolor{red}{a connection can be thought of as a family of isomorphisms between fibers at endpoints of curves}.
+
+\begin{proposition}
+    Let $\nabla$ be a connection on $E$, $X_{x}\in T_xM$ be a tangent vector at $x$ 
+    and $s:M\to E$ be a section of $E$. Then there exists a curve $\gamma: (-\varepsilon,\varepsilon) \to M$ such that $\gamma(0) = x$ and $\gamma'(0) = X_x$. 
+    If we denote $P_t: E_x \to E_{\gamma(t)}$ as the parallel transport along $\gamma|_{[0,t]}$, then 
+    \begin{equation}\label{eq:con-def-by-para}
+        \nabla_{X_x} s = \left.\frac{\md }{\md t}\right|_{t=0} P_t{}^{-1}(s(\gamma(t))).
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    Let $\ft{e}{1}{m}$ be a base of $E_x$ and set $e_i(t) := P_t(e_i)$, then $e_1(t),\ldots,e_m(t)$ is a base of $E_{\gamma(t)}$. 
+    We can write 
+    \begin{equation*}
+        s(\gamma(t)) = \sum_{i=1}^m s^i(t) e_i(t),
+    \end{equation*}
+    Then 
+    \begin{equation*}
+        \nabla_X s = \nabla_{\gamma'(0)} s = \sum_{i=1}^m \frac{\md s^i}{\md t}(0) e_i.
+    \end{equation*}
+    On the other hand, 
+    \begin{equation*}
+        P_t{}^{-1}(s(\gamma(t))) = \sum_{i=1}^m s^i(t) e_i,
+    \end{equation*}
+    so
+    \begin{equation*}
+        \left.\frac{\md }{\md t}\right|_{t=0} P_t{}^{-1}(s(\gamma(t))) = \sum_{i=1}^m \frac{\md s^i}{\md t}(0) e_i = \nabla_X s. \qedhere
+    \end{equation*}
+\end{proof}
+
+\begin{proposition}
+    Let $P^\gamma: E_{\gamma(a)} \to E_{\gamma(b)}$ be the parallel transport along $\gamma$, 
+    then $P^\gamma$ satisfies the following properties:
+    \begin{itemize}
+        \item If the end point of $\gamma_1$ is the starting point of $\gamma_2$, 
+        we can concatenate $\gamma_1$ and $\gamma_2$ to get $\gamma_1*\gamma_2$, then
+        \begin{flalign*}
+            &\text{(P1)} && P^{\gamma_1*\gamma_2} = P^{\gamma_2} \circ P^{\gamma_1}.& \\
+        \end{flalign*} 
+        \item If $\bar{\gamma}$ is the reversed curve of $\gamma$, then 
+        \begin{flalign*}
+            &\text{(P2)} && P^{\bar{\gamma}} = (P^\gamma)^{-1}. &
+        \end{flalign*}
+        \item Let $\mathcal{U}$ be an open subset in $\mathbb{R}^k$ and $\gamma: \mathcal{U}\times[0,1]\to M$ is a smooth map. 
+        For any $u\in \mathcal{U}$, we denote $\gamma_u(t) := \gamma(u,t)$, then $\{\gamma_u\}$ is a family of curves smoothly depending on $u$. 
+        Let $s: \mathcal{U} \to E$ be a smooth map such that $s(u)\in E_{\gamma_u(0)}$. 
+        Then the map $\mathcal{U} \to E,\, u\mapsto P^{\gamma_u}(s(u))$ is also smooth. 
+        For simplicity, we state this conclusion as
+        \begin{flalign*}
+            &\text{(P3)} && P^{\gamma} \text{ depends smoothly on } \gamma. &
+        \end{flalign*}
+        \item The last property is a bit technical. Let $\gamma_1,\gamma_2:[0,1]\to M$ be two curves such that $\gamma_1(0) = \gamma_2(0)$, 
+        and $\gamma_1'(0) = \gamma_2'(0)$, Let $P^{\gamma_i}_t$ be the parallel transport along $\gamma_i|_{[0,t]}$, then
+        \begin{equation*}
+            \left.\frac{\md }{\md t}\right|_{t=0} P^{\gamma_1}_t = \left.\frac{\md }{\md t}\right|_{t=0} P^{\gamma_2}_t.
+        \end{equation*}
+        For simplicity, we state this conclusion as
+        \begin{flalign*}
+            &\text{(P4)} && \text{If } \gamma_1, \gamma_2 \text{ have contact of order } 1, \text{ then } P^{\gamma_1}, P^{\gamma_2} \text{ have contact of order } 1. &
+        \end{flalign*}
+    \end{itemize}
+\end{proposition}
+\begin{proof}
+    (P1) and (P2) are straightforward from the uniqueness of solution of ODEs. 
+
+    (P3) relies on the smooth dependence of solutions of ODEs on initial conditions and parameters.
+
+    For (P4), given any $v\in E_{\gamma_1(0)}$, $\tilde{\gamma}_{i,v}(t):=P^{\gamma_i}_t(v)$ 
+    is the horizontal lift of $\gamma_i$ starting at $v$. 
+    The proposition is equivalent to saying that $\tilde{\gamma}_{1,v}'(0) = \tilde{\gamma}_{2,v}'(0)$, 
+    which can be verified by calculating under a local trivialization. 
+\end{proof}
+
+\subsubsection*{Parallel Transport determines Covariant Derivative}
+\begin{theorem}
+    Let $E$ be a vector bundle over $M$.
+    Suppose there is a family of isomorphisms 
+    \begin{equation*}
+        \Big\{\Phi^\gamma: E_{\gamma(0)} \to E_{\gamma(1)} \,\Big|\, \gamma:[0,1] \to M\Big\}
+    \end{equation*}
+    satisfying (P1)-(P4), then there exists a unique connection $\nabla$ on $E$ such that 
+    $P^\gamma = \Phi^\gamma$ for any curve $\gamma$.
+\end{theorem}
+\begin{proof}
+    For any vector field $X\in C^\infty(M,TM)$ and section $s\in C^\infty(M,E)$, at $x\in M$, 
+    we can find a curve $\gamma: (-\varepsilon,\varepsilon) \to M$ 
+    such that $\gamma(0) = x$ and $\gamma'(0) = X_x$.
+    We define $(\nabla_{X} s)(x)$ by the formular \eqref{eq:con-def-by-para}, i.e.,
+    \begin{equation*}
+        (\nabla_{X} s)(x) := \left.\frac{\md }{\md t}\right|_{t=0} (\Phi^{\gamma}_t)^{-1}(s(\gamma(t))).
+    \end{equation*}
+    By (P4), this definition does not depend on the choice of $\gamma$. By (P3), $\nabla_X s$ is a smooth section of $E$. 
+
+    We can verify that $\nabla$ satisfies (C2) and (C3) by direct calculation. For (C1), we need to verify that 
+    $\nabla_{X_x} s$ is $\mathbb{R}$-linear in $X_x$. Let $\varphi(X_x)= \nabla_{X_x} s$, then $\varphi$ is a map from $T_x M$ to $E_x$. 
+    For any $\lambda\in \mathbb{R}$, set $\gamma_\lambda(t)=\gamma(\lambda t)$, then $\gamma_\lambda(0) = x$ and $\gamma_\lambda'(0) = \lambda X_x$, so
+    \begin{align*}
+        \varphi(\lambda X_x) =& \nabla_{\gamma_\lambda'(0)} s = \left.\frac{\md }{\md t}\right|_{t=0} (\Phi^{\gamma_\lambda}_t)^{-1}(s(\gamma_\lambda(t))) \\
+        =& \left.\frac{\md }{\md t}\right|_{t=0} (\Phi^{\gamma}_{\lambda t})^{-1}(s(\gamma(\lambda t))) \\
+        =& \lambda \left.\frac{\md }{\md t}\right|_{t=0} (\Phi^{\gamma}_{t})^{-1}(s(\gamma(t))) \\
+        =& \lambda\nabla_{\gamma'(0)} s = \lambda \varphi(X_x).
+    \end{align*}
+    It is easy to verify that $\varphi$ is additive, thus $\varphi$ is linear.
+
+    Finally, we can verify that $P^\gamma = \Phi^\gamma$ for any curve $\gamma$ by direct calculation. 
+\end{proof}
+
+Above theorem actually says that the covariant derivative $\nabla$ is the \textcolor{red}{infinitesimal} version of the parallel transport $P^\gamma$.
+
+\subsubsection*{Parallel Transport and Horizontal Distribution}
+Let $\pi: E \to M$ be a vector bundle. 
+Given a family of parallel transports $\{P^\gamma\}$, we can define a horizontal distribution $\mathcal{H}$ by
+\begin{equation*}
+    \mathcal{H}_p := \left\{\left.\frac{\md }{\md t}\right|_{t=0}P^{\gamma}_t(p)\,\Big|\, \gamma: [0,1] \to M \text{ with } \gamma(0) = p \right\}
+    \subset T_p E.
+\end{equation*}
+Varying $p\in E$, we get a distribution $\mathcal{H}$ of $E$. Note that this definition is consistent with the previous one. Thus we have 
+\begin{theorem}
+    If $\{P^\gamma\}$ is a family of parallel transports satisfying (P1)-(P4), then $\mathcal{H}$ satisfies (H1)-(H3), 
+    thus $\mathcal{H}$ is a horizontal distribution of $E$.
+\end{theorem}
+
+One can view $\mathcal{H}$ as \textcolor{red}{the collection of all directions one can possibly move via parallel transports.}
+
+Conversely, given a horizontal distribution $\mathcal{H}$, we can define the horizontal lift, then the parallel transport. 
+Expilicitly, for any curve $\gamma: [a,b] \to M$ and any point $v\in E_{\gamma(a)}$, 
+there exists a unique curve $\tilde{\gamma}^{\mathcal{H}}_v: [a,b] \to E$ such that 
+\begin{equation*}
+    \pi(\tilde{\gamma}^{\mathcal{H}}_v(t)) = \gamma(t), \quad \tilde{\gamma}^{\mathcal{H}}_v(a) = v, \quad \tilde{\gamma}^{\mathcal{H}}_v{}'(t) \in \mathcal{H}_{\tilde{\gamma}^{\mathcal{H}}_v(t)}.
+\end{equation*}
+The last condition can be translated into an ODE. Since we have a decomposition $TE = \mathcal{H} \oplus \mathcal{V}$, 
+we can denote the projection to $\mathcal{V}$ by $v$. Then 
+\begin{equation*}
+    \tilde{\gamma}^{\mathcal{H}}_v{}'(t) \in \mathcal{H}_{\tilde{\gamma}^{\mathcal{H}}_v(t)} \iff v(\tilde{\gamma}^{\mathcal{H}}_v{}'(t)) = 0,
+\end{equation*}
+which can be written as a linear ODEs under a local trivialization. Thus we can solve $\tilde{\gamma}^{\mathcal{H}}_v$ by the theory of ODEs. 
+Now we can define $P^\gamma(v) := \tilde{\gamma}^{\mathcal{H}}_v(b)$. 
+\begin{proposition}
+    Fix a curve $\gamma:[0,1]\to M$ connecting $x$ and $y$, for any $v,w\in E_x$, $\lambda\in \mathbb{R}$, 
+    \begin{gather*}
+        \tilde{\gamma}^{\mathcal{H}}_{v+w}(t) = \tilde{\gamma}^{\mathcal{H}}_v(t) + \tilde{\gamma}^{\mathcal{H}}_w(t), \\
+        \tilde{\gamma}^{\mathcal{H}}_{\lambda v}(t) = \lambda \tilde{\gamma}^{\mathcal{H}}_v(t).
+    \end{gather*}
+    Thus $P^\gamma: E_x \to E_{\gamma(1)}$ is a linear map. Moreover, $P^\gamma$ is an isomorphism with inverse $P^{\bar{\gamma}}$ 
+    where $\bar{\gamma}$ is the reversed curve of $\gamma$.
+\end{proposition}
+\begin{proof}
+    The first two equalities are implied by the linearity of $\mathcal{H}$, and the last one can be verified by direct calculation.
+\end{proof}
+\begin{theorem}
+    If $\mathcal{H}$ is a horizontal distribution of $E$, then the parallel transport defined above satisfies (P1)-(P4).
+\end{theorem}
+\begin{proof}
+    The proof is similar to the previous one.
+\end{proof}
+In summary, three different concepts, i.e., covariant derivative $\nabla$, parallel transport $\{P^\gamma\}$ 
+and horizontal distribution $\mathcal{H}$, are equivalent to each other.
+\begin{equation*}
+    \text{covariant derivative} \;\Longleftrightarrow\; \text{parallel transport} \;\Longleftrightarrow\; \text{horizontal distribution}.
+\end{equation*}
+In fact, both $\nabla$ and $\mathcal{H}$ can be viewed as the \textcolor{red}{infinitesimal} version of $\{P^\gamma\}$.
 
 \newpage
 \subsection*{Exercises}
