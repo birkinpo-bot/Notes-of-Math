@@ -1,21 +1,21 @@
 \contentsline {section}{Preface}{2}{section*.2}%
-\contentsline {section}{\numberline {1}Prologue: Electromagnetism and $U(1)$ Gauge Theory}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Maxwell's equations}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}$U(1)$ gauge theory}{6}{subsection.1.2}%
-\contentsline {section}{\numberline {2}Affine Connections}{8}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Levi-Civita Connections}{8}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Covariant Derivative}{8}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Connection 1-form}{9}{subsubsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.2}General Affine Connections}{12}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Covariant Derivative}{12}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Connection 1-form}{14}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Horizontal Distribution}{16}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.4}Parallel Transport}{21}{subsubsection.2.2.4}%
-\contentsline {subsection}{Exercises}{25}{section*.17}%
-\contentsline {section}{\numberline {3}Principal Bundles and Connections}{27}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Principal Bundles}{27}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Vertical Subbundle of $TP$}{29}{subsubsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.2}Connections on Principal Bundles}{30}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Horizontal Distributions}{30}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Ehresmann Connections}{30}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}The Horizontal Distribution of an Ehresmann Connection}{32}{subsubsection.3.2.3}%
+\contentsline {section}{\numberline {0}Prologue: Electromagnetism and $U(1)$ Gauge Theory}{3}{section.0}%
+\contentsline {subsection}{\numberline {0.1}Maxwell's equations}{3}{subsection.0.1}%
+\contentsline {subsection}{\numberline {0.2}$U(1)$ gauge theory}{6}{subsection.0.2}%
+\contentsline {section}{\numberline {1}Affine Connections}{8}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Levi-Civita Connections}{8}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Covariant Derivative}{8}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Connection 1-form}{9}{subsubsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.2}General Affine Connections}{12}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Covariant Derivative}{12}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Connection 1-form}{14}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Horizontal Distribution}{16}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Parallel Transport}{21}{subsubsection.1.2.4}%
+\contentsline {subsection}{Exercises}{26}{section*.17}%
+\contentsline {section}{\numberline {2}Principal Bundles and Connections}{28}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Principal Bundles}{28}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Vertical Subbundle of $TP$}{31}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}Connections on Principal Bundles}{31}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Horizontal Distributions}{31}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Ehresmann Connections}{32}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}The Horizontal Distribution of an Ehresmann Connection}{33}{subsubsection.2.2.3}%

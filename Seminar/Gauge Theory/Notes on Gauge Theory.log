@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  4 MAY 2026 22:55
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  7 MAY 2026 13:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1049,33 +1049,36 @@ Overfull \hbox (1.67992pt too wide) in paragraph at lines 728--731
 []\TU/lmr/m/n/12 The proof is exactly the same as the existence and uniqueness of geodesics.
  []
 
-[17] [18] [19] [20] [21] [22] [23] [24] [25]) [26]
+[17] [18] [19] [20]
+File: Figures/parallel-transport.jpg Graphic file (type bmp)
+<Figures/parallel-transport.jpg>
+ [21] [22] [23] [24] [25] [26]) [27]
 \openout2 = `Section/PrincipalBundles.aux'.
 
- (./Section/PrincipalBundles.tex [27
+ (./Section/PrincipalBundles.tex [28
 
 
 
-] [28]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 164.
-
+] [29]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 164.
+(hyperref)                removing `math shift' on input line 180.
 
-[29] [30] [31]) [32] Total classes: 0 (./Notes on Gauge Theory.aux (./Section/Preface.aux) (./Section/Prologue.aux) (./Section/AffineConnections.aux) (./Section/PrincipalBundles.aux))
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 180.
+
+[30] [31] [32]) [33] Total classes: 0 (./Notes on Gauge Theory.aux (./Section/Preface.aux) (./Section/Prologue.aux) (./Section/AffineConnections.aux) (./Section/PrincipalBundles.aux))
 Package rerunfilecheck Info: File `"Notes on Gauge Theory".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 34977 strings out of 476683
- 837484 string characters out of 5807575
- 1873012 words of memory out of 5000000
- 54592 multiletter control sequences out of 15000+600000
+ 34989 strings out of 476683
+ 837777 string characters out of 5807575
+ 1874012 words of memory out of 5000000
+ 54600 multiletter control sequences out of 15000+600000
  525631 words of font info for 119 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  113i,16n,117p,5104b,1153s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Notes on Gauge Theory.pdf (32 pages).
+Output written on Notes on Gauge Theory.pdf (33 pages).
