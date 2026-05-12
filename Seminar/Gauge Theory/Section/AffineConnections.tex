@@ -1306,11 +1306,33 @@ In fact, both $\nabla$ and $\mathcal{H}$ can be viewed as the \textcolor{red}{in
     \end{equation*}
 \end{exercise}
 
-\begin{exercise}
-    Let $\nabla$ be a connection on $TM$. It determines a horizontal distribution $\mathcal{H}$ on $TM$. 
-    Then $T(TM) = \mathcal{V}\oplus\mathcal{H}$, where $\mathcal{V}$ is the vertical bundle of $TM$. 
-    Show that $\nabla$ is torsion-free if and only if for any $X,Y\in C^\infty(M,TM)$,
-    \begin{equation*}
-        [X^h,Y^h] = [X,Y]^h.
-    \end{equation*}
-\end{exercise} 
+% \begin{exercise}
+%     Let $\nabla$ be a connection on $TM$. It determines a horizontal distribution $\mathcal{H}$ on $TM$. 
+%     Then $T(TM) = \mathcal{V}\oplus\mathcal{H}$, where $\mathcal{V}$ is the vertical bundle of $TM$. 
+%     For any $X\in C^\infty(M,TM)$, denote $X^h$ and $X^v$ as the horizontal and vertical lift of $X$ respectively. 
+%     Show that
+%     \begin{align*}
+%         [X^h,Y^h] =& [X,Y]^h - R(X,Y)^v, \\
+%         [X^h,Y^v] =& (\nabla_X Y)^v, \\
+%         [X^v,Y^v] =& 0.
+%     \end{align*}
+%     Thus $\nabla$ is torsion-free if and only if $[X^h,Y^h] = [X,Y]^h$; 
+%     $\nabla$ is flat if and only if $[X^h,Y^h] = [X,Y]^h$.
+% \end{exercise} 
+
+% \begin{exercise}
+%     Let $\pi:T^*M\to M$ be the cotangent bundle of $M$. 
+%     There is a canonical symplectic form $\omega_\text{can}=-\md\theta$ on $T^*M$, where 
+%     \begin{equation*}
+%         \theta_{(x,\xi)}(X) := \xi(\pi_* X), \quad \forall (x,\xi)\in T^*M,\, X\in T_{(x,\xi)}(T^*M), 
+%     \end{equation*} 
+%     is the tautological 1-form on $T^*M$. A connection $\nabla$ on $TM$ induces a connection $\nabla^*$ on $T^*M$, 
+%     thus a horizontal distribution $\mathcal{H}^*$ on $T^*M$. 
+%     Show that $\nabla$ is torsion-free if and only if $\mathcal{H}^*$ is a Lagrangian subbundle of $T(T^*M)$.
+% \end{exercise}
+% \begin{proof}
+%     We only need to verify that 
+%     \begin{equation*}
+%         \omega_\text{can}(X^h,Y^h) \iff \tau(X,Y) = 0.
+%     \end{equation*}
+% \end{proof}

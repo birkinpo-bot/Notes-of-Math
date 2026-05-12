@@ -220,6 +220,9 @@ In fact, we have the following stronger result.
     then $\underline{A}_1, \ldots, \underline{A}_l$ is a global frame of $\mathcal{V}$, 
     thus $\mathcal{V}$ is a trivial bundle. 
 \end{proof}
+
+\subsection{Connections on Principal Bundles}
+\subsubsection{Horizontal Distributions}
 The map $\pi_*: TP\to TM$ induces a bundle map $\tilde{\pi}_*: TP\to \pi^*TM$ over $P$. 
 Then we have a short exact sequence of vector bundles over $P$: 
 \begin{center}
@@ -227,15 +230,22 @@ Then we have a short exact sequence of vector bundles over $P$:
         0 \arrow[r] & {\mathcal{V}} \arrow[r, hook] & TP \arrow[r, "\tilde{\pi}_*"] & {\pi^*TM} \arrow[r] & 0
     \end{tikzcd}
 \end{center}
-\subsection{Connections on Principal Bundles}
-\subsubsection{Horizontal Distributions}
 In the category of smooth vector bundles, all short exact sequence of vector bundles splits. 
-Corresponding to the short exact sequence appearing in the previous chapter, 
-there exists a smooth subbundle $\mathcal{H}$ of $TP$ such that $TP = \mathcal{V}\oplus\mathcal{H}$.
-We call $\mathcal{H}$ a \textbf{horizontal distribution} of $TP$. 
+Thus there exists a smooth subbundle $\mathcal{H}$ of $TP$ such that $TP = \mathcal{V}\oplus\mathcal{H}$.
+\begin{definition}
+    Let $\pi: P\to M$ be a principal $G$-bundle, 
+    a \textbf{horizontal distribution} of $TP$ is a smooth subbundle $\mathcal{H}$ of $TP$ such that
+    \begin{itemize}
+        \item $TP = \mathcal{V}\oplus\mathcal{H}$, 
+        \item $\mathcal{H}$ is \textbf{right-invariant}, i.e., $r_g{}_*\mathcal{H} = \mathcal{H}$, 
+        $\forall\,g\in G$, where $r_g: P\to P,\, r_g(p) = p\cdot g$. 
+    \end{itemize}
+\end{definition}
 
+\begin{remark}
 In general, there is no canonical choice of $\mathcal{H}$. 
-A choice of $\mathcal{H}$ is the same as a splitting $k: \pi^*TM\to TP$ such that $\tilde{\pi}_*\circ k = \mathrm{id}_{\pi^*TM}$. 
+A choice of $\mathcal{H}$ is a splitting $k: \pi^*TM\to TP$ such that $\tilde{\pi}_*\circ k = \mathrm{id}_{\pi^*TM}$, 
+together with a $G$-invariance condition. 
 \[\begin{tikzcd}
     0 & {\mathcal{V}} & TP & {\pi^*TM} & 0
     \arrow[from=1-1, to=1-2]
@@ -243,55 +253,55 @@ A choice of $\mathcal{H}$ is the same as a splitting $k: \pi^*TM\to TP$ such tha
     \arrow["\tilde{\pi}_*", shift left, from=1-3, to=1-4]
     \arrow["k", shift left, from=1-4, to=1-3]
     \arrow[from=1-4, to=1-5]
-\end{tikzcd}\]
-
-We say $\mathcal{H}$ is \textbf{right-invariant} if for all $g\in G$ and $p\in P$, 
-$r_g{}_*{}_p(\mathcal{H}_p) = \mathcal{H}_{pg}$, where $r_g: P\to P,\, r_g(p) = p\cdot g$. 
+\end{tikzcd}\]    
+\end{remark}
 
 \subsubsection{Ehresmann Connections}
 Let $\pi: P\to M$ be a principal $G$-bundle, $\mathcal{H}$ be a horizontal distribution of $TP$. 
-For each $p\in P$, we define a projection map $v: T_pP=\mathcal{V}_p\oplus\mathcal{H}_p\to \mathcal{V}_p$. 
-For $Y_p\in T_pP$, we call $v(Y_p)$ the \textbf{vertical component} of $Y_p$.\footnote{Although $\mathcal{V}_p$ 
-is intrinsically defined, the vertical component of a tangent vector depends on the choice of $\mathcal{H}_p$.} 
-
-Let $\iota: \mathcal{V}\hookrightarrow TP$ be the inclusion map, then $v\circ\iota = \mathrm{id}_{\mathcal{V}}$.
-We actually obtain another splitting of the short exact sequence: 
+We define the projection map \footnote{Although $\mathcal{V}$ is intrinsically defined, 
+the vertical component of a tangent vector depends on the choice of $\mathcal{H}$.} 
+\begin{equation*}
+    \mathrm{pr}_{\mathcal{V}}: TP = \mathcal{V}\oplus\mathcal{H} \to \mathcal{V}, 
+\end{equation*}
+Now we have a splitting:
 \[\begin{tikzcd}
     0 & {\mathcal{V}} & TP & {\pi^*TM} & 0
     \arrow[from=1-1, to=1-2]
     \arrow["\iota", hook, shift left, from=1-2, to=1-3]
     \arrow["\tilde{\pi}_*", from=1-3, to=1-4]
-    \arrow["v", shift left, from=1-3, to=1-2]
+    \arrow["\mathrm{pr}_{\mathcal{V}}", shift left, from=1-3, to=1-2]
     \arrow[from=1-4, to=1-5]
 \end{tikzcd}\]
-Recall that for each $p\in P$, the map $j_p: G\to P$ defined by $j_p(g) = p\cdot g$. 
+where $\iota: \mathcal{V}\hookrightarrow TP$ is the inclusion map. 
+% Recall that for each $p\in P$, the map $j_p: G\to P$ defined by $j_p(g) = p\cdot g$. 
 We define a $\mathfrak{g}$-valued 1-form $\omega$ on $P$ by
 \begin{equation*}
-    \omega_p:= j_{p*}^{-1}\circ v: T_pP\xrightarrow{v} \mathcal{V}_p\xrightarrow{j_{p*}^{-1}} \mathfrak{g}.
+    \omega_p:= j_{p*}^{-1}\circ \mathrm{pr}_{\mathcal{V}}: 
+    T_pP\xrightarrow{\mathrm{pr}_{\mathcal{V}}} \mathcal{V}_p\xrightarrow{j_{p*}^{-1}} \mathfrak{g}.
 \end{equation*}
 In terms of $\omega$, the vertical component of $Y_p\in T_pP$ is given by 
 \begin{equation*}
-    v(Y_p) = j_{p*}(\omega_p(Y_p)).
+    \mathrm{pr}_{\mathcal{V}}(Y_p) = j_{p*}(\omega_p(Y_p)).
 \end{equation*}
-In summary, given a projection $v: TP\to \mathcal{V}$, we induce the following composition of maps:
+In summary, given a projection $\mathrm{pr}_{\mathcal{V}}: TP\to \mathcal{V}$, we induce the following composition of maps:
 \begin{equation*}
-    \omega:TP \xrightarrow{v} \mathcal{V} \xrightarrow{j_*^{-1}} P\times\mathfrak{g} \xrightarrow{\mathrm{pr}_2} \mathfrak{g}
+    \omega:TP \xrightarrow{\mathrm{pr}_{\mathcal{V}}} \mathcal{V} \xrightarrow{\ \cong\ } P\times\mathfrak{g} \xrightarrow{\mathrm{pr}_2} \mathfrak{g}
     \quad\rightsquigarrow\quad \omega\in\Omega^1(P,\mathfrak{g}).
 \end{equation*}
 % \[\begin{tikzcd}
 %     TP \arrow[r, "v"] & \mathcal{V} \arrow[r, "j_*^{-1}"] & P\times\mathfrak{g} \arrow[r, "\mathrm{pr}_2"] & \mathfrak{g}
 % \end{tikzcd}\]
-So the information of the horizontal distribution $\mathcal{H}$ is encoded in $\omega$.
+\textcolor{red}{So the information of the horizontal distribution $\mathcal{H}$ is encoded in $\omega$.}
 
 \begin{theorem}
     If $\mathcal{H}$ is a smooth, right-invariant horizontal distribution, 
     then the $\mathfrak{g}$-valued 1-form $\omega$ defined above 
     satisfies the following properties:
-    \begin{enumerate}
+    \begin{itemize}
         \item $\omega_p(\underline{A}_p) = A,\;\forall\,p\in P,\,A\in\mathfrak{g}$.
-        \item {\rm(}$G$-equivalence{\rm)} $(r_g)^*\omega = (\mathrm{Ad}_{g^{-1}})\omega,\;\forall\,g\in G$.
+        \item {\rm(}$G$-equivariance{\rm)} $(r_g)^*\omega = (\mathrm{Ad}_{g^{-1}})\omega,\;\forall\,g\in G$.
         \item $\omega$ is smooth.
-    \end{enumerate}
+    \end{itemize}
 
     We say a $\mathfrak{g}$-valued 1-form $\omega$ on $P$ satisfying the above properties is 
     an \textbf{Ehresmann connection} or simply a \textbf{connection} on $P$.
@@ -299,7 +309,7 @@ So the information of the horizontal distribution $\mathcal{H}$ is encoded in $\
 \begin{proof}
     $\textit{1}$. Since $\underline{A}$ is already vertical, 
     \begin{equation*}
-        \omega_p(\underline{A}_p) = j_{p*}^{-1}(v(\underline{A}_p)) = j_{p*}^{-1}(\underline{A}_p) = A.
+        \omega_p(\underline{A}_p) = j_{p*}^{-1}(\underline{A}_p) = A.
     \end{equation*}
 
     \noindent$\textit{2}$. For each $p\in P$ and $Y_p\in T_pP$, we need to show 
@@ -324,18 +334,34 @@ So the information of the horizontal distribution $\mathcal{H}$ is encoded in $\
     \noindent$\textit{3}$. Omit.
 \end{proof}
 
-Viewing $\omega$ as a map $\omega: TP\to \mathfrak{g}$. Both $TP$ and $\mathfrak{g}$ are $G$-manifolds, 
+Viewing $\omega$ as a map from $TP$ to $\mathfrak{g}$. Both $TP$ and $\mathfrak{g}$ are $G$-manifolds, 
 where
 \begin{equation*}
     g\cdot Y_p := (r_g)_*Y_p, \quad g\cdot A := \mathrm{Ad}_{g^{-1}}(A). 
 \end{equation*}
-Then the $G$-equivalence condition of $\omega$ 
+Then the $G$-equivariance condition of $\omega$ 
 \begin{equation*}
     \omega_{pg}((r_g)_*Y_p) = (\mathrm{Ad}_{g^{-1}})\omega_p(Y_p),
 \end{equation*}
 can be rephrased as $\omega: TP\to \mathfrak{g}$ is a $G$-equivariant map.
 
-\subsubsection{The Horizontal Distribution of an Ehresmann Connection}
+\begin{example}
+    The Maurer-Cartan form $\omega_{\mathrm{MC}}$ on a Lie group $G$ is the unique $\mathfrak{g}$-valued 1-form on $G$ 
+    such that 
+    \begin{itemize}
+        \item $\omega_{\mathrm{MC}}(A) = A$ for all $A\in\mathfrak{g}=T_eG$, 
+        \item $\omega_{\mathrm{MC}}$ is left-invariant, i.e., $l_g^*\omega_{\mathrm{MC}} = \omega_{\mathrm{MC}}$ for all $g\in G$. 
+    \end{itemize}
+    Let $\omega_{\mathrm{MC}}$ be the Maurer-Cartan form on $G$, 
+    then $\pi^*\omega_{\mathrm{MC}}$ is an Ehresmann connection on the trivial bundle $\pi:M\times G\to M$.
+\end{example}
+
+\begin{remark}
+    Let $\omega$ be an Ehresmann connection on $P$, for any $p\in P$, 
+    $j_p: G\to P$ pulls back $\omega$ to  $\omega_{\mathrm{MC}}$ on $G$, i.e., 
+    $j_p^*\omega = \omega_{\mathrm{MC}}$.
+\end{remark}
+\subsubsection*{The Horizontal Distribution of an Ehresmann Connection}
 In the previous section we have shown that a smooth, right-invariant horizontal distribution $\mathcal{H}$ on $P$ induces an Ehresmann connection $\omega$. 
 We now prove the converse. 
 \begin{theorem}
@@ -364,6 +390,190 @@ We now prove the converse.
     Hence $r_g{}_*Y_p\in \mathcal{H}_{pg}$.
 
     \noindent$\textit{3}$. $\mathcal{H}$ is a smooth distribution. We omit the details here.
+\end{proof}
+
+\subsubsection{Horizontal Lift and Parallel Transport}
+Let $\pi: P\to M$ be a principal $G$-bundle and $\omega$ be an Ehresmann connection on $P$. 
+For each (piecewise) smooth curve $\gamma: [0,1]\to M$ and $p\in P$ such that $\pi(p) = \gamma(0)$,
+there exists a unique (piecewise) smooth curve $\tilde{\gamma}: [0,1]\to P$ such that 
+\begin{equation*}
+    \tilde{\gamma}(0) = p, \quad \pi\circ\tilde{\gamma} = \gamma, \quad \text{and}\quad 
+    \tilde{\gamma}'(t)\in\mathcal{H}_{\tilde{\gamma}(t)},\,\forall t\in[0,1].
+\end{equation*}
+\begin{definition}
+    We call $\tilde{\gamma}$ the \textbf{horizontal lift} of $\gamma$ starting at $p$. 
+    If we denote $\tilde{\gamma}_p$ to be the horizontal lift of $\gamma$ starting at $p$, then the map
+    \begin{equation*}
+        P^\gamma: \mathrm{Fiber}_{\gamma(0)}\to \mathrm{Fiber}_{\gamma(1)}, \quad P^\gamma(p) := \tilde{\gamma}_p(1),
+    \end{equation*}
+    is called the \textbf{parallel transport} along $\gamma$.
+\end{definition}
+\begin{proposition}
+    Let $\tilde{\gamma}_p$ be the horizontal lift of $\gamma$ starting at $p$, 
+    then $\tilde{\gamma}_{pg} = \tilde{\gamma}_p\cdot g$ for any $g\in G$.
+\end{proposition}
+\begin{proof}
+    By the right-invariance of $\mathcal{H}$, we have 
+    \begin{equation*}
+        (\tilde{\gamma}_p\cdot g)(0) = pg, \quad \pi\circ(\tilde{\gamma}_p\cdot g) = \pi\circ\tilde{\gamma}_p = \gamma 
+        \quad \text{and}\quad 
+        (\tilde{\gamma}_p\cdot g)'(t)=r_g{}_*\tilde{\gamma}_p'(t)\in\mathcal{H}_{(\tilde{\gamma}_p\cdot g)(t)},\,\forall t\in[0,1].
+    \end{equation*}
+    Thus $\tilde{\gamma}_p\cdot g$ is the horizontal lift of $\gamma$ starting at $pg$, i.e., 
+    $\tilde{\gamma}_{pg} = \tilde{\gamma}_p\cdot g$.
+\end{proof}
+\begin{corollary}
+    The parallel transport $P^\gamma$ is a diffeomorphism between the fibers 
+    $\mathrm{Fiber}_{\gamma(0)}$ and $\mathrm{Fiber}_{\gamma(1)}$.
+\end{corollary}
+% \begin{proof}
+%     For each $p\in \mathrm{Fiber}_{\gamma(0)}$ and $g\in G$, we have 
+%     \begin{equation*}
+%         P^\gamma(pg) = \tilde{\gamma}_{pg}(1) = (\tilde{\gamma}_p\cdot g)(1) = \tilde{\gamma}_p(1)\cdot g = P^\gamma(p)\cdot g.
+%     \end{equation*}
+%     Thus $P^\gamma$ is a right $G$-equivariant map between the fibers, which are principal homogeneous spaces of $G$. 
+%     Hence $P^\gamma$ is a diffeomorphism.
+% \end{proof}
+For any two points $x,y\in M$, we can choose a curve $\gamma$ connecting $x$ and $y$, 
+then the parallel transport $P^\gamma$ gives a diffeomorphism between the fibers $\mathrm{Fiber}_x$ and $\mathrm{Fiber}_y$. 
+In this sense, a connection provides a way to identify fibers over different points of the base manifold. 
+
+Like the case of affine connections on vector bundles, 
+a family of parallel transports along all curves in $M$ also determines a unique Ehresmann connection on $P$.
+
+\subsubsection{Connections on the frame bundle $\mathrm{Fr}(E)$}
+In the previous sections, we have defined affine connections on vector bundles $E$. 
+Since the frame bundle $\mathrm{Fr}(E)$ is a natural principal bundle corresponding to $E$, 
+we can study the relation between connections on $E$ and connections on $\mathrm{Fr}(E)$. 
+
+Let $\nabla$ be an affine connection on $E$. Then for any curve $\gamma: [0,1]\to M$, 
+we have a parallel transport $P^\gamma_t: E_{\gamma(0)}\to E_{\gamma(t)}$ defined by $\nabla$. 
+Since $P^\gamma_t$ is a linear isomorphism, 
+it induces a diffeomorphism $\tilde{P}^\gamma_t: \mathrm{Fr}(E_{\gamma(0)})\to \mathrm{Fr}(E_{\gamma(t)})$ by
+\begin{equation*}
+    \tilde{P}^{\gamma}_t(e_1, \ldots, e_m) := (P^\gamma_t(e_1), \ldots, P^\gamma_t(e_m)),
+\end{equation*}
+where $(e_1, \ldots, e_m)\in \mathrm{Fr}(E_{\gamma(0)})$ is a frame of $E_{\gamma(0)}$.
+Then $\tilde{\gamma}_e(t)=\tilde{P}^\gamma_t(e_1, \ldots, e_m)$ is a lift of $\gamma$ starting at $e=(e_1, \ldots, e_m)$. 
+
+\begin{definition}
+    The \textbf{horizontal distribution} of $\mathrm{Fr}(E)$ induced by $\nabla$ is defined by 
+    \begin{equation*}
+        \mathcal{H}_e := \{\tilde{\gamma}_e'(0) \mid \gamma: [0,1]\to M,\,\gamma(0) = \pi(e)\},
+    \end{equation*}
+    and $\mathcal{H}:=\bigsqcup_{e\in \mathrm{Fr}(E)} \mathcal{H}_e$
+\end{definition}
+\begin{proposition}
+    $\mathcal{H}$ is a smooth, right-invariant horizontal distribution on $\mathrm{Fr}(E)$.
+\end{proposition}
+\begin{proof}
+    $1.$ Smoothness: omit.
+    $2.$ $T_e\mathrm{Fr}(E) = \mathcal{V}_e\oplus \mathcal{H}_e$: omit.
+    
+    $3.$ Right-invariance: Let $e=(e_1, \ldots, e_m)\in \mathrm{Fr}(E)$ and $a\in\mathrm{GL}(m,\mR)$, 
+    since $P^\gamma_t$ is a linear isomorphism, we have
+    \begin{equation*}
+        \tilde{\gamma}_{e\cdot a}(t) = \tilde{P}^\gamma_t\Big((e_1, \ldots, e_m)a\Big) 
+        = \big(P^\gamma_t(e_1), \ldots, P^\gamma_t(e_m)\big)a = \tilde{P}^\gamma_t(e_1, \ldots, e_m)\cdot a
+        = \tilde{\gamma}_e(t)\cdot a,
+    \end{equation*}
+    Thus $r_a{}_*\tilde{\gamma}_e'(0) = \tilde{\gamma}_{e\cdot a}'(0)$, which implies $r_a{}_*\mathcal{H}_e = \mathcal{H}_{e\cdot a}$. 
+\end{proof}
+
+Since now we got a horizontal distribution $\mathcal{H}$ on $\mathrm{Fr}(E)$, 
+we can define an Ehresmann connection on $\mathrm{Fr}(E)$ ------ the $\mathfrak{gl}(n,\mathbb{R})$-valued $1$-form $\omega$. 
+Recall that given a local trivialization $\{(U_\alpha, \psi_\alpha)\}$ of $E$, 
+we have a local connection $1$-form $\omega_\alpha$ on $U_\alpha$ defined by $\nabla$. 
+There is no doubt that $\omega_\alpha$ is related to $\omega$ in some way. 
+
+\begin{lemma}
+    Let $\pi:E\to M$ be a rank $m$ bundle with a connetion $\nabla$, $x\in M$ and $e_x\in\mathrm{Fr}(E_x)$.
+    For any smooth curve $\gamma:[0,1]\to M$ starting at $x$, 
+    there is a unique horizontal lift $\tilde{\gamma}:\ [0,1]\to \mathrm{Fr}(E)$ 
+    with the initial point $e_x = (e_{1},\ldots,e_{m})$. 
+    Let $s:U\to \mathrm{Fr}(E)$ be a local frame of $E$ around $x$, with $s(x) = e_x$, 
+    then $s(\gamma(t))$ is also a lift of $\gamma$ starting at $e_x$. 
+    Both $\tilde{\gamma}(t)$ and $s(\gamma(t))$ are frames of $E_{\gamma(t)}$, 
+    thus there exists a unique $a(t)\in\mathrm{GL}(m,\mR)$ such that 
+    \begin{equation*}
+        s(\gamma(t)) = \tilde{\gamma}(t)\cdot a(t).
+    \end{equation*}
+    Then we have the following fomula 
+    \begin{equation*}
+        s_*(\gamma'(0)) = \tilde{\gamma}'(0) + \underline{a'(0)}_{e_x}.
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Let $\mu:\mathrm{Fr}(E)\times\mathrm{GL}(m,\mR) \to \mathrm{Fr}(E)$ be 
+    the right action of $\mathrm{GL}(m,\mR)$ on $\mathrm{Fr}(E)$. 
+    Then 
+    \begin{equation*}
+        s(\gamma(t)) = \mu(\tilde{\gamma}(t), a(t)), 
+    \end{equation*}
+    with $\gamma(0) = x$, $\tilde{\gamma}(0) = e_x$ and $a(0) = I$.
+    \begin{align*}
+        s_*(\gamma'(0)) =& \mu_*{}_{(\tilde{\gamma}(0), a(0))}(\tilde{\gamma}'(0), a'(0)) \\ 
+        =& \mu_*{}_{(e_x, I)}(\tilde{\gamma}'(0), 0) + \mu_*{}_{(e_x, I)}(0, a'(0)) \\
+        =& \tilde{\gamma}'(0) + \underline{a'(0)}_{e_x}. \qedhere
+    \end{align*}
+\end{proof}
+\begin{lemma}
+    Since $s=(s_1, \ldots, s_m)$ is a local frame of $E$, 
+    we can define a local connection $1$-form $\omega_s$ of $\nabla$ w.r.t $s$. 
+    Then we have $\omega_s(\gamma'(0)) = a'(0)$.
+\end{lemma}
+\begin{proof}
+    Let $\tilde{\gamma}(t)=(\tilde{\gamma}_1(t), \ldots, \tilde{\gamma}_m(t))$, then 
+    $\tilde{\gamma}_i(t)$ is the parallel transport of $e_i$ along $\gamma$. Now we have
+    \begin{equation*}
+        s(\gamma(t))_i = \tilde{\gamma}_j(t)a^j_i(t), 
+    \end{equation*}
+    take the covariant derivative of both side at $t=0$, we get
+    \begin{equation*}
+        \omega_i^j(\gamma'(0))s_j(\gamma(0)) = \nabla_{\gamma'(0)}s_i 
+        = \nabla_{\gamma'(0)}(\tilde{\gamma}_j(t)a^j_i(t))
+        = a_i^j{}'(0)\tilde{\gamma}_j(0). 
+    \end{equation*}
+    Both $s(\gamma(0))$ and $\tilde{\gamma}(0)$ are $e_x=(e_1, \ldots, e_m)$, 
+    thus we have $\omega_s(\gamma'(0)) = a'(0)$.
+\end{proof}
+\begin{corollary}
+    In the notation above, we have
+    \begin{equation*}
+        \tilde{\gamma}'(0) = s_*(\gamma'(0)) - \underline{\omega_s(\gamma'(0))}_{e_x}.
+    \end{equation*}
+\end{corollary}
+\begin{corollary}
+    Let $\nabla$ be an affine connection on $\pi:E\to M$.
+    Suppose $\{(U_\alpha, s_\alpha)\}$ is a local trivialization of $E$, 
+    then we have a family of connection $1$-forms $\omega_\alpha$ of $\nabla$ w.r.t $s_\alpha$. 
+    For $x\in U_\alpha$, $p=s_\alpha(x)\in \mathrm{Fr}(E_x)$ and $X_x\in T_xM$, 
+    let $\tilde{X}_p\in T_p\mathrm{Fr}(E)$ be the horizontal lift of $X_x$ in $\mathrm{Fr}(E)$, then we have
+    \begin{equation*}
+        \tilde{X}_p = (s_\alpha)_*(X_x) - \underline{\omega_\alpha(X_x)}_p.
+    \end{equation*}
+\end{corollary}
+\begin{theorem}
+    In the notation above, 
+    let $\omega$ be the Ehresmann connection on $\mathrm{Fr}(E)$ induced by $\nabla$, 
+    then we have
+    \begin{equation*}
+        \omega_\alpha = s_\alpha^*\omega.
+    \end{equation*}
+    Note that $s_\alpha: U_\alpha\to \mathrm{Fr}(E)$ can be viewed as a local section of $\mathrm{Fr}(E)$.  
+\end{theorem}
+\begin{proof}
+    Let $x\in U_\alpha$, $p=s_\alpha(x)\in \mathrm{Fr}(E_x)$ and $X_x\in T_xM$. 
+    Let $\tilde{X}_p\in T_p\mathrm{Fr}(E)$ be the horizontal lift of $X_x$ in $\mathrm{Fr}(E)$, then we have
+    \begin{equation*}
+        \tilde{X}_p = (s_\alpha)_*(X_x) - \underline{\omega_\alpha(X_x)}_p.
+    \end{equation*}
+    Applying $\omega_p$ to both side, we get 
+    \begin{equation*}
+        0 = \omega_p(\tilde{X}_p) = (s_\alpha^*\omega)_x(X_x) - \omega_p(\underline{\omega_\alpha(X_x)}_p) 
+        = (s_\alpha^*\omega)_x(X_x) - \omega_\alpha(X_x).
+    \end{equation*}
+    Since $X_x$ is arbitrary, we have $\omega_\alpha = s_\alpha^*\omega$.
 \end{proof}
 
 % \subsubsection{Covariant Derivative}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  7 MAY 2026 13:25
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  12 MAY 2026 11:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -830,7 +830,7 @@ Package fontspec Info: Font family 'FandolSong-Regular(0)' created for font
 (fontspec)             <->"[FandolKai-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
 
-(./Notes on Gauge Theory.aux (./Section/Preface.aux) (./Section/Prologue.aux) (./Section/AffineConnections.aux) (./Section/PrincipalBundles.aux))
+(./Notes on Gauge Theory.aux (./Section/PrincipalBundles.aux))
 \openout1 = `"Notes on Gauge Theory.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -982,103 +982,43 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
  [1
 
 ]
-\openout2 = `Section/Preface.aux'.
-
- (./Section/Preface.tex
-
-Package fontspec Warning: Font "FandolFang-Regular" does not contain requested
-(fontspec)                Script "CJK".
-
-
-Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
-(fontspec)             'FandolFang-Regular' with options
-(fontspec)             [Script={CJK},Extension={.otf}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[FandolFang-Regular.otf]/OT:language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-
-) [2
-
-]
-\openout2 = `Section/Prologue.aux'.
-
- (./Section/Prologue.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-[3
-
-
-
-] [4]
-Overfull \hbox (2.65297pt too wide) detected at line 124
-[]
- []
-
-[5]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 220.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 220.
-
-[6]) [7]
-\openout2 = `Section/AffineConnections.aux'.
-
- (./Section/AffineConnections.tex [8
-
-
-
-] [9] [10] [11] [12]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 393.
- (d:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [13] [14] [15] [16]
-Overfull \hbox (1.67992pt too wide) in paragraph at lines 728--731
-[]\TU/lmr/m/n/12 The proof is exactly the same as the existence and uniqueness of geodesics.
- []
-
-[17] [18] [19] [20]
-File: Figures/parallel-transport.jpg Graphic file (type bmp)
-<Figures/parallel-transport.jpg>
- [21] [22] [23] [24] [25] [26]) [27]
 \openout2 = `Section/PrincipalBundles.aux'.
 
- (./Section/PrincipalBundles.tex [28
+ (./Section/PrincipalBundles.tex [2
 
-
-
-] [29]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 180.
-
+]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 120.
+ (d:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [3]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 180.
 
-[30] [31] [32]) [33] Total classes: 0 (./Notes on Gauge Theory.aux (./Section/Preface.aux) (./Section/Prologue.aux) (./Section/AffineConnections.aux) (./Section/PrincipalBundles.aux))
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 180.
+
+[4] [5] [6] [7]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 444.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 444.
+
+[8] [9]) [10] Total classes: 0 (./Notes on Gauge Theory.aux (./Section/PrincipalBundles.aux))
 Package rerunfilecheck Info: File `"Notes on Gauge Theory".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 34989 strings out of 476683
- 837777 string characters out of 5807575
+ 34605 strings out of 476683
+ 823801 string characters out of 5807575
  1874012 words of memory out of 5000000
- 54600 multiletter control sequences out of 15000+600000
- 525631 words of font info for 119 fonts, out of 8000000 for 9000
+ 54257 multiletter control sequences out of 15000+600000
+ 523824 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 113i,16n,117p,5104b,1153s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,15n,117p,5104b,1048s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Notes on Gauge Theory.pdf (33 pages).
+Output written on Notes on Gauge Theory.pdf (10 pages).
