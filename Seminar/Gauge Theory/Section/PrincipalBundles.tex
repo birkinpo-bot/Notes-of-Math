@@ -211,8 +211,9 @@ In fact, we have the following stronger result.
     $\dim \mathcal{V}_p = \dim G = \dim \mathfrak{g}$, thus $j_p{}_*$ is an isomorphism.
 \end{proof}
 \begin{corollary}
-    The vertical vectors at $p\in P$ are exactly the fundamental vector at $p$. Moreover, 
-    the vertical subbundle $\mathcal{V}$ of $TP$ is isomorphic to the trivial bundle $P\times\mathfrak{g}$.
+    The vertical vectors at $p\in P$ are exactly the fundamental vector at $p$. 
+    \textcolor{red}{Moreover, the vertical subbundle $\mathcal{V}$ of $TP$ 
+    is isomorphic to the trivial bundle $P\times\mathfrak{g}$.}
 \end{corollary}
 \begin{proof}
     The first statement follows from the previous proposition. For the second statement, 
@@ -484,7 +485,8 @@ Since now we got a horizontal distribution $\mathcal{H}$ on $\mathrm{Fr}(E)$,
 we can define an Ehresmann connection on $\mathrm{Fr}(E)$ ------ the $\mathfrak{gl}(n,\mathbb{R})$-valued $1$-form $\omega$. 
 Recall that given a local trivialization $\{(U_\alpha, \psi_\alpha)\}$ of $E$, 
 we have a local connection $1$-form $\omega_\alpha$ on $U_\alpha$ defined by $\nabla$. 
-There is no doubt that $\omega_\alpha$ is related to $\omega$ in some way. 
+There is no doubt that $\omega_\alpha\in \Omega^1(U_\alpha, \mathfrak{gl}(m, \mathbb{R}))$ is related to 
+$\omega\in \Omega^1(\mathrm{Fr}(E), \mathfrak{gl}(m, \mathbb{R}))$ in some way. 
 
 \begin{lemma}
     Let $\pi:E\to M$ be a rank $m$ bundle with a connetion $\nabla$, $x\in M$ and $e_x\in\mathrm{Fr}(E_x)$.
@@ -560,7 +562,9 @@ There is no doubt that $\omega_\alpha$ is related to $\omega$ in some way.
     \begin{equation*}
         \omega_\alpha = s_\alpha^*\omega.
     \end{equation*}
-    Note that $s_\alpha: U_\alpha\to \mathrm{Fr}(E)$ can be viewed as a local section of $\mathrm{Fr}(E)$.  
+    Note that $s_\alpha: U_\alpha\to \mathrm{Fr}(E)$ can be viewed as a local section of $\mathrm{Fr}(E)$. 
+    \textcolor{red}{So the local connection $1$-forms $\omega_\alpha$ can be viewed 
+    as the pullback of an intrinsic object $\omega$ on $\mathrm{Fr}(E)$.}
 \end{theorem}
 \begin{proof}
     Let $x\in U_\alpha$, $p=s_\alpha(x)\in \mathrm{Fr}(E_x)$ and $X_x\in T_xM$. 
@@ -576,5 +580,4 @@ There is no doubt that $\omega_\alpha$ is related to $\omega$ in some way.
     Since $X_x$ is arbitrary, we have $\omega_\alpha = s_\alpha^*\omega$.
 \end{proof}
 
-% \subsubsection{Covariant Derivative}
-% \subsubsection{Curvature of Connections}
+\subsubsection{Curvature of Connections}

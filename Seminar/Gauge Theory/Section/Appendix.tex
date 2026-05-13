@@ -3,3 +3,187 @@
 
 \subsection*{Vector valued-differential forms}
 \addcontentsline{toc}{subsection}{Vector valued-differential forms}
+Through out this section, let $M$ be a smooth manifold and $V$ be a vector space. 
+$\Omega^k(M)$ denotes the space of smooth $k$-forms on $M$.
+\subsubsection*{$V$-valued forms}
+\begin{definition}
+    Define the space of \textbf{$V$-valued $k$-forms} on $M$ as 
+    \begin{equation*}
+        \Omega^k(M,V) := C^\infty(M, (\wedge^k T^*M)\otimes V).
+    \end{equation*}
+    Fix a basis $\{v_i\}$ of $V$, then any $\alpha\in \Omega^k(M,V)$ can be written as
+    \begin{equation*}
+        \alpha = \alpha^i\otimes v_i(=\alpha^i v_i), \quad \alpha^i\in \Omega^k(M).
+    \end{equation*}
+    \textbf{Scalar multiplication:} We can define a scalar multiplication 
+    \begin{align*}
+        \Omega^a(M)\times \Omega^k(M,V) &\to \Omega^{a+k}(M,V) \\
+        (\lambda,\alpha\otimes v) &\mapsto (\lambda\wedge\alpha)\otimes v. 
+    \end{align*}
+    If $\alpha=\alpha^iv_i$ then $\lambda\cdot \alpha := (\lambda\wedge \alpha^i)\otimes v_i$.
+    More generally, we can define
+    \begin{align*}
+        \Omega^a(M,\mathrm{End}(V))\times \Omega^k(M,V) &\to \Omega^{a+k}(M,V) \\
+        (\eta\otimes A,\alpha\otimes v) &\mapsto (\eta\wedge \alpha)\otimes Av.
+    \end{align*}
+    \textbf{Exterior derivative:} For $\alpha\in\Omega^k(M,V)$, define
+    \begin{equation*}
+        \md\alpha := (\md\alpha^i)\otimes v_i\in\Omega^{k+1}(M,V).
+    \end{equation*}
+    Still, this definition is well-defined. 
+\end{definition}
+\begin{proposition}
+     The exterior derivative $\md$ satisfies the following properties:
+    \begin{itemize}
+        \item $\md^2 = 0$.
+        \item $\md(\lambda\cdot \alpha) = \md\lambda\cdot \alpha + (-1)^a \lambda\cdot \md\alpha$, 
+        $\forall\,\lambda\in\Omega^a(M),\alpha\in\Omega^k(M,V)$, 
+    \end{itemize}
+\end{proposition}
+
+\subsubsection*{Products of vector-valued forms}
+Let $V,W,Z$ be vector spaces and $\mu: V\times W\to Z$ be a bilinear map. 
+\begin{definition}
+    We can define a product:
+    \begin{align*}
+        \Omega^k(M,V)\times \Omega^l(M,W) &\to \Omega^{k+l}(M,Z) \\
+        (\alpha,\beta) &\mapsto \alpha\cdot \beta
+    \end{align*}
+    where
+    \begin{align*}
+        (\alpha\cdot \beta)_p(X_1,\cdots,X_{k+l}) &:= \frac{1}{k!l!}\sum_{\sigma\in S_{k+l}} \mathrm{sgn}(\sigma)\mu\Big(\alpha_p(X_{\sigma(1)},\cdots,X_{\sigma(k)}),\beta_p(X_{\sigma(k+1)},\cdots,X_{\sigma(k+l)})\Big) \\
+        &= \sum_{(k,l)\text{-shuffles }\sigma} \mathrm{sgn}(\sigma)\mu\Big(\alpha_p(X_{\sigma(1)},\cdots,X_{\sigma(k)}),\beta_p(X_{\sigma(k+1)},\cdots,X_{\sigma(k+l)})\Big). \footnotemark
+    \end{align*}
+    \footnotetext{We say $\sigma\in S_{k+l}$ is a $(k,l)$-shuffle if $\sigma(1)<\cdots<\sigma(k)$ and $\sigma(k+1)<\cdots<\sigma(k+l)$.}
+\end{definition}
+\begin{proposition}
+    This product satisfies the following properties:
+    \begin{itemize}
+        \item If $\alpha=\alpha^iv_i$ and $\beta=\beta^jw_j$, then
+        $\alpha\cdot \beta = (\alpha^i\wedge \beta^j)\otimes \mu(v_i,w_j)$.
+        \item If $\lambda\in\Omega^a(M)$, then
+        $\lambda\cdot (\alpha\cdot \beta) = (\lambda\cdot \alpha)\cdot \beta = (-1)^{ka}\alpha\cdot (\lambda\cdot \beta)$.
+        \item $\md(\alpha\cdot \beta) = \md\alpha\cdot \beta + (-1)^{k} \alpha\cdot \md\beta$.
+    \end{itemize}
+\end{proposition}
+
+Notice that in general, $\alpha\cdot \beta$ is not associative, commutative, or anticommutative. 
+
+\begin{example}
+    Let $\mu:\mathbb{R}^{m\times n}\times \mathbb{R}^{n\times p}\to \mathbb{R}^{m\times p}$ be the matrix multiplication. 
+    $\alpha=\alpha^{ij}e_{ij}\in \Omega^k(M,\mathbb{R}^{m\times n})$ and $\beta=\beta^{ij}e_{ij}\in \Omega^l(M,\mathbb{R}^{n\times p})$, then
+    \begin{equation*}
+        \alpha\cdot \beta = (\alpha^{ij}\wedge \beta^{jk})e_{ik} =: \alpha\wedge \beta
+    \end{equation*}
+    is the usual matrix-valued wedge product.
+\end{example}
+
+\subsubsection*{$\mathfrak{g}$-valued forms}
+In the special case when $V=\mathfrak{g}$ is a Lie algebra or more precisely the matrix algebra $\mathfrak{gl}(n,\mathbb{R})$, 
+we take $\mu:\mathfrak{g}\times \mathfrak{g}\to \mathfrak{g}$ to be the Lie bracket, and we write $[\alpha,\beta]$ instead of $\alpha\cdot \beta$. 
+\begin{align*}
+    [\alpha,\beta]_p(X_1,\cdots,X_{k+l}) &:= \frac{1}{k!l!}\sum_{\sigma\in S_{k+l}} \mathrm{sgn}(\sigma)[\alpha_p(X_{\sigma(1)},\cdots,X_{\sigma(k)}),\beta_p(X_{\sigma(k+1)},\cdots,X_{\sigma(k+l)})] \\
+    &= \sum_{(k,l)\text{-shuffles }\sigma} \mathrm{sgn}(\sigma)[\alpha_p(X_{\sigma(1)},\cdots,X_{\sigma(k)}),\beta_p(X_{\sigma(k+1)},\cdots,X_{\sigma(k+l)})].
+\end{align*}
+For example, if $\alpha,\beta\in \Omega^1(M,\mathfrak{g})$, then $[\alpha,\beta]_p(X,Y) = [\alpha_p(X),\beta_p(Y)] - [\alpha_p(Y),\beta_p(X)]$.
+\begin{example}
+    If $\mathfrak{g}=\mathfrak{gl}(n,\mathbb{R})$, $[A,B] = AB - BA$, then 
+    \begin{equation*}
+        [\alpha,\beta] = \alpha\wedge \beta - (-1)^{|\alpha||\beta|}\beta\wedge \alpha.
+    \end{equation*} 
+    Hence 
+    \begin{equation*}
+        [\alpha,\alpha] = 
+        \begin{cases}
+            2\alpha\wedge \alpha, & \text{if }|\alpha|\text{ is odd}, \\
+            0, & \text{if }|\alpha|\text{ is even}.
+        \end{cases}
+    \end{equation*}
+\end{example}
+\begin{proposition}
+    For $\alpha=\alpha^iA_i,\beta=\beta^jA_j$, we have
+    \begin{equation*}
+        [\alpha,\beta] = (\alpha^i\wedge \beta^j)\otimes [A_i,A_j].
+    \end{equation*}
+\end{proposition}
+\begin{corollary}
+    If $\alpha\in \Omega^k(M,\mathfrak{g})$ and $\beta\in \Omega^l(M,\mathfrak{g})$, then
+    \begin{equation*}
+        [\alpha,\beta] = (-1)^{kl}[\beta,\alpha].
+    \end{equation*}
+\end{corollary}
+\begin{example}
+    If $\alpha,\beta\in \Omega^1(M,\mathfrak{g})$, then $[\alpha,\beta] = [\beta,\alpha]$, 
+    thus $[\alpha,\alpha]$ is not necessarily zero.
+\end{example}
+\begin{proposition}
+    For $\alpha\in \Omega^k(M,\mathfrak{g})$, $\beta\in \Omega^l(M,\mathfrak{g})$ and $\gamma\in \Omega^m(M,\mathfrak{g})$, we have
+    \begin{equation*}
+        [\alpha,[\beta,\gamma]] + (-1)^{k(l+m)}[\beta,[\gamma,\alpha]] + (-1)^{m(k+l)}[\gamma,[\alpha,\beta]] = 0.
+    \end{equation*}
+\end{proposition}
+\begin{example}
+    If $\alpha\in \Omega^1(M,\mathfrak{g})$, then $[\alpha,[\alpha,\alpha]] = 0$.
+\end{example}
+\begin{proposition}
+    $\md[\alpha,\beta] = [\md\alpha,\beta] + (-1)^{|\alpha|}[\alpha,\md\beta]$.
+\end{proposition}
+
+\subsubsection*{Vector Bundle valued forms}
+Let $E\to M$ be a vector bundle. We can define 
+\begin{equation*}
+    \Omega^k(M,E) := C^\infty(M, (\wedge^k T^*M)\otimes E).
+\end{equation*}
+Let $e_1,\cdots,e_n$ be a local frame of $E$ over an open subset $U\subset M$, 
+then any $\alpha\in \Omega^k(M,E)$ can be written as 
+\begin{equation*}
+    \alpha = \alpha^ie_i(=\alpha^i\otimes e_i), \quad \alpha^i\in \Omega^k(U).
+\end{equation*}
+\begin{example}
+    Let $\nabla$ be a connection on $E$, then $\nabla^2$ is a $\mathrm{End}(E)$-valued 2-form on $M$.
+\end{example}
+
+\subsubsection*{Maurer-Cartan forms}
+Let $G$ be a Lie group and $\mathfrak{g}$ be its Lie algebra.
+\begin{definition}
+    The \textbf{Maurer-Cartan form} $\theta$ on $G$ is the unique $\mathfrak{g}$-valued 1-form $\theta\in\Omega^1(G,\mathfrak{g})$ such that
+    \begin{itemize}
+        \item $\theta_e(X_e) = X_e,\;\forall X_e\in T_eG = \mathfrak{g}$.
+        \item $\theta$ is left-invariant, i.e. $(l_g)^*\theta = \theta,\;\forall g\in G$. That is
+        \begin{equation*}
+            \theta_g(X_g) = (l_{g^{-1}}^*\theta_e)(X_g) = \theta_e(l_{g^{-1}}{}_*X_g) = l_{g^{-1}}{}_*X_g, \quad \forall X_g\in T_gG. 
+        \end{equation*}
+    \end{itemize}
+\end{definition}
+\begin{proposition}
+    The Maurer-Cartan form $\theta$ satisfies the \textbf{Maurer-Cartan equation}
+    \begin{equation*}
+        \md\theta + \frac{1}{2}[\theta,\theta] = 0.
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    It suffices to check this equation on left-invariant vector fields. 
+    For any left-invariant vector field $X$, $\theta(X)$ is a constant function on $G$, thus 
+    \begin{gather*}
+        (\md\theta)(X,Y) = X(\theta(Y)) - Y(\theta(X)) - \theta([X,Y]) = -[X_e,Y_e] \;(\text{constant }\mathfrak{g}\text{-valued function}) \\
+        \frac{1}{2}[\theta,\theta](X,Y) = \frac{1}{2}([\theta(X),\theta(Y)] - [\theta(Y),\theta(X)]) = [X_e,Y_e]. \;(\text{constant }\mathfrak{g}\text{-valued function})
+    \end{gather*}
+    Thus
+    \begin{equation*}
+        (\md\theta + \frac{1}{2}[\theta,\theta])(X,Y) = 0. \qedhere
+    \end{equation*}
+\end{proof}
+\begin{proposition}
+    Under right translation, the Maurer-Cartan form $\theta$ transforms as
+    \begin{equation*}
+        (r_g)^*\theta = (\mathrm{Ad}_{g^{-1}})\theta, \quad \forall g\in G.
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    It suffices to check this equation on left-invariant vector fields. For any left-invariant vector field $X$, 
+    both $(r_g^*\theta)(X)$ and $\mathrm{Ad}_{g^{-1}}(\theta(X))$ are constant $\mathfrak{g}$-valued functions on $G$, and
+    \begin{equation*}
+        (r_g^*\theta_g)(X_e) = \theta_{g}(r_{g*}X_e) = l_{g^{-1}*}(r_{g*}X_e) 
+        = \mathrm{Ad}_{g^{-1}}(X_e) = \mathrm{Ad}_{g^{-1}}(\theta_e(X_e)). \qedhere
+    \end{equation*}
+\end{proof}

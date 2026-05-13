@@ -1,8 +1,2 @@
-\contentsline {section}{\numberline {1}Principal Bundles and Connections}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Principal Bundles}{2}{subsection.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Vertical Subbundle of $TP$}{5}{subsubsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.2}Connections on Principal Bundles}{5}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}Horizontal Distributions}{5}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Ehresmann Connections}{6}{subsubsection.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.3}Horizontal Lift and Parallel Transport}{8}{subsubsection.1.2.3}%
-\contentsline {subsubsection}{\numberline {1.2.4}Connections on the frame bundle $\mathrm {Fr}(E)$}{8}{subsubsection.1.2.4}%
+\contentsline {section}{Appendix}{2}{section*.2}%
+\contentsline {subsection}{Vector valued-differential forms}{2}{section*.3}%

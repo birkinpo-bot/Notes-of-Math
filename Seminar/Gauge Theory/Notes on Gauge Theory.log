@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  12 MAY 2026 11:16
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.16)  13 MAY 2026 10:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -830,7 +830,7 @@ Package fontspec Info: Font family 'FandolSong-Regular(0)' created for font
 (fontspec)             <->"[FandolKai-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
 
-(./Notes on Gauge Theory.aux (./Section/PrincipalBundles.aux))
+(./Notes on Gauge Theory.aux (./Section/Appendix.aux))
 \openout1 = `"Notes on Gauge Theory.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -982,43 +982,30 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
  [1
 
 ]
-\openout2 = `Section/PrincipalBundles.aux'.
+\openout2 = `Section/Appendix.aux'.
 
- (./Section/PrincipalBundles.tex [2
+ (./Section/Appendix.tex
+Overfull \hbox (23.37146pt too wide) detected at line 56
+[]
+ []
+
+[2
 
 ]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 120.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 81.
  (d:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [3]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 180.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 180.
-
-[4] [5] [6] [7]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 444.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 444.
-
-[8] [9]) [10] Total classes: 0 (./Notes on Gauge Theory.aux (./Section/PrincipalBundles.aux))
+) [3]) [4] Total classes: 0 (./Notes on Gauge Theory.aux (./Section/Appendix.aux))
 Package rerunfilecheck Info: File `"Notes on Gauge Theory".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 34605 strings out of 476683
- 823801 string characters out of 5807575
- 1874012 words of memory out of 5000000
- 54257 multiletter control sequences out of 15000+600000
- 523824 words of font info for 100 fonts, out of 8000000 for 9000
+ 34154 strings out of 476683
+ 812533 string characters out of 5807575
+ 1860012 words of memory out of 5000000
+ 53811 multiletter control sequences out of 15000+600000
+ 523100 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 113i,15n,117p,5104b,1048s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,12n,117p,5104b,512s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Notes on Gauge Theory.pdf (10 pages).
+Output written on Notes on Gauge Theory.pdf (4 pages).
