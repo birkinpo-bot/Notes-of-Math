@@ -1,0 +1,491 @@
+\section{Associated Bundles and Covariant Derivative}
+\subsection{Associated Bundles}
+Let $\pi: P\to M$ be a principal $G$-bundle, $F$ be a smooth manifold with a left $G$-action $\rho:G\to\mathrm{Diff}(F)$. 
+\begin{definition}
+    The \textbf{associated bundle} of $P$ with fiber $F$ is the quotient space 
+    \begin{equation*}
+        E := P\times_\rho F := (P\times F)/\sim,
+    \end{equation*}
+    where the equivalence relation $\sim$ is defined by 
+    \begin{equation*}
+        (p, f)\sim (pg, g^{-1}f),\quad \forall p\in P, f\in F, g\in G.
+    \end{equation*} 
+    Denote the equivalence class of $(p, f)$ by $[p, f]$.
+    We can define a projection map $\pi_E: E\to M$ by $\pi_E([p, f]) = \pi(p)$. Since 
+    \begin{equation*}
+        \pi_E([pg, g^{-1}f]) = \pi(pg) = \pi(p) = \pi_E([p, f]),
+    \end{equation*}
+    $\pi_E$ is well-defined. 
+\end{definition}
+\begin{fact}
+    The associated bundle $E:=P\times_\rho F$ with the projection $\pi_E$ gives a fiber bundle over $M$ with fiber $F$.
+    % Moreover, if $\{(U_\alpha, \phi_\alpha)\}$ is a local trivialization of $P$ with transition functions $g_{\alpha\beta}: U_\alpha\cap U_\beta\to G$, 
+    % then we can construct a local trivialization $\{(U_\alpha, \psi_\alpha)\}$ of $P\times_\rho F$ with transition functions 
+    % $\rho\circ g_{\alpha\beta}: U_\alpha\cap U_\beta\to \mathrm{Diff}(F)$.
+    Let $\{(U_\alpha, \phi_\alpha)\}$ be a local trivialization of $P$ 
+    \begin{equation*}
+        \phi_\alpha: \pi^{-1}(U_\alpha) \to U_\alpha\times G, \quad p\mapsto \Big(\pi(p), g_\alpha(p)\Big),
+    \end{equation*}
+    The definition of $g_\alpha(p)$ is as follows: 
+    Let $s_\alpha: U_\alpha\to P$ be a local section defined by $s_\alpha(x) = \phi_\alpha^{-1}(x, e)$. 
+    Since the action of $G$ on $P$ is free and transitive on each fiber, for any $p\in \pi^{-1}(U_\alpha)$, 
+    there exists a unique $g_\alpha(p)\in G$ such that $p=s_\alpha(\pi(p))g_\alpha(p)$. 
+    The transition functions of this local trivialization are given by 
+    \begin{equation*}
+        g_{\alpha\beta}(x) = g_\alpha(s_\beta(x)).
+    \end{equation*}
+
+    Then we can construct a local trivialization $\{(U_\alpha, \psi_\alpha)\}$ of $E$ by 
+    \begin{equation*}
+        \psi_\alpha: \pi_E^{-1}(U_\alpha) \to U_\alpha\times F, \quad [p, f]\mapsto \Big(\pi(p), \rho(g_\alpha(p))f\Big).
+    \end{equation*}
+    One can check that $\psi_\alpha$ is well-defined and is a diffeomorphism. 
+    The transition functions of this local trivialization are 
+    \begin{equation*}
+        \rho\circ g_{\alpha\beta}: U_\alpha\cap U_\beta\to \mathrm{Diff}(F).
+    \end{equation*}
+\end{fact}
+\begin{example}
+    If $P=M\times G$ is a trivial, then $P\times_\rho F$ is trivial. 
+    If the action $\rho$ is trivial, then $P\times_\rho F$ is also trivial.
+\end{example}
+\begin{example}
+    If $F=V$ is a finite-dimensional vector space and $\rho:G\to \mathrm{GL}(V)$ is a linear representation of $G$, 
+    then the associated bundle $E=P\times_\rho V$ is a vector bundle over $M$ with fiber $V$. The vector bundle structure is given by
+    \begin{equation*}
+        [p, v]+[p, w] := [p, v+w], \quad \lambda[p, v] := [p, \lambda v], \quad \forall p\in P, v,w\in V, \lambda\in\mathbb{R}.
+    \end{equation*}
+    One can check that the vector bundle structure is well-defined.
+\end{example}
+\begin{example}
+    Let $P=\mathrm{Fr}(E)$ be the frame bundle of a rank $m$ vector bundle $E$ over $M$. 
+    \begin{itemize}[leftmargin=*]
+        \item $V=\mathbb{R}^m$, $\mathrm{GL}(m, \mathbb{R})\curvearrowright\mathbb{R}^m:g\cdot v = gv$, we get $\mathrm{Fr}(E)\times_{\rho_{\mathrm{can}}}\mathbb{R}^m\cong E$. 
+        \item $V=\mathbb{R}^{m\times m}$, $\mathrm{GL}(m,\mathbb{R})\curvearrowright\mathbb{R}^{m\times m}:g\cdot A = gAg^{-1}$, we get $\mathrm{End}(E)$. 
+        \item $V=\bigwedge^k(\mathbb{R}^m)^*$, $\mathrm{GL}(m,\mathbb{R})\curvearrowright\bigwedge^k(\mathbb{R}^m)^*:g\cdot\alpha(v_1,\ldots,v_k) = \alpha(g^{-1}v_1,\ldots,g^{-1}v_k)$, we get $\bigwedge^k E^*$. 
+        \item $V=\mathrm{Sym}^k(\mathbb{R}^m)^*$, $\mathrm{GL}(m,\mathbb{R})\curvearrowright\mathrm{Sym}^k(\mathbb{R}^m)^*:g\cdot \alpha(v_1,\ldots,v_k) = \alpha(g^{-1}v_1,\ldots,g^{-1}v_k)$, we get $\mathrm{Sym}^k E^*$.
+        \item $V=\mathbb{R}$, $\mathrm{GL}(m,\mathbb{R})\curvearrowright\mathbb{R}:g\cdot r = (\det g)r$, we get $\det E$.
+    \end{itemize}
+    % If we take $V=\mathbb{R}^m$ and $\rho_{\mathrm{can}}=\mathrm{id}:\mathrm{GL}(m, \mathbb{R})\to \mathrm{GL}(\mathbb{R}^m)$ is the canonical representation, 
+    % then the associated bundle $\mathrm{Fr}(E)\times_{\rho_{\mathrm{can}}}\mathbb{R}^m$ is isomorphic to $E$. 
+    % If we take $V=\mathbb{R}^{m\times m}$ and $\mathrm{GL}(m,\mathbb{R})$ acts on $\mathbb{R}^{m\times m}$ by $g\cdot A = gAg^{-1}$,
+    % then the associated bundle is isomorphic to $\mathrm{End}(E)$. 
+    % If we take $V=\bigwedge^k\mathbb{R}^m$ and $\mathrm{GL}(m,\mathbb{R})$ acts on $\bigwedge^k\mathbb{R}^m$ by $g\cdot (v_1\wedge\cdots\wedge v_k) = gv_1\wedge\cdots\wedge gv_k$, 
+    % then the associated bundle is isomorphic to $\bigwedge^k E$.
+\end{example}
+\begin{example}
+    Take $F=G$ and $\rho:G\to \mathrm{Aut}(G):\rho(g)(h) = ghg^{-1}$ the conjugation action, 
+    then the associated bundle $P\times_{\mathrm{conj}} G$ is denoted by $\mathrm{Ad}P$.
+    Take $V=\mathfrak{g}$ and $\rho=\mathrm{Ad}:G\to \mathrm{GL}(\mathfrak{g})$ the adjoint representation. 
+    The associated bundle $\mathrm{ad}P := P\times_{\mathrm{Ad}}\mathfrak{g}$ 
+    is called the \textbf{adjoint bundle} of $P$.
+\end{example}
+Over this section, we mainly focus on the case where $F=V$ and $\rho:G\to \mathrm{GL}(V)$ is a linear representation of $G$. 
+
+Fix $x\in M$, let $P_x$ be the fiber of $P$ over $x$ and $E_x$ be the fiber of $E$ over $x$. 
+Then for every $p\in P_x$, there is a canonical way to identify $E_x$ with $V$ by 
+\begin{equation*}
+    f_p: V\to E_x, \quad f_p(v) = [p, v].
+\end{equation*}
+\begin{lemma}
+    The map $f_p$ is a linear isomorphism.
+\end{lemma}
+\begin{proof}
+    Injectivity: If $[p, v]=[p, w]$, then there exists $g\in G$ such that $pg=p$ and $g^{-1}v=w$. 
+    Since the action of $G$ on $P$ is free, we have $g=e$ and thus $v=w$. 
+
+    Surjectivity: For any $[q,w]\in E_x$, $q\in P_x$, so there exists $g\in G$ such that $q=pg$. 
+    Then we have $[q,w] = [pg, w] = [p, gw] = f_p(gw)$. 
+\end{proof}
+\begin{lemma}\label{lem:G-equivariance-of-fp}
+    Let $f_p: V\to E_x$ be the map defined above. 
+    For any $g\in G$, $f_{pg} = f_p\circ \rho(g)$.
+\end{lemma}
+\begin{proof}
+    For any $v\in V$, we have 
+    \begin{equation*}
+        f_{pg}(v) = [pg, v] = [p, gv] = f_p(gv) = f_p\circ \rho(g)(v). \qedhere
+    \end{equation*}
+\end{proof}
+
+% \subsubsection*{The Local Trivialization of an Associated Bundle}
+% Let $\{(U_\alpha, \phi_\alpha)\}$ be a local trivialization of $P$ 
+% \begin{equation*}
+%     \phi_\alpha: \pi^{-1}(U_\alpha) \to U_\alpha\times G, \quad p\mapsto \Big(\pi(p), g_\alpha(p)\Big),
+% \end{equation*}
+% The definition of $g_\alpha(p)$ is as follows: 
+% Let $s_\alpha: U_\alpha\to P$ be a local section defined by $s_\alpha(x) = \phi_\alpha^{-1}(x, e)$. 
+% Since the action of $G$ on $P$ is free and transitive on each fiber, for any $p\in \pi^{-1}(U_\alpha)$, 
+% there exists a unique $g_\alpha(p)\in G$ such that $p=s_\alpha(\pi(p))g_\alpha(p)$. 
+% The transition functions of this local trivialization are given by $g_{\alpha\beta}(x) = g_\alpha(s_\beta(x))$.
+
+% Then we can construct a local trivialization $\{(U_\alpha, \psi_\alpha)\}$ of $E$ by 
+% \begin{equation*}
+%     \psi_\alpha: \pi_E^{-1}(U_\alpha) \to U_\alpha\times V, \quad [p, v]\mapsto \Big(\pi(p), \rho(g_\alpha(p))v\Big).
+% \end{equation*}
+% One can check that $\psi_\alpha$ is well-defined and is a diffeomorphism. 
+% The transition functions of this local trivialization are given by 
+% $\rho\circ g_{\alpha\beta}: U_\alpha\cap U_\beta\to \mathrm{GL}(V)$.
+
+\subsection{Tensorial Forms on a Principal Bundle}
+Let $\pi: P\to M$ be a principal $G$-bundle, $\rho:G\to \mathrm{GL}(V)$ be a finite-dimensional representation of $G$, 
+and $E=P\times_\rho V$ be the associated vector bundle.
+\begin{definition}
+    A $V$-valued $k$-form $\varphi\in\Omega^k(P, V)$ is called \textbf{tensorial} if it satisfies the following two conditions:
+    \begin{itemize}
+        \item $\varphi$ is \textbf{horizontal}: $\varphi(X_1, \cdots, X_k)=0$ if at least one of $X_i$ is vertical.
+        \item $\varphi$ is \textbf{$G$-equivariant of type $\rho$}: $r_g^*\varphi = \rho(g^{-1})\cdot\varphi$ for all $g\in G$.
+    \end{itemize}
+    The set of all tensorial $k$-forms on $P$ of type $\rho$ is denoted by $\Omega^k_{\rho}(P, V)$.
+\end{definition}
+\begin{example}
+    The curvature $\Omega$ of a connection $\omega$ on $P$ is a tensorial 2-form of type $\mathrm{Ad}$.
+\end{example}
+Below we will show that there is a one-to-one correspondence between $\Omega^k_{\rho}(P, V)$ and $\Omega^k(M, E)$, 
+where $\Omega^k(M, E)$ is the space of $E$-valued $k$-forms on $M$. 
+\begin{definition}
+    Given $x\in M$ and $X_1, \cdots, X_k\in T_xM$, choose any point $p\in P_x$ 
+    and choose any lift $\tilde{X}_1, \cdots, \tilde{X}_k\in T_pP$ of $X_1, \cdots, X_k$, i.e., 
+    $\tilde{X}_i\in T_pP$ and $\pi_*(\tilde{X}_i) = X_i$. Define $\varphi^\flat$ by
+    \begin{equation*}
+        \varphi_x^\flat(X_1, \cdots, X_k) := f_p(\varphi_p(\tilde{X}_1, \cdots, \tilde{X}_k)) \in E_x.  
+    \end{equation*}
+    where $f_p: V\to E_x,\,v\mapsto [p, v]$ is the canonical isomorphism defined above.
+
+    Conversely, given $\psi\in\Omega^k(M, E)$, $p\in P$ and $Y_1, \cdots, Y_k\in T_pP$, define $\psi^\sharp$ by
+    \begin{equation*}
+        \psi_p^\sharp(Y_1, \cdots, Y_k) := f_p^{-1}\big(\psi_{\pi(p)}(\pi_*Y_1, \cdots, \pi_*Y_k)\big) \in V.
+    \end{equation*}
+\end{definition}
+\begin{theorem}\label{thm:tensorial-forms-correspond-to-forms-on-base}
+    These two maps \textcolor{red}{
+    \begin{gather*}
+        \Omega^k_{\rho}(P, V) \to \Omega^k(M, E), \quad \varphi\mapsto \varphi^\flat,\\
+        \Omega^k(M, E) \to \Omega^k_{\rho}(P, V), \quad \psi\mapsto \psi^\sharp,
+    \end{gather*}}
+    are well-defined and inverse to each other, 
+    thus we get linear isomorphisms between $\Omega^k_{\rho}(P, V)$ and $\Omega^k(M, E)$.
+\end{theorem}
+Before proving the theorem, let's see some examples and corollaries.
+\begin{example}
+    By the theorem above, the curvature $\Omega$ of a connection on a principal $G$-bundle $P$ 
+    can be viewed as an element in $\Omega^2(M,\mathrm{ad}P)$, 
+    a $2$-form on $M$ with values in the adjoint bundle $\mathrm{ad}P$.
+\end{example}
+\begin{corollary}
+    Take $k=0$ in Theorem \ref{thm:tensorial-forms-correspond-to-forms-on-base}, 
+    an element in $\Omega^0_{\rho}(P, V)$ is just a $G$-equivariant smooth map $f: P\to V$ of type $\rho$, i.e., 
+    \begin{equation*}
+        f(pg) = (r_g^*f)(p) = \rho(g^{-1})f(p) = g^{-1}\cdot f(p), \quad \forall p\in P, g\in G.
+    \end{equation*}
+    Besides, $\Omega^0(M, E)$ is just the space of smooth sections of $E$. Hence we get a one-to-one correspondence 
+    \begin{equation*}
+        \left\{
+            \begin{array}{c}
+                \text{G-equivariant maps w.r.t. $\rho$} \\[2pt]
+                f: P \to V
+            \end{array}
+        \right\}
+        \longleftrightarrow
+        \left\{
+            \begin{array}{c}
+                \text{sections of the associated bundle} \\[2pt]
+                s: M \to P \times_\rho V
+            \end{array}
+        \right\}
+    \end{equation*}
+\end{corollary}
+
+\begin{proof}[Proof of Theorem \ref{thm:tensorial-forms-correspond-to-forms-on-base}]
+    We first show that $\varphi^\flat$ is well-defined. First check that $\varphi^\flat$ does not depend on the choice of the lift $\tilde{X}_i$.
+    If $\tilde{X}_i'$ is another lift of $X_i$, then $\pi_*(\tilde{X}_i-\tilde{X}_i')=0$, so $\tilde{X}_i-\tilde{X}_i'$ is vertical. 
+    Since $\varphi$ is horizontal, 
+    \begin{equation*}
+        \varphi_p(\tilde{X}_1', \cdots, \tilde{X}_k') = \varphi_p(\tilde{X}_1+\text{vertical}, \cdots, \tilde{X}_k+\text{vertical}) 
+        = \varphi_p(\tilde{X}_1, \cdots, \tilde{X}_k).
+    \end{equation*}
+    Next check that $\varphi^\flat$ does not depend on the choice of $p\in P_x$. Suppose $p'=pg$ for some $g\in G$, then 
+    $r_g{}_*\tilde{X}_i$ is a lift of $X_i$ at $pg$. Since $\varphi$ is $G$-equivariant of type $\rho$, we have
+    \begin{equation*}
+        \varphi_{pg}(r_g{}_*\tilde{X}_1, \cdots, r_g{}_*\tilde{X}_k) 
+        = (r_g^*\varphi_{pg})(\tilde{X}_1, \cdots, \tilde{X}_k)
+        = \rho(g^{-1})\cdot\varphi_p(\tilde{X}_1, \cdots, \tilde{X}_k).
+    \end{equation*}  
+    By Lemma \ref{lem:G-equivariance-of-fp}, 
+    \begin{align*}
+        f_{pg}(\varphi_{pg}(r_g{}_*\tilde{X}_1, \cdots, r_g{}_*\tilde{X}_k)) 
+        = f_p\circ \rho(g)(\rho(g^{-1})\cdot\varphi_p(\tilde{X}_1, \cdots, \tilde{X}_k))
+        = f_p(\varphi_p(\tilde{X}_1, \cdots, \tilde{X}_k)).
+    \end{align*}
+    Thus $\varphi^\flat$ is well-defined. 
+
+    Let $\psi\in\Omega^k(M, E)$, it's easy to see that $\psi^\sharp$ is horizontal. For $G$-equivariance, we have 
+    \begin{align*}
+        (r_g^*\psi^\sharp)_p(Y_1, \cdots, Y_k) 
+        &= \psi^\sharp_{pg}(r_g{}_*(Y_1), \cdots, r_g{}_*(Y_k))\\
+        &= f_{pg}^{-1}\big(\psi_{\pi(pg)}(\pi_*r_g{}_*(Y_1), \cdots, \pi_*r_g{}_*(Y_k))\big)\\
+        &= f_{pg}^{-1}\big(\psi_{\pi(p)}(\pi_*Y_1, \cdots, \pi_*Y_k)\big)\\
+        &= \rho(g^{-1})\cdot f_p^{-1}\big(\psi_{\pi(p)}(\pi_*Y_1, \cdots, \pi_*Y_k)\big)\\
+        &= \rho(g^{-1})\cdot \psi^\sharp_p(Y_1, \cdots, Y_k).
+    \end{align*}
+    Hence $\psi^\sharp$ is $G$-equivariant of type $\rho$, and thus $\psi^\sharp\in\Omega^k_{\rho}(P, V)$.
+
+    Finally, we check that these two maps are inverse to each other. For any $\varphi\in\Omega^k_{\rho}(P, V)$, 
+    $p\in P$ and $Y_1, \cdots, Y_k\in T_pP$, 
+    \begin{align*}
+        (\varphi^{\flat\sharp})_p(Y_1, \cdots, Y_k) 
+        &= f_p^{-1}\big(\varphi^\flat_{\pi(p)}(\pi_*Y_1, \cdots, \pi_*Y_k)\big)\\
+        &= f_p^{-1}\big(f_p(\varphi_p(Y_1, \cdots, Y_k))\big)\\
+        &= \varphi_p(Y_1, \cdots, Y_k).
+    \end{align*}
+    For any $\psi\in\Omega^k(M, E)$, $x\in M$ and $X_1, \cdots, X_k\in T_xM$, 
+    choose any $p\in P_x$ and any lift $\tilde{X}_1, \cdots, \tilde{X}_k\in T_pP$ of $X_1, \cdots, X_k$, 
+    \begin{align*}
+        (\psi^{\sharp\flat})_x(X_1, \cdots, X_k) 
+        &= f_p(\psi^\sharp_p(\tilde{X}_1, \cdots, \tilde{X}_k))\\
+        &= f_p\big(f_p^{-1}(\psi_{x}(\pi_*\tilde{X}_1, \cdots, \pi_*\tilde{X}_k))\big)\\
+        &= \psi_{x}(X_1, \cdots, X_k). \qedhere
+    \end{align*}
+\end{proof}
+\subsection{Covariant Derivative}
+Keep the same notations as above. Notice that given a horizontal distribution $H$ on $P$, 
+we can decompose the tangent vetor $Y_p\in T_pP$ into a horizontal part and a vertical part, 
+\begin{equation*}
+    Y_p = hY_p + vY_p, \quad hY_p\in H_p, vY_p\in V_pP.
+\end{equation*}
+In this section, we will use this decomposition to define the covariant derivative of vector-valued forms on $P$, 
+and thus a covariant derivative on the associated bundle $E$. 
+
+Let's start with the usual exterior derivative $\md: \Omega^k(P, V)\to \Omega^{k+1}(P, V)$. 
+\begin{proposition}\label{prop:exterior-derivative-preserves-G-equivariance}
+    If $\varphi\in\Omega^k(P, V)$ is $G$-equivariant of type $\rho$, then $\md\varphi$ is also $G$-equivariant of type $\rho$.
+\end{proposition}
+\begin{proof}
+    For any $g\in G$, 
+    \begin{equation*}
+        r_g^*(\md\varphi) = \md(r_g^*\varphi) = \md(\rho(g^{-1})\varphi) = \rho(g^{-1})\md\varphi.
+    \end{equation*}
+    The last equality holds since $\rho(g^{-1})$ is a constant linear map on $V$ for a fixed $g$.
+\end{proof}
+
+In general, the exterior derivative does not preserve the horizontality, so it does not preserve the space of tensorial forms.
+\begin{definition}
+    For any $\varphi\in\Omega^k(P, V)$, we define its \textbf{horizontal component} $\varphi^h\in\Omega^k(P, V)$ by
+    \begin{equation*}
+        \varphi^h_p(Y_1, \cdots, Y_k) := \varphi_p(hY_1, \cdots, hY_k),
+    \end{equation*}
+    for any $p\in P$ and $Y_1, \cdots, Y_k\in T_pP$. 
+\end{definition}
+\begin{proposition}\label{prop:horizontal-component-preserves-G-equivariance}
+    If $\varphi\in\Omega^k(P, V)$ is $G$-equivariant of type $\rho$, so is $\varphi^h$.
+\end{proposition}
+\begin{proof}
+    For $g\in G$, $p\in P$ and $Y_1, \cdots, Y_k\in T_pP$,
+    \begin{align*}
+        (r_g^*\varphi^h)_p(Y_1, \cdots, Y_k) 
+        &= \varphi^h_{pg}(r_g{}_*Y_1, \cdots, r_g{}_*Y_k)\\
+        &= \varphi_{pg}(h(r_g{}_*Y_1), \cdots, h(r_g{}_*Y_k))\\
+        &= \varphi_{pg}(r_g{}_*(hY_1), \cdots, r_g{}_*(hY_k))\\
+        &= (r_g^*\varphi)_p(hY_1, \cdots, hY_k)\\
+        &= \rho(g^{-1})\cdot\varphi_p(hY_1, \cdots, hY_k)\\
+        &= \rho(g^{-1})\cdot\varphi^h_p(Y_1, \cdots, Y_k).
+    \end{align*}
+\end{proof}
+
+Proposition \ref{prop:exterior-derivative-preserves-G-equivariance} and \ref{prop:horizontal-component-preserves-G-equivariance} 
+together imply that if $\varphi\in\Omega^k(P, V)$ is $G$-equivariant of type $\rho$, then $(\md\varphi)^h$ is a tensorial form.
+\begin{definition}
+    For any $\varphi\in\Omega^k(P, V)$, we define its \textbf{covariant derivative} by 
+    \begin{equation*}
+        D\varphi := (\md\varphi)^h.
+    \end{equation*}
+    In particular, $D$ maps tensorial $k$-forms of type $\rho$ to tensorial $(k+1)$-forms of type $\rho$, i.e., 
+    \begin{equation*}
+        D: \Omega^k_{\rho}(P, V) \to \Omega^{k+1}_{\rho}(P, V).
+    \end{equation*}
+\end{definition}
+\begin{proposition}
+    The covariant derivative $D: \Omega^k_{\rho}(P, V) \to \Omega^{k+1}_{\rho}(P, V)$ is an antiderivation of degree $+1$, 
+    i.e., for any $\varphi\in\Omega^k_{\rho}(P, V)$ and $\psi\in\Omega^l_{\rho}(P, V)$,
+    \begin{equation*}
+        D(\varphi\wedge\psi) = D\varphi\wedge\psi + (-1)^k\varphi\wedge D\psi.
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    Since $\varphi$ and $\psi$ are horizontal, we have 
+    \begin{align*}
+        D(\varphi\wedge\psi) &= (\md(\varphi\wedge\psi))^h = (\md\varphi\wedge\psi + (-1)^k\varphi\wedge \md\psi)^h  \\ 
+        &= (\md\varphi)^h\wedge\psi^h + (-1)^k\varphi^h\wedge (\md\psi)^h \\ 
+        &= D\varphi\wedge\psi + (-1)^k\varphi\wedge D\psi. \qedhere
+    \end{align*}
+\end{proof}
+\begin{example}
+    By Theorem \ref{thm:tensorial-forms-correspond-to-forms-on-base}, 
+    the curvature $\Omega$ of a connection on $P$ is exactly the covariant derivative of $\omega$, since
+    \begin{equation*}
+        \Omega_p(X_p, Y_p) = \md\omega_p(hX_p, hY_p) = (\md\omega_p)^h(X_p, Y_p) = (D\omega_p)(X_p, Y_p). 
+    \end{equation*}
+\end{example}
+By the one-to-one correspondence between $\Omega^k_{\rho}(P, V)$ and $\Omega^k(M, E)$, we can also define a covariant derivative on $\Omega^k(M, E)$ 
+\begin{equation*}
+    D: \Omega^k(M, E) \to \Omega^{k+1}(M, E), \quad D\psi := (D\psi^\sharp)^\flat.
+\end{equation*}
+\begin{example}
+    Let $E$ be a rank $m$ vector bundle over $M$, $\mathrm{Fr}(E)$ be its frame bundle.
+    and $\omega$ be a connection on $\mathrm{Fr}(E)$ induced by a connection $\nabla$ on $E$. 
+    With the identification $E = \mathrm{Fr}(E)\times_{\rho_{\mathrm{can}}}\mathbb{R}^m$, 
+    we claim that the covariant derivative $D$ on $\Omega^k(M, E)$ is exactly $\nabla$. 
+    The proof will be given later. 
+\end{example}
+
+\subsection{A Formula for the Covariant Derivative on Tensorial Forms}
+We have defined the covariant derivative $D$ on $\Omega^k(P, V)$ by $D\varphi = (\md\varphi)^h$.
+In this section, we will give a more explicit formula for $D$, but only for $\Omega^k_{\rho}(P, V)$. 
+
+The representation $\rho:G\to \mathrm{GL}(V)$ induces a Lie algebra representation $\rho_*:\mathfrak{g}\to \mathrm{End}(V)$, 
+which alows us to define a product of $\tau\in\Omega^k(P,\mathfrak{g})$ and $\varphi\in\Omega^l(P, V)$ 
+\begin{definition}
+    For $\tau\in\Omega^k(P,\mathfrak{g})$ and $\varphi\in\Omega^l(P, V)$, we define $\tau\cdot\varphi\in\Omega^{k+l}(P, V)$ by
+    \begin{equation*}
+        (\tau\cdot\varphi)_p(Y_1, \cdots, Y_{k+l}) := \frac{1}{k!l!}\sum_{\sigma} \mathrm{sgn}(\sigma)\cdot 
+        \rho_*\big(\tau_p(Y_{\sigma(1)}, \cdots, Y_{\sigma(k)})\big)\varphi_p(Y_{\sigma(k+1)}, \cdots, Y_{\sigma(k+l)}).
+    \end{equation*}
+    One can check that $\tau\cdot\varphi$ is indeed a $(k+l)$-form on $P$ with values in $V$.
+\end{definition}
+\begin{example}
+    If $V=\mathfrak{g}$ and $\rho=\mathrm{Ad}$, then 
+    \begin{equation*}
+        (\tau\cdot\varphi)_p(Y_1, \cdots, Y_{k+l}) = \frac{1}{k!l!}\sum_{\sigma} \mathrm{sgn}(\sigma)\cdot 
+        [\tau_p(Y_{\sigma(1)}, \cdots, Y_{\sigma(k)}), \varphi_p(Y_{\sigma(k+1)}, \cdots, Y_{\sigma(k+l)})].
+    \end{equation*}
+    In this case, we write $\tau\cdot\varphi$ instead of $[\tau, \varphi]$.
+\end{example}
+\begin{theorem}\label{thm:formula-for-covariant-derivative}
+    Let $\pi: P\to M$ be a principal $G$-bundle with a connection $\omega$, 
+    $\rho:G\to \mathrm{GL}(V)$ be a finite-dimensional representation of $G$. 
+    If $\varphi\in\Omega^k_{\rho}(P, V)$, then 
+    \begin{equation*}
+        D\varphi = \md\varphi + \omega\cdot\varphi.
+    \end{equation*}
+\end{theorem}
+Before proving the theorem, we frist see some examples. 
+\begin{example}
+    In case that $V=\mathfrak{g}$ and $\rho=\mathrm{Ad}$, for any $\varphi\in\Omega^k_{\mathrm{Ad}}(P, \mathfrak{g})$, 
+    \begin{equation*}
+        D\varphi = \md\varphi + [\omega, \varphi].
+    \end{equation*}
+    Notice that this formula only holds for tensorial forms. Since $\omega$ is not horizontal, 
+    we cannot use this formula to compute $D\omega$, in fact, we know that 
+    \begin{equation*}
+        D\omega = (\md\omega)^h = \Omega = \md\omega + \frac{1}{2}[\omega, \omega].
+    \end{equation*}
+    Since $\Omega$ is tensorial, we can apply the formula for $\Omega$. In fact, we have
+    \begin{equation*}
+        D\Omega = \md\Omega + [\omega, \Omega].
+    \end{equation*}
+    So the second Bianchi identity can be rewritten as $D\Omega=0$.
+\end{example}
+\begin{proof}[Proof of Theorem \ref{thm:formula-for-covariant-derivative}]
+    To verify the formula, we actually need to show
+    \begin{equation*}
+        \md\varphi(hY_1, \cdots, hY_{k+1}) = \md\varphi(Y_1, \cdots, Y_{k+1}) + (\omega\cdot\varphi)_p(Y_1, \cdots, Y_{k+1}) 
+        =: \mathrm{I} + \mathrm{II}.
+    \end{equation*}
+    Since both sides are multilinear and antisymmetric in $Y_1, \cdots, Y_{k+1}$, 
+    we can decompose all the $Y_i$ into horizontal and vertical parts and check the equality in several cases. 
+    Moreover, since we are verifying the equalityly, we can assume that the vertical part of $Y_i=\underline{A_i}$ is a fundamental vector field, 
+    and the horizontal part of $Y_i=\tilde{B}_i$ is a horizontal lift of some vector field $B_i$ on $M$. 
+    Notice that $\tilde{B}_i$ is right-invariant. 
+    
+    \noindent\textbf{Case 1:} All $Y_i$ are horizontal. Then $\mathrm{II}=0$ since $\omega$ vanishes on horizontal vectors, 
+    and the formula holds trivially.
+
+    \noindent\textbf{Case 2:} At least two of the $Y_i$ are vertical. Then 
+    \begin{align*}
+        \mathrm{I} = \md\varphi(Y_1, \cdots, Y_{k+1}) 
+        =& \sum_i (-1)^{i+1}Y_i\varphi(Y_1, \cdots, \hat{Y}_i, \cdots, Y_{k+1}) \\ 
+        &+ \sum_{i<j} (-1)^{i+j}\varphi([Y_i, Y_j], Y_1, \cdots, \hat{Y}_i, \cdots, \hat{Y}_j, \cdots, Y_{k+1}).
+    \end{align*}
+    Since $[\underline{A_i}, \underline{A_j}] = \underline{[A_i, A_j]}$ is still vertical, 
+    at least one of the arguments is vertical, so $\mathrm{I}=0$. 
+
+    On the other hand, 
+    \begin{equation*}
+        \mathrm{II} = \frac{1}{k!}\sum_{\sigma\in S_{k+1}} \mathrm{sgn}(\sigma)\cdot \rho_*(\omega_p(Y_{\sigma(1)}))\varphi_p(Y_{\sigma(2)}, \cdots, Y_{\sigma(k+1)}),
+    \end{equation*}
+    which is also zero since at least one of the arguments of $\varphi$ is vertical. 
+
+    \noindent\textbf{Case 3:} Exactly one of the $Y_i$ is vertical, say $Y_1=\underline{A}$ and $Y_2, \cdots, Y_{k+1}$ are horizontal. 
+    Then 
+    \begin{equation*}
+        \mathrm{I} = \md\varphi(\underline{A}, Y_2, \cdots, Y_{k+1}) 
+        = \underline{A}\varphi(Y_2, \cdots, Y_{k+1}) + \sum_{i=2}^{k+1} (-1)^{i}\varphi([\underline{A}, Y_i], Y_2, \cdots, \hat{Y}_i, \cdots, Y_{k+1}).
+    \end{equation*}
+    In our assumption, $Y_i$ is a horizontal lift of some vector field $B_i$ on $M$, so is right-invariant. 
+    Hence $[\underline{A}, Y_i] = 0$ for $i=2, \cdots, k+1$. Thus 
+    \begin{equation*}
+        \mathrm{I} = \underline{A}\varphi(Y_2, \cdots, Y_{k+1}).
+    \end{equation*}
+    On the other hand,
+    \begin{align*}
+        \mathrm{II} &= \frac{1}{k!}\sum_{\begin{subarray}{c}\sigma\in S_{k+1} \\ \sigma(1)=1\end{subarray}}
+        \mathrm{sgn}(\sigma)\cdot \rho_*(\omega(Y_{\sigma(1)}))\varphi(Y_{\sigma(2)}, \cdots, Y_{\sigma(k+1)}) \\ 
+        &= \rho_*(\omega(\underline{A}))\varphi(Y_2, \cdots, Y_{k+1})  
+        = \rho_*(A)\varphi(Y_2, \cdots, Y_{k+1}).
+    \end{align*}
+    If we denote by $f$ the function $\varphi(Y_2, \cdots, Y_{k+1})$. For $p\in P$, to calculate $\underline{A}_pf$, 
+    let $c(t) = \exp(tA)$ be the integral curve of $A$ in $G$ with $c(0)=e$. Then withe $j_p: G\to P, j_p(g) = pg$, we have
+    \begin{align*}
+        \underline{A}_pf = j_p{}_*(A)f = j_p{}_*(c'(0))f = \frac{\md}{\md t}\Big|_{t=0} (f\circ j_p\circ c).
+    \end{align*}
+    By the right-invariance of the horizontal vector fields $Y_2, \cdots, Y_{k+1}$, 
+    \begin{align*}
+        (f\circ j_p\circ c)(t) &= f(pc(t)) = \varphi_{pc(t)}(Y_{2,pc(t)}, \cdots, Y_{k+1, pc(t)}) \\ 
+        &= \varphi_{pc(t)}(r_{c(t)*}Y_{2,p}, \cdots, r_{c(t)*}Y_{k+1, p}) \\
+        &= (r_{c(t)}^*\varphi)_p(Y_{2,p}, \cdots, Y_{k+1, p}) \\
+        &= \rho(c(t)^{-1})\varphi_p(Y_{2,p}, \cdots, Y_{k+1, p}) \\
+        &= \rho(\exp(-tA))f(p).
+    \end{align*}
+    Thus 
+    \begin{equation*}
+        \underline{A}_pf(p) = \frac{\md}{\md t}\Big|_{t=0} \rho(\exp(-tA))f(p) = -\rho_*(A)f(p).
+    \end{equation*}
+    Hence $\mathrm{I} + \mathrm{II} = 0$. The left-hand side of the formula is also zero because $hY_1 = 0$. 
+\end{proof}
+\subsection*{Exercises}
+\addcontentsline{toc}{subsection}{Exercises}
+\begin{exercise}[Forms on $P$ pulled back from $M$]
+    Since $\pi:P\to M$ is a surjective submersion, 
+    the pull-back $\pi^*:\Omega^*(M,V)\to \Omega^*(P,V)$ is injective. 
+    A differential form $\varphi\in\Omega^*(P,V)$ is said to be \textbf{basic} 
+    if it is the pull-back $\pi^*\psi$ of some $\psi\in\Omega^*(M,V)$; 
+    it is said to be \textbf{$G$-invariant} if $r_g^*\varphi = \varphi$ for all $g\in G$. 
+    Show that:
+    \begin{itemize}[leftmargin=*]
+        \item $\varphi$ is $G$-invariant if and only if 
+        $\varphi$ is $G$-equivariant of type $\rho_{\mathrm{trivial}}$, 
+        where $\rho_{\mathrm{trivial}}$ is the trivial representation.
+        \item $\varphi$ is basic if and only if $\varphi$ is horizontal and $G$-invariant.
+    \end{itemize}
+\end{exercise}
+\begin{proof}
+    If $\varphi$ is $G$-equivariant of type $\rho_{\mathrm{trivial}}$, then 
+    \begin{equation*}
+        r_g^*\varphi = \rho_{\mathrm{trivial}}(g^{-1})\cdot\varphi = \varphi, \quad \forall g\in G.
+    \end{equation*}
+    This is just the definition of $G$-invariance. 
+
+    Since the associated bundle $E=P\times_{\rho_{\mathrm{trivial}}} V$ is just the trivial bundle $M\times V$, 
+    and $f_p: V\to E_{\pi(p)} = V$ is the identity map,
+    by Theorem \ref{thm:tensorial-forms-correspond-to-forms-on-base}, 
+    \begin{align*}
+        \Omega^k(M,E)\cong\Omega^k(M, M\times V) = \Omega^k(M, V) &\xrightarrow{\cong} \Omega^k_{\rho_{\mathrm{trivial}}}(P, V) = \{\text{basic forms on $P$}\} \\ 
+        \psi &\mapsto \psi^\sharp.
+    \end{align*}
+    where 
+    \begin{align*}
+        \psi^\sharp_p(Y_1, \cdots, Y_k) &= f_p^{-1}\Big(\psi_{\pi(p)}(\pi_*Y_1, \cdots, \pi_*Y_k)\Big) \\ 
+        &= \psi_{\pi(p)}(\pi_*Y_1, \cdots, \pi_*Y_k) \\ 
+        &= (\pi^*\psi)_p(Y_1, \cdots, Y_k). \qedhere
+    \end{align*}
+\end{proof}
