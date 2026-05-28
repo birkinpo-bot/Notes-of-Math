@@ -39,7 +39,9 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
-\newtheorem{fact}{Fact}[section]
+\newtheorem{fact}{Fact}
+% \renewcommand{\thefact}{\arabic{fact}}
+% \numberwithin{fact}{section}    % Fact 环境按章节重新计数
 \newtheorem{example}[theorem]{Example}
 \newtheorem{problem}[theorem]{Problem}
 \newtheorem{exercise}{Exercise}[section]
@@ -47,6 +49,7 @@
 \renewcommand{\proofname}{\bf Proof}
 
 % ---------- 常用数学命令 ----------
+\newcommand{\dif}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}               % 一阶导数
 \newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}               % 一次偏导
 \newcommand{\npd}[3]{\frac{\partial^{#1}{#2}}{\partial{#3}^{#1}}} % n次偏导
 \newcommand{\pD}[2]{\frac{{\rm D}(#1)}{{\rm D}(#2)}}               % Jacobian
@@ -75,6 +78,7 @@
 \newcommand{\Out}{{\rm Out}}
 \newcommand{\End}{{\rm End}}
 \newcommand{\Lie}{{\rm Lie}}
+\newcommand{\Pf}{{\rm Pf}}
 \newcommand{\mCP}{\mathbb{C}\mathrm{P}}
 \newcommand{\mRP}{\mathbb{R}\mathrm{P}}
 \newcommand{\mHP}{\mathbb{H}\mathrm{P}}

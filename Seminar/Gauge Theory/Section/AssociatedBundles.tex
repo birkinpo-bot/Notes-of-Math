@@ -17,6 +17,15 @@ Let $\pi: P\to M$ be a principal $G$-bundle, $F$ be a smooth manifold with a lef
     \end{equation*}
     $\pi_E$ is well-defined. 
 \end{definition}
+\begin{example}
+    If $P = U\times G$ is a trivial principal $G$-bundle over $U$, 
+    then $(U\times G)\times_\rho F$ is isomorphic to $U\times F$. Since 
+    \begin{align*}
+        (U\times G)\times_\rho F \to U\times F,\qquad
+        [(x, g), f] = [(x, e)\cdot g, f] = [(x, e), g\cdot f] \mapsto (x, g\cdot f),
+    \end{align*}
+    is a well-defined diffeomorphism.
+\end{example}
 \begin{fact}
     The associated bundle $E:=P\times_\rho F$ with the projection $\pi_E$ gives a fiber bundle over $M$ with fiber $F$.
     % Moreover, if $\{(U_\alpha, \phi_\alpha)\}$ is a local trivialization of $P$ with transition functions $g_{\alpha\beta}: U_\alpha\cap U_\beta\to G$, 

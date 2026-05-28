@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.22)  22 MAY 2026 16:03
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.22)  28 MAY 2026 22:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -838,7 +838,7 @@ Package fontspec Info:
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
 (fontspec)             <->"[FandolKai-Regular.otf]/OT:script=hani;language=dflt;"
 
-(./Notes on Gauge Theory.aux (./Section/AssociatedBundles.aux))
+(./Notes on Gauge Theory.aux (./Section/CharacteristicClasses.aux))
 \openout1 = `"Notes on Gauge Theory.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -987,15 +987,15 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
  [1
 
 ]
-\openout2 = `Section/AssociatedBundles.aux'.
+\openout2 = `Section/CharacteristicClasses.aux'.
 
- (./Section/AssociatedBundles.tex [2
-
-]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 79.
+ (./Section/CharacteristicClasses.tex
+LaTeX Font Info:    Trying to load font information for U+euf on input line 11.
  (d:/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [3] [4] [5] [6] [7] [8]) [9] Total classes: 0 (./Notes on Gauge Theory.aux (./Section/AssociatedBundles.aux))
+) [2
+
+] [3] [4] [5] [6]) [7] Total classes: 0 (./Notes on Gauge Theory.aux (./Section/CharacteristicClasses.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
@@ -1004,12 +1004,12 @@ Package rerunfilecheck Info: File `"Notes on Gauge Theory".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 34420 strings out of 468168
- 814704 string characters out of 5436524
- 1260534 words of memory out of 5000000
- 62559 multiletter control sequences out of 15000+600000
- 638884 words of font info for 106 fonts, out of 8000000 for 9000
+ 34518 strings out of 468168
+ 817129 string characters out of 5436524
+ 1260219 words of memory out of 5000000
+ 62666 multiletter control sequences out of 15000+600000
+ 637815 words of font info for 98 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 113i,20n,132p,5089b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,14n,132p,5089b,981s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Notes on Gauge Theory.pdf (9 pages).
+Output written on Notes on Gauge Theory.pdf (7 pages).
