@@ -1,26 +1,26 @@
 \section{Characteristic Classes}
 Let $\pi:E\to M$ be a rank $r$ vector bundle, 
 $\nabla$ be a connection on $E$.
-Its curvature $F_\nabla := \nabla^2$ is an $\End(E)$-valued 2-form on $M$. 
+Its curvature $R^\nabla := \nabla^2$ is an $\End(E)$-valued 2-form on $M$. 
 Under a local trivialization $\{(U_\alpha,\psi_\alpha)\}$ of $E$, 
 $\nabla$ can be represented by an $r\times r$ matrix of 1-forms $\omega_\alpha$, 
-and $F_\nabla$ can be represented by an $r\times r$ matrix of 2-forms $\Omega_\alpha$.  
+and $R^\nabla$ can be represented by an $r\times r$ matrix of 2-forms $\Omega_\alpha$.  
 
 The main goal of this section is the following: 
 \begin{enumerate}
     \item An invariant polynomial $\Phi$  on $\mathfrak{gl}(r,\mathbb{R})$ 
-    determines a global form $\Phi(F_\nabla)$ on $M$.
-    \item The global form $\Phi(F_\nabla)$ is closed.
-    \item The class $[\Phi(F_\nabla)]$ is independent of the choice of $\nabla$, 
+    determines a global form $\Phi(R^\nabla)$ on $M$.
+    \item The global form $\Phi(R^\nabla)$ is closed.
+    \item The class $[\Phi(R^\nabla)]$ is independent of the choice of $\nabla$, 
     thus defines an invariant of $E$.
-    \item \emph{Chern-Weil homomorphism}: $\mathrm{Inv}(\mathfrak{gl}(r,\mathbb{R}))\to H_{\mathrm{dR}}^{*}(M)$, $\Phi\mapsto[\Phi(F_\nabla)]$. 
+    \item \emph{Chern-Weil homomorphism}: $\mathrm{Inv}(\mathfrak{gl}(r,\mathbb{R}))\to H_{\mathrm{dR}}^{*}(M)$, $\Phi\mapsto[\Phi(R^\nabla)]$. 
     \item Examples: \emph{Chern classes}, \emph{Pontryagin classes} and \emph{Euler classes}. 
     \item Generalization to principal $G$-bundles: $\mathrm{Inv}(\mathfrak{g})\to H_{\mathrm{dR}}^{*}(M)$.
 \end{enumerate}
 % The map 
 % \begin{equation*}
 %     \mathrm{Inv}(\mathfrak{gl}(r,\mathbb{R}))\to H_{\mathrm{dR}}^{*}(M), \qquad
-%     \Phi\mapsto[\Phi(F_\nabla)]
+%     \Phi\mapsto[\Phi(R^\nabla)]
 % \end{equation*}
 % is the \emph{Chern-Weil homomorphism}. 
 % It is a powerful mechinery to construct characteristic classes of vector bundles.
@@ -39,10 +39,10 @@ The main goal of this section is the following:
 Repeat the settings above: 
 Let $\pi:E\to M$ be a rank $r$ vector bundle, 
 $\nabla$ a connection on $E$.
-The curvature $F_\nabla$ is an $\End(E)$-valued 2-form on $M$. 
+The curvature $R^\nabla$ is an $\End(E)$-valued 2-form on $M$. 
 Under a local trivialization $\{(U_\alpha,\psi_\alpha)\}$ of $E$, 
 $\nabla$ can be represented by an $r\times r$ matrix of 1-forms $\omega_\alpha$, 
-and $F_\nabla$ can be represented by an $r\times r$ matrix of 2-forms $\Omega_\alpha$. 
+and $R^\nabla$ can be represented by an $r\times r$ matrix of 2-forms $\Omega_\alpha$. 
 
 Recall that the curvature form $\Omega_\alpha$ is defined by 
 \begin{equation*}
@@ -98,7 +98,7 @@ where $g_{\alpha\beta}$ is the transition function.
 \begin{proposition}\label{prop:global_form}
     Let $\Phi(X)$ be an invariant polynomial on $\mathfrak{gl}(r,\mathbb{R})$. 
     Then $\Phi(\Omega_\alpha)$ and $\Phi(\Omega_\beta)$ coincide on $U_\alpha\cap U_\beta$, 
-    \textcolor{red}{thus determine a global form $\Phi(F_\nabla)$ on $M$.}
+    \textcolor{red}{thus determine a global form $\Phi(R^\nabla)$ on $M$.}
 \end{proposition}
 \begin{proof}
     Since $\Omega_\beta = g_{\alpha\beta}^{-1}\Omega_\alpha g_{\alpha\beta}$, 
@@ -110,7 +110,7 @@ where $g_{\alpha\beta}$ is the transition function.
 \end{proof}
 
 \begin{proposition}\label{prop:closed}
-    \textcolor{red}{The global form $\Phi(F_\nabla)$ is closed}.
+    \textcolor{red}{The global form $\Phi(R^\nabla)$ is closed}.
 \end{proposition}
 To prove this proposition, we need the following fact about invariant polynomials.
 \begin{fact}
@@ -132,7 +132,7 @@ then $\Phi$ must be a linear combination of $\Sigma_1^3$, $\Sigma_1\Sigma_2$ and
 
 \begin{proof}[Proof of Proposition \ref{prop:closed}]
     Since $\Phi$ is a polynomial in $\Sigma_1,\dots,\Sigma_r$, 
-    it suffices to show that $\md\Tr(F_\nabla)=0$ for all $k$. 
+    it suffices to show that $\md\Tr(R^\nabla)=0$ for all $k$. 
     We have 
     \begin{equation*}
         \md\Tr(\Omega_\alpha^k) = \Tr(\md\Omega_\alpha^k)
@@ -142,11 +142,11 @@ then $\Phi$ must be a linear combination of $\Sigma_1^3$, $\Sigma_1\Sigma_2$ and
 \end{proof}
 
 \begin{proposition}\label{prop:independent}
-    \textcolor{red}{The class $[\Phi(F_\nabla)]$ is independent of the choice of $\nabla$.}
+    \textcolor{red}{The class $[\Phi(R^\nabla)]$ is independent of the choice of $\nabla$.}
     It is a {\rm(}differential{\rm)} topological invariant of $E$.
 \end{proposition}
 \begin{proof}
-    For the same reason as above, it suffices to show that $[\Tr(F_\nabla)]$ is independent of the choice of $\nabla$. 
+    For the same reason as above, it suffices to show that $[\Tr(R^\nabla)]$ is independent of the choice of $\nabla$. 
     Let $\nabla_0, \nabla_1$ be two connections on $E$, then $\nabla_t = (1-t)\nabla_0 + t\nabla_1$ is a family of connections on $E$, 
     whose connection form is given by 
     \begin{equation*}
@@ -159,18 +159,23 @@ then $\Phi$ must be a linear combination of $\Sigma_1^3$, $\Sigma_1\Sigma_2$ and
     So 
     \begin{equation*}
         \dif{\Omega_t}{t} = \dif{}{t}(\md\omega_t + \omega_t\wedge\omega_t)
-        = \dif{}{t}(\md\omega_t) + \dif{\omega_t}{t}\wedge\omega_t + \omega_t\wedge\dif{\omega_t}{t}
-        = \md\dif{\omega_t}{t}
+        = \dif{}{t}(\md\omega_t) 
+        + \dif{\omega_t}{t}\wedge\omega_t 
+        + \omega_t\wedge\dif{\omega_t}{t} 
     \end{equation*}
     Then 
     \begin{align*}
         \dif{}{t}\Tr(\Omega_t^k) 
         &= \Tr\left(\dif{}{t}\Omega_t^k\right) 
-        = \Tr\left(\dif{\Omega_t}{t}\wedge\Omega_t^{k-1} + \cdots + \Omega_t^{k-1}\wedge\dif{\Omega_t}{t}\right) \\
-        &= k\Tr\left(\dif{\Omega_t}{t}\wedge\Omega_t^{k-1}\right) 
-        = k\Tr\left(\left(\md\dif{\omega_t}{t}\right)\wedge\Omega_t^{k-1}\right) \\ 
-        &= k\Tr\left(\md\left(\dif{\omega_t}{t}\wedge\Omega_t^{k-1}\right)\right) 
-        = \md\, k\Tr\left(\dif{\omega_t}{t}\wedge\Omega_t^{k-1}\right). 
+        = \Tr\left(\dif{\Omega_t}{t}\wedge\Omega_t^{k-1} + \cdots + \Omega_t^{k-1}\wedge\dif{\Omega_t}{t}\right) 
+        = k\Tr\left(\dif{\Omega_t}{t}\wedge\Omega_t^{k-1}\right) \\
+        &= k\Tr\left(\left(\md\dif{\omega_t}{t} + \dif{\omega_t}{t}\wedge\omega_t + \omega_t\wedge\dif{\omega_t}{t}\right)
+        \wedge\Omega_t^{k-1}\right) \\ 
+        &= k\Tr\left(\md\left(\dif{\omega_t}{t}\right)\wedge\Omega_t^{k-1} 
+        - \dif{\omega_t}{t}\wedge(\Omega_t^{k-1}\wedge\omega_t - \omega_t\wedge\Omega_t^{k-1})\right) \\ 
+        &= k\Tr\left(\md\left(\dif{\omega_t}{t}\right)\wedge\Omega_t^{k-1} - \dif{\omega_t}{t}\wedge\md\Omega_t^{k-1}\right) \\ 
+        &= k\Tr\left(\md\left(\dif{\omega_t}{t}\wedge\Omega_t^{k-1}\right)\right) \\ 
+        &= \md\, k\Tr\left(\dif{\omega_t}{t}\wedge\Omega_t^{k-1}\right).
     \end{align*}
     Therefore, 
     \begin{align}\label{eq:transgression}
@@ -202,9 +207,9 @@ then $\Phi$ must be a linear combination of $\Sigma_1^3$, $\Sigma_1\Sigma_2$ and
     we define the \textbf{Chern-Weil homomorphism} as 
     \begin{align*}
         c_E:\mathrm{Inv}(\mathfrak{gl}(r,\mathbb{R})) &\to H_{\mathrm{dR}}^{*}(M), \\
-        \Phi &\mapsto [\Phi(F_\nabla)].
+        \Phi &\mapsto [\Phi(R^\nabla)].
     \end{align*}
-    This map sends $\Phi(X)\Psi(X)$ to $[\Phi(F_\nabla)\wedge\Psi(F_\nabla)] = [\Phi(F_\nabla)]\cdot[\Psi(F_\nabla)]$, 
+    This map sends $\Phi(X)\Psi(X)$ to $[\Phi(R^\nabla)\wedge\Psi(R^\nabla)] = [\Phi(R^\nabla)]\cdot[\Psi(R^\nabla)]$, 
     thus is an algebra homomorphism. This map does not depend on the choice of $\nabla$. 
 \end{definition}
 
@@ -264,24 +269,21 @@ In general we have the following proposition.
 \begin{proof}
     Since $\Omega$ is skew-symmetric, 
     \begin{equation*}
-        (\Omega\wedge\Omega)^T = \Omega^T\wedge\Omega^T = (-\Omega)\wedge(-\Omega) = \Omega\wedge\Omega, 
+        (\Omega\wedge\cdots\wedge\Omega)^T = (\Omega^T)\wedge\cdots\wedge(\Omega^T) 
+        = (-\Omega)\wedge\cdots\wedge(-\Omega) = (-1)^k\Omega\wedge\cdots\wedge\Omega.
     \end{equation*}
-    and 
-    \begin{equation*}
-        (\Omega\wedge\Omega\wedge\Omega)^T = (\Omega\wedge\Omega)^T\wedge\Omega^T = \Omega\wedge\Omega\wedge(-\Omega) = -\Omega\wedge\Omega\wedge\Omega.
-    \end{equation*}
-    By induction, we have $\Omega^k$ is skew-symmetric for odd $k$, thus $\Tr(\Omega^k) = 0$. 
+    So $\Omega^k$ is skew-symmetric for odd $k$, and $\Tr(\Omega^k) = 0$. 
 
     For a general invariant polynomial $\Phi$ of odd degree, 
     since $\Phi$ is a linear combination of monomials $\Sigma_1^{k_1}\cdots\Sigma_r^{k_r}$ with $k_1 + 2k_2 + \cdots + rk_r$ odd,
     at least one of $k_1,k_3,\dots$ is odd, thus $\Phi(\Omega)$ must be zero.
 \end{proof}
 
-Since $[\Phi(F_\nabla)]$ is independent of the choice of $\nabla$, 
-we can choose a special connection $\nabla$ such that $F_\nabla$ is skew-symmetric. 
+Since $[\Phi(R^\nabla)]$ is independent of the choice of $\nabla$, 
+we can choose a special connection $\nabla$ such that $R^\nabla$ is skew-symmetric. 
 To do this, we choose a Riemannian metric on $E$, then there exists connections on $E$ that are compatible with the metric. 
 Under a local orthonormal frame, the connection form $\omega$ is skew-symmetric, so as the curvature form $\Omega$. 
-By the above proposition, $[\Phi(F_\nabla)] = 0$ for all invariant polynomials $\Phi$ of odd degree.
+By the above proposition, $[\Phi(R^\nabla)] = 0$ for all invariant polynomials $\Phi$ of odd degree.
 \begin{corollary}
     For a real vector bundle $E$, the ring of characteristic classes of $E$ has two sets of generators:
     \begin{equation*}
@@ -295,26 +297,26 @@ By the above proposition, $[\Phi(F_\nabla)] = 0$ for all invariant polynomials $
 \begin{definition}
     The $k$-th \textbf{Pontryagin class} of a real vector bundle $E$ is defined to be 
     \begin{equation*}
-        p_k(E) := (-1)^k\left[f_{2k}\left(\frac{1}{2\pi}F_\nabla\right)\right] = \left[f_{2k}\left(\frac{i}{2\pi}F_\nabla\right)\right] \in H^{4k}(M).
+        p_k(E) := (-1)^k\left[f_{2k}\left(\frac{1}{2\pi}R^\nabla\right)\right] = \left[f_{2k}\left(\frac{\mi}{2\pi}R^\nabla\right)\right] \in H^{4k}(M).
     \end{equation*}
 \end{definition}
 \begin{remark}
-    The factor $i$ is for the sign convention. The factor $\frac{1}{2\pi}$ is for the integrality of Pontryagin classes. 
+    The factor $\mi$ is for the sign convention. The factor $\frac{1}{2\pi}$ is for the integrality of Pontryagin classes. 
     A class $\alpha\in H^{q}(M)$ is called \textbf{integral} 
     if $\int_S \alpha\in\mathbb{Z}$ for all $q$-dimensional closed oriented submanifolds $S$ of $M$.
 \end{remark}
 By definition, 
 \begin{align*}
-    \det\left(\lambda I + \frac{i}{2\pi}F_\nabla\right) 
-    &= \lambda^r + f_1\left(\frac{i}{2\pi}F_\nabla\right)\lambda^{r-1} + \cdots + f_r\left(\frac{i}{2\pi}F_\nabla\right) \\
+    \det\left(\lambda I + \frac{\mi}{2\pi}R^\nabla\right) 
+    &= \lambda^r + f_1\left(\frac{\mi}{2\pi}R^\nabla\right)\lambda^{r-1} + \cdots + f_r\left(\frac{\mi}{2\pi}R^\nabla\right) \\
     &= \lambda^r + p_1(E)\lambda^{r-2} + \cdots + p_{[r/2]}(E)\lambda^{r-2[r/2]}.
 \end{align*}
 Apply $\lambda = 1$, 
 \begin{equation*}
-    \det\left(I + \frac{i}{2\pi}F_\nabla\right) = 1 + p_1(E) + \cdots + p_{[r/2]}(E) =: p(E).
+    \det\left(I + \frac{\mi}{2\pi}R^\nabla\right) = 1 + p_1(E) + \cdots + p_{[r/2]}(E) =: p(E).
 \end{equation*} 
 We call $p(E)$ the \textbf{total Pontryagin class} of $E$.
-\begin{proposition}
+\begin{proposition}[Whitney product formula]
     For two real vector bundles $E$ and $E'$, we have 
     \begin{equation*}
         p(E\oplus E') = p(E)\cdot p(E').
@@ -326,8 +328,8 @@ We call $p(E)$ the \textbf{total Pontryagin class} of $E$.
     \begin{equation*}
         F_{\nabla\oplus\nabla'} = 
         \begin{pmatrix}
-            F_\nabla & 0 \\
-            0 & F_{\nabla'}
+            R^\nabla & 0 \\
+            0 & R^{\nabla'}
         \end{pmatrix} \implies 
         \Omega_{E\oplus E'} = 
         \begin{pmatrix}
@@ -338,12 +340,12 @@ We call $p(E)$ the \textbf{total Pontryagin class} of $E$.
     So 
     \begin{align*}
         p(E\oplus E')
-        &= \det\left(I + \frac{i}{2\pi}\Omega_{E\oplus E'}\right) \\ 
+        &= \det\left(I + \frac{\mi}{2\pi}\Omega_{E\oplus E'}\right) \\ 
         &= \det\begin{pmatrix}
-            I + \frac{i}{2\pi}\Omega &  \\
-             & I + \frac{i}{2\pi}\Omega'
+            I + \frac{\mi}{2\pi}\Omega &  \\
+             & I + \frac{\mi}{2\pi}\Omega'
         \end{pmatrix} \\
-        &= \det\left(I + \frac{i}{2\pi}\Omega\right)\cdot\det\left(I + \frac{i}{2\pi}\Omega'\right) \\
+        &= \det\left(I + \frac{\mi}{2\pi}\Omega\right)\cdot\det\left(I + \frac{\mi}{2\pi}\Omega'\right) \\
         &= p(E)\cdot p(E'). \qedhere
     \end{align*}
 \end{proof}
@@ -357,12 +359,275 @@ This inspires us to consider the $\mathrm{SO}(r)$-invariant polynomial on $\math
 \begin{fact}
     For $r$ odd, $\mathrm{Inv}(\mathfrak{so}(r))$ is generated by $\Sigma_1,\dots,\Sigma_r$ (or equivalently by $f_1,\dots,f_r$).
     For $r$ even, $\mathrm{Inv}(\mathfrak{so}(r))$ has one more generator $\Pf$, the \textbf{Pfaffian}. 
+    That is
+    \begin{gather*}
+        \mathrm{Inv}(\mathfrak{so}(2m+1)) = \mathbb{R}[\Sigma_1,\dots,\Sigma_{2m+1}] = \mathbb{R}[f_1,\dots,f_{2m+1}], \\
+        \mathrm{Inv}(\mathfrak{so}(2m)) = \mathbb{R}[\Sigma_1,\dots,\Sigma_{2m},\Pf\,] = \mathbb{R}[f_1,\dots,f_{2m},\Pf\,].
+    \end{gather*}
 \end{fact}
 
 \subsubsection*{The Pfaffian of skew-symmetric matrices}
-
+Let's begin with some examples. For a $2\times 2$ skew-symmetric matrix 
+\begin{equation*}
+    X = 
+    \begin{pmatrix}
+        0 & a \\
+        -a & 0
+    \end{pmatrix},
+\end{equation*}
+we have 
+\begin{equation*}
+    \det(X) = a^2.
+\end{equation*}
+For a $4\times 4$ skew-symmetric matrix
+\begin{equation*}
+    X = 
+    \begin{pmatrix}
+        0 & a & b & c \\
+        -a & 0 & d & e \\
+        -b & -d & 0 & f \\
+        -c & -e & -f & 0
+    \end{pmatrix},
+\end{equation*}
+after a direct calculation, 
+\begin{equation*}
+    \det(X) = (af - be + cd)^2.
+\end{equation*}
+One can observe that both determinants are perfect squares. 
+This phenomenon holds for all skew-symmetric matrices:
+\begin{fact}
+    For any $2m\times 2m$ skew-symmetric matrix $X=(x^i_j)$, 
+    $\det(X)$ is a perfect square in $\mathbb{Z}[x^i_j]$. 
+    The square root of $\det(X)$ is called the \textbf{Pfaffian} of $X$, 
+    denoted by $\Pf(X)$. 
+\end{fact}
+\begin{remark}
+    Notice that the square roots of $\det(X)$ are $\pm\Pf(X)$. 
+    To determine the sign, we require $\Pf(J_{2m}) = 1$, where 
+    \begin{equation*}
+        J_{2m} = 
+        \begin{pmatrix}
+            0 & 1 &  &  & \\
+            -1 & 0 &  &  & \\
+             &  & \ddots &  & \\
+             &  &  &  0 & 1 \\
+             & &  & -1 & 0
+        \end{pmatrix}.
+    \end{equation*}
+\end{remark}
+\begin{fact}
+    Let $A=(a^i_j)$ and $X=(x^i_j)$ be two $2m\times 2m$ matrices with $X$ skew-symmetric, then 
+    \begin{equation*}
+        \Pf(A^T X A) = \det(A)\Pf(X).
+    \end{equation*}
+    If $A\in\mathrm{SO}(2m)$, then $\Pf(A^T X A) = \Pf(X)$, 
+    so $\Pf$ is an invariant polynomial on $\mathfrak{so}(2m)$.
+\end{fact}
+\begin{definition}
+    For a $2m$-dimensional oriented real vector bundle $E\to M$, 
+    choose a metric on $E$ and a compatible connection $\nabla$, 
+    the \textbf{Euler class} of $E$ is defined to be
+    \begin{equation*}
+        e(E) := \left[\Pf\left(\frac{1}{2\pi}R^\nabla\right)\right] \in H^{2m}(M).
+    \end{equation*} 
+\end{definition}
+\begin{remark}
+    The Euler class is a characteristic class of oriented real vector bundles. 
+    It depends on the orientation: 
+    if we reverse the orientation, then $e(E)$ changes to $-e(E)$.
+\end{remark}
+\begin{remark}
+    The definition of Euler class requires a metric and a compatible connection, 
+    but the resulting class does not depend on the choice of metric and connection:
+    \begin{itemize}[leftmargin=*]
+        \item Fixing a metric $g$ on $E$, any two metric-compatible connections 
+        $\nabla_0$ and $\nabla_1$ define the same Euler class. 
+        \item Given any two metrics $g_0$ and $g_1$ on $E$, 
+        we can choose a family of connections $\nabla_t$ such that 
+        $\nabla_0$ (resp. $\nabla_1$) is compatible with $g_0$ (resp. $g_1$). 
+        The whole family $\nabla_t$ defines the same Euler class.
+    \end{itemize} 
+\end{remark}
+\begin{theorem}[Gauss-Bonnet-Chern theorem]
+    Let $M$ be a closed oriented Riemannian manifold of dimension $2m$, 
+    $\nabla$ be a metric-compatible connection on $TM$, then
+    \begin{equation*}
+        \int_M e(TM) = \int_M \Pf\left(\frac{1}{2\pi}R^\nabla\right) = \chi(M),
+    \end{equation*}
+    where $\chi(M)$ is the Euler characteristic of $M$.    
+\end{theorem}
+\begin{example}
+    When $M$ is a closed oriented surface, the above theorem reduces to the classical Gauss-Bonnet theorem: 
+    let $e_1,e_2$ be a local orthonormal frame of $TM$, $\theta^1,\theta^2$ be the dual coframe, 
+    then the connection and curvature forms are
+    \begin{equation*}
+        \omega = 
+        \begin{pmatrix}
+            0 & \omega^1_2 \\
+            -\omega^1_2 & 0
+        \end{pmatrix}, \qquad
+        \Omega = \md\omega + \omega\wedge\omega = 
+        \begin{pmatrix}
+            0 & \md\omega^1_2 \\
+            -\md\omega^1_2 & 0
+        \end{pmatrix},
+    \end{equation*}
+    and $\md\omega^1_2 = K\theta^1\wedge\theta^2$, where $K$ is the Gaussian curvature of $M$. 
+    So
+    \begin{equation*}
+        \Pf\left(\Omega\right) = \md\omega^1_2 = K\theta^1\wedge\theta^2.
+    \end{equation*}
+    Therefore,
+    \begin{equation*}
+        \int_M e(TM) = \frac{1}{2\pi}\int_M K\theta^1\wedge\theta^2 = \chi(M) = 2 - 2g(M).
+    \end{equation*}
+\end{example}
 
 \subsubsection{Chern Classes}
+For a complex vector bundle $E\to M$ with $\rk_{\mC}(E)=r$, 
+we can choose a local trivialization $\{(U_\alpha,\psi_\alpha)\}$ of $E$ 
+such that the transition function $g_{\alpha\beta}\in\mathrm{GL}(r,\mathbb{C})$. 
+Then any complex polynomial $\Phi$ on $\mathfrak{gl}(r,\mathbb{C})$ 
+invariant under conjugation by $\mathrm{GL}(r,\mathbb{C})$ 
+defines a characteristic class $[\Phi(R^\nabla)]$ which is independent of the choice of $\nabla$. 
+
+% Taking $\Phi(X) = \det(\lambda I + \frac{i}{2\pi}X)$, we obtain the \textbf{Chern classes} of $E$:
+\begin{definition}
+    The $k$-th \textbf{Chern class} of a complex vector bundle $E$ is defined to be 
+    \begin{equation*}
+        c_k(E) := \left[f_k\left(\frac{\mi}{2\pi}R^\nabla\right)\right] \in H^{2k}(M).
+    \end{equation*}
+    The \textbf{total Chern class} of $E$ is defined to be
+    \begin{equation*}
+        c(E) := \det\left(I + \frac{\mi}{2\pi}R^\nabla\right) = 1 + c_1(E) + \cdots + c_r(E).
+    \end{equation*}
+\end{definition}
+\begin{proposition}
+    Chern classes satisfy the naturality property and the Whitney product formula, i.e.,
+    \begin{equation*}
+        c(f^*E) = f^*c(E), \qquad c(E\oplus E') = c(E)\cdot c(E').
+    \end{equation*}
+\end{proposition}
+\begin{remark}
+    If we choose a Hermitian metric on $E$ and a compatible connection $\nabla$, 
+    then the curvature form $R^\nabla$ is skew-Hermitian, 
+    so $\frac{\mi}{2\pi}R^\nabla$ is Hermitian. Therefore, 
+    $\Sigma_k\left(\frac{\mi}{2\pi}R^\nabla\right) = \Tr\left(\left(\frac{\mi}{2\pi}R^\nabla\right)^k\right)$ 
+    is a real form, and $c_k(E)$ is a real cohomology class. 
+    In fact, $c_k(E)$ is an integral cohomology class, i.e., $c_k(E)\in H^{2k}(M;\mathbb{Z})$.
+\end{remark}
+
+\begin{proposition}
+    Let $E$ be a complex vector bundle, $\rk_{\mC}(E) = r$, 
+    $E_\mR$ be the underlying real vector bundle of $E$. 
+    $E_\mR$ is oriented and if $e = [e_1,\cdots,e_r]$ is a local frame of $E$, 
+    then $e_\mR = [e_1,\mi e_1,\cdots,e_r,\mi e_r]$ is a local oriented frame of $E_\mR$. 
+    \textcolor{blue}{We set the orientation determined by $e_\mR$ to be the orientation of $E_\mR$,}
+    then the top Chern class $c_r(E)$ is equal to the Euler class $e(E_\mR)$. 
+\end{proposition}
+\begin{proof}
+    Choose a Hermitian metric $\langle \cdot, \cdot \rangle$ on $E$ and a compatible connection $\nabla$, 
+    then the curvature $R^\nabla$ is skew-Hermitian. One can define a Riemannian metric on $E_\mR$ by 
+    \begin{equation*}
+        \langle u,v\rangle_\mR := \mathrm{Re}\langle u,v\rangle\qquad\forall\,u,v\in E_\mR.
+    \end{equation*}
+    Then
+    \begin{equation*}
+        X\langle u,v\rangle_\mR = \mathrm{Re}\Big(X\langle u,v\rangle\Big) 
+        = \mathrm{Re}\Big(\langle\nabla_X u,v\rangle + \langle u,\nabla_X v\rangle\Big)
+         = \langle\nabla_X u,v\rangle_\mR + \langle u,\nabla_X v\rangle_\mR.
+    \end{equation*}
+    So $\nabla$ is compatible with $\langle \cdot, \cdot \rangle_\mR$, 
+    and the curvature $(R^{\nabla})_\mR$ is skew-symmetric. 
+    
+    Under a local unitary frame $e = [e_1,\dots,e_r]$ of $E$, 
+    the curvature form $\Omega$ is skew-Hermitian, and so $\mi\Omega$ is Hermitian.
+    The frame $e_\mR = [e_1,\mi e_1,\cdots,e_r,\mi e_r]$ is a local orthonormal frame of $E_\mR$, 
+    and the curvature form under $e_\mR$ is skew-symmetric. 
+
+    If $\Omega = (z^i_j) = (x^i_j + \mi y^i_j)$ with $x^i_j,y^i_j\in\mathbb{R}$, 
+    then $\Omega = A + \mi B$ with $A = (x^i_j)$ and $B = (y^i_j)$. 
+    Then the curvature form under $e_\mR$ is given by 
+    \begin{equation*}
+        \Omega_\mR = 
+        \begin{pmatrix}
+            x^1_1 & -y^1_1 & \cdots & x^1_r & -y^1_r \\
+            y^1_1 & x^1_1 & \cdots & y^1_r & x^1_r \\
+            \vdots & \vdots &       & \vdots & \vdots \\
+            x^r_1 & -y^r_1 & \cdots & x^r_r & -y^r_r \\
+            y^r_1 & x^r_1 & \cdots & y^r_r & x^r_r
+        \end{pmatrix}
+        \overset{\text{similar to}}{\rightsquigarrow} 
+        \begin{pmatrix}
+            x^1_1 & \cdots & x^1_r & -y^1_1 & \cdots & -y^1_r \\ 
+            \vdots & & \vdots & \vdots & & \vdots \\ 
+            x^r_1 & \cdots & x^r_r & -y^r_1 & \cdots & -y^r_r \\ 
+            y^1_1 & \cdots & y^1_r & x^1_1 & \cdots & x^1_r \\ 
+            \vdots & & \vdots & \vdots & & \vdots \\ 
+            y^r_1 & \cdots & y^r_r & x^r_1 & \cdots & x^r_r 
+        \end{pmatrix} 
+        = 
+        \begin{pmatrix}
+            A & -B \\
+            B & A
+        \end{pmatrix}
+    \end{equation*}
+    So
+    \begin{align*}
+        \det\left(\frac{1}{2\pi}\Omega_\mR\right) 
+        &= \det\left(\frac{1}{2\pi}\begin{pmatrix} A & -B \\ B & A \end{pmatrix}\right) 
+        = \frac{1}{(2\pi)^{2r}}\big|\det(A+\mi B)\big|^2 \\
+        &= \left|\det\left(\frac{1}{2\pi}\Omega\right)\right|^2 
+        = \left|\det\left(\frac{\mi}{2\pi}\Omega\right)\right|^2 
+        = \left(\det\left(\frac{\mi}{2\pi}\Omega\right)\right)^2.
+    \end{align*}
+    The last equality holds since $\det\left(\frac{\mi}{2\pi}\Omega\right)$ is a real form. 
+    Therefore, 
+    \begin{equation*}
+        \Pf\left(\frac{1}{2\pi}(R^\nabla)_\mR\right) = \pm\det\left(\frac{\mi}{2\pi}R^\nabla\right). 
+    \end{equation*}
+    To determine the sign, set $\Omega = -\mi I_r$, then 
+    \begin{equation*}
+        \Omega_\mR = 
+        \begin{pmatrix}
+            0 & 1 & & & \\ 
+            -1 & 0 & & & \\ 
+             & & \ddots & & \\
+             & & & 0 & 1 \\
+             & & & -1 & 0 
+        \end{pmatrix} = J_{2r}
+    \end{equation*} 
+    So 
+    \begin{equation*}
+        \det(\mi\Omega) = \det(I_r) = 1 = \Pf(J_{2r}) = \Pf(\Omega_\mR).
+    \end{equation*}
+    The sign under this setting is $+1$, so $c_r(E) = e(E_\mR)$.
+\end{proof}
+% \begin{example}
+%     Let $L\to M$ be a complex line bundle, 
+%     then $c_1(L) = \left[\Tr\left(\frac{\mi}{2\pi}R^\nabla\right)\right]$ 
+%     is the only nontrivial Chern class of $L$.
+% \end{example}
+% \begin{example}
+%     Let $E\to M$ be a complex vector bundle, 
+%     $\rk_{\mC}(E) = 2$, then 
+%     \begin{equation*}
+%         c_1(E) = \left[\Tr\left(\frac{\mi}{2\pi}R^\nabla\right)\right], \qquad
+%         c_2(E) = \left[\det\left(\frac{\mi}{2\pi}R^\nabla\right)\right].
+%     \end{equation*} 
+%     For a $2\times 2$ matrix $X$, we have $\Tr(X^2) = \Tr(X)^2 - 2\det(X)$, so 
+%     \begin{equation*}
+%         \Tr\left(\left(\frac{\mi}{2\pi}R^\nabla\right)^2\right) = \Tr\left(\frac{\mi}{2\pi}R^\nabla\right)^2 - 2\det\left(\frac{\mi}{2\pi}R^\nabla\right)
+%         = c_1(E)^2 - 2c_2(E).
+%     \end{equation*}
+%     If in addition $c_1(E) = 0$, then 
+%     \begin{equation*}
+%         e(E_\mR) = c_2(E) = -\frac{1}{2}\Tr\left(\left(\frac{\mi}{2\pi}R^\nabla\right)^2\right) 
+%         = \frac{1}{8\pi^2}\Tr(R^\nabla\wedge R^\nabla).
+%     \end{equation*}
+% \end{example}
+
+% \subsection{Characteristic classes of Principal Bundles}
 
 
 % \subsection{Transgressions}

@@ -3,4 +3,5 @@
 \contentsline {subsection}{\numberline {4.2}Examples of Characteristic Classes}{5}{subsection.4.2}%
 \contentsline {subsubsection}{\numberline {4.2.1}Pontryagin Classes}{5}{subsubsection.4.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.2}Euler Classes}{7}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Chern Classes}{7}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.3}Chern Classes}{8}{subsubsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.3}Characteristic classes of Principal Bundles}{10}{subsection.4.3}%
