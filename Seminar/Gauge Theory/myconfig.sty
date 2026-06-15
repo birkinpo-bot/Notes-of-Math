@@ -20,12 +20,13 @@
 \RequirePackage{spectralsequences}    % 谱序列
 \RequirePackage[perpage]{footmisc}    % 脚注每页重编号
 \RequirePackage{blkarray}             % 块矩阵
-\usepackage[left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry} % 页面边距
-\usepackage{enumitem}              % 自定义列表环境
+\RequirePackage{makecell}
+\RequirePackage[left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry} % 页面边距
+\RequirePackage{enumitem}              % 自定义列表环境
 % \setlist[itemize]{leftmargin=*}  % itemize 环境无缩进
-\usepackage{xcolor}                   % 颜色支持
-\usepackage{ulem}                     % 下划线支持（注意：可能会与其他宏包冲突）
-\usepackage{xeCJKfntef}               % 中文下划线支持
+\RequirePackage{xcolor}                   % 颜色支持
+\RequirePackage{ulem}                     % 下划线支持（注意：可能会与其他宏包冲突）
+\RequirePackage{xeCJKfntef}               % 中文下划线支持
 
 % ---------- 其他设置 ----------
 \allowdisplaybreaks                   % 允许公式跨页断行

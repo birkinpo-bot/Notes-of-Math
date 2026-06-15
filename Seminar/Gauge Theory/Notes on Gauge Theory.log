@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.22)  30 MAY 2026 15:15
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.22)  12 JUN 2026 16:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"d:/000/数学笔记/Seminar/Gauge Theory/Notes on Gauge Theory"
-(d:/000/数学笔记/Seminar/Gauge Theory/Notes on Gauge Theory.tex
+**"Notes on Gauge Theory"
+(./Notes on Gauge Theory.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (d:/texlive/2026/texmf-dist/tex/latex/base/article.cls
@@ -753,61 +753,76 @@ Package: blkarray 2015/02/27 v0.07 Block array (dpc)
 \BAfootskip=\dimen328
 \BA@dashbox=\box94
 \BA@ddashbox=\box95
+) (d:/texlive/2026/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+ (d:/texlive/2026/texmf-dist/tex/latex/tools/array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen329
+\ar@mcellbox=\box96
+\extrarowheight=\dimen330
+\NC@list=\toks98
+\extratabsurround=\skip65
+\backup@length=\skip66
+\ar@cellbox=\box97
+)
+\rotheadsize=\dimen331
+\c@nlinenum=\count381
+\TeXr@lab=\toks99
 ) (d:/texlive/2026/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (d:/texlive/2026/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count381
-\Gm@cntv=\count382
-\c@Gm@tempcnt=\count383
-\Gm@bindingoffset=\dimen329
-\Gm@wd@mp=\dimen330
-\Gm@odd@mp=\dimen331
-\Gm@even@mp=\dimen332
-\Gm@layoutwidth=\dimen333
-\Gm@layoutheight=\dimen334
-\Gm@layouthoffset=\dimen335
-\Gm@layoutvoffset=\dimen336
-\Gm@dimlist=\toks98
+\Gm@cnth=\count382
+\Gm@cntv=\count383
+\c@Gm@tempcnt=\count384
+\Gm@bindingoffset=\dimen332
+\Gm@wd@mp=\dimen333
+\Gm@odd@mp=\dimen334
+\Gm@even@mp=\dimen335
+\Gm@layoutwidth=\dimen336
+\Gm@layoutheight=\dimen337
+\Gm@layouthoffset=\dimen338
+\Gm@layoutvoffset=\dimen339
+\Gm@dimlist=\toks100
 ) (d:/texlive/2026/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
-\labelindent=\skip65
-\enit@outerparindent=\dimen337
-\enit@toks=\toks99
-\enit@inbox=\box96
-\enit@count@id=\count384
-\enitdp@description=\count385
+\labelindent=\skip67
+\enit@outerparindent=\dimen340
+\enit@toks=\toks101
+\enit@inbox=\box98
+\enit@count@id=\count385
+\enitdp@description=\count386
 ) (d:/texlive/2026/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box97
-\UL@hyphenbox=\box98
-\UL@skip=\skip66
-\UL@hook=\toks100
-\UL@height=\dimen338
-\UL@pe=\count386
-\UL@pixel=\dimen339
-\ULC@box=\box99
+\UL@box=\box99
+\UL@hyphenbox=\box100
+\UL@skip=\skip68
+\UL@hook=\toks102
+\UL@height=\dimen341
+\UL@pe=\count387
+\UL@pixel=\dimen342
+\ULC@box=\box101
 Package: ulem 2019/11/18
-\ULdepth=\dimen340
+\ULdepth=\dimen343
 ) (d:/texlive/2026/texmf-dist/tex/xelatex/xecjk/xeCJKfntef.sty
 Package: xeCJKfntef 2022/08/05 v3.9.1 xeCJK font effect
-\l__xeCJK_space_skip=\skip67
-\c__xeCJK_ulem-begin_node_dim=\dimen341
-\l__xeCJK_hidden_box=\box100
-\l__xeCJK_fntef_box=\box101
-\l__xeCJK_under_symbol_box=\box102
-\c__xeCJK_filll_skip=\skip68
+\l__xeCJK_space_skip=\skip69
+\c__xeCJK_ulem-begin_node_dim=\dimen344
+\l__xeCJK_hidden_box=\box102
+\l__xeCJK_fntef_box=\box103
+\l__xeCJK_under_symbol_box=\box104
+\c__xeCJK_filll_skip=\skip70
 )
-\c@theorem=\count387
-\c@fact=\count388
-\c@exercise=\count389
+\c@theorem=\count388
+\c@fact=\count389
+\c@exercise=\count390
 ) (d:/texlive/2026/texmf-dist/tex/latex/titling/titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
-\thanksmarkwidth=\skip69
-\thanksmargin=\skip70
-\droptitle=\skip71
+\thanksmarkwidth=\skip71
+\thanksmargin=\skip72
+\droptitle=\skip73
 )
-\tocupshift=\skip72
+\tocupshift=\skip74
  (d:/texlive/2026/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
 )
@@ -838,7 +853,7 @@ Package fontspec Info:
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
 (fontspec)             <->"[FandolKai-Regular.otf]/OT:script=hani;language=dflt;"
 
-(./Notes on Gauge Theory.aux (./Section/CharacteristicClasses.aux))
+(./Notes on Gauge Theory.aux (./Section/Transgressions&ChernSimonsForm.aux))
 \openout1 = `"Notes on Gauge Theory.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -987,15 +1002,26 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
  [1
 
 ]
-\openout2 = `Section/CharacteristicClasses.aux'.
+\openout2 = `Section/Transgressions&ChernSimonsForm.aux'.
 
- (./Section/CharacteristicClasses.tex
-LaTeX Font Info:    Trying to load font information for U+euf on input line 11.
+ (./Section/Transgressions&ChernSimonsForm.tex
+File: Figures/Index-of-vector-field.png Graphic file (type bmp)
+<Figures/Index-of-vector-field.png>
+ [2
+
+]
+File: Figures/PHthm2.png Graphic file (type bmp)
+<Figures/PHthm2.png>
+ [3] [4] [5]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 197.
  (d:/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [2
+) [6] [7]
+Overfull \hbox (12.89465pt too wide) in paragraph at lines 333--339
+[][]\TU/lmr/bx/n/12 Definition 5.6 \TU/lmr/m/n/12 (Chern-Simons functional)\TU/lmr/bx/n/12 . []\TU/lmr/m/n/12 Let $\OML/cmm/m/it/12 M$ \TU/lmr/m/n/12 be a closed oriented 3-manifold, $\OML/cmm/m/it/12 SO\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 TM\OT1/cmr/m/n/12 )$
+ []
 
-] [3] [4] [5] [6] [7] [8] [9]) [10] Total classes: 0 (./Notes on Gauge Theory.aux (./Section/CharacteristicClasses.aux))
+[8]) [9] Total classes: 0 (./Notes on Gauge Theory.aux (./Section/Transgressions&ChernSimonsForm.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
@@ -1004,12 +1030,12 @@ Package rerunfilecheck Info: File `"Notes on Gauge Theory".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 34527 strings out of 468168
- 817318 string characters out of 5436524
- 1266529 words of memory out of 5000000
- 62675 multiletter control sequences out of 15000+600000
+ 34811 strings out of 468168
+ 821768 string characters out of 5436524
+ 1263669 words of memory out of 5000000
+ 62950 multiletter control sequences out of 15000+600000
  637815 words of font info for 98 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 113i,15n,132p,5089b,981s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,14n,132p,5056b,1106s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Notes on Gauge Theory.pdf (10 pages).
+Output written on Notes on Gauge Theory.pdf (9 pages).

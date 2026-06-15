@@ -601,7 +601,11 @@ defines a characteristic class $[\Phi(R^\nabla)]$ which is independent of the ch
     \begin{equation*}
         \det(\mi\Omega) = \det(I_r) = 1 = \Pf(J_{2r}) = \Pf(\Omega_\mR).
     \end{equation*}
-    The sign under this setting is $+1$, so $c_r(E) = e(E_\mR)$.
+    The sign under this setting is $+1$, thus 
+    \begin{equation*}
+        \Pf\left(\frac{1}{2\pi}(R^\nabla)_\mR\right) = \det\left(\frac{\mi}{2\pi}R^\nabla\right)
+        \implies e(E_\mR) = c_r(E). \qedhere
+    \end{equation*}
 \end{proof}
 % \begin{example}
 %     Let $L\to M$ be a complex line bundle, 
@@ -627,8 +631,146 @@ defines a characteristic class $[\Phi(R^\nabla)]$ which is independent of the ch
 %     \end{equation*}
 % \end{example}
 
-% \subsection{Characteristic classes of Principal Bundles}
+\subsection{Characteristic classes of Principal Bundles}
+Let $M$ be a smooth manifold. There are \textcolor{red}{one-to-one correspondences} 
+between vector bundles (with additional structures) and principal bundles on $M$. 
+% \begin{itemize}[leftmargin=*]
+%     \item $\mR^r$-vector bundles $\overset{1-1}{\longleftrightarrow}$ $\mathrm{GL}(r,\mathbb{R})$-principal bundles; 
+%     \item $\mC^r$-vector bundles $\overset{1-1}{\longleftrightarrow}$ $\mathrm{GL}(r,\mathbb{C})$-principal bundles;
+%     \item Oriented $\mR^r$-vector bundles $\overset{1-1}{\longleftrightarrow}$ $\mathrm{SL}(r,\mathbb{R})$-principal bundles; 
+%     \item $\mC^r$-vector bundles with trivial determinant line bundle $\overset{1-1}{\longleftrightarrow}$ $\mathrm{SL}(r,\mathbb{C})$-principal bundles;
+%     \item $\mR^r$-vector bundles with a metric $\overset{1-1}{\longleftrightarrow}$ $\mathrm{O}(r)$-principal bundles;
+%     \item Oriented $\mR^r$-vector bundles with a metric $\overset{1-1}{\longleftrightarrow}$ $\mathrm{SO}(r)$-principal bundles;
+%     \item $\mC^r$-vector bundles with a Hermitian metric $\overset{1-1}{\longleftrightarrow}$ $\mathrm{U}(r)$-principal bundles.
+% \end{itemize}
+\begin{center}
+\begin{tabular}{l l}
+\hline
+\textbf{\makecell{Vector Bundles \\ (with additional structure)}} & \textbf{\makecell{Principal Bundles}} \\
+\hline
+$\mR^r$-bundles & $\mathrm{GL}(r,\mathbb{R})$-bundles \\[6pt]
+$\mC^r$-bundles & $\mathrm{GL}(r,\mathbb{C})$-bundles \\[6pt]
+\makecell[l]{Oriented $\mR^r$-bundles (i.e., with trivial determinant)} & $\mathrm{SL}(r,\mathbb{R})$-bundles \\[6pt]
+$\mC^r$-bundles with trivial determinant line bundle & $\mathrm{SL}(r,\mathbb{C})$-bundles \\[6pt]
+$\mR^r$-bundles with Riemannian metric & $\mathrm{O}(r)$-bundles \\[6pt]
+$\mC^r$-bundles with Hermitian metric & $\mathrm{U}(r)$-bundles \\[6pt]
+Oriented $\mR^r$-bundles with Riemannian metric & $\mathrm{SO}(r)$-bundles \\[6pt]
+$\mC^r$-bundles with Hermitian metric and trivial determinant & $\mathrm{SU}(r)$-bundles \\
+\hline
+\end{tabular}
+\end{center}
 
+So the characteristic classes of vector bundles can also define for the corresponding principal bundles. 
+In fact, there is a more general Chern-Weil theory for principal $G$-bundles.
 
+Let $\pi:P\to M$ be a principal $G$-bundle, $\mathfrak{g}$ be the Lie algebra of $G$. 
+$\omega$ is a connection form on $P$, $\Omega$ is the curvature form. Recall that 
+\begin{itemize}[leftmargin=*]
+    \item $\omega\in\Omega^1(P,\mathfrak{g})$, $r_g^*\omega = \mathrm{Ad}_{g^{-1}}\omega$, and $\omega(\underline{A}) = A$ for all $A\in\mathfrak{g}$; 
+    \item $\Omega\in\Omega^2(P,\mathfrak{g})$, $r_g^*\Omega = \mathrm{Ad}_{g^{-1}}\Omega$, and $\Omega(X,Y) = 0$ if $X$ or $Y$ is vertical. 
+    % So $\Omega$ is a tensorial form of type $\mathrm{Ad}$; 
+    \item There is a one-to-one correspondence between $\Omega^k_{\rho}(P,V)$ and $\Omega^k(M,P\times_{\rho}V)$:
+    \begin{equation*}
+        \left\{
+            \begin{array}{c}
+                k\text{-forms on }P\text{ valued in }V\text{ that are } \\ 
+                G\text{-equivariant and horizontal} 
+            \end{array}
+        \right\}
+        \overset{1-1}{\longleftrightarrow}
+        \left\{
+            \begin{array}{c}
+                k\text{-forms on }M\text{ valued in }P\times_{\rho}V
+            \end{array}
+        \right\}
+    \end{equation*}
+    \item There is a one-to-one correspondence between $\Omega^k_{\text{basic}}(P,V)$ and $\Omega^k(M,V)$:
+    \begin{align*}
+        \left\{
+            \begin{array}{c}
+                k\text{-forms on }P\text{ valued in }V\text{ that are } \\ 
+                G\text{-invariant and horizontal} 
+            \end{array}
+        \right\}
+        \overset{1-1}{\longleftrightarrow}&
+        \left\{
+            \begin{array}{c}
+                k\text{-forms on }M\text{ valued in }V
+            \end{array}
+        \right\} \\ 
+        \pi^*\phi\; \reflectbox{$\longmapsto$}& \;\phi.
+    \end{align*}
+    \item The covariant derivative $D:\Omega^k(P,V)\to\Omega^{k+1}(P,V)$ 
+    is defined by $D\varphi = (\md\varphi)^h$. In particular, 
+    it maps $\Omega^k_{\rho}(P,V)$ to $\Omega^{k+1}_{\rho}(P,V)$; 
+    \item The Bianchi identity: $D\Omega = \md\Omega + [\omega,\Omega] = 0$; 
+    \item If $\varphi\in\Omega^k_{\rho}(P,V)$, then
+    \begin{equation*}
+        D\varphi = \md\varphi + \omega\cdot\varphi.
+    \end{equation*}
+    In particular, if $\varphi\in\Omega^k_{\text{basic}}(P,V)$, then $D\varphi = \md\varphi$.
+    % \begin{equation*}
+        % D\omega = \md\omega + \frac{1}{2}[\omega,\omega] = \Omega,
+        % \qquad D\Omega = \md\Omega + [\omega,\Omega] = 0\; (\text{Bianchi identity});
+    % \end{equation*}
+    % \item If $\varphi\in\Omega^k_{\rho}(P,V)$, then $D\varphi\in\Omega^{k+1}_{\rho}(P,V)$ and
+    % \begin{equation*}
+    %     D\varphi = \md\varphi + \omega\cdot\varphi.
+    % \end{equation*}
+\end{itemize}
+\begin{definition}[Invariant polynomials]
+    Let $G$ be a Lie group, $\mathfrak{g}$ be its Lie algebra. 
+    A polynomial of degree $k$ on $\mathfrak{g}$ is an element of $\mathrm{Sym}^k(\mathfrak{g}^*)$. 
+    We call a polynomial $\Phi\in\mathrm{Sym}^k(\mathfrak{g}^*)$ \emph{\textbf{$\mathrm{Ad}(G)$-invariant}} if 
+    \begin{equation*}
+        \Phi(\mathrm{Ad}_g X) = \Phi(X)\qquad\forall\,g\in G,\,X\in\mathfrak{g}.
+    \end{equation*}
+    The set of all $\mathrm{Ad}(G)$-invariant polynomials on $\mathfrak{g}$ is denoted by $\mathrm{Inv}(\mathfrak{g})$.
+\end{definition}
+\begin{theorem}
+    For any invariant polynomial $\Phi\in\mathrm{Inv}(\mathfrak{g})$, we have
+    \begin{itemize}[leftmargin=*]
+        \item $\Phi(\Omega)$ is a basic form, thus defines a form $\Lambda$ on $M$ such that $\pi^*\Lambda = \Phi(\Omega)$; 
+        \item $\Phi(\Omega)$ is closed, so as $\Lambda$; 
+        \item the cohomology class $[\Lambda]\in H^{2k}(M)$ is independent of the choice of connection $\omega$ on $P$. 
+    \end{itemize}
+    The cohomology class $[\Lambda]$ is called the \emph{\textbf{characteristic class}} of $P$ associated to $\Phi$. The map 
+    \begin{align*}
+        c:\mathrm{Inv}(\mathfrak{g}) &\to H^{*}(M) \\
+        \Phi &\mapsto [\Lambda],
+    \end{align*}
+    is called the \emph{\textbf{Chern-Weil homomorphism}}.
+\end{theorem}
+\begin{proof}
+    \noindent\emph{\textbf{Step 1: $\Phi(\Omega)$ is a basic form.}}
+    Since $\Omega$ is a tensorial form of type $\mathrm{Ad}$, we have
+    \begin{equation*}
+        r_g^*\Phi(\Omega) = \Phi(r_g^*\Omega) = \Phi(\mathrm{Ad}_{g^{-1}}\Omega) = \Phi(\Omega),
+    \end{equation*}
+    so $\Phi(\Omega)$ is $G$-invariant. Clearly, $\Phi(\Omega)$ is horizontal. 
+    Thus $\Phi(\Omega)$ is a basic form and $\Phi(\Omega) = \pi^*\Lambda$ for some form $\Lambda$ on $M$.
+
+    \noindent\emph{\textbf{Step 2: $\Phi(\Omega)$ is closed.}}
+    Since $\Phi(\Omega)$ is basic, 
+    \begin{equation*}
+        \md\Phi(\Omega) = D\Phi(\Omega) = \Phi(D\Omega) = 0.
+    \end{equation*}
+    For the closedness of $\Lambda$, 
+    \begin{equation*}
+        \pi^*(\md\Lambda) = \md(\pi^*\Lambda) = \md\Phi(\Omega) = 0.
+    \end{equation*}
+    Thus $\md\Lambda = 0$ by the injectivity of $\pi^*$. 
+
+    \noindent\emph{\textbf{Step 3: Independence of $\omega$.}}
+    Let $\omega_0$ and $\omega_1$ be two connections on $P$, 
+    $\Omega_0$ and $\Omega_1$ be the curvature forms,
+    $\Lambda_0$ and $\Lambda_1$ are forms on $M$ such that 
+    $\pi^*\Lambda_i = \Phi(\Omega_i)$, $i=0,1$. 
+
+    Consider the family of connections $\omega_t = (1-t)\omega_0 + t\omega_1$,
+    and the corresponding curvature forms $\Omega_t$. 
+    % Then $\omega_t$ is a connection on $P$ for each $t\in[0,1]$, 
+    
+\end{proof}
 % \subsection{Transgressions}
 % \subsubsection{Chern-Simons Forms}
