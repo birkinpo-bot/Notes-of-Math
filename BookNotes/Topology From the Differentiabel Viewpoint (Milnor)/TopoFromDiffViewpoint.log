@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.22)  8 AUG 2026 15:37
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.22)  15 JUN 2026 18:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"Notes on Gauge Theory"
-(./Notes on Gauge Theory.tex
+**"d:/000/数学笔记/BookNotes/Topology From the Differentiabel Viewpoint (Milnor)/TopoFromDiffViewpoint"
+(d:/000/数学笔记/BookNotes/Topology From the Differentiabel Viewpoint (Milnor)/TopoFromDiffViewpoint.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (d:/texlive/2026/texmf-dist/tex/latex/base/article.cls
@@ -816,15 +816,6 @@ Package: xeCJKfntef 2022/08/05 v3.9.1 xeCJK font effect
 \c@theorem=\count388
 \c@fact=\count389
 \c@exercise=\count390
-) (d:/texlive/2026/texmf-dist/tex/latex/titling/titling.sty
-Package: titling 2009/09/04 v2.1d maketitle typesetting
-\thanksmarkwidth=\skip71
-\thanksmargin=\skip72
-\droptitle=\skip73
-)
-\tocupshift=\skip74
- (d:/texlive/2026/texmf-dist/tex/latex/tools/indentfirst.sty
-Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
 )
 
 Package xeCJK Warning: Fandol is being set as the default font for CJK text.
@@ -853,29 +844,29 @@ Package fontspec Info:
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
 (fontspec)             <->"[FandolKai-Regular.otf]/OT:script=hani;language=dflt;"
 
-No file "Notes on Gauge Theory".aux.
-\openout1 = `"Notes on Gauge Theory.aux"'.
+(./TopoFromDiffViewpoint.aux)
+\openout1 = `TopoFromDiffViewpoint.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -883,72 +874,72 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup7
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 13.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 13.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 13.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 13.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 13.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 13.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 13.
-LaTeX Font Info:    Redeclaring math accent \check on input line 13.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 13.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 13.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 13.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 13.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 13.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 13.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 13.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 13.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 13.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 13.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 13.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 13.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 13.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 13.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 13.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 13.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 9.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 9.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 9.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 9.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 9.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 9.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 9.
+LaTeX Font Info:    Redeclaring math accent \check on input line 9.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 9.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 9.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 9.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 9.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 9.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 13.
+(Font)              `operators' in the math version `normal' on input line 9.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 13.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 9.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 13.
+(Font)              `operators' in the math version `bold' on input line 9.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 13.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 9.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 13.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 9.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 13.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 9.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 13.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 9.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 13.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 9.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 13.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 9.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 13.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 9.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 13.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 9.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 13.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 9.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 13.
-LaTeX Info: Redefining \celsius on input line 13.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 13.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 9.
+LaTeX Info: Redefining \celsius on input line 9.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 9.
+
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 13.
-Package gensymb Info: Using \Omega for \ohm on input line 13.
+LaTeX Info: Redefining \ohm on input line 9.
+Package gensymb Info: Using \Omega for \ohm on input line 9.
 
 Package gensymb Warning: Not defining \micro.
 
-Package hyperref Info: Link coloring OFF on input line 13.
+Package hyperref Info: Link coloring OFF on input line 9.
+(./TopoFromDiffViewpoint.out) (./TopoFromDiffViewpoint.out)
 \@outlinefile=\write4
-\openout4 = `"Notes on Gauge Theory.out"'.
+\openout4 = `TopoFromDiffViewpoint.out'.
 
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -984,324 +975,38 @@ Package hyperref Warning: Rerun to get /PageLabels entry.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 14.
 (d:/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
  (d:/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 17.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 14.
  (d:/texlive/2026/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-No file "Notes on Gauge Theory".toc.
+) (./TopoFromDiffViewpoint.toc)
 \tf@toc=\write5
-\openout5 = `"Notes on Gauge Theory.toc"'.
+\openout5 = `TopoFromDiffViewpoint.toc'.
 
-[1
+ [1
 
-]
-\openout2 = `Section/Preface.aux'.
-
- (./Section/Preface.tex
-
-Package fontspec Info: 
-(fontspec)             Script 'CJK' not explicitly supported within font
-(fontspec)             'FandolFang-Regular'. Check the typeset output, and if
-(fontspec)             it is okay then ignore this warning. Otherwise a
-(fontspec)             different font should be chosen.
-
-
-Package fontspec Info: 
-(fontspec)             Font family 'FandolFang-Regular(0)' created for font
-(fontspec)             'FandolFang-Regular' with options
-(fontspec)             [Script={CJK},Extension={.otf}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[FandolFang-Regular.otf]/OT:script=hani;language=dflt;"
-
-) [2
-
-]
-\openout2 = `Section/Prologue.aux'.
-
- (./Section/Prologue.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-[3
-
-
-
-] [4]
-Overfull \hbox (2.65297pt too wide) detected at line 124
-[]
- []
-
-[5]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 220.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 220.
-
-[6]) [7]
-\openout2 = `Section/AffineConnections.aux'.
-
- (./Section/AffineConnections.tex [8
-
-
-
-] [9] [10]
-
-LaTeX Warning: Reference `prop:curvature' on page 11 undefined on input line 223.
-
-
-LaTeX Warning: Reference `eq:trans-formula-for-con-form' on page 11 undefined on input line 247.
-
-
-LaTeX Warning: Reference `eq:curvature-form' on page 11 undefined on input line 247.
-
-[11] [12]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 393.
- (d:/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [13] [14]
-
-LaTeX Warning: Reference `eq:translation-formula-of-connection-1-forms' on page 15 undefined on input line 516.
-
-[15] [16]
-Overfull \hbox (1.67992pt too wide) in paragraph at lines 728--731
-[]\TU/lmr/m/n/12 The proof is exactly the same as the existence and uniqueness of geodesics.
- []
-
-[17] [18]
-
-LaTeX Warning: Reference `lem:tangent-map-of-linear-ops-acts-on-vertical-bundle' on page 19 undefined on input line 843.
-
-[19]
-
-LaTeX Warning: Reference `thm:connection-from-horizontal-distribution' on page 20 undefined on input line 866.
-
-
-LaTeX Warning: Reference `lem:H-compatible-with-linear-str' on page 20 undefined on input line 889.
-
-
-LaTeX Warning: Reference `lem:tangent-map-of-linear-ops-acts-on-vertical-bundle' on page 20 undefined on input line 889.
-
-
-LaTeX Warning: Reference `lem:H-compatible-with-linear-str' on page 20 undefined on input line 889.
-
-
-LaTeX Warning: Reference `lem:tangent-map-of-linear-ops-acts-on-vertical-bundle' on page 20 undefined on input line 889.
-
-
-LaTeX Warning: Reference `lem:H-compatible-with-linear-str' on page 20 undefined on input line 899.
-
-
-LaTeX Warning: Reference `lem:tangent-map-of-linear-ops-acts-on-vertical-bundle' on page 20 undefined on input line 899.
-
-
-LaTeX Warning: Reference `lem:H-compatible-with-linear-str' on page 20 undefined on input line 899.
-
-
-LaTeX Warning: Reference `lem:tangent-map-of-linear-ops-acts-on-vertical-bundle' on page 20 undefined on input line 899.
-
-
-LaTeX Warning: Reference `lem:tangent-map-of-multiplication' on page 20 undefined on input line 909.
-
-
-LaTeX Warning: Reference `lem:tangent-map-of-linear-ops-acts-on-vertical-bundle' on page 20 undefined on input line 909.
-
-
-LaTeX Warning: Reference `lem:tangent-map-of-multiplication' on page 20 undefined on input line 909.
-
-
-LaTeX Warning: Reference `lem:tangent-map-of-linear-ops-acts-on-vertical-bundle' on page 20 undefined on input line 909.
-
-[20]
-File: Figures/parallel-transport.jpg Graphic file (type bmp)
-<Figures/parallel-transport.jpg>
- [21] [22]
-
-LaTeX Warning: Reference `eq:con-def-by-para' on page 23 undefined on input line 1065.
-
-[23] [24] [25] [26]) [27]
-\openout2 = `Section/PrincipalBundles.aux'.
-
- (./Section/PrincipalBundles.tex [28
-
-
-
-]
-
-LaTeX Warning: Reference `lem:equivariant-maps-are-left-translations' on page 29 undefined on input line 105.
-
-[29] [30]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 199.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 199.
-
-[31] [32] [33] [34]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 492.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 492.
-
-[35] [36]
-
-LaTeX Warning: Reference `thm:local connection form is pullback of global connection form' on page 37 undefined on input line 617.
-
-[37]
-
-LaTeX Warning: Reference `thm:local connection form is pullback of global connection form' on page 38 undefined on input line 664.
-
-[38] [39]) [40]
-\openout2 = `Section/AssociatedBundles.aux'.
-
- (./Section/AssociatedBundles.tex [41
-
-
-
-] [42]
-
-LaTeX Warning: Reference `thm:tensorial-forms-correspond-to-forms-on-base' on page 43 undefined on input line 185.
-
-
-LaTeX Warning: Reference `thm:tensorial-forms-correspond-to-forms-on-base' on page 43 undefined on input line 208.
-
-[43]
-
-LaTeX Warning: Reference `lem:G-equivariance-of-fp' on page 44 undefined on input line 223.
-
-[44]
-
-LaTeX Warning: Reference `prop:exterior-derivative-preserves-G-equivariance' on page 45 undefined on input line 304.
-
-
-LaTeX Warning: Reference `prop:horizontal-component-preserves-G-equivariance' on page 45 undefined on input line 304.
-
-
-LaTeX Warning: Reference `thm:tensorial-forms-correspond-to-forms-on-base' on page 45 undefined on input line 332.
-
-[45]
-
-LaTeX Warning: Reference `thm:formula-for-covariant-derivative' on page 46 undefined on input line 397.
-
-[46] [47]
-
-LaTeX Warning: Reference `thm:tensorial-forms-correspond-to-forms-on-base' on page 48 undefined on input line 489.
-
-) [48]
-\openout2 = `Section/CharacteristicClasses.aux'.
-
- (./Section/CharacteristicClasses.tex
-
-LaTeX Warning: Reference `eq:invariant_polynomial' on page 49 undefined on input line 85.
-
-[49
-
-
-
-]
-
-LaTeX Warning: Reference `prop:closed' on page 50 undefined on input line 133.
-
-[50]
-
-LaTeX Warning: Reference `eq:transgression' on page 51 undefined on input line 195.
-
-[51] [52] [53] [54] [55] [56] [57] [58]) [59]
-\openout2 = `Section/Transgressions&ChernSimonsForm.aux'.
-
- (./Section/Transgressions&ChernSimonsForm.tex
-File: Figures/Index-of-vector-field.png Graphic file (type bmp)
-<Figures/Index-of-vector-field.png>
- [60
-
-
-
-]
-File: Figures/PHthm2.png Graphic file (type bmp)
-<Figures/PHthm2.png>
- [61] [62] [63]
-
-LaTeX Warning: Reference `equ:transgression-in-2d(1)' on page 64 undefined on input line 237.
-
-
-LaTeX Warning: Reference `equ:transgression-in-2d(2)' on page 64 undefined on input line 238.
-
-[64] [65] [66]) [67]
-\openout2 = `Section/Appendix.aux'.
-
- (./Section/Appendix.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 9.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 9.
-
-
-Overfull \hbox (27.61946pt too wide) detected at line 57
-[]
- []
-
-[68
-
-
-
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 83.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 83.
-
-[69]) [70] Total classes: 0 (./Notes on Gauge Theory.aux (./Section/Preface.aux) (./Section/Prologue.aux) (./Section/AffineConnections.aux) (./Section/PrincipalBundles.aux) (./Section/AssociatedBundles.aux) (./Section/CharacteristicClasses.aux) (./Section/Transgressions&ChernSimonsForm.aux) (./Section/Appendix.aux))
+] Total classes: 0 [2] [3] (./TopoFromDiffViewpoint.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package rerunfilecheck Info: File `"Notes on Gauge Theory".out' has not changed.
-(rerunfilecheck)             Checksum: <no file>.
+Package rerunfilecheck Info: File `TopoFromDiffViewpoint.out' has not changed.
+(rerunfilecheck)             Checksum: 0DD22EB5B4D1600CE0F3A98230C31C1C;380.
  ) 
 Here is how much of TeX's memory you used:
- 35714 strings out of 468168
- 849743 string characters out of 5436524
- 1281410 words of memory out of 5000000
- 63795 multiletter control sequences out of 15000+600000
- 641187 words of font info for 130 fonts, out of 8000000 for 9000
+ 34531 strings out of 468168
+ 816197 string characters out of 5436524
+ 1265759 words of memory out of 5000000
+ 62682 multiletter control sequences out of 15000+600000
+ 637980 words of font info for 107 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 113i,20n,132p,5056b,1236s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,12n,132p,5110b,348s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Notes on Gauge Theory.pdf (70 pages).
+Output written on TopoFromDiffViewpoint.pdf (3 pages).

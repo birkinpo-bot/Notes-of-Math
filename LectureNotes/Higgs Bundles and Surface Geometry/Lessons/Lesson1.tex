@@ -1,0 +1,54 @@
+\textbf{动机:} 给定一个亏格 $g\geq 2$ 的可定向闭曲面 $S$, Teichmüller 理论联系了三个数学对象
+\begin{itemize}
+    \item 曲面基本群的表示 $\rho:\pi_1(S)\to \mathrm{PSL}(2,\mathbb{R})$; 
+    \item 曲面 $S$ 上的复结构 $\Sigma = (S,J)$; 
+    \item 曲面 $S$ 上的双曲度量.  
+\end{itemize}
+我们将要讨论的高阶 Teichmüller 理论是 Teichmüller 理论的一个推广, 它将 Teichmüller 理论
+归纳到一个更大的框架中. 
+
+这个理论的核心对象是光滑闭可定向的曲面 $S$, 记其亏格为 $g$, 它的基本群为 $\pi_1(S)$.
+\begin{example}\hfill
+    \begin{itemize}[leftmargin=*]
+        \item $g=0$ 时, $\pi_1(S) = \langle e \rangle$ 是平凡群;
+        \item $g=1$ 时, $\pi_1(S) = \mZ^2$ 是阿贝尔群;
+        \item $g\geq 2$ 时, $\pi_1(S) = \langle a_1,b_1,\ldots,a_g,b_g \mid \prod_{i=1}^g [a_i,b_i] = e\rangle$ 是非阿贝尔群.
+    \end{itemize}
+\end{example}
+设 $G$ 是一个李群(光滑流形, 配备了一个相容的群结构), 例如 $\mathrm{GL}(n,\mathbb{C})$, $\mathrm{SL}(n,\mathbb{R})$, $\mathrm{PSL}(n,\mathbb{R})$ 等. 
+\begin{definition}
+    一个\emph{曲面群的表示}是一个群同态 
+    \begin{equation*}
+        \rho:\pi_1(S)\to G.
+    \end{equation*}
+\end{definition}
+\begin{example}\hfill
+    \begin{itemize}[leftmargin=*]
+        \item $S = S^2$ 时, 只有平凡表示.
+        \item $S = T^2$ 时, $\pi_1(S) = \mZ^2$, 由 $\gamma_1,\gamma_2$ 生成. 
+        设 $G = \mathrm{SL}(2,\mathbb{R})$, 则只需确定二阶矩阵 $\rho(\gamma_1),\rho(\gamma_2)$, 
+        使其满足 $[\rho(\gamma_1),\rho(\gamma_2)] = I$ 即可.
+        \item $S$ 是一个亏格 $g\geq 2$ 的曲面, 则 $\pi_1(S)$ 由 $a_1$, $b_1$, $\ldots$, $a_g$, $b_g$ 生成,
+        只需确定 $\rho(a_1)$, $\rho(b_1)$, $\ldots$, $\rho(a_g)$, $\rho(b_g)$, 
+        使其满足 $\prod_{i=1}^g [\rho(a_i),\rho(b_i)] = I$ 即可. 
+        粗略来说确定前 $2g-1$ 个矩阵后, 最后一个矩阵就被约束住了.
+    \end{itemize}
+\end{example}
+如果我们将约束条件 $\prod_{i=1}^g [\rho(a_i),\rho(b_i)] = I$ 视为一个方程, 所有曲面群表示都是方程的解, 它的解集是一个代数簇.
+我们不考虑单独的表示, 而是考虑所有表示的全体.
+\begin{definition}
+    曲面 $S$ 的 \emph{$G$-表示簇}, 记作 $\mathrm{Hom}(\pi_1(S),G)$, 是所有从 $\pi_1(S)$ 到 $G$ 的群同态的集合.
+\end{definition} 
+\begin{example}\hfill
+    \begin{itemize}[leftmargin=*]
+        \item $S = S^2$ 时, $\mathrm{Hom}(\pi_1(S),G) = \{e\}$ 是平凡簇;
+        \item $S = T^2$ 时, $\mathrm{Hom}(\pi_1(S),G) = \{(A,B)\in G\times G \mid [A,B] = I\}$;
+        \item $S$ 是一个亏格 $g\geq 2$ 的曲面时, 
+        \begin{equation*}
+            \mathrm{Hom}(\pi_1(S),G) = \left\{(A_1,B_1,\ldots,A_g,B_g)\in G^{2g}\, \Bigg| \prod_{i=1}^g [A_i,B_i] = I\right\}.
+        \end{equation*}
+    \end{itemize}
+\end{example}
+\begin{remark}
+    我们关心的对象实际上并不是具体的表示, 而是表示在共轭下的等价类. 
+\end{remark}

@@ -1,6 +1,48 @@
-\contentsline {section}{\numberline {5}Transgressions and the Chern-Simons Form}{2}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Gauss-Bonnet Theorem}{2}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Transgressions}{6}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Chern-Simons Form}{7}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Gauge Transformation}{9}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Holonomy and flat connections}{9}{subsection.5.5}%
+\contentsline {section}{Preface}{2}{section*.2}%
+\contentsline {section}{\numberline {5}Prologue: Electromagnetism and $U(1)$ Gauge Theory}{3}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Maxwell's equations}{3}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}$U(1)$ gauge theory}{6}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Affine Connections}{8}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Levi-Civita Connections}{8}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Covariant Derivative}{8}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Connection 1-form}{9}{subsubsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.2}General Affine Connections}{12}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Covariant Derivative}{12}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Connection 1-form}{14}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Horizontal Distribution}{16}{subsubsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.4}Parallel Transport}{21}{subsubsection.6.2.4}%
+\contentsline {subsection}{Exercises}{26}{section*.17}%
+\contentsline {section}{\numberline {7}Principal Bundles and Connections}{28}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Principal Bundles}{28}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Vertical Subbundle of $TP$}{31}{subsubsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.2}Connections on Principal Bundles}{32}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Horizontal Distributions}{32}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Ehresmann Connections}{32}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.3}Horizontal Lift and Parallel Transport}{35}{subsubsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.4}Connections on the frame bundle $\mathrm {Fr}(E)$}{35}{subsubsection.7.2.4}%
+\contentsline {subsubsection}{\numberline {7.2.5}Curvature of Connections}{37}{subsubsection.7.2.5}%
+\contentsline {section}{\numberline {8}Associated Bundles and Covariant Derivative}{41}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Associated Bundles}{41}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Tensorial Forms on a Principal Bundle}{43}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Covariant Derivative}{44}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}A Formula for the Covariant Derivative on Tensorial Forms}{46}{subsection.8.4}%
+\contentsline {subsection}{Exercises}{48}{section*.25}%
+\contentsline {section}{\numberline {9}Characteristic Classes}{49}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Chern-Weil Theory}{49}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Examples of Characteristic Classes}{52}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Pontryagin Classes}{52}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}Euler Classes}{54}{subsubsection.9.2.2}%
+\contentsline {subsubsection}{\numberline {9.2.3}Chern Classes}{55}{subsubsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.3}Characteristic classes of Principal Bundles}{57}{subsection.9.3}%
+\contentsline {section}{\numberline {10}Transgressions and the Chern-Simons Form}{60}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Gauss-Bonnet Theorem}{60}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Transgressions}{64}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Chern-Simons Form}{65}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Gauge Transformation}{67}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Holonomy and flat connections}{67}{subsection.10.5}%
+\contentsline {section}{Appendix}{68}{section*.35}%
+\contentsline {subsection}{Vector valued-differential forms}{68}{section*.36}%
+\contentsline {subsubsection}{$V$-valued forms}{68}{section*.37}%
+\contentsline {subsubsection}{$\mathfrak {g}$-valued forms}{69}{section*.39}%
+\contentsline {subsubsection}{Vector Bundle valued forms}{70}{section*.40}%
+\contentsline {subsubsection}{Maurer-Cartan forms}{70}{section*.41}%

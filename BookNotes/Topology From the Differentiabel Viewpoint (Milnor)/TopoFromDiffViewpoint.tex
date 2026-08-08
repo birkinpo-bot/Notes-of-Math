@@ -1,0 +1,92 @@
+% 这是Milnor的微分观点看拓扑的笔记，
+% 时隔很久第一次完整看完这本小册子，有很多感悟，遂写了这份笔记。
+% 我将会把握本书的核心：正则值原象，
+% 按一条主线：正则值原象个数 → 模二映射度 → 映射度 → 标架式斜边，编写这份笔记。
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{myconfig}
+
+\begin{document}
+\title{Notes on \textit{Topology from the Differentiable Viewpoint} (Milnor)}
+\author{Bob}
+\date{}
+\maketitle
+
+\tableofcontents
+\vspace{3em}
+
+本笔记假定读者熟悉微分流形的基本定义, 
+熟悉 Sard 定理, 熟悉带边流形的定义以及边界的诱导定向.
+\newpage
+
+\section{正则值原象个数的局部常值性}
+设 $f: M^n\to N^n$ 是两个 $n$ 维无边连通流形之间的光滑映射, 
+$y\in N$ 是 $f$ 的一个正则值. 那么 $f^{-1}(y)$ 是 $M$ 中的一个离散子集. 
+若 $M$ 是紧的, 则 $f^{-1}(y)$ 是有限集, 于是可以计数 $\setlength\parindent{0pt}\#f^{-1}(y)$. 
+考虑原象点的个数相当于在流形上 “解方程” $f(x) = y$.
+
+\begin{proposition}
+    在上述假定下, $\#f^{-1}(y)$ 作为正则值的函数是局部常值的.
+\end{proposition}
+\begin{proof}
+    设 $y\in N$ 是 $f$ 的一个正则值, $f^{-1}(y) = \{x_1,\dots,x_k\}$. 由于 $f$ 在 $x_i$ 处的微分是双射, 
+    所以 $f$ 在 $x_i$ 的某个邻域 $U_i$ 上是一个微分同胚, 可以取 $U_i$ 充分小使得它们之间两两不交. 
+    记 $V_i = f(U_i)$, 考虑 
+    \begin{equation*}
+        V = V_1\cap\cdots\cap V_k - f(M-U_1\cup\cdots\cup U_k).
+    \end{equation*}
+    则 $V$ 是 $y$ 的一个开邻域\footnote{$f(M-U_1\cup\cdots\cup U_k)$ 是 $N$ 中的一个紧子集, 因此它的补是一个开集.}. 
+    $f^{-1}(V) = U_1'\sqcup\cdots\sqcup U_k'$, 其中 $f|_{U_i'}: U_i'\to V$ 是一个微分同胚. 
+    于是对任意 $y'\in V$, $f^{-1}(y')$ 中恰有 $k$ 个点, 分别在 $U_1',\dots,U_k'$ 中.
+\end{proof}
+\begin{theorem}[代数基本定理]
+    每个非常值的复多项式 $P(z)$ 在 $\mathbb{C}$ 中必定有一个零点.
+\end{theorem}
+\begin{proof}
+    首先要先把 $P(z): \mathbb{C} \to \mathbb{C}$ 紧致化成为黎曼球面到自身的映射. 
+    设 $h_{\pm}:S^2-\{(0,0,\pm 1)\}\to\mathbb{C}$ 是关于北极(南极)的球极投影, 
+    定义 $f: S^2\to S^2$ 如下:
+    \begin{equation*}
+        f(z) = 
+        \begin{cases}
+            h_+^{-1}\circ P\circ h_+(z), & z\neq (0,0,1),\\
+            (0,0,1), & z = (0,0,1),\\
+        \end{cases}
+    \end{equation*} 
+    $f$ 在 $z=(0,0,1)$ 处也是光滑的, 这是因为考虑 
+    \begin{equation*}
+        Q(z) = h_-\circ f\circ h_-^{-1}(z), z\in\mathbb{C},
+    \end{equation*}
+    由于
+    \begin{equation*}
+        h_+\circ h_-^{-1}(z) = \frac{z}{|z|^2} = \frac{1}{\bar{z}}, z\neq 0,
+    \end{equation*}
+    设 $P(z) = a_0z^n + a_1z^{n-1} + \cdots + a_n$, $a_0 \neq 0$, 则
+    \begin{gather*}
+        Q(z) = \frac{1}{\overline{P(\frac{1}{\bar{z}})}} 
+        = \frac{z^n}{\overline{a_0}+\overline{a_1}z+\cdots+\overline{a_n}z^n}\; (z\neq 0), 
+        \quad Q(0) = 0.
+    \end{gather*}
+    所以 $Q$ 在 $z=0$ 处是光滑的, 从而 $f$ 在 $z=(0,0,1)$ 处也是光滑的.
+
+    由于 $P(z)$ 是非常值的, $f$ 的临界点只有有限个(对应 $P'(z)$ 的零点), 
+    因此 $f$ 的临界值集是有限点集, 于是 $f$ 的正则值集是一个连通开集. 
+    因此对于正则值 $y$, $\#f^{-1}(y)$ 是一个常数, 而这个常数不可能是零, 
+    否则 $P$ 的象集是一个有限点集, 与 $P$ 是非常值的假设矛盾. 现在 
+    \begin{equation*}
+        f:S^2\to S^2 = \{\text{临界值集}\}\sqcup \{\text{正则值集}\}
+    \end{equation*}
+    在每个部分都是满射, 所以 $f$ 是满射, 从而 $f$ 必有一点映为 $(0,0,-1)$, 
+    这个点不会是 $(0,0,1)$, 从而 $P$ 必有零点.
+\end{proof}
+
+\section{模二映射度}
+上一节 $\#f^{-1}(y)$ 已经能够说明一些事情了, 
+但一般而言它对一个映射来说并不是良定义的, 且不具有同伦不变性. 
+我们可以考虑 $\#f^{-1}(y)$ 的模二值, 记为 $\deg_2 f$, 
+叫做 $f$ 的\emph{模二映射度}.
+
+\section{映射度}
+\section{标架式斜边}
+
+\end{document}

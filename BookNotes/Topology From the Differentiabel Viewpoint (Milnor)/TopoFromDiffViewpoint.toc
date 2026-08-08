@@ -1,0 +1,4 @@
+\contentsline {section}{\numberline {1}正则值原象个数的局部常值性}{2}{section.1}%
+\contentsline {section}{\numberline {2}模二映射度}{3}{section.2}%
+\contentsline {section}{\numberline {3}映射度}{3}{section.3}%
+\contentsline {section}{\numberline {4}标架式斜边}{3}{section.4}%

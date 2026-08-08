@@ -1,0 +1,295 @@
+% myconfig.sty
+% 记得同时复制 quiver.sty 到同一目录下
+% 清除过程文件的快捷键是 Ctrl + Alt + C
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{myconfig}[2026/03/28 v1.0 Personal configuration]
+
+% ---------- 基础宏包 ----------
+\RequirePackage{xeCJK}                % 中文支持（需 XeLaTeX）
+\RequirePackage{amsmath, amssymb, amsfonts, amsthm, bbm}
+\RequirePackage{mathrsfs}
+\RequirePackage{gensymb}
+\RequirePackage{graphicx}
+\RequirePackage{hyperref}             % 超链接，建议最后加载
+\RequirePackage{url}
+\RequirePackage{cases}                % 多行编号方程
+\RequirePackage{color}
+\RequirePackage{tikz-cd}              % 交换图
+\RequirePackage{quiver}               % quiver 图表
+\RequirePackage{setspace}
+\RequirePackage{spectralsequences}    % 谱序列
+\RequirePackage[perpage]{footmisc}    % 脚注每页重编号
+\RequirePackage{blkarray}             % 块矩阵
+\RequirePackage{makecell}
+\RequirePackage[left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry} % 页面边距
+\RequirePackage{enumitem}             % 自定义列表环境
+% \setlist[itemize]{leftmargin=*}      % itemize 环境无缩进
+\RequirePackage{ulem}                 % 下划线支持（注意：可能会与其他宏包冲突）
+\RequirePackage{xeCJKfntef}           % 中文下划线支持
+
+% 设置颜色块
+\RequirePackage{xcolor}               % 颜色支持
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins, theorems}
+
+% ---------- 其他设置 ----------
+\allowdisplaybreaks                   % 允许公式跨页断行
+% \bibliographystyle{plain}           % 参考文献样式（建议在主文档中设置）
+\numberwithin{equation}{section}      % 公式编号按章节重新计数
+
+% ---------- 定理类环境 ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{fact}{Fact}
+% \renewcommand{\thefact}{\arabic{fact}}
+% \numberwithin{fact}{section}    % Fact 环境按章节重新计数
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{remark}{Remark}
+\renewcommand{\proofname}{\bf Proof}
+
+% ---------- 常用数学命令 ----------
+\newcommand{\dif}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}               % 一阶导数
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}               % 一次偏导
+\newcommand{\npd}[3]{\frac{\partial^{#1}{#2}}{\partial{#3}^{#1}}} % n次偏导
+\newcommand{\pD}[2]{\frac{{\rm D}(#1)}{{\rm D}(#2)}}               % Jacobian
+\newcommand{\lc}[2]{\nabla_{#1}{#2}}
+\newcommand{\ft}[3]{{#1}_{#2},\dots,{#1}_{#3}}
+\newcommand{\ftu}[3]{{#1}^{#2},\dots,{#1}^{#3}}
+\newcommand{\cft}[3]{{#1}_{#2},\cdots,{#1}_{#3}}
+\newcommand{\id}{{\rm id}}
+\newcommand{\Id}{{\rm Id}}
+\newcommand{\supp}{{\rm supp}}
+\newcommand{\mi}{\sqrt{-1}}
+\newcommand{\me}{{\rm e}}
+\newcommand{\md}{{\rm d}}
+\newcommand{\mZ}{\mathbb{Z}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\mN}{\mathbb{N}}
+\newcommand{\mH}{\mathbb{H}}
+\newcommand{\GL}{{\rm GL}}
+\newcommand{\SL}{{\rm SL}}
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\str}{{\rm Tr}_s}
+\newcommand{\Aut}{{\rm Aut}}
+\newcommand{\Inn}{{\rm Inn}}
+\newcommand{\Out}{{\rm Out}}
+\newcommand{\End}{{\rm End}}
+\newcommand{\Lie}{{\rm Lie}}
+\newcommand{\Pf}{{\rm Pf}}
+\newcommand{\rk}{{\rm rk}}
+\newcommand{\rank}{{\rm rank}}
+\newcommand{\mCP}{\mathbb{C}\mathrm{P}}
+\newcommand{\mRP}{\mathbb{R}\mathrm{P}}
+\newcommand{\mHP}{\mathbb{H}\mathrm{P}}
+\newcommand{\vep}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\newcommand{\mbb}{\mathbb}
+\newcommand{\mc}{\mathcal}
+\newcommand{\mfr}{\mathfrak}
+\newcommand{\mrm}{\mathrm}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Gr}{\mathrm{Gr}}
+\newcommand{\p}{\partial}
+\newcommand{\bp}{\bar{\partial}}
+\newcommand{\sslash}{\mathord{\hspace{-0.05em}/\mkern-5mu/\hspace{-0.25em}}} %双斜杠
+
+% ==========================================
+% 1. 定义颜色 (根据你指定的四类风格提取十六进制色值)
+% ==========================================
+% 浅蓝色 (分配给 definition)
+\definecolor{colorBlueBg}{HTML}{E8F4F8}
+\definecolor{colorBlueBar}{HTML}{5B9BD5}
+
+% 米色 (分配给 theorem)
+\definecolor{colorBeigeBg}{HTML}{FEF8E7}
+\definecolor{colorBeigeBar}{HTML}{E8B785}
+
+% 灰色 (分配给 remark, fact)
+\definecolor{colorGreyBg}{HTML}{F4F4F4}
+\definecolor{colorGreyBar}{HTML}{A5A5A5}
+
+% 绿色 (分配给 lemma, proposition, corollary)
+\definecolor{colorGreenBg}{HTML}{E9F5EA}
+\definecolor{colorGreenBar}{HTML}{2E8B57}
+
+% 浅红色 (分配给 example)
+\definecolor{colorRedBg}{HTML}{FCE9E8}
+\definecolor{colorRedBar}{HTML}{E56D6A}
+
+% ==========================================
+% 2. 定义通用的带色条文本框环境
+% (作为底层模板，方便后续自定义专属环境及绑定)
+% ==========================================
+\newtcolorbox{sidebarBox}[2]{
+  colback=#1,           % 内部背景色
+  colframe=#2,          % 边框色（即左侧色条颜色）
+  leftrule=5pt,         % 左侧粗边条宽度
+  rightrule=0pt,
+  toprule=0pt,
+  bottomrule=0pt,
+  arc=0pt,              % 弧度设为0
+  outer arc=0pt,
+  sharp corners=all,    % 强制所有角为直角
+  left=1.5em,           % 左右上下内边距
+  right=1.5em,
+  top=1.2em,
+  bottom=1.2em,
+  after skip=1.2em,     % 环境块之间的垂直间距
+  parbox=false          % 更好的外部环境兼容性
+}
+
+% ==========================================
+% 3. (可选) 直接定义四种颜色的专属环境
+% 方便主文档单独调用原生的浅蓝/米色/灰色/绿色方框
+% ==========================================
+\newtcolorbox{blueBox}[1][]{colback=colorBlueBg, colframe=colorBlueBar, leftrule=5pt, rightrule=0pt, toprule=0pt, bottomrule=0pt, arc=0pt, sharp corners=all, left=1.5em, right=1.5em, top=1.2em, bottom=1.2em, after skip=1.2em, #1}
+\newtcolorbox{beigeBox}[1][]{colback=colorBeigeBg, colframe=colorBeigeBar, leftrule=5pt, rightrule=0pt, toprule=0pt, bottomrule=0pt, arc=0pt, sharp corners=all, left=1.5em, right=1.5em, top=1.2em, bottom=1.2em, after skip=1.2em, #1}
+\newtcolorbox{greyBox}[1][]{colback=colorGreyBg, colframe=colorGreyBar, leftrule=5pt, rightrule=0pt, toprule=0pt, bottomrule=0pt, arc=0pt, sharp corners=all, left=1.5em, right=1.5em, top=1.2em, bottom=1.2em, after skip=1.2em, #1}
+\newtcolorbox{greenBox}[1][]{colback=colorGreenBg, colframe=colorGreenBar, leftrule=5pt, rightrule=0pt, toprule=0pt, bottomrule=0pt, arc=0pt, sharp corners=all, left=1.5em, right=1.5em, top=1.2em, bottom=1.2em, after skip=1.2em, #1}
+\newtcolorbox{redBox}[1][]{colback=colorRedBg, colframe=colorRedBar, leftrule=5pt, rightrule=0pt, toprule=0pt, bottomrule=0pt, arc=0pt, sharp corners=all, left=1.5em, right=1.5em, top=1.2em, bottom=1.2em, after skip=1.2em, #1}
+% ==========================================
+% 4. 给定理类环境附加外框样式 (核心)
+% 假设你已经使用 \newtheorem 提前定义了以下所有环境
+% ==========================================
+% 定义 -> 浅蓝色
+\tcolorboxenvironment{definition}{
+    colback=colorBlueBg, colframe=colorBlueBar, leftrule=5pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
+    arc=0pt, sharp corners=all, left=1.5em, right=1.5em, top=1.2em, bottom=1.2em, after skip=1.2em
+}
+
+% 定理 -> 米色
+\tcolorboxenvironment{theorem}{
+    colback=colorBeigeBg, colframe=colorBeigeBar, leftrule=5pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
+    arc=0pt, sharp corners=all, left=1.5em, right=1.5em, top=1.2em, bottom=1.2em, after skip=1.2em
+}
+
+% 注记、事实 -> 灰色
+\tcolorboxenvironment{remark}{
+    colback=colorGreyBg, colframe=colorGreyBar, leftrule=5pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
+    arc=0pt, sharp corners=all, left=1.5em, right=1.5em, top=1.2em, bottom=1.2em, after skip=1.2em
+}
+\tcolorboxenvironment{fact}{
+    colback=colorGreyBg, colframe=colorGreyBar, leftrule=5pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
+    arc=0pt, sharp corners=all, left=1.5em, right=1.5em, top=1.2em, bottom=1.2em, after skip=1.2em
+}
+
+% 引理、命题、推论 -> 绿色
+\tcolorboxenvironment{lemma}{
+    colback=colorGreenBg, colframe=colorGreenBar, leftrule=5pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
+    arc=0pt, sharp corners=all, left=1.5em, right=1.5em, top=1.2em, bottom=1.2em, after skip=1.2em
+}
+\tcolorboxenvironment{proposition}{
+    colback=colorGreenBg, colframe=colorGreenBar, leftrule=5pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
+    arc=0pt, sharp corners=all, left=1.5em, right=1.5em, top=1.2em, bottom=1.2em, after skip=1.2em
+}
+\tcolorboxenvironment{corollary}{
+    colback=colorGreenBg, colframe=colorGreenBar, leftrule=5pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
+    arc=0pt, sharp corners=all, left=1.5em, right=1.5em, top=1.2em, bottom=1.2em, after skip=1.2em
+}
+
+% 例 -> 浅红色
+\tcolorboxenvironment{example}{
+    colback=colorRedBg, colframe=colorRedBar, leftrule=5pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
+    arc=0pt, sharp corners=all, left=1.5em, right=1.5em, top=1.2em, bottom=1.2em, after skip=1.2em
+}
+% % ==========================================
+% % 定义颜色 (根据截图提取的近似十六进制色值)
+% % ==========================================
+% % 米色样式
+% \definecolor{colorBeigeBg}{HTML}{FEF8E7}
+% \definecolor{colorBeigeBar}{HTML}{E8B785}
+
+% % 绿色样式
+% \definecolor{colorGreenBg}{HTML}{E9F5EA}
+% \definecolor{colorGreenBar}{HTML}{2E8B57}
+
+% % 红色样式
+% \definecolor{colorRedBg}{HTML}{FCE9E8}
+% \definecolor{colorRedBar}{HTML}{E56D6A}
+
+% % ==========================================
+% % 定义通用的带色条文本框环境
+% % 参数1: 背景色
+% % 参数2: 左侧竖条颜色
+% % ==========================================
+% \newtcolorbox{sidebarBox}[2]{
+%   colback=#1,           % 内部背景色
+%   colframe=#2,          % 边框颜色（此处即左侧粗条的颜色）
+%   leftrule=5pt,         % 仅有左侧粗边框
+%   rightrule=0pt,
+%   toprule=0pt,
+%   bottomrule=0pt,
+%   arc=0pt,              % 边框弧度设为0
+%   outer arc=0pt,
+%   sharp corners=all,    % 强制所有角为直角
+%   left=1.5em,           % 内部文本左内边距
+%   right=1.5em,          % 内部文本右内边距
+%   top=1.2em,
+%   bottom=1.2em,
+%   after skip=1.5em      % 框与框之间的垂直间距
+% }
+
+% % ==========================================
+% % 3. (可选) 直接定义好三种颜色的专属环境
+% % 方便主文档直接调用，避免每次都输入颜色参数
+% % ==========================================
+% \newtcolorbox{beigeBox}[1][]{
+%   colback=colorBeigeBg,
+%   colframe=colorBeigeBar,
+%   leftrule=5pt,
+%   rightrule=0pt, toprule=0pt, bottomrule=0pt,
+%   arc=0pt, sharp corners=all,
+%   left=1.5em, right=1.5em, top=1.2em, bottom=1.2em,
+%   after skip=1.5em,
+%   #1   % 允许额外传入参数（比如把文字改为红色等）
+% }
+
+% \newtcolorbox{greenBox}[1][]{
+%   colback=colorGreenBg,
+%   colframe=colorGreenBar,
+%   leftrule=5pt,
+%   rightrule=0pt, toprule=0pt, bottomrule=0pt,
+%   arc=0pt, sharp corners=all,
+%   left=1.5em, right=1.5em, top=1.2em, bottom=1.2em,
+%   after skip=1.5em,
+%   #1
+% }
+
+% \newtcolorbox{redBox}[1][]{
+%   colback=colorRedBg,
+%   colframe=colorRedBar,
+%   leftrule=5pt,
+%   rightrule=0pt, toprule=0pt, bottomrule=0pt,
+%   arc=0pt, sharp corners=all,
+%   left=1.5em, right=1.5em, top=1.2em, bottom=1.2em,
+%   after skip=1.5em,
+%   #1
+% }
+
+% % ==========================================
+% % 给 definition 环境附加外框样式
+% \tcolorboxenvironment{definition}{
+%     colback=colorBeigeBg,
+%     colframe=colorBeigeBar,
+%     leftrule=5pt,
+%     rightrule=0pt,
+%     toprule=0pt,
+%     bottomrule=0pt,
+%     arc=0pt,
+%     sharp corners=all,
+%     left=1.5em,
+%     right=1.5em,
+%     top=1.2em,
+%     bottom=1.2em,
+%     after skip=1.5em
+% }

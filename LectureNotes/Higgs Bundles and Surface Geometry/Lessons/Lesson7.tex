@@ -1,0 +1,73 @@
+\section{Lesson 7}
+
+\subsection{用 Bergman 度量定义映射}
+回顾上次课, 给定一个黎曼曲面 $\Sigma=(S,J)$, 我们构造了一个具体的微分同胚
+\begin{equation*}
+    \Phi: \mathrm{Teich}(S)\cong H^0(\Sigma,K^2).
+\end{equation*}
+借由这个微分同胚, 我们构造了 Teichm\"uller 空间的紧化.
+\begin{remark}
+    这个紧化不依赖于基点 $\Sigma$ 的选择.
+\end{remark}
+\begin{remark}
+    这个具体微分同胚的构造需要借由从 $\Sigma$ 到 $(S,\rho)$ 的调和映照, 其中 $\rho$ 是
+    $S$ 上取定的一个双曲度量. 注意定义调和映照需要目标空间的度量, 现在如果我们不考虑双曲度量, 
+    而是与复结构相关的度量, 那么这套过程能走下去吗?
+\end{remark}
+我们现在考虑黎曼曲面 $\Sigma=(S,J)$ 上的 Bergman 度量, 它的定义如下:
+
+......
+
+
+
+\subsection{秩 3 Higgs 丛, Hitchin 分支}
+结束上面的讨论, 让我们转到一个新的话题: $n=3$ 时的 Higgs 丛. 
+现在我们考虑曲面基本群的表示
+\begin{equation*}
+    \rho: \pi_1(S)\to \mathrm{PSL}(3,\mathbb{R}).
+\end{equation*}
+\begin{remark}
+    注意 $\mathrm{PSL}(3,\mathbb{R})\cong \mathrm{SL}(3,\mathbb{R})$. 因为 $-I\notin \mathrm{SL}(3,\mathbb{R})$. 
+\end{remark}
+在 $\mathrm{Hom}(\pi_1(S), \mathrm{PSL}(3,\mathbb{R}))$ 空间中有一类特殊的表示, 它们本质上来自于 $\mathrm{PSL}(2,\mathbb{R})$ 的表示. 
+\begin{fact}
+    在共轭意义下, 存在唯一的不可约表示
+    \begin{equation*}
+        i: \mathrm{PSL}(2,\mathbb{R})\hookrightarrow \mathrm{PSL}(n,\mathbb{R}),
+    \end{equation*}
+    这个表示的构造如下: 考虑 $\mathrm{PSL}(2,\mathbb{R})$ 在 $\mathbb{R}^2 = \mR\{x,y\}$ 上的标准表示, 
+    这个表示诱导了 $\mathrm{PSL}(2,\mathbb{R})$ 在 $\mathrm{Sym}^{n-1}(\mathbb{R}^2)$ 上的作用, 
+    这个作用给出了一个不可约表示.
+    % \begin{equation*}
+    %     i: \mathrm{PSL}(2,\mathbb{R})\hookrightarrow \mathrm{PSL}(n,\mathbb{R}).
+    % \end{equation*}
+\end{fact}
+这个嵌入将曲面基本群的每个 $\mathrm{PSL}(2,\mathbb{R})$ 表示诱导为 $\mathrm{PSL}(n,\mathbb{R})$ 表示,
+\begin{equation*}
+    i\circ \rho: \pi_1(S)\to \mathrm{PSL}(2,\mathbb{R})\hookrightarrow \mathrm{PSL}(n,\mathbb{R}).
+\end{equation*}
+由此定义了映射
+\begin{equation*}
+    I:\mathrm{Teich}(S)\cong \mathrm{Hom}(\pi_1(S), \mathrm{PSL}(2,\mathbb{R}))\sslash\sim\;
+    \longrightarrow \mathrm{Hom}(\pi_1(S), \mathrm{PSL}(n,\mathbb{R}))\sslash\sim.
+\end{equation*}
+\begin{definition}
+    特征簇 $\mathrm{Hom}(\pi_1(S), \mathrm{PSL}(n,\mathbb{R}))\sslash\sim$ 可能不止一个连通分支, 
+    我们称包含 $I(\mathrm{Teich}(S))$ 的连通分支为 \emph{Hitchin 分支}.
+\end{definition}
+\begin{theorem}(Hitchin, 1992)
+    \begin{equation*}
+        \mathrm{Hit}_n(S) \cong \bigoplus_{i=2}^n H^0(\Sigma, K^i)\cong \mathbb{R}^{(n^2-1)(2g-2)}.
+    \end{equation*}
+    特别地, 
+    \begin{itemize}[leftmargin=*]
+        \item 当 $n=2$ 时, Hitchin 分支就是 Teichm\"uller 空间, $\mathrm{Hit}_2(S)\cong\mR^{6g-6}$; 
+        \item 当 $n=3$ 时, Hitchin 分支是 $\mathrm{Hit}_3(S)\cong\mR^{16g-16}$.
+    \end{itemize}
+\end{theorem}
+
+\subsection{为什么考虑 $\mathrm{PSL}(2,\mathbb{R})\hookrightarrow \mathrm{PSL}(n,\mathbb{R})$?}
+
+\subsubsection{$\mR P^2$-结构}
+\subsubsection{仿射几何, 仿射球面}
+\subsubsection{完整的故事}
